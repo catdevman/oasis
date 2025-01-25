@@ -1,91 +1,42 @@
 package main
 
 import (
-	"context"
 	"fmt"
-	"io/fs"
 	"log"
-	"net/http"
-	"os"
-	"os/signal"
-	"path/filepath"
-	"strings"
+	"os/exec"
 
-	"github.com/catdevman/oasis/server"
+	"github.com/catdevman/oasis/shared"
+	"github.com/hashicorp/go-plugin"
 )
 
-const pluginDir = "./plugins/" // Define the plugin directory here
+// PluginMap is the map of plugins we can dispense.
+var PluginMap = map[string]plugin.Plugin{
+	"greeter": &shared.GreeterPlugin{},
+}
 
 func main() {
-	// Create the server with DefaultMux
-	mux := server.NewDefaultMux()
-	server := server.NewServer(mux)
-
-	// Start the server in a new goroutine
-	go func() {
-		if err := server.Start(context.Background(), ":8080"); err != nil {
-			log.Fatal(err)
-		}
-	}()
-
-	// Handle graceful shutdown
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-	quit := make(chan os.Signal, 1)
-	signal.Notify(quit, os.Interrupt)
-	go func() {
-		<-quit
-		log.Println("Shutting down server...")
-		cancel()
-	}()
-
-	// Register a route to reload all plugins
-	http.HandleFunc("/reload_plugins", func(w http.ResponseWriter, r *http.Request) {
-		if r.Method != http.MethodPost {
-			http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
-			return
-		}
-
-		if err := loadPluginsFromDir(server, ctx, pluginDir); err != nil {
-			http.Error(w, fmt.Sprintf("Failed to reload plugins: %v", err), http.StatusInternalServerError)
-			return
-		}
-
-		fmt.Fprintln(w, "Plugins reloaded successfully")
+	// We're a host! Start by launching the plugin process.
+	client := plugin.NewClient(&plugin.ClientConfig{
+		HandshakeConfig: shared.Handshake,
+		Plugins:         PluginMap,
+		Cmd:             exec.Command("./plugin/greeter"),
 	})
+	defer client.Kill()
 
-	// Load initial plugins from the plugin directory
-	if err := loadPluginsFromDir(server, ctx, pluginDir); err != nil {
+	// Connect via RPC
+	rpcClient, err := client.Client()
+	if err != nil {
 		log.Fatal(err)
 	}
 
-	// Wait for shutdown signal
-	<-ctx.Done()
-	log.Println("Server stopped")
-}
-
-// loadPluginsFromDir loads all plugins from the given directory.
-func loadPluginsFromDir(server *server.Server, ctx context.Context, dir string) error {
-	// Clear existing plugins
-	server.ClearPlugins()
-
-	var pluginPaths []string
-	err := filepath.WalkDir(dir, func(path string, d fs.DirEntry, err error) error {
-		if err != nil {
-			return err
-		}
-		if !d.IsDir() && strings.HasSuffix(path, ".so") {
-			pluginPaths = append(pluginPaths, path)
-		}
-		return nil
-	})
+	// Request the plugin
+	raw, err := rpcClient.Dispense("greeter")
 	if err != nil {
-		return fmt.Errorf("failed to walk plugin directory: %w", err)
+		log.Fatal(err)
 	}
 
-	if err := server.LoadPlugins(ctx, pluginPaths); err != nil {
-		return fmt.Errorf("failed to load plugins: %w", err)
-	}
-
-	return nil
+	// We should have a Greeter now! This feels like a normal interface
+	// implementation but is in fact over an RPC connection.
+	greeter := raw.(shared.Router)
+	fmt.Println(greeter.Routes())
 }
