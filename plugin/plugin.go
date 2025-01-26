@@ -1,32 +1,49 @@
 package main
 
 import (
+	"fmt"
 	"github.com/catdevman/oasis/shared"
 	"github.com/hashicorp/go-plugin"
+	"net/http"
 )
 
-// Here is a real implementation of Greeter
-type MyGreeter struct {
-}
+type StaticRoutePlugin struct{}
 
-func (g *MyGreeter) Greet() string {
-	return "Hello!"
-}
-
-func (g *MyGreeter) Routes() []shared.Route {
+// GetRoutes returns a static list of routes.
+func (p StaticRoutePlugin) GetRoutes() ([]shared.Route, error) {
 	return []shared.Route{
 		{
-			Name:    "something",
-			Pattern: "GET /something",
+			Method:  "GET",
+			Pattern: "/hello",
+			Handler: func(w http.ResponseWriter, r *http.Request) {
+				if r.Method != "GET" {
+					http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+					return
+				}
+				fmt.Fprintf(w, "Hello, world!")
+			},
 		},
-	}
+		{
+			Method:  "POST",
+			Pattern: "/echo",
+			Handler: func(w http.ResponseWriter, r *http.Request) {
+				if r.Method != "POST" {
+					http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+					return
+				}
+				body := make([]byte, r.ContentLength)
+				r.Body.Read(body)
+				fmt.Fprintf(w, "Received: %s", string(body))
+			},
+		},
+	}, nil
 }
 
 func main() {
-	greeter := &MyGreeter{}
+	plug := StaticRoutePlugin{}
 	// pluginMap is the map of plugins we can dispense.
 	var pluginMap = map[string]plugin.Plugin{
-		"greeter": &shared.GreeterPlugin{Impl: greeter},
+		"routePlugin": &shared.ServeMuxPlugin{Impl: plug},
 	}
 
 	plugin.Serve(&plugin.ServeConfig{

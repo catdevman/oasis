@@ -4,8 +4,7 @@ build: clean
 	go build -o oasis ./main.go
 
 plugin-build:
-	go build -o ./plugin/greeter ./plugin/plugin.go
-	chmod a+rwx ./plugin/greeter
+	go build -o ./plugins/plugin ./plugin/plugin.go
 
 all: build plugin-build
 

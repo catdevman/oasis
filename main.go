@@ -1,42 +1,51 @@
 package main
 
 import (
-	"fmt"
 	"log"
+	"net/http"
 	"os/exec"
 
 	"github.com/catdevman/oasis/shared"
 	"github.com/hashicorp/go-plugin"
 )
 
-// PluginMap is the map of plugins we can dispense.
-var PluginMap = map[string]plugin.Plugin{
-	"greeter": &shared.GreeterPlugin{},
-}
-
 func main() {
-	// We're a host! Start by launching the plugin process.
+	mux := http.NewServeMux()
+
+	// Define the plugin map
+	pluginMap := map[string]plugin.Plugin{
+		"routePlugin": &shared.ServeMuxPlugin{},
+	}
+
+	// Load the plugin
 	client := plugin.NewClient(&plugin.ClientConfig{
 		HandshakeConfig: shared.Handshake,
-		Plugins:         PluginMap,
-		Cmd:             exec.Command("./plugin/greeter"),
+		Plugins:         pluginMap,
+		Cmd:             exec.Command("./plugins/plugin"),
 	})
+
 	defer client.Kill()
 
-	// Connect via RPC
 	rpcClient, err := client.Client()
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("Error initializing plugin client: %v", err)
 	}
 
-	// Request the plugin
-	raw, err := rpcClient.Dispense("greeter")
+	raw, err := rpcClient.Dispense("routePlugin")
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("Error dispensing plugin: %v", err)
 	}
 
-	// We should have a Greeter now! This feels like a normal interface
-	// implementation but is in fact over an RPC connection.
-	greeter := raw.(shared.Router)
-	fmt.Println(greeter.Routes())
+	plugin := raw.(shared.RoutePlugin)
+	routes, err := plugin.GetRoutes()
+	if err != nil {
+		log.Fatalf("Error retrieving routes from plugin: %v", err)
+	}
+
+	for _, route := range routes {
+		mux.HandleFunc(route.Pattern, route.Handler)
+	}
+
+	log.Println("Starting server on :8080")
+	log.Fatal(http.ListenAndServe(":8080", mux))
 }
