@@ -40,7 +40,6 @@ type RoutePlugin interface {
 func RegisterTypes() {
 	gob.Register(SerializedRequest{})
 	gob.Register(SerializedResponse{})
-	gob.Register(map[string][]string{})
 }
 
 // ServeMuxPlugin is the plugin implementation for hashicorp/go-plugin.
