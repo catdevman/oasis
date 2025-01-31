@@ -2,6 +2,7 @@ package shared
 
 import (
 	"encoding/gob"
+	"net/http"
 	"net/rpc"
 
 	"github.com/hashicorp/go-plugin"
@@ -11,14 +12,14 @@ import (
 type SerializedRequest struct {
 	Method string
 	URL    string
-	Header map[string][]string
+	Header http.Header
 	Body   []byte
 }
 
 // SerializedResponse contains the plugin's response data.
 type SerializedResponse struct {
 	StatusCode int
-	Header     map[string][]string
+	Header     http.Header
 	Body       string
 }
 
@@ -111,4 +112,3 @@ var HandshakeConfig = plugin.HandshakeConfig{
 	MagicCookieKey:   "ROUTE_PLUGIN",
 	MagicCookieValue: "dynamic-api",
 }
-
