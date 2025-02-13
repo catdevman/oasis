@@ -34,12 +34,6 @@ func (p *PluginImpl) GetRoutes() ([]shared.Route, error) {
 
 var handlers = map[string]func(shared.SerializedRequest) shared.SerializedResponse{
 	"helloHandler": func(req shared.SerializedRequest) shared.SerializedResponse {
-		if req.Method != "GET" {
-			return shared.SerializedResponse{
-				StatusCode: http.StatusMethodNotAllowed,
-				Body:       "Method not allowed",
-			}
-		}
 		return shared.SerializedResponse{
 			Header: map[string][]string{
 				"Content-Type": {
@@ -47,7 +41,7 @@ var handlers = map[string]func(shared.SerializedRequest) shared.SerializedRespon
 				},
 			},
 			StatusCode: http.StatusOK,
-			Body:       `{"something": "here3"}`,
+			Body:       `{"hello": "there"}`,
 		}
 	},
 }
@@ -63,4 +57,3 @@ func (p *PluginImpl) HandleRequest(handlerID string, req shared.SerializedReques
 
 	return handler(req), nil
 }
-
