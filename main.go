@@ -7,7 +7,9 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
+	"os/signal"
 	"path/filepath"
+	"syscall"
 
 	"github.com/catdevman/oasis/shared"
 	"github.com/hashicorp/go-plugin"
@@ -24,7 +26,8 @@ func main() {
 	shared.RegisterTypes()
 
 	mux := http.NewServeMux()
-
+	c := make(chan os.Signal, 1)
+	signal.Notify(c, syscall.SIGINT, syscall.SIGTERM)
 	// Define the plugin map.
 	pluginMap := map[string]plugin.Plugin{
 		"routePlugin": &shared.ServeMuxPlugin{},
@@ -35,7 +38,7 @@ func main() {
 		fmt.Println("Error:", err)
 		os.Exit(EXIT_PLUGINS_FAILED)
 	}
-
+	plugs := []*plugin.Client{}
 	for _, exe := range executables {
 
 		// Start the plugin client.
@@ -45,6 +48,7 @@ func main() {
 			Cmd:             exec.Command(exe), // Path to the plugin binary
 		})
 		defer client.Kill()
+		plugs = append(plugs, client)
 
 		// Get the RPC client.
 		rpcClient, err := client.Client()
@@ -98,7 +102,15 @@ func main() {
 			})
 		}
 	}
-
+	go func() {
+		sig := <-c
+		fmt.Println("Received signal:", sig)
+		fmt.Println("Shutting down gracefully...")
+		for _, p := range plugs {
+			p.Kill()
+		}
+		os.Exit(0)
+	}()
 	// Start the HTTP server.
 	log.Println("Starting server on :8080")
 	log.Fatal(http.ListenAndServe(":8080", mux))
