@@ -3513,6 +3513,2302 @@ CREATE TABLE EarlyChildhoodClassGroup (
     ))
 );
 
+-- Career and Technical
+-- Creating table for Course entity
+CREATE TABLE CNTCourse (
+    CourseIdentifier TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
+    CourseTitle TEXT NOT NULL, -- Descriptive name of the course
+    CourseDescription TEXT, -- Description of course content/goals
+    CourseDepartmentName TEXT, -- Department with jurisdiction
+    CourseCodeSystem TEXT CHECK (CourseCodeSystem IN (
+        'Intermediate', -- Intermediate agency course code
+        'LEA', -- LEA course code
+        'NCES', -- NCES Pilot Standard National Course Classification System
+        'Other', -- Other
+        'SCED', -- School Codes for the Exchange of Data (SCED) course code
+        'School', -- School course code
+        'State', -- State course code
+        'University' -- University course code
+    )),
+    CourseCreditUnits TEXT CHECK (CourseCreditUnits IN (
+        'NoCredit', -- No Credit
+        'Quarter', -- Quarter
+        'Semester', -- Semester
+        'Units', -- Units
+        'CarnegieUnits', -- Carnegie Units
+        'ContinuingEducationUnits', -- Continuing Education Units
+        'ClockHours', -- Clock Hours
+        'Other', -- Other
+        'Unreported' -- Unreported
+    )),
+    CreditValue REAL, -- Amount of credit available
+    CreditUnitType TEXT CHECK (CreditUnitType IN (
+        '00585', -- Carnegie unit
+        '00586', -- Semester hour credit
+        '00587', -- Trimester hour credit
+        '00588', -- Quarter hour credit
+        '00589', -- Quinmester hour credit
+        '00590', -- Mini-term hour credit
+        '00591', -- Summer term hour credit
+        '00592', -- Intersession hour credit
+        '00595', -- Long session hour credit
+        '00596', -- Twelve month hour credit
+        '00597', -- Career and Technical Education credit
+        '73062', -- Adult high school credit
+        '00599', -- Credit by examination
+        '00600', -- Correspondence credit
+        '00601', -- Converted occupational experience credit
+        '09999', -- Other
+        '75001', -- Certificate credit
+        '75002', -- Degree credit
+        '75003', -- Continuing education credit
+        '75004' -- Professional development hours
+    )),
+    AvailableCarnegieUnitCredit REAL, -- Carnegie units offered
+    CourseGPAApplicability TEXT CHECK (CourseGPAApplicability IN (
+        'Applicable', -- Applicable in GPA
+        'NotApplicable', -- Not Applicable in GPA
+        'Weighted' -- Weighted in GPA
+    )),
+    CourseLevelCharacteristic TEXT CHECK (CourseLevelCharacteristic IN (
+        '00568', -- Remedial course
+        '00569', -- Students with disabilities course
+        '00570', -- Basic course
+        '00571', -- General course
+        '00572', -- Honors level course
+        '00573', -- Gifted and talented course
+        '00574', -- International Baccalaureate course
+        '00575', -- Advanced placement course
+        '00576', -- College-level course
+        '00577', -- Untracked course
+        '00578', -- English Learner course
+        '00579', -- Accepted as a high school equivalent
+        '73044', -- Career and technical education general course
+        '00741', -- Completion of requirement, no units awarded
+        '73045', -- Career and technical education dual-credit course
+        '73048', -- Dual enrollment
+        '73047', -- Not applicable
+        '73046', -- Pre-advanced placement
+        '73049' -- Other
+    )),
+    CourseLevelApprovalIndicator TEXT CHECK (CourseLevelApprovalIndicator IN ('Yes', 'No')),
+    CourseRepeatabilityMaximumNumber INTEGER, -- Max times course can be taken for credit
+    AdditionalCreditType TEXT CHECK (AdditionalCreditType IN (
+        'AdvancedPlacement', -- Advanced Placement
+        'ApprenticeshipCredit', -- Apprenticeship Credit
+        'CTE', -- Career and Technical Education
+        'DualCredit', -- Dual Credit
+        'InternationalBaccalaureate', -- International Baccalaureate
+        'Other', -- Other
+        'QualifiedAdmission', -- Qualified Admission
+        'STEM', -- Science, Technology, Engineering and Mathematics
+        'CTEAndAcademic', -- Simultaneous CTE and Academic Credit
+        'StateScholarship' -- State Scholarship
+    )),
+    CurriculumFrameworkType TEXT CHECK (CurriculumFrameworkType IN (
+        'LEA', -- Local Education Agency curriculum framework
+        'NationalStandard', -- National curriculum standard
+        'PrivateOrReligious', -- Private, religious curriculum
+        'School', -- School curriculum framework
+        'State', -- State curriculum framework
+        'Other' -- Other
+    )),
+    HighSchoolCourseRequirement TEXT CHECK (HighSchoolCourseRequirement IN ('Yes', 'No')),
+    InstructionLanguage TEXT, -- ISO 639-2 language code, see http://www.loc.gov/standards/iso639-2/langhome.html
+    SCEDCourseCode TEXT, -- Five-digit SCED code, see https://nces.ed.gov/forum/SCED.asp
+    SCEDCourseLevel TEXT CHECK (SCEDCourseLevel IN (
+        'B', -- Basic or remedial
+        'E', -- Enriched or advanced
+        'G', -- General or regular
+        'H', -- Honors
+        'C', -- College
+        'X' -- No specified level of rigor
+    )),
+    SCEDCourseSubjectArea TEXT CHECK (SCEDCourseSubjectArea IN (
+        '01', -- English Language and Literature
+        '02', -- Mathematics
+        '03', -- Life and Physical Sciences
+        '04', -- Social Sciences and History
+        '05', -- Visual and Performing Arts
+        '07', -- Religious Education and Theology
+        '08', -- Physical, Health, and Safety Education
+        '09', -- Military Science
+        '10', -- Information Technology
+        '11', -- Communication and Audio/Visual Technology
+        '12', -- Business and Marketing
+        '13', -- Manufacturing
+        '14', -- Health Care Sciences
+        '15', -- Public, Protective, and Government Service
+        '16', -- Hospitality and Tourism
+        '17', -- Architecture and Construction
+        '18', -- Agriculture, Food, and Natural Resources
+        '19', -- Human Services
+        '20', -- Transportation, Distribution and Logistics
+        '21', -- Engineering and Technology
+        '22', -- Miscellaneous
+        '23', -- Non-Subject-Specific
+        '24' -- World Languages
+    )),
+    SCEDSequenceOfCourse TEXT, -- Sequence as 'n of m' parts
+    CoreAcademicCourse TEXT CHECK (CoreAcademicCourse IN ('Yes', 'No')),
+    CourseAlignedWithStandards TEXT CHECK (CourseAlignedWithStandards IN ('Yes', 'No'))
+);
+
+-- Creating table for Course Section entity
+CREATE TABLE CNTCNTCourseSection (
+    CourseSectionIdentifier TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
+    CourseIdentifier TEXT, -- References Course table
+    AgencyCourseIdentifier TEXT, -- Regional/state identifier, follows XSD:Token
+    CourseBeginDate DATE, -- Start date of course instance
+    CourseEndDate DATE, -- End date of course instance
+    CourseNumber TEXT, -- Official reference number
+    CourseSectionNumber TEXT, -- Differentiates course occurrences
+    ClassroomIdentifier TEXT, -- Unique room identifier, follows XSD:Token
+    ClassBeginningTime TEXT, -- Time class begins
+    ClassEndingTime TEXT, -- Time class ends
+    ClassMeetingDays TEXT, -- Days class meets
+    ClassPeriod TEXT, -- Session portion for instruction
+    SessionCode TEXT, -- Local code for term
+    SessionDescription TEXT, -- Short session description
+    SessionDesignator TEXT, -- Academic session identifier
+    SessionBeginDate DATE, -- Session start date
+    SessionEndDate DATE, -- Session end date
+    SessionSequenceNumber INTEGER, -- Position in sequence of sessions
+    SessionType TEXT CHECK (SessionType IN (
+        'FullSchoolYear', -- Full School Year
+        'Intersession', -- Intersession
+        'LongSession', -- Long Session
+        'MiniTerm', -- Mini Term
+        'Quarter', -- Quarter
+        'Quinmester', -- Quinmester
+        'Semester', -- Semester
+        'SummerTerm', -- Summer Term
+        'Trimester', -- Trimester
+        'TwelveMonth', -- Twelve Month
+        'Other' -- Other
+    )),
+    SessionAttendanceTermIndicator TEXT CHECK (SessionAttendanceTermIndicator IN ('Yes', 'No')),
+    SessionMarkingTermIndicator TEXT CHECK (SessionMarkingTermIndicator IN ('Yes', 'No')),
+    SessionSchedulingTermIndicator TEXT CHECK (SessionSchedulingTermIndicator IN ('Yes', 'No')),
+    TimetableDayIdentifier TEXT, -- Rotation cycle identifier, follows XSD:Token
+    CourseSectionMaximumCapacity INTEGER, -- Max number of students
+    CourseSectionTimeRequiredForCompletion INTEGER, -- Clock minutes for completion
+    CourseAcademicGradeScaleCode TEXT, -- AMCAS grade scale (01-99)
+    OriginalCourseIdentifier TEXT, -- Previous course identifier, follows XSD:Token
+    OverrideSchoolCourseNumber TEXT, -- How course was identified
+    AdditionalCreditType TEXT CHECK (AdditionalCreditType IN (
+        'AdvancedPlacement', -- Advanced Placement
+        'ApprenticeshipCredit', -- Apprenticeship Credit
+        'CTE', -- Career and Technical Education
+        'DualCredit', -- Dual Credit
+        'InternationalBaccalaureate', -- International Baccalaureate
+        'Other', -- Other
+        'QualifiedAdmission', -- Qualified Admission
+        'STEM', -- Science, Technology, Engineering and Mathematics
+        'CTEAndAcademic', -- Simultaneous CTE and Academic Credit
+        'StateScholarship' -- State Scholarship
+    )),
+    AdvancedPlacementCourseCode TEXT CHECK (AdvancedPlacementCourseCode IN (
+        'ArtHistory', -- Art History
+        'Biology', -- Biology
+        'CalculusAB', -- Calculus AB
+        'CalculusBC', -- Calculus BC
+        'Chemistry', -- Chemistry
+        'ComputerScienceA', -- Computer Science A
+        'ComputerScienceAB', -- Computer Science AB
+        'Macroeconomics', -- Macroeconomics
+        'Microeconomics', -- Microeconomics
+        'EnglishLanguage', -- English Language
+        'EnglishLiterature', -- English Literature
+        'EnvironmentalScience', -- Environmental Science
+        'EuropeanHistory', -- European History
+        'FrenchLanguage', -- French Language
+        'FrenchLiterature', -- French Literature
+        'GermanLanguage', -- German Language
+        'CompGovernmentAndPolitics', -- Comp Government And Politics
+        'USGovernmentAndPolitics', -- US Government And Politics
+        'HumanGeography', -- Human Geography
+        'ItalianLanguageAndCulture', -- Italian Language And Culture
+        'LatinLiterature', -- Latin Literature
+        'LatinVergil', -- Latin Vergil
+        'MusicTheory', -- Music Theory
+        'PhysicsB', -- Physics B
+        'PhysicsC', -- Physics C
+        'Psychology', -- Psychology
+        'SpanishLanguage', -- Spanish Language
+        'SpanishLiterature', -- Spanish Literature
+        'Statistics', -- Statistics
+        'StudioArt', -- Studio Art
+        'USHistory', -- US History
+        'WorldHistory' -- World History
+    )),
+    BlendedLearningModelType TEXT CHECK (BlendedLearningModelType IN (
+        'Rotation', -- Rotation model
+        'FlexModel', -- Flex model
+        'ALaCarte', -- A La Carte model
+        'EnrichedVirtual', -- Enriched Virtual model
+        'Other' -- Other
+    )),
+    CareerCluster TEXT CHECK (CareerCluster IN (
+        '01', -- Agriculture, Food & Natural Resources
+        '02', -- Architecture & Construction
+        '03', -- Arts, A/V Technology & Communications
+        '04', -- Business Management & Administration
+        '05', -- Education & Training
+        '06', -- Finance
+        '07', -- Government & Public Administration
+        '08', -- Health Science
+        '09', -- Hospitality & Tourism
+        '10', -- Human Services
+        '11', -- Information Technology
+        '12', -- Law, Public Safety, Corrections & Security
+        '13', -- Manufacturing
+        '14', -- Marketing
+        '15', -- Science, Technology, Engineering & Mathematics
+        '16' -- Transportation, Distribution & Logistics
+    )),
+    ClassroomPositionType TEXT CHECK (ClassroomPositionType IN (
+        '03187', -- Administrative staff
+        '73071', -- Co-teacher
+        '04725', -- Counselor
+        '73073', -- Course Proctor
+        '05973', -- Instructor of record
+        '01234', -- Intern
+        '73072', -- Lead Team Teacher
+        '00069', -- Non-instructional staff
+        '09999', -- Other
+        '00059', -- Paraprofessionals/teacher aides
+        '05971', -- Primary instructor
+        '04735', -- Resource teacher
+        '05972', -- Secondary instructor
+        '73074', -- Special Education Consultant
+        '00080', -- Student teachers
+        '01382' -- Volunteer/no contract
+    )),
+    CourseAlignedWithStandards TEXT CHECK (CourseAlignedWithStandards IN ('Yes', 'No')),
+    CourseApplicableEducationLevel TEXT CHECK (CourseApplicableEducationLevel IN (
+        'IT', -- Infant/toddler
+        'PR', -- Preschool
+        'PK', -- Prekindergarten
+        'TK', -- Transitional Kindergarten
+        'KG', -- Kindergarten
+        '01', -- First grade
+        '02', -- Second grade
+        '03', -- Third grade
+        '04', -- Fourth grade
+        '05', -- Fifth grade
+        '06', -- Sixth grade
+        '07', -- Seventh grade
+        '08', -- Eighth grade
+        '09', -- Ninth grade
+        '10', -- Tenth grade
+        '11', -- Eleventh grade
+        '12', -- Twelfth grade
+        '13', -- Grade 13
+        'AS', -- Associate's degree
+        'BA', -- Bachelor's degree
+        'PB', -- Post-baccalaureate certificate
+        'MD', -- Master's degree
+        'PM', -- Post-master's certificate
+        'DO', -- Doctoral degree
+        'PD', -- Post-doctoral certificate
+        'AE', -- Adult Education
+        'PT', -- Professional or technical credential
+        'OT' -- Other
+    )),
+    CourseCertificationDescription TEXT, -- Certification associated with course
+    CourseCreditBasisType TEXT CHECK (CourseCreditBasisType IN (
+        'Regular', -- Regular/general enrollment
+        'Major', -- Credit associated with student's major
+        'AcademicRenewal', -- Academic Renewal
+        'AdultBasic', -- Adult Basic
+        'AdvancedPlacement', -- Advanced Placement
+        'AdvancedStanding', -- Advanced Standing
+        'Correspondence', -- Correspondence
+        'ContinuingEducation', -- Continuing Education
+        'Exemption', -- Exemption
+        'Equivalence', -- Equivalence
+        'InternationalBaccalaureate', -- International Baccalaureate
+        'Military', -- Military
+        'Remedial', -- Remedial/developmental
+        'CreditByExam', -- Credit from standardized test
+        'HighSchoolTransferCredit', -- High school credit transferred to college
+        'HighSchoolCreditOnly', -- College credit transferred to high school
+        'HighSchoolDualCredit', -- Credit counted at both college and high school
+        'JuniorHighSchoolCredit' -- Junior high credit counted at high school
+    )),
+    CourseCreditLevelType TEXT CHECK (CourseCreditLevelType IN (
+        'Undergraduate', -- Undergraduate
+        'Ungraded', -- Ungraded
+        'LowerDivision', -- Lower division credit
+        'UpperDivision', -- Higher or upper division credit
+        'Vocational', -- Vocational/technical credit
+        'TechnicalPreparatory', -- Technical preparatory credit
+        'Graduate', -- Graduate level credit
+        'Professional', -- Professional
+        'Dual', -- Dual Level
+        'GraduateProfessional' -- Graduate Professional
+    )),
+    CourseFundingProgram TEXT, -- Funding program for course
+    CourseGPAApplicability TEXT CHECK (CourseGPAApplicability IN (
+        'Applicable', -- Applicable in GPA
+        'NotApplicable', -- Not Applicable in GPA
+        'Weighted' -- Weighted in GPA
+    )),
+    CourseHonorsType TEXT CHECK (CourseHonorsType IN (
+        'Honors', -- Honors
+        'HonorsOption' -- Honors option
+    )),
+    CourseInstructionMethod TEXT CHECK (CourseInstructionMethod IN (
+        'Lecture', -- Lecture
+        'Laboratory', -- Laboratory
+        'Seminar', -- Seminar
+        'IndependentStudy', -- Independent Study
+        'PrivateStudy', -- Private Study
+        'PracticeTeaching', -- Practice Teaching
+        'Internship', -- Internship
+        'Practicum', -- Practicum
+        'ApprenticeshipExternship', -- Apprenticeship Externship
+        'AppliedInstruction', -- Applied Instruction
+        'Residency', -- Residency
+        'ClinicalRotationInstruction', -- Clinical Rotation Instruction
+        'SelfPaced', -- Self Paced
+        'FieldStudy', -- Field Study
+        'InternetInstruction', -- Internet Instruction
+        'InteractiveVideo', -- Interactive Video
+        'Videotape', -- Videotape
+        'Television', -- Television
+        'OtherDistanceLearning', -- Other Distance Learning
+        'Audiotape', -- Audiotape
+        'ComputerBasedInstruction', -- Computer Based Instruction
+        'CompressedVideo', -- Compressed Video
+        'Correspondence', -- Correspondence
+        'CooperativeEducation', -- Cooperative Education
+        'WorkStudy' -- Work Study
+    )),
+    CourseInstructionSiteName TEXT, -- Location name where course is taught
+    CourseInstructionSiteType TEXT CHECK (CourseInstructionSiteType IN (
+        'OnCampus', -- On campus
+        'OffCampus', -- Off campus (e.g., branch campus)
+        'Extension', -- Extension center or site
+        'StudyAbroad', -- Study abroad
+        'Correctional', -- Correctional institution
+        'Military', -- Military Base
+        'Telecommunication', -- Instructional telecommunications
+        'Auxiliary', -- Auxiliary
+        'ClinicHospital' -- Clinic or hospital
+    )),
+    CourseInteractionMode TEXT CHECK (CourseInteractionMode IN (
+        'Asynchronous', -- Asynchronous
+        'Synchronous' -- Synchronous
+    )),
+    CourseLevelType TEXT CHECK (CourseLevelType IN (
+        'Accelerated', -- Accelerated
+        'AdultBasic', -- Adult Basic
+        'AdvancedPlacement', -- Advanced Placement
+        'Basic', -- Basic
+        'InternationalBaccalaureate', -- International Baccalaureate
+        'CollegeLevel', -- College Level
+        'CollegePreparatory', -- College Preparatory
+        'GiftedTalented', -- Gifted and Talented
+        'Honors', -- Honors
+        'NonAcademic', -- Non-Academic
+        'SpecialEducation', -- Special Education
+        'TechnicalPreparatory', -- Technical Preparatory
+        'Vocational', -- Vocational
+        'LowerDivision', -- Lower division
+        'UpperDivision', -- Upper division
+        'Dual', -- Dual level
+        'GraduateProfessional', -- Graduate/Professional
+        'Regents', -- Regents
+        'Remedial', -- Remedial/Developmental
+        'K12' -- K12
+    )),
+    CourseNarrativeExplanationGrade TEXT, -- Narrative for non-letter/numeric grade
+    CourseRepeatCode TEXT CHECK (CourseRepeatCode IN (
+        'RepeatCounted', -- Repeated, counted in GPA
+        'RepeatNotCounted', -- Repeated, not counted in GPA
+        'ReplacementCounted', -- Replacement counted
+        'ReplacedNotCounted', -- Replacement not counted
+        'RepeatOtherInstitution', -- Repeated, other institution
+        'NotCountedOther' -- Other, not counted in GPA
+    )),
+    CourseSectionInstructionalDeliveryMode TEXT CHECK (CourseSectionInstructionalDeliveryMode IN (
+        'Broadcast', -- Broadcast
+        'Correspondence', -- Correspondence
+        'EarlyCollege', -- Early College
+        'AudioVideo', -- Interactive Audio/Video
+        'Online', -- Online
+        'IndependentStudy', -- Independent Study
+        'FaceToFace', -- Face to Face
+        'BlendedLearning' -- Blended Learning
+    )),
+    CourseSectionSingleSexClassStatus TEXT CHECK (CourseSectionSingleSexClassStatus IN (
+        'MaleOnly', -- Male-only
+        'FemaleOnly', -- Female-only
+        'NotSingleSex' -- Not a single-sex class
+    )),
+    DevelopmentalEducationType TEXT CHECK (DevelopmentalEducationType IN (
+        'DevelopmentalMath', -- Developmental Math
+        'DevelopmentalEnglish', -- Developmental English
+        'DevelopmentalReading', -- Developmental Reading
+        'DevelopmentalEnglishReading', -- Developmental English/Reading
+        'DevelopmentalOther' -- Developmental Other
+    )),
+    FamilyAndConsumerSciencesCourseIndicator TEXT CHECK (FamilyAndConsumerSciencesCourseIndicator IN ('Yes', 'No')),
+    InstructionLanguage TEXT, -- ISO 639-2 language code, see http://www.loc.gov/standards/iso639-2/langhome.html
+    NCAAEligibility TEXT CHECK (NCAAEligibility IN ('Yes', 'No')),
+    ReceivingLocationOfInstruction TEXT CHECK (ReceivingLocationOfInstruction IN (
+        '00997', -- Business
+        '00752', -- Community facility
+        '00753', -- Home of student
+        '00754', -- Hospital
+        '03018', -- Library/media center
+        '03506', -- Mobile
+        '09999', -- Other
+        '00341', -- Other K-12 educational institution
+        '00342', -- Postsecondary facility
+        '00675' -- School
+    )),
+    TuitionFunded TEXT CHECK (TuitionFunded IN ('Yes', 'No')),
+    VirtualIndicator TEXT CHECK (VirtualIndicator IN ('Yes', 'No')),
+    WorkBasedLearningOpportunityType TEXT CHECK (WorkBasedLearningOpportunityType IN (
+        'Apprenticeship', -- Apprenticeship
+        'ClinicalWork', -- Clinical work experience
+        'CooperativeEducation', -- Cooperative education
+        'JobShadowing', -- Job shadowing
+        'Mentorship', -- Mentorship
+        'NonPaidInternship', -- Non-Paid Internship
+        'OnTheJob', -- On-the-Job
+        'PaidInternship', -- Paid internship
+        'ServiceLearning', -- Service learning
+        'SupervisedAgricultural', -- Supervised agricultural experience
+        'UnpaidInternship', -- Unpaid internship
+        'Entrepreneurship', -- Entrepreneurship
+        'SchoolBasedEnterprise', -- School-Based Enterprise
+        'SimulatedWorksite', -- Simulated Worksite
+        'Other' -- Other
+    )),
+    AdjustedCapacity INTEGER, -- Max participants in program
+    AdjustedCapacityReasonType TEXT CHECK (AdjustedCapacityReasonType IN (
+        '100', -- COVID-19
+        '999' -- Other
+    )),
+    CIPCode TEXT, -- Six-digit CIP code, see https://nces.ed.gov/ipeds/cipcode/browse.aspx?y=55
+    CIPVersion TEXT CHECK (CIPVersion IN (
+        'CIP1980', -- CIP 1980
+        'CIP1985', -- CIP 1985
+        'CIP1990', -- CIP 1990
+        'CIP2000', -- CIP 2000
+        'CIP2010', -- CIP 2010
+        'CIP2020' -- CIP 2020
+    ))
+);
+
+-- Creating table for Course Section Attendance entity
+CREATE TABLE CNTCourseSectionAttendance (
+    CourseSectionIdentifier TEXT NOT NULL, -- References CourseSection table
+    AttendanceEventDate DATE, -- Date of attendance event
+    AttendanceEventType TEXT CHECK (AttendanceEventType IN (
+        'DailyAttendance', -- Daily attendance
+        'ClassSectionAttendance', -- Class/section attendance
+        'ProgramAttendance', -- Program attendance
+        'ExtracurricularAttendance' -- Extracurricular attendance
+    )),
+    AttendanceStatus TEXT CHECK (AttendanceStatus IN (
+        'Present', -- Present
+        'ExcusedAbsence', -- Excused Absence
+        'UnexcusedAbsence', -- Unexcused Absence
+        'Tardy', -- Tardy
+        'EarlyDeparture' -- Early Departure
+    )),
+    AttendanceEventDurationDay REAL, -- Duration in days (e.g., 1.0 for whole day)
+    AttendanceEventDurationHours REAL, -- Duration in hours
+    AttendanceEventDurationMinutes INTEGER -- Duration in minutes
+);
+
+-- Creating table for CTE Student entity
+CREATE TABLE CNTCTEStudent (
+    StudentIdentifier TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
+    StudentIdentificationSystem TEXT CHECK (StudentIdentificationSystem IN (
+        'CanadianSIN', -- Canadian Social Insurance Number
+        'District', -- District-assigned number
+        'Family', -- Family unit number
+        'Federal', -- Federal identification number
+        'NationalMigrant', -- National migrant number
+        'School', -- School-assigned number
+        'SSN', -- Social Security Administration number
+        'State', -- State-assigned number
+        'StateMigrant', -- State migrant number
+        'BirthCertificate' -- Birth certificate number
+    )),
+    FirstName TEXT, -- Legal first name
+    MiddleName TEXT, -- Legal middle name
+    LastOrSurname TEXT, -- Legal last name
+    GenerationCodeOrSuffix TEXT, -- Generation appendage (e.g., Jr., Sr.)
+    PersonalTitleOrPrefix TEXT, -- Title or prefix (e.g., Mr., Dr.)
+    OtherFirstName TEXT, -- Alternate first name
+    OtherMiddleName TEXT, -- Alternate middle name
+    OtherLastName TEXT, -- Alternate last name
+    OtherName TEXT, -- Previous or alternate names
+    OtherNameType TEXT CHECK (OtherNameType IN (
+        'Alias', -- Alias
+        'Nickname', -- Nickname
+        'OtherName', -- Other name
+        'PreviousLegalName', -- Previous legal name
+        'PreferredFamilyName', -- Preferred Family Name
+        'PreferredGivenName', -- Preferred Given Name
+        'FullName' -- Full Name
+    )),
+    PersonalInformationType TEXT CHECK (PersonalInformationType IN (
+        'Address', -- Address
+        'Birthdate', -- Birthdate
+        'Name', -- Name
+        'TelephoneNumber' -- Telephone Number
+    )),
+    PersonalInformationVerification TEXT CHECK (PersonalInformationVerification IN (
+        '01003', -- Baptismal or church certificate
+        '01004', -- Birth certificate
+        '01012', -- Driver's license
+        '01005', -- Entry in family Bible
+        '01006', -- Hospital certificate
+        '01013', -- Immigration document/visa
+        '02382', -- Life insurance policy
+        '09999', -- Other
+        '03424', -- Other non-official document
+        '03423', -- Other official document
+        '01007', -- Parent's affidavit
+        '01008', -- Passport
+        '01009', -- Physician's certificate
+        '01010', -- Previously verified school records
+        '01011', -- State-issued ID
+        '73095', -- Approved Transfer
+        '73102', -- Birth Registration Form
+        '73097', -- Citizenship Card
+        '73100', -- Lease Agreement
+        '73093', -- Non-Parent Affidavit of Residence
+        '73094', -- Parent's Affidavit of Residence
+        '73101', -- Purchase Agreement
+        '73092', -- Residence Verification Form
+        '73098', -- Tax Bill
+        '73091', -- Telephone Bill
+        '73099', -- Utility Bill
+        '73096' -- Water Bill
+    )),
+    Birthdate DATE, -- Date of birth
+    Sex TEXT CHECK (Sex IN (
+        'Male', -- Male
+        'Female', -- Female
+        'NotSelected' -- Not selected
+    )),
+    AmericanIndianOrAlaskaNative TEXT CHECK (AmericanIndianOrAlaskaNative IN ('Yes', 'No', 'NotSelected')),
+    Asian TEXT CHECK (Asian IN ('Yes', 'No', 'NotSelected')),
+    BlackOrAfricanAmerican TEXT CHECK (BlackOrAfricanAmerican IN ('Yes', 'No', 'NotSelected')),
+    NativeHawaiianOrOtherPacificIslander TEXT CHECK (NativeHawaiianOrOtherPacificIslander IN ('Yes', 'No', 'NotSelected')),
+    White TEXT CHECK (White IN ('Yes', 'No', 'NotSelected')),
+    HispanicOrLatinoEthnicity TEXT CHECK (HispanicOrLatinoEthnicity IN ('Yes', 'No', 'NotSelected')),
+    DemographicRaceTwoOrMoreRaces TEXT CHECK (DemographicRaceTwoOrMoreRaces IN ('Yes', 'No')),
+    Race TEXT CHECK (Race IN (
+        'AmericanIndianOrAlaskaNative', -- American Indian or Alaska Native
+        'Asian', -- Asian
+        'BlackOrAfricanAmerican', -- Black or African American
+        'DemographicRaceTwoOrMoreRaces', -- Demographic Race Two or More Races
+        'NativeHawaiianOrOtherPacificIslander', -- Native Hawaiian or Other Pacific Islander
+        'RaceAndEthnicityUnknown', -- Race and Ethnicity Unknown
+        'White' -- White
+    )),
+    FederalRaceAndEthnicityDeclined TEXT CHECK (FederalRaceAndEthnicityDeclined IN ('Yes', 'No')),
+    FirstGenerationCollegeStudent TEXT CHECK (FirstGenerationCollegeStudent IN ('Yes', 'No', 'Unknown')),
+    CountryOfBirthCode TEXT, -- ISO 3166 country code, see http://www.iso.org/iso/country_codes.htm
+    StandardOccupationalClassification TEXT, -- BLS SOC code, see https://www.bls.gov/soc/2018/major_groups.htm
+    TribalAffiliation TEXT, -- Native American tribal entity
+    InternetDownloadSpeed REAL, -- Download speed in Mbps
+    InternetUploadSpeed REAL, -- Upload speed in Mbps
+    InternetSpeedTestDateTime TEXT, -- Date and time of speed test
+    AwaitingInitialIDEAEvaluationStatus TEXT CHECK (AwaitingInitialIDEAEvaluationStatus IN ('Yes', 'No')),
+    DisabilityStatus TEXT CHECK (DisabilityStatus IN ('Yes', 'No')),
+    IDEAIndicator TEXT CHECK (IDEAIndicator IN ('Yes', 'No')),
+    Section504Status TEXT CHECK (Section504Status IN ('Yes', 'No')),
+    PrimaryDisabilityType TEXT CHECK (PrimaryDisabilityType IN (
+        'AUT', -- Autism
+        'DB', -- Deaf-blindness
+        'DD', -- Developmental delay
+        'EMN', -- Emotional disturbance
+        'HI', -- Hearing impairment
+        'ID', -- Intellectual Disability
+        'MD', -- Multiple disabilities
+        'OI', -- Orthopedic impairment
+        'OHI', -- Other health impairment
+        'SLD', -- Specific learning disability
+        'SLI', -- Speech or language impairment
+        'TBI', -- Traumatic brain injury
+        'VI' -- Visual impairment
+    )),
+    DisabilityConditionType TEXT CHECK (DisabilityConditionType IN (
+        '00', -- No disability or impairment known or reported
+        '01', -- Blindness or Visual Impairment
+        '02', -- Cerebral Palsy
+        '03', -- Chronic Illness
+        '04', -- Deafness or Hearing Impairment
+        '05', -- Drug or Alcohol Addiction
+        '06', -- Emotionally/Psychologically Disabled
+        '07', -- Epilepsy or Seizure Disorders
+        '08', -- Intellectual Disability
+        '09', -- Orthopedic Impairment
+        '10', -- Specific learning disability
+        '11', -- Speech or Language impairment
+        '99' -- Other type of impairment
+    )),
+    DisabilityDeterminationSourceType TEXT CHECK (DisabilityDeterminationSourceType IN (
+        '01', -- By physician
+        '02', -- By health care provider
+        '03', -- By school psychologist or other psychologist
+        '04', -- By licensed physical therapist
+        '05', -- Self-reported
+        '06', -- By social service or other agency
+        '97', -- Not applicable to the student
+        '98', -- Unknown or Unreported
+        '99' -- Other
+    )),
+    IDEAEducationalEnvironmentForSchoolAge TEXT CHECK (IDEAEducationalEnvironmentForSchoolAge IN (
+        'RC80', -- Inside regular class 80% or more
+        'RC79TO40', -- Inside regular class 40% to 79%
+        'RC39', -- Inside regular class less than 40%
+        'SS', -- Separate school
+        'RF', -- Residential facility
+        'HH', -- Homebound/hospital
+        'CF', -- Correctional facility
+        'PPPS' -- Parentally placed in private school
+    )),
+    ISO6392LanguageCode TEXT, -- ISO 639-2 language code, see http://www.loc.gov/standards/iso639-2/langhome.html
+    ISO6393LanguageCode TEXT, -- ISO 639-3 language code, see http://www-01.sil.org/iso639-3/default.asp
+    ISO6395LanguageFamily TEXT CHECK (ISO6395LanguageFamily IN (
+        'aav', -- Austro-Asiatic languages
+        'afa', -- Afro-Asiatic languages
+        'alg', -- Algonquian languages
+        'alv', -- Atlantic-Congo languages
+        'apa', -- Apache languages
+        'aqa', -- Alacalufan languages
+        'aql', -- Algic languages
+        'art', -- Artificial languages
+        'ath', -- Athapascan languages
+        'auf', -- Arauan languages
+        'aus', -- Australian languages
+        'awd', -- Arawakan languages
+        'azc', -- Uto-Aztecan languages
+        'bad', -- Banda languages
+        'bai', -- Bamileke languages
+        'bat', -- Baltic languages
+        'ber', -- Berber languages
+        'bih', -- Bihari languages
+        'bnt', -- Bantu languages
+        'btk', -- Batak languages
+        'cai', -- Central American Indian languages
+        'cau', -- Caucasian languages
+        'cba', -- Chibchan languages
+        'ccn', -- North Caucasian languages
+        'ccs', -- South Caucasian languages
+        'cdc', -- Chadic languages
+        'cdd', -- Caddoan languages
+        'cel', -- Celtic languages
+        'cmc', -- Chamic languages
+        'cpe', -- Creoles and pidgins, English-based
+        'cpf', -- Creoles and pidgins, French-based
+        'cpp', -- Creoles and pidgins, Portuguese-based
+        'crp', -- Creoles and pidgins
+        'csu', -- Central Sudanic languages
+        'cus', -- Cushitic languages
+        'day', -- Land Dayak languages
+        'dmn', -- Mande languages
+        'dra', -- Dravidian languages
+        'egx', -- Egyptian languages
+        'esx', -- Eskimo-Aleut languages
+        'euq', -- Basque (family)
+        'fiu', -- Finno-Ugrian languages
+        'fox', -- Formosan languages
+        'gem', -- Germanic languages
+        'gme', -- East Germanic languages
+        'gmq', -- North Germanic languages
+        'gmw', -- West Germanic languages
+        'grk', -- Greek languages
+        'hmx', -- Hmong-Mien languages
+        'hok', -- Hokan languages
+        'hyx', -- Armenian (family)
+        'iir', -- Indo-Iranian languages
+        'ijo', -- Ijo languages
+        'inc', -- Indic languages
+        'ine', -- Indo-European languages
+        'ira', -- Iranian languages
+        'iro', -- Iroquoian languages
+        'itc', -- Italic languages
+        'jpx', -- Japanese (family)
+        'kar', -- Karen languages
+        'kdo', -- Kordofanian languages
+        'khi', -- Khoisan languages
+        'kro', -- Kru languages
+        'map', -- Austronesian languages
+        'mkh', -- Mon-Khmer languages
+        'mno', -- Manobo languages
+        'mun', -- Munda languages
+        'myn', -- Mayan languages
+        'nah', -- Nahuatl languages
+        'nai', -- North American Indian languages
+        'ngf', -- Trans-New Guinea languages
+        'nic', -- Niger-Kordofanian languages
+        'nub', -- Nubian languages
+        'omq', -- Oto-Manguean languages
+        'omv', -- Omotic languages
+        'oto', -- Otomian languages
+        'paa', -- Papuan languages
+        'phi', -- Philippine languages
+        'plf', -- Central Malayo-Polynesian languages
+        'poz', -- Malayo-Polynesian languages
+        'pqe', -- Eastern Malayo-Polynesian languages
+        'pqw', -- Western Malayo-Polynesian languages
+        'pra', -- Prakrit languages
+        'qwe', -- Quechuan (family)
+        'roa', -- Romance languages
+        'sai', -- South American Indian languages
+        'sal', -- Salishan languages
+        'sdv', -- Eastern Sudanic languages
+        'sem', -- Semitic languages
+        'sgn', -- Sign languages
+        'sio', -- Siouan languages
+        'sit', -- Sino-Tibetan languages
+        'sla', -- Slavic languages
+        'smi', -- Sami languages
+        'son', -- Songhai languages
+        'sqj', -- Albanian languages
+        'ssa', -- Nilo-Saharan languages
+        'syd', -- Samoyedic languages
+        'tai', -- Tai languages
+        'tbq', -- Tibeto-Burman languages
+        'trk', -- Turkic languages
+        'tup', -- Tupi languages
+        'tut', -- Altaic languages
+        'tuw', -- Tungus languages
+        'urj', -- Uralic languages
+        'wak', -- Wakashan languages
+        'wen', -- Sorbian languages
+        'xgn', -- Mongolian languages
+        'xnd', -- Na-Dene languages
+        'ypk', -- Yupik languages
+        'zhx', -- Chinese (family)
+        'zle', -- East Slavic languages
+        'zls', -- South Slavic languages
+        'zlw', -- West Slavic languages
+        'znd' -- Zande languages
+    )),
+    LanguageType TEXT CHECK (LanguageType IN (
+        'Correspondence', -- Correspondence
+        'Dominant', -- Dominant language
+        'Home', -- Home language
+        'Native', -- Native language
+        'OtherLanguageProficiency', -- Other language proficiency
+        'Other', -- Other
+        'Spoken', -- Spoken Correspondence
+        'Written' -- Written Correspondence
+    )),
+    ApplicationDate DATE, -- Date application received
+    CTEConcentrator TEXT CHECK (CTEConcentrator IN ('Yes', 'No')),
+    CTEParticipant TEXT CHECK (CTEParticipant IN ('Yes', 'No')),
+    CareerPathwaysProgramParticipationIndicator TEXT CHECK (CareerPathwaysProgramParticipationIndicator IN ('Yes', 'No')),
+    CareerPathwaysProgramParticipationStartDate DATE, -- Start date of career pathway program
+    CareerPathwaysProgramParticipationExitDate DATE, -- Exit date of career pathway program
+    CTEAEDisplacedHomemakerIndicator TEXT CHECK (CTEAEDisplacedHomemakerIndicator IN ('Yes', 'No')),
+    OutOfWorkforceIndicator TEXT CHECK (OutOfWorkforceIndicator IN ('Yes', 'No', 'Unknown')),
+    PerkinsPostProgramPlacementIndicator TEXT CHECK (PerkinsPostProgramPlacementIndicator IN (
+        '1001', -- Advanced training
+        '1010', -- Employment
+        '1002', -- Military service
+        '1101', -- National or community service
+        '1003', -- National or community service or Peace Corps
+        '9998', -- Not engaged Perkins Post-Program Placement
+        '1009', -- Peace Corps
+        '1007', -- Postsecondary associate degree
+        '1008', -- Postsecondary baccalaureate degree
+        '1006', -- Postsecondary certificate
+        '1005', -- Postsecondary education
+        '9997', -- Unknown
+        '9999' -- Other
+    )),
+    ProgramEntryReason TEXT, -- Reason for program participation
+    ProgramParticipationStartDate DATE, -- Start date of program
+    ProgramParticipationExitDate DATE, -- Exit date of program
+    Role TEXT CHECK (Role IN (
+        'AEStaff', -- AE Staff
+        'AEStudent', -- AE Student
+        'CTEStaff', -- CTE Staff
+        'CTEStudent', -- CTE Student
+        'ELChild', -- EL Child
+        'ELStaff', -- EL Staff
+        'K12Staff', -- K12 Staff
+        'K12Student', -- K12 Student
+        'ParentGuardian', -- Parent/Guardian
+        'PSApplicant', -- PS Applicant
+        'PSStaff', -- PS Staff
+        'PSStudent', -- PS Student
+        'WorkforceProgramParticipant', -- Workforce Program Participant
+        'ChiefStateSchoolOfficer', -- Chief State School Officer
+        'SchoolBoardMember' -- School Board Member
+    )),
+    SingleParentOrSinglePregnantWomanStatus TEXT CHECK (SingleParentOrSinglePregnantWomanStatus IN ('Yes', 'No')),
+    WorkBasedLearningOpportunityType TEXT CHECK (WorkBasedLearningOpportunityType IN (
+        'Apprenticeship', -- Apprenticeship
+        'ClinicalWork', -- Clinical work experience
+        'CooperativeEducation', -- Cooperative education
+        'JobShadowing', -- Job shadowing
+        'Mentorship', -- Mentorship
+        'NonPaidInternship', -- Non-Paid Internship
+        'OnTheJob', -- On-the-Job
+        'PaidInternship', -- Paid internship
+        'ServiceLearning', -- Service learning
+        'SupervisedAgricultural', -- Supervised agricultural experience
+        'UnpaidInternship', -- Unpaid internship
+        'Entrepreneurship', -- Entrepreneurship
+        'SchoolBasedEnterprise', -- School-Based Enterprise
+        'SimulatedWorksite', -- Simulated Worksite
+        'Other' -- Other
+    )),
+    CareerCluster TEXT CHECK (CareerCluster IN (
+        '01', -- Agriculture, Food & Natural Resources
+        '02', -- Architecture & Construction
+        '03', -- Arts, A/V Technology & Communications
+        '04', -- Business Management & Administration
+        '05', -- Education & Training
+        '06', -- Finance
+        '07', -- Government & Public Administration
+        '08', -- Health Science
+        '09', -- Hospitality & Tourism
+        '10', -- Human Services
+        '11', -- Information Technology
+        '12', -- Law, Public Safety, Corrections & Security
+        '13', -- Manufacturing
+        '14', -- Marketing
+        '15', -- Science, Technology, Engineering & Mathematics
+        '16' -- Transportation, Distribution & Logistics
+    )),
+    CIPCode TEXT, -- Six-digit CIP code, see https://nces.ed.gov/ipeds/cipcode/browse.aspx?y=55
+    CIPVersion TEXT CHECK (CIPVersion IN (
+        'CIP1980', -- CIP 1980
+        'CIP1985', -- CIP 1985
+        'CIP1990', -- CIP 1990
+        'CIP2000', -- CIP 2000
+        'CIP2010', -- CIP 2010
+        'CIP2020' -- CIP 2020
+    )),
+    AwaitingFosterCareStatus TEXT CHECK (AwaitingFosterCareStatus IN ('Yes', 'No')),
+    CTENontraditionalGenderStatus TEXT CHECK (CTENontraditionalGenderStatus IN (
+        'Underrepresented', -- Members of an underrepresented gender group
+        'NotUnderrepresented' -- Not members of an underrepresented gender group
+    )),
+    PublicAssistanceStatus TEXT CHECK (PublicAssistanceStatus IN ('Yes', 'No')),
+    PersonRelationshipType TEXT CHECK (PersonRelationshipType IN (
+        'Aunt', -- Aunt
+        'Brother', -- Brother
+        'BrotherInLaw', -- Brother-in-law
+        'CourtAppointedGuardian', -- Court appointed guardian
+        'Daughter', -- Daughter
+        'DaughterInLaw', -- Daughter-in-law
+        'Employer', -- Employer
+        'Father', -- Father
+        'FathersSignificantOther', -- Father's significant other
+        'FathersCivilPartner', -- Father's civil partner
+        'FatherInLaw', -- Father-in-law
+        'Fiance', -- Fiance
+        'Fiancee', -- Fiancee
+        'Friend', -- Friend
+        'Grandfather', -- Grandfather
+        'Grandmother', -- Grandmother
+        'Husband', -- Husband
+        'MothersSignificantOther', -- Mother's significant other
+        'Mother', -- Mother
+        'MothersCivilPartner', -- Mother's civil partner
+        'Nephew', -- Nephew
+        'Niece', -- Niece
+        'Other', -- Other
+        'SignificantOther', -- Significant other
+        'Sister', -- Sister
+        'Son', -- Son
+        'Unknown', -- Unknown
+        'Uncle', -- Uncle
+        'Ward', -- Ward
+        'Wife', -- Wife
+        'AdoptedDaughter', -- Adopted Daughter
+        'AdoptedSon', -- Adopted son
+        'AdoptiveParent', -- Adoptive parent
+        'Advisor', -- Advisor
+        'AgencyRepresentative', -- Agency representative
+        'Cousin', -- Cousin
+        'Dependent', -- Dependent
+        'FamilyMember', -- Family member
+        'FormerHusband', -- Former husband
+        'FormerWife', -- Former wife
+        'FosterDaughter', -- Foster daughter
+        'FosterFather', -- Foster father
+        'FosterMother', -- Foster mother
+        'FosterParent', -- Foster Parent
+        'FosterSon', -- Foster son
+        'Godparent', -- Godparent
+        'Granddaughter', -- Granddaughter
+        'Grandparent', -- Grandparent
+        'Grandson', -- Grandson
+        'GreatAunt', -- Great aunt
+        'GreatGrandparent', -- Great grandparent
+        'GreatUncle', -- Great uncle
+        'HalfBrother', -- Half-brother
+        'HalfSister', -- Half-sister
+        'LifePartner', -- Life partner
+        'LifePartnerOfParent', -- Life partner of parent
+        'MotherInLaw', -- Mother-in-law
+        'Neighbor', -- Neighbor
+        'Parent', -- Parent
+        'Partner', -- Partner
+        'PartnerOfParent', -- Partner of parent
+        'ProbationOfficer', -- Probation officer
+        'Relative', -- Relative
+        'Sibling', -- Sibling
+        'SisterInLaw', -- Sister-in-law
+        'SonInLaw', -- Son-in-law
+        'Spouse', -- Spouse
+        'Stepbrother', -- Stepbrother
+        'Stepdaughter', -- Stepdaughter
+        'Stepfather', -- Stepfather
+        'Stepmother', -- Stepmother
+        'Stepparent', -- Stepparent
+        'Stepsister', -- Stepsister
+        'Stepson' -- Stepson
+    ))
+);
+
+-- Creating table for Program entity
+CREATE TABLE CNTProgram (
+    ProgramName TEXT, -- Name of the program
+    EnrollmentCapacity INTEGER, -- Max age-appropriate students
+    PrimaryProgramIndicator TEXT CHECK (PrimaryProgramIndicator IN ('Yes', 'No')),
+    CareerCluster TEXT CHECK (CareerCluster IN (
+        '01', -- Agriculture, Food & Natural Resources
+        '02', -- Architecture & Construction
+        '03', -- Arts, A/V Technology & Communications
+        '04', -- Business Management & Administration
+        '05', -- Education & Training
+        '06', -- Finance
+        '07', -- Government & Public Administration
+        '08', -- Health Science
+        '09', -- Hospitality & Tourism
+        '10', -- Human Services
+        '11', -- Information Technology
+        '12', -- Law, Public Safety, Corrections & Security
+        '13', -- Manufacturing
+        '14', -- Marketing
+        '15', -- Science, Technology, Engineering & Mathematics
+        '16' -- Transportation, Distribution & Logistics
+    )),
+    ProgramSponsorType TEXT CHECK (ProgramSponsorType IN (
+        'Business', -- Business
+        'EducationOrganizationNetwork', -- Education organization network
+        'EducationServiceCenter', -- Education Service Center
+        'Federal', -- Federal government
+        'LEA', -- Local education agency
+        'NonProfit', -- Non-profit organization
+        'Postsecondary', -- Postsecondary institution
+        'Private', -- Private organization
+        'Regional', -- Regional or intermediate education agency
+        'Religious', -- Religious organization
+        'School', -- School
+        'SEA', -- State Education Agency
+        'Other' -- Other
+    )),
+    ProgramType TEXT CHECK (ProgramType IN (
+        '73056', -- Adult Basic Education
+        '73058', -- Adult English as a Second Language
+        '73057', -- Adult Secondary Education
+        '04961', -- Alternative Education
+        '04932', -- Athletics
+        '04923', -- Bilingual education program
+        '04906', -- Career and Technical Education
+        '04931', -- Cocurricular programs
+        '04958', -- College preparatory
+        '04945', -- Community service program
+        '04944', -- Community/junior college education program
+        '04922', -- Compensatory services for disadvantaged students
+        '73059', -- Continuing Education
+        '04956', -- Counseling services
+        '14609', -- Early Head Start
+        '04928', -- English as a second language (ESL) program
+        '04919', -- Even Start
+        '04955', -- Extended day/child care services
+        '75000', -- Foster Care
+        '04930', -- Gifted and talented program
+        '04918', -- Head start
+        '04963', -- Health Services Program
+        '04957', -- Immigrant education
+        '04921', -- Indian education
+        '04959', -- International Baccalaureate
+        '04962', -- Library/Media Services Program
+        '04960', -- Magnet/Special Program Emphasis
+        '04920', -- Migrant education
+        '04887', -- Regular education
+        '04964', -- Remedial education
+        '04967', -- Section 504 Placement
+        '04966', -- Service learning
+        '04888', -- Special Education Services
+        '04954', -- Student retention/Dropout Prevention
+        '04953', -- Substance abuse education/prevention
+        '73204', -- Targeted intervention program
+        '04968', -- Teacher professional development/Mentoring
+        '04917', -- Technical preparatory
+        '75001', -- Title I
+        '73090', -- Work-based Learning Opportunities
+        '75014', -- Autism program
+        '75015', -- Early childhood special education tier one
+        '09999', -- Other
+        '75016', -- Early childhood special education tier two
+        '75002', -- Early College
+        '75006', -- Emotional disturbance program
+        '75008', -- Hearing impairment program
+        '75017', -- K12 Resource Program
+        '75003', -- Mild cognitive disability program
+        '75004', -- Moderate cognitive disability program
+        '75012', -- Multiple disabilities program
+        '75011', -- Orthopedic impairment
+        '75010', -- Other health impairment
+        '75005', -- Significant cognitive disability program
+        '75007', -- Specific learning disability program
+        '75013', -- Speech or language impairment program
+        '75009', -- Visual impairment program
+        '75018', -- Hospital
+        '76000', -- McKinney-Vento Homeless
+        '77000', -- Title III LIEP
+        '75019', -- Neglected or delinquent
+        '75020' -- TANF
+    ))
+);
+
+-- Creating table for Assessment entity
+CREATE TABLE Assessment (
+    AssessmentGUID TEXT, -- RFC 4122 compliant GUID, up to 40 chars with hash
+    AssessmentIdentifier TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
+    AssessmentIdentificationSystem TEXT CHECK (AssessmentIdentificationSystem IN (
+        'School', -- School-assigned number
+        'District', -- District-assigned number
+        'State', -- State-assigned number
+        'Federal', -- Federal identification number
+        'OtherFederal', -- Other federally assigned number
+        'TestContractor', -- Test contractor assigned assessment number
+        'Other' -- Other
+    )),
+    AssessmentTitle TEXT NOT NULL, -- Full title of the assessment
+    AssessmentShortName TEXT, -- Abbreviated title
+    AssessmentFamilyTitle TEXT, -- Full title of the assessment family
+    AssessmentFamilyShortName TEXT, -- Abbreviated title of the assessment family
+    AssessmentAcademicSubject TEXT CHECK (AssessmentAcademicSubject IN (
+        '13371', -- Arts
+        '73065', -- Career and Technical Education
+        '13372', -- English
+        '00256', -- English as a second language (ESL)
+        '00546', -- Foreign Languages
+        '73088', -- History Government - US
+        '73089', -- History Government - World
+        '00554', -- Language arts
+        '01166', -- Mathematics
+        '00560', -- Reading
+        '13373', -- Reading/Language Arts
+        '00562', -- Science
+        '73086', -- Science - Life
+        '73087', -- Science - Physical
+        '13374', -- Social Sciences (History, Geography, Economics, Civics and Government)
+        '02043', -- Special education
+        '01287', -- Writing
+        '09999' -- Other
+    )),
+    AssessmentEarlyLearningDevelopmentalDomain TEXT CHECK (AssessmentEarlyLearningDevelopmentalDomain IN (
+        '01', -- Language and Literacy
+        '02', -- Cognition and General Knowledge
+        '03', -- Approaches Toward Learning
+        '04', -- Physical Well-being and Motor
+        '05' -- Social and Emotional Development
+    )),
+    AssessmentLevelForWhichDesigned TEXT CHECK (AssessmentLevelForWhichDesigned IN (
+        'Birth', -- Birth
+        'Prenatal', -- Prenatal
+        'IT', -- Infant/toddler
+        'PR', -- Preschool
+        'PK', -- Prekindergarten
+        'TK', -- Transitional Kindergarten
+        'KG', -- Kindergarten
+        '01', -- First grade
+        '02', -- Second grade
+        '03', -- Third grade
+        '04', -- Fourth grade
+        '05', -- Fifth grade
+        '06', -- Sixth grade
+        '07', -- Seventh grade
+        '08', -- Eighth grade
+        '09', -- Ninth grade
+        '10', -- Tenth grade
+        '11', -- Eleventh grade
+        '12', -- Twelfth grade
+        '13', -- Grade 13
+        'PS', -- Postsecondary
+        'UG', -- Ungraded
+        'AE', -- Adult Education
+        'Other' -- Other
+    )),
+    AssessmentObjective TEXT, -- Objective the assessment measures
+    AssessmentProvider TEXT, -- Provider or publisher of the assessment
+    AssessmentPurpose TEXT CHECK (AssessmentPurpose IN (
+        '00050', -- Admission
+        '00051', -- Assessment of student's progress
+        '73055', -- College Readiness
+        '00063', -- Course credit
+        '00064', -- Course requirement
+        '73069', -- Diagnosis
+        '03459', -- Federal accountability
+        '73068', -- Inform local or state policy
+        '00055', -- Instructional decision
+        '03457', -- Local accountability
+        '02400', -- Local graduation requirement
+        '73042', -- Obtain a state- or industry-recognized certificate or license
+        '73043', -- Obtain postsecondary credit for the course
+        '73067', -- Program eligibility
+        '00057', -- Program evaluation
+        '00058', -- Program placement
+        '00062', -- Promotion to or retention in a grade or program
+        '00061', -- Screening
+        '03458', -- State accountability
+        '09999', -- Other
+        '00054' -- State graduation requirement
+    )),
+    AssessmentRevisionDate DATE, -- Date of substantial revision
+    AssessmentScoreMetricType TEXT CHECK (AssessmentScoreMetricType IN (
+        '00512', -- Achievement/proficiency level
+        '00494', -- ACT score
+        '00490', -- Age score
+        '00491', -- C-scaled scores
+        '00492', -- College Board examination scores
+        '00493', -- Grade equivalent or grade-level indicator
+        '03473', -- Graduation score
+        '03474', -- Growth/value-added/indexing
+        '03475', -- International Baccalaureate score
+        '00144', -- Letter grade/mark
+        '00513', -- Mastery level
+        '00497', -- Normal curve equivalent
+        '00498', -- Normalized standard score
+        '00499', -- Number score
+        '00500', -- Pass-fail
+        '03476', -- Percentile
+        '00502', -- Percentile rank
+        '00503', -- Proficiency level
+        '03477', -- Promotion score
+        '00504', -- Ranking
+        '00505', -- Ratio IQ's
+        '03478', -- Raw score
+        '03479', -- Scale score
+        '00506', -- Standard age score
+        '00508', -- Stanine score
+        '00509', -- Sten score
+        '00510', -- T-score
+        '03480', -- Workplace readiness score
+        '00511', -- Z-score
+        '03481', -- SAT Score
+        '09999' -- Other
+    )),
+    AssessmentType TEXT CHECK (AssessmentType IN (
+        'AchievementTest', -- Achievement test
+        'AdvancedPlacementTest', -- Advanced placement test
+        'AlternateAssessmentELL', -- Alternate assessment/ELL
+        'AlternateAssessmentGradeLevelStandards', -- Alternate assessment/grade-level standards
+        'AlternativeAssessmentModifiedStandards', -- Alternative assessment/modified standards
+        'AptitudeTest', -- Aptitude Test
+        'Benchmark', -- Benchmark
+        'CognitiveAndPerceptualSkills', -- Cognitive and perceptual skills test
+        'ComputerAdaptiveTest', -- Computer Adaptive Test
+        'DevelopmentalObservation', -- Developmental observation
+        'Diagnostic', -- Diagnostic
+        'DirectAssessment', -- Direct Assessment
+        'Formative', -- Formative
+        'GrowthMeasure', -- Growth Measure
+        'Interim', -- Interim
+        'KindergartenReadiness', -- Kindergarten Readiness
+        'LanguageProficiency', -- Language proficiency test
+        'MentalAbility', -- Mental ability (intelligence) test
+        'Observation', -- Observation
+        'ParentReport', -- Parent Report
+        'PerformanceAssessment', -- Performance assessment
+        'PortfolioAssessment', -- Portfolio assessment
+        'PrekindergartenReadiness', -- Prekindergarten Readiness
+        'ReadingReadiness', -- Reading readiness test
+        'Screening', -- Screening
+        'TeacherReport', -- Teacher Report
+        'AlternateAssessmentAlternateStandards', -- Alternate assessment/alternate standards
+        'WorkplaceSkills', -- Workplace skills
+        'Other' -- Other
+    )),
+    AssessmentTypeAdministered TEXT CHECK (AssessmentTypeAdministered IN (
+        'REGASSWOACC', -- Regular assessments based on grade-level achievement standards without accommodations
+        'REGASSWACC', -- Regular assessments based on grade-level achievement standards with accommodations
+        'ALTASSGRADELVL', -- Alternate assessments based on grade-level achievement standards
+        'ALTASSMODACH', -- Alternate assessments based on modified achievement standards
+        'ALTASSALTACH', -- Alternate assessments based on alternate achievement standards
+        'AgeLevelWithoutAccommodations', -- Assessment based on age level standards without accommodations
+        'AgeLevelWithAccommodations', -- Assessment based on age level standards with accommodations
+        'BelowAgeLevelWithoutAccommodations', -- Assessment based on standards below age level without accommodations
+        'BelowAgeLevelWithAccommodations' -- Assessment based on standards below age level with accommodations
+    )),
+    AssessmentTypeAdministeredToEnglishLearners TEXT CHECK (AssessmentTypeAdministeredToEnglishLearners IN (
+        'ALTELPASMNTALT', -- Alternate English language proficiency (ELP) based on alternate ELP achievement standards
+        'REGELPASMNT' -- Regular English language proficiency (ELP) assessment
+    )),
+    ISO6392LanguageCode TEXT, -- ISO 639-2 language code, see http://www.loc.gov/standards/iso639-2/langhome.html
+    ISO6393LanguageCode TEXT, -- ISO 639-3 language code, see http://www-01.sil.org/iso639-3/default.asp
+    ISO6395LanguageFamily TEXT CHECK (ISO6395LanguageFamily IN (
+        'aav', -- Austro-Asiatic languages
+        'afa', -- Afro-Asiatic languages
+        'alg', -- Algonquian languages
+        'alv', -- Atlantic-Congo languages
+        'apa', -- Apache languages
+        'aqa', -- Alacalufan languages
+        'aql', -- Algic languages
+        'art', -- Artificial languages
+        'ath', -- Athapascan languages
+        'auf', -- Arauan languages
+        'aus', -- Australian languages
+        'awd', -- Arawakan languages
+        'azc', -- Uto-Aztecan languages
+        'bad', -- Banda languages
+        'bai', -- Bamileke languages
+        'bat', -- Baltic languages
+        'ber', -- Berber languages
+        'bih', -- Bihari languages
+        'bnt', -- Bantu languages
+        'btk', -- Batak languages
+        'cai', -- Central American Indian languages
+        'cau', -- Caucasian languages
+        'cba', -- Chibchan languages
+        'ccn', -- North Caucasian languages
+        'ccs', -- South Caucasian languages
+        'cdc', -- Chadic languages
+        'cdd', -- Caddoan languages
+        'cel', -- Celtic languages
+        'cmc', -- Chamic languages
+        'cpe', -- Creoles and pidgins, English-based
+        'cpf', -- Creoles and pidgins, French-based
+        'cpp', -- Creoles and pidgins, Portuguese-based
+        'crp', -- Creoles and pidgins
+        'csu', -- Central Sudanic languages
+        'cus', -- Cushitic languages
+        'day', -- Land Dayak languages
+        'dmn', -- Mande languages
+        'dra', -- Dravidian languages
+        'egx', -- Egyptian languages
+        'esx', -- Eskimo-Aleut languages
+        'euq', -- Basque (family)
+        'fiu', -- Finno-Ugrian languages
+        'fox', -- Formosan languages
+        'gem', -- Germanic languages
+        'gme', -- East Germanic languages
+        'gmq', -- North Germanic languages
+        'gmw', -- West Germanic languages
+        'grk', -- Greek languages
+        'hmx', -- Hmong-Mien languages
+        'hok', -- Hokan languages
+        'hyx', -- Armenian (family)
+        'iir', -- Indo-Iranian languages
+        'ijo', -- Ijo languages
+        'inc', -- Indic languages
+        'ine', -- Indo-European languages
+        'ira', -- Iranian languages
+        'iro', -- Iroquoian languages
+        'itc', -- Italic languages
+        'jpx', -- Japanese (family)
+        'kar', -- Karen languages
+        'kdo', -- Kordofanian languages
+        'khi', -- Khoisan languages
+        'kro', -- Kru languages
+        'map', -- Austronesian languages
+        'mkh', -- Mon-Khmer languages
+        'mno', -- Manobo languages
+        'mun', -- Munda languages
+        'myn', -- Mayan languages
+        'nah', -- Nahuatl languages
+        'nai', -- North American Indian languages
+        'ngf', -- Trans-New Guinea languages
+        'nic', -- Niger-Kordofanian languages
+        'nub', -- Nubian languages
+        'omq', -- Oto-Manguean languages
+        'omv', -- Omotic languages
+        'oto', -- Otomian languages
+        'paa', -- Papuan languages
+        'phi', -- Philippine languages
+        'plf', -- Central Malayo-Polynesian languages
+        'poz', -- Malayo-Polynesian languages
+        'pqe', -- Eastern Malayo-Polynesian languages
+        'pqw', -- Western Malayo-Polynesian languages
+        'pra', -- Prakrit languages
+        'qwe', -- Quechuan (family)
+        'roa', -- Romance languages
+        'sai', -- South American Indian languages
+        'sal', -- Salishan languages
+        'sdv', -- Eastern Sudanic languages
+        'sem', -- Semitic languages
+        'sgn', -- Sign languages
+        'sio', -- Siouan languages
+        'sit', -- Sino-Tibetan languages
+        'sla', -- Slavic languages
+        'smi', -- Sami languages
+        'son', -- Songhai languages
+        'sqj', -- Albanian languages
+        'ssa', -- Nilo-Saharan languages
+        'syd', -- Samoyedic languages
+        'tai', -- Tai languages
+        'tbq', -- Tibeto-Burman languages
+        'trk', -- Turkic languages
+        'tup', -- Tupi languages
+        'tut', -- Altaic languages
+        'tuw', -- Tungus languages
+        'urj', -- Uralic languages
+        'wak', -- Wakashan languages
+        'wen', -- Sorbian languages
+        'xgn', -- Mongolian languages
+        'xnd', -- Na-Dene languages
+        'ypk', -- Yupik languages
+        'zhx', -- Chinese (family)
+        'zle', -- East Slavic languages
+        'zls', -- South Slavic languages
+        'zlw', -- West Slavic languages
+        'znd' -- Zande languages
+    ))
+);
+
+-- Creating table for Assessment Administration entity
+CREATE TABLE AssessmentAdministration (
+    AssessmentAdministrationCode TEXT, -- Code for the assessment event
+    AssessmentAdministrationName TEXT, -- Name of the assessment event
+    AssessmentAdministrationAssessmentFamily TEXT, -- Title of the assessment family
+    AssessmentAdministrationOrganizationName TEXT, -- Name of the responsible organization
+    AssessmentAdministrationStartDate DATE, -- Start date of administration period
+    AssessmentAdministrationStartTime TEXT, -- Start time of administration period
+    AssessmentAdministrationFinishDate DATE, -- Finish date of administration period
+    AssessmentAdministrationFinishTime TEXT, -- Finish time of administration period
+    AssessmentAdministrationPeriodDescription TEXT, -- Description of administration period
+    AssessmentIdentifier TEXT, -- Unique identifier, follows XSD:Token format
+    AssessmentIdentificationSystem TEXT CHECK (AssessmentIdentificationSystem IN (
+        'School', -- School-assigned number
+        'District', -- District-assigned number
+        'State', -- State-assigned number
+        'Federal', -- Federal identification number
+        'OtherFederal', -- Other federally assigned number
+        'TestContractor', -- Test contractor assigned assessment number
+        'Other' -- Other
+    )),
+    AssessmentSecureIndicator TEXT CHECK (AssessmentSecureIndicator IN ('Yes', 'No')),
+    LocalEducationAgencyIdentifier TEXT, -- Unique identifier, follows XSD:Token format
+    LEAIdentificationSystem TEXT CHECK (LEAIdentificationSystem IN (
+        'District', -- District-assigned number
+        'ACT', -- College Board/ACT program code set of PK-grade 12 institutions
+        'SEA', -- State Education Agency assigned number
+        'NCES', -- National Center for Education Statistics assigned number
+        'Federal', -- Federal identification number
+        'DUNS', -- Dun and Bradstreet number
+        'CENSUSID', -- Census Bureau identification code
+        'OtherFederal', -- Other federally assigned number
+        'Other', -- Other
+        'SAM' -- System for Award Management Unique Entity Identifier
+    )),
+    SchoolIdentifier TEXT, -- Unique identifier, follows XSD:Token format
+    SchoolIdentificationSystem TEXT CHECK (SchoolIdentificationSystem IN (
+        'School', -- School-assigned number
+        'ACT', -- College Board/ACT program code set of PK-grade 12 institutions
+        'LEA', -- Local Education Agency assigned number
+        'SEA', -- State Education Agency assigned number
+        'NCES', -- National Center for Education Statistics assigned number
+        'Federal', -- Federal identification number
+        'DUNS', -- Dun and Bradstreet number
+        'OtherFederal', -- Other federally assigned number
+        'StateUniversitySystem', -- State University System assigned number
+        'Other', -- Other
+        'SAM' -- System for Award Management Unique Entity Identifier
+    ))
+);
+
+-- Creating table for Assessment Asset entity
+CREATE TABLE AssessmentAsset (
+    AssessmentAssetIdentifier TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
+    AssessmentAssetIdentifierType TEXT CHECK (AssessmentAssetIdentifierType IN (
+        'Client', -- Assigned by the client
+        'Publisher', -- Assigned by the asset owner
+        'Internal', -- Provided by an internal assessment service
+        'Other' -- Custom identifier
+    )),
+    AssessmentAssetName TEXT, -- Name of the assessment asset
+    AssessmentAssetOwner TEXT, -- Name of the ownership rights holder or publisher
+    AssessmentAssetContentXML TEXT, -- XML content encoded in UTF-8
+    AssessmentAssetContentMimeType TEXT, -- MIME type of the content
+    AssessmentAssetContentURL TEXT, -- URL location of external content
+    AssessmentAssetPublishedDate DATE, -- Date the version was made available
+    AssessmentAssetType TEXT CHECK (AssessmentAssetType IN (
+        'ReadingPassage', -- Reading passage
+        'GraphicArt', -- Graphic art
+        'Map', -- Map
+        'FormulaSheet', -- Formula sheet
+        'Table', -- Table
+        'Chart', -- Chart
+        'Audio', -- Audio
+        'Video', -- Video
+        'Scenario', -- Scenario
+        'Simulation', -- Simulation
+        'StoryBoard', -- Story board
+        'LabSet', -- Lab set
+        'PeriodicTable', -- Periodic table
+        'TranslationDictionary', -- Translation dictionary
+        'BasicCalculator', -- Basic calculator
+        'StandardCalculator', -- Standard calculator
+        'ScientificCalculator', -- Scientific calculator
+        'GraphingCalculator', -- Graphing calculator
+        'Protractor', -- Protractor
+        'MetricRuler', -- Metric ruler
+        'EnglishRuler', -- English ruler
+        'UnitsRuler', -- Units ruler
+        'ReadingLine', -- Reading line
+        'LineDraw', -- Line draw
+        'Highlighter', -- Highlighter
+        'OtherInteractive', -- Other interactive
+        'OtherNonInteractive', -- Other non-interactive
+        'Other' -- Other
+    )),
+    AssessmentAssetVersion TEXT, -- Version number or label
+    AssessmentAcademicSubject TEXT CHECK (AssessmentAcademicSubject IN (
+        '13371', -- Arts
+        '73065', -- Career and Technical Education
+        '13372', -- English
+        '00256', -- English as a second language (ESL)
+        '00546', -- Foreign Languages
+        '73088', -- History Government - US
+        '73089', -- History Government - World
+        '00554', -- Language arts
+        '01166', -- Mathematics
+        '00560', -- Reading
+        '13373', -- Reading/Language Arts
+        '00562', -- Science
+        '73086', -- Science - Life
+        '73087', -- Science - Physical
+        '13374', -- Social Sciences (History, Geography, Economics, Civics and Government)
+        '02043', -- Special education
+        '01287', -- Writing
+        '09999' -- Other
+    )),
+    AssessmentLevelForWhichDesigned TEXT CHECK (AssessmentLevelForWhichDesigned IN (
+        'Birth', -- Birth
+        'Prenatal', -- Prenatal
+        'IT', -- Infant/toddler
+        'PR', -- Preschool
+        'PK', -- Prekindergarten
+        'TK', -- Transitional Kindergarten
+        'KG', -- Kindergarten
+        '01', -- First grade
+        '02', -- Second grade
+        '03', -- Third grade
+        '04', -- Fourth grade
+        '05', -- Fifth grade
+        '06', -- Sixth grade
+        '07', -- Seventh grade
+        '08', -- Eighth grade
+        '09', -- Ninth grade
+        '10', -- Tenth grade
+        '11', -- Eleventh grade
+        '12', -- Twelfth grade
+        '13', -- Grade 13
+        'PS', -- Postsecondary
+        'UG', -- Ungraded
+        'AE', -- Adult Education
+        'Other' -- Other
+    )),
+    ISO6392LanguageCode TEXT, -- ISO 639-2 language code, see http://www.loc.gov/standards/iso639-2/langhome.html
+    ISO6393LanguageCode TEXT, -- ISO 639-3 language code, see http://www-01.sil.org/iso639-3/default.asp
+    ISO6395LanguageFamily TEXT CHECK (ISO6395LanguageFamily IN (
+        'aav', -- Austro-Asiatic languages
+        'afa', -- Afro-Asiatic languages
+        'alg', -- Algonquian languages
+        'alv', -- Atlantic-Congo languages
+        'apa', -- Apache languages
+        'aqa', -- Alacalufan languages
+        'aql', -- Algic languages
+        'art', -- Artificial languages
+        'ath', -- Athapascan languages
+        'auf', -- Arauan languages
+        'aus', -- Australian languages
+        'awd', -- Arawakan languages
+        'azc', -- Uto-Aztecan languages
+        'bad', -- Banda languages
+        'bai', -- Bamileke languages
+        'bat', -- Baltic languages
+        'ber', -- Berber languages
+        'bih', -- Bihari languages
+        'bnt', -- Bantu languages
+        'btk', -- Batak languages
+        'cai', -- Central American Indian languages
+        'cau', -- Caucasian languages
+        'cba', -- Chibchan languages
+        'ccn', -- North Caucasian languages
+        'ccs', -- South Caucasian languages
+        'cdc', -- Chadic languages
+        'cdd', -- Caddoan languages
+        'cel', -- Celtic languages
+        'cmc', -- Chamic languages
+        'cpe', -- Creoles and pidgins, English-based
+        'cpf', -- Creoles and pidgins, French-based
+        'cpp', -- Creoles and pidgins, Portuguese-based
+        'crp', -- Creoles and pidgins
+        'csu', -- Central Sudanic languages
+        'cus', -- Cushitic languages
+        'day', -- Land Dayak languages
+        'dmn', -- Mande languages
+        'dra', -- Dravidian languages
+        'egx', -- Egyptian languages
+        'esx', -- Eskimo-Aleut languages
+        'euq', -- Basque (family)
+        'fiu', -- Finno-Ugrian languages
+        'fox', -- Formosan languages
+        'gem', -- Germanic languages
+        'gme', -- East Germanic languages
+        'gmq', -- North Germanic languages
+        'gmw', -- West Germanic languages
+        'grk', -- Greek languages
+        'hmx', -- Hmong-Mien languages
+        'hok', -- Hokan languages
+        'hyx', -- Armenian (family)
+        'iir', -- Indo-Iranian languages
+        'ijo', -- Ijo languages
+        'inc', -- Indic languages
+        'ine', -- Indo-European languages
+        'ira', -- Iranian languages
+        'iro', -- Iroquoian languages
+        'itc', -- Italic languages
+        'jpx', -- Japanese (family)
+        'kar', -- Karen languages
+        'kdo', -- Kordofanian languages
+        'khi', -- Khoisan languages
+        'kro', -- Kru languages
+        'map', -- Austronesian languages
+        'mkh', -- Mon-Khmer languages
+        'mno', -- Manobo languages
+        'mun', -- Munda languages
+        'myn', -- Mayan languages
+        'nah', -- Nahuatl languages
+        'nai', -- North American Indian languages
+        'ngf', -- Trans-New Guinea languages
+        'nic', -- Niger-Kordofanian languages
+        'nub', -- Nubian languages
+        'omq', -- Oto-Manguean languages
+        'omv', -- Omotic languages
+        'oto', -- Otomian languages
+        'paa', -- Papuan languages
+        'phi', -- Philippine languages
+        'plf', -- Central Malayo-Polynesian languages
+        'poz', -- Malayo-Polynesian languages
+        'pqe', -- Eastern Malayo-Polynesian languages
+        'pqw', -- Western Malayo-Polynesian languages
+        'pra', -- Prakrit languages
+        'qwe', -- Quechuan (family)
+        'roa', -- Romance languages
+        'sai', -- South American Indian languages
+        'sal', -- Salishan languages
+        'sdv', -- Eastern Sudanic languages
+        'sem', -- Semitic languages
+        'sgn', -- Sign languages
+        'sio', -- Siouan languages
+        'sit', -- Sino-Tibetan languages
+        'sla', -- Slavic languages
+        'smi', -- Sami languages
+        'son', -- Songhai languages
+        'sqj', -- Albanian languages
+        'ssa', -- Nilo-Saharan languages
+        'syd', -- Samoyedic languages
+        'tai', -- Tai languages
+        'tbq', -- Tibeto-Burman languages
+        'trk', -- Turkic languages
+        'tup', -- Tupi languages
+        'tut', -- Altaic languages
+        'tuw', -- Tungus languages
+        'urj', -- Uralic languages
+        'wak', -- Wakashan languages
+        'wen', -- Sorbian languages
+        'xgn', -- Mongolian languages
+        'xnd', -- Na-Dene languages
+        'ypk', -- Yupik languages
+        'zhx', -- Chinese (family)
+        'zle', -- East Slavic languages
+        'zls', -- South Slavic languages
+        'zlw', -- West Slavic languages
+        'znd' -- Zande languages
+    ))
+);
+
+-- Creating table for Assessment Form entity
+CREATE TABLE AssessmentForm (
+    AssessmentFormGUID TEXT, -- RFC 4122 compliant GUID, up to 40 chars with hash
+    AssessmentFormName TEXT, -- Name of the assessment form
+    AssessmentFormNumber TEXT, -- Number of the assessment form
+    AssessmentFormVersion TEXT, -- Version number of the form
+    AssessmentFormAccommodationList TEXT, -- List of available accommodations
+    AssessmentFormPlatformsSupported TEXT, -- List of supported delivery platforms
+    IntendedAdministrationStartDate DATE, -- Start date of intended administration
+    AssessmentFormIntendedAdministrationEndDate DATE, -- End date of intended administration
+    LearningResourcePublishedDate DATE, -- Published date of the form
+    AssessmentAcademicSubject TEXT CHECK (AssessmentAcademicSubject IN (
+        '13371', -- Arts
+        '73065', -- Career and Technical Education
+        '13372', -- English
+        '00256', -- English as a second language (ESL)
+        '00546', -- Foreign Languages
+        '73088', -- History Government - US
+        '73089', -- History Government - World
+        '00554', -- Language arts
+        '01166', -- Mathematics
+        '00560', -- Reading
+        '13373', -- Reading/Language Arts
+        '00562', -- Science
+        '73086', -- Science - Life
+        '73087', -- Science - Physical
+        '13374', -- Social Sciences (History, Geography, Economics, Civics and Government)
+        '02043', -- Special education
+        '01287', -- Writing
+        '09999' -- Other
+    )),
+    AssessmentFormAdaptiveIndicator TEXT CHECK (AssessmentFormAdaptiveIndicator IN ('Yes', 'No')),
+    AssessmentFormAlgorithmIdentifier TEXT, -- Identifier for adaptive test algorithm
+    AssessmentFormAlgorithmVersion TEXT, -- Version of adaptive test algorithm
+    AssessmentLanguage TEXT, -- ISO 639-2 language code, see http://www.loc.gov/standards/iso639-2/langhome.html
+    AssessmentLevelForWhichDesigned TEXT CHECK (AssessmentLevelForWhichDesigned IN (
+        'Birth', -- Birth
+        'Prenatal', -- Prenatal
+        'IT', -- Infant/toddler
+        'PR', -- Preschool
+        'PK', -- Prekindergarten
+        'TK', -- Transitional Kindergarten
+        'KG', -- Kindergarten
+        '01', -- First grade
+        '02', -- Second grade
+        '03', -- Third grade
+        '04', -- Fourth grade
+        '05', -- Fifth grade
+        '06', -- Sixth grade
+        '07', -- Seventh grade
+        '08', -- Eighth grade
+        '09', -- Ninth grade
+        '10', -- Tenth grade
+        '11', -- Eleventh grade
+        '12', -- Twelfth grade
+        '13', -- Grade 13
+        'PS', -- Postsecondary
+        'UG', -- Ungraded
+        'AE', -- Adult Education
+        'Other' -- Other
+    )),
+    AssessmentSecureIndicator TEXT CHECK (AssessmentSecureIndicator IN ('Yes', 'No'))
+);
+
+-- Creating table for Assessment Form Section entity
+CREATE TABLE AssessmentFormSection (
+    AssessmentFormSectionGUID TEXT, -- RFC 4122 compliant GUID, up to 40 chars with hash
+    AssessmentFormSectionIdentifier TEXT, -- Unique identifier, follows XSD:Token format
+    IdentificationSystemForAssessmentFormSection TEXT CHECK (IdentificationSystemForAssessmentFormSection IN (
+        'Client', -- Client
+        'Publisher', -- Publisher
+        'Internal', -- Internal
+        'Other' -- Other
+    )),
+    AssessmentFormSectionVersion TEXT, -- Version number of the section
+    AssessmentFormSectionSequenceNumber INTEGER, -- Position in sequence of sections
+    AssessmentFormSectionTimeLimit TEXT, -- Maximum time allowed for the section
+    AssessmentFormSectionReentry TEXT CHECK (AssessmentFormSectionReentry IN ('Yes', 'No')),
+    AssessmentFormSectionSealed TEXT CHECK (AssessmentFormSectionSealed IN ('Yes', 'No')),
+    AssessmentFormSectionItemFieldTestIndicator TEXT CHECK (AssessmentFormSectionItemFieldTestIndicator IN ('Yes', 'No')),
+    AssessmentAcademicSubject TEXT CHECK (AssessmentAcademicSubject IN (
+        '13371', -- Arts
+        '73065', -- Career and Technical Education
+        '13372', -- English
+        '00256', -- English as a second language (ESL)
+        '00546', -- Foreign Languages
+        '73088', -- History Government - US
+        '73089', -- History Government - World
+        '00554', -- Language arts
+        '01166', -- Mathematics
+        '00560', -- Reading
+        '13373', -- Reading/Language Arts
+        '00562', -- Science
+        '73086', -- Science - Life
+        '73087', -- Science - Physical
+        '13374', -- Social Sciences (History, Geography, Economics, Civics and Government)
+        '02043', -- Special education
+        '01287', -- Writing
+        '09999' -- Other
+    )),
+    AssessmentFormAlgorithmIdentifier TEXT, -- Identifier for adaptive test algorithm
+    LearningResourcePublishedDate DATE -- Published date of the section
+);
+
+-- Creating table for Assessment Form Subtest Assessment Item entity
+CREATE TABLE AssessmentFormSubtestAssessmentItem (
+    AssessmentFormSubtestItemWeightCorrect REAL, -- Weight for correct/partially correct item
+    AssessmentFormSubtestItemWeightIncorrect REAL, -- Weight for incorrect item
+    AssessmentFormSubtestItemWeightNotAttempted REAL -- Weight for not attempted item
+);
+
+-- Creating table for Assessment Item entity
+CREATE TABLE AssessmentItem (
+    AssessmentItemIdentifier TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
+    AssessmentItemBankIdentifier TEXT, -- Unique identifier for item bank
+    AssessmentItemBankName TEXT, -- Name of the item bank
+    AssessmentItemBodyText TEXT, -- Complete text of the assessment item
+    AssessmentItemDifficulty REAL, -- Percentage of correct answers during trial
+    AssessmentItemDistractorAnalysis TEXT, -- Analysis of distractors
+    AssessmentItemAllottedTime TEXT, -- Time allotted for the item
+    AssessmentItemMaximumScore REAL, -- Maximum points possible
+    AssessmentItemMinimumScore REAL, -- Minimum points possible
+    AssessmentItemLinkingItemIndicator TEXT CHECK (AssessmentItemLinkingItemIndicator IN ('Yes', 'No')),
+    AssessmentItemReleaseStatus TEXT CHECK (AssessmentItemReleaseStatus IN ('Yes', 'No')),
+    AssessmentItemResponseSecurityIssue TEXT, -- Description of security issues
+    AssessmentAcademicSubject TEXT CHECK (AssessmentAcademicSubject IN (
+        '13371', -- Arts
+        '73065', -- Career and Technical Education
+        '13372', -- English
+        '00256', -- English as a second language (ESL)
+        '00546', -- Foreign Languages
+        '73088', -- History Government - US
+        '73089', -- History Government - World
+        '00554', -- Language arts
+        '01166', -- Mathematics
+        '00560', -- Reading
+        '13373', -- Reading/Language Arts
+        '00562', -- Science
+        '73086', -- Science - Life
+        '73087', -- Science - Physical
+        '13374', -- Social Sciences (History, Geography, Economics, Civics and Government)
+        '02043', -- Special education
+        '01287', -- Writing
+        '09999' -- Other
+    ))
+);
+
+-- Creating table for Assessment Registration entity
+CREATE TABLE AssessmentRegistration (
+    ReasonNotTested TEXT CHECK (ReasonNotTested IN (
+        '03451', -- Absent
+        '03455', -- Disruptive behavior
+        '03454', -- Medical waiver
+        '03456', -- Previously passed the examination
+        '03452', -- Refusal by parent
+        '03453', -- Refusal by student
+        '09999' -- Other
+    )),
+    SchoolFullAcademicYear TEXT CHECK (SchoolFullAcademicYear IN ('Yes', 'No')),
+    StateFullAcademicYear TEXT CHECK (StateFullAcademicYear IN ('Yes', 'No')),
+    SchoolIdentifier TEXT, -- Unique identifier, follows XSD:Token format
+    SchoolIdentificationSystem TEXT CHECK (SchoolIdentificationSystem IN (
+        'School', -- School-assigned number
+        'ACT', -- College Board/ACT program code set of PK-grade 12 institutions
+        'LEA', -- Local Education Agency assigned number
+        'SEA', -- State Education Agency assigned number
+        'NCES', -- National Center for Education Statistics assigned number
+        'Federal', -- Federal identification number
+        'DUNS', -- Dun and Bradstreet number
+        'OtherFederal', -- Other federally assigned number
+        'StateUniversitySystem', -- State University System assigned number
+        'Other', -- Other
+        'SAM' -- System for Award Management Unique Entity Identifier
+    )),
+    StateAgencyIdentifier TEXT, -- Unique identifier, follows XSD:Token format
+    StateAgencyIdentificationSystem TEXT CHECK (StateAgencyIdentificationSystem IN (
+        'State', -- State-assigned number
+        'Federal', -- Federal identification number
+        'FEIN', -- Federal Employer Identification Number
+        'NCES', -- National Center for Education Statistics Assigned Number
+        'SAM', -- System for Award Management Unique Entity Identifier
+        'Other' -- Other
+    )),
+    LocalEducationAgencyIdentifier TEXT, -- Unique identifier, follows XSD:Token format
+    LEAIdentificationSystem TEXT CHECK (LEAIdentificationSystem IN (
+        'District', -- District-assigned number
+        'ACT', -- College Board/ACT program code set of PK-grade 12 institutions
+        'SEA', -- State Education Agency assigned number
+        'NCES', -- National Center for Education Statistics assigned number
+        'Federal', -- Federal identification number
+        'DUNS', -- Dun and Bradstreet number
+        'CENSUSID', -- Census Bureau identification code
+        'OtherFederal', -- Other federally assigned number
+        'Other', -- Other
+        'SAM' -- System for Award Management Unique Entity Identifier
+    ))
+);
+
+-- Creating table for Assessment Result entity
+CREATE TABLE AssessmentResult (
+    AssessmentResultScoreValue TEXT, -- Score value (number, percentile, range, etc.)
+    AssessmentResultDataType TEXT CHECK (AssessmentResultDataType IN (
+        'Integer', -- Integer
+        'Decimal', -- Decimal
+        'Percentile', -- Percentile
+        'String' -- String
+    )),
+    AssessmentResultDateCreated DATE, -- Date result was generated
+    AssessmentResultDateUpdated DATE, -- Most recent date result was updated
+    AssessmentResultDescriptiveFeedback TEXT, -- Formative feedback given to learner
+    AssessmentResultDescriptiveFeedbackDateTime TEXT, -- Date and time feedback was entered
+    AssessmentResultDescriptiveFeedbackSource TEXT, -- Source of feedback
+    AssessmentResultDiagnosticStatement TEXT, -- Statement for professional interpretation
+    AssessmentResultNumberOfResponses INTEGER, -- Number of attempted responses
+    AssessmentResultPreliminaryIndicator TEXT CHECK (AssessmentResultPreliminaryIndicator IN ('Yes', 'No')),
+    AssessmentResultPretestOutcome TEXT CHECK (AssessmentResultPretestOutcome IN (
+        'GradeLevel', -- At or above Grade Level
+        'BelowGradeLevel', -- Below Grade Level
+        'NA' -- Not applicable
+    )),
+    AssessmentResultScoreStandardError REAL, -- Standard error of the score
+    AssessmentResultScoreType TEXT CHECK (AssessmentResultScoreType IN (
+        'Initial', -- An initial assessment score instance
+        'Reliability', -- Recorded as a measure of reliability
+        'Resolution', -- Recorded after resolution of scoring issues
+        'Backread', -- Recorded to check scorer accuracy
+        'Final' -- The final assessment score instance
+    )),
+    AssessmentScoreMetricType TEXT CHECK (AssessmentScoreMetricType IN (
+        '00512', -- Achievement/proficiency level
+        '00494', -- ACT score
+        '00490', -- Age score
+        '00491', -- C-scaled scores
+        '00492', -- College Board examination scores
+        '00493', -- Grade equivalent or grade-level indicator
+        '03473', -- Graduation score
+        '03474', -- Growth/value-added/indexing
+        '03475', -- International Baccalaureate score
+        '00144', -- Letter grade/mark
+        '00513', -- Mastery level
+        '00497', -- Normal curve equivalent
+        '00498', -- Normalized standard score
+        '00499', -- Number score
+        '00500', -- Pass-fail
+        '03476', -- Percentile
+        '00502', -- Percentile rank
+        '00503', -- Proficiency level
+        '03477', -- Promotion score
+        '00504', -- Ranking
+        '00505', -- Ratio IQ's
+        '03478', -- Raw score
+        '03479', -- Scale score
+        '00506', -- Standard age score
+        '00508', -- Stanine score
+        '00509', -- Sten score
+        '00510', -- T-score
+        '03480', -- Workplace readiness score
+        '00511', -- Z-score
+        '03481', -- SAT Score
+        '09999' -- Other
+    )),
+    DiagnosticStatementSource TEXT, -- Source of diagnostic statement
+    InstructionalRecommendation TEXT -- Next steps for instruction
+);
+
+-- Creating table for Assessment Performance Level entity
+CREATE TABLE AssessmentPerformanceLevel (
+    AssessmentPerformanceLevelIdentifier TEXT, -- Unique identifier, follows XSD:Token format
+    AssessmentPerformanceLevelLabel TEXT, -- Label for reporting
+    AssessmentPerformanceLevelDescriptiveFeedback TEXT, -- Feedback message for the level
+    AssessmentPerformanceLevelLowerCutScore REAL, -- Lowest score for the level
+    AssessmentPerformanceLevelUpperCutScore REAL, -- Highest score for the level
+    AssessmentPerformanceLevelScoreMetric TEXT CHECK (AssessmentPerformanceLevelScoreMetric IN (
+        '00512', -- Achievement/proficiency level
+        '00494', -- ACT score
+        '00490', -- Age score
+        '00491', -- C-scaled scores
+        '00492', -- College Board examination scores
+        '00493', -- Grade equivalent or grade-level indicator
+        '03473', -- Graduation score
+        '03474', -- Growth/value-added/indexing
+        '03475', -- International Baccalaureate score
+        '00144', -- Letter grade/mark
+        '00513', -- Mastery level
+        '00497', -- Normal curve equivalent
+        '00498', -- Normalized standard score
+        '00499', -- Number score
+        '00500', -- Pass-fail
+        '03476', -- Percentile
+        '00502', -- Percentile rank
+        '00503', -- Proficiency level
+        '03477', -- Promotion score
+        '00504', -- Ranking
+        '00505', -- Ratio IQ's
+        '03478', -- Raw score
+        '03479', -- Scale score
+        '00506', -- Standard age score
+        '00508', -- Stanine score
+        '00509', -- Sten score
+        '00510', -- T-score
+        '03480', -- Workplace readiness score
+        '00511', -- Z-score
+        '09999' -- Other
+    ))
+);
+
+-- Creating table for Scorer entity
+CREATE TABLE Scorer (
+    PersonIdentifier TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
+    PersonIdentificationSystem TEXT CHECK (PersonIdentificationSystem IN (
+        'SSN', -- Social Security Administration number
+        'USVisa', -- US government Visa number
+        'PIN', -- Personal identification number
+        'Federal', -- Federal identification number
+        'DriversLicense', -- Driver's license number
+        'Medicaid', -- Medicaid number
+        'HealthRecord', -- Health record number
+        'ProfessionalCertificate', -- Professional certificate or license number
+        'School', -- School-assigned number
+        'District', -- District-assigned number
+        'State', -- State-assigned number
+        'Institution', -- Institution-assigned number
+        'OtherFederal', -- Other federally assigned number
+        'SelectiveService', -- Selective Service Number
+        'CanadianSIN', -- Canadian Social Insurance Number
+        'BirthCertificate', -- Birth certificate number
+        'Other' -- Other
+    )),
+    FirstName TEXT, -- Legal first name
+    LastOrSurname TEXT -- Legal last name
+);
+
+-- Creating table for Assessment Session entity
+CREATE TABLE AssessmentSession (
+    AssessmentSessionAdministratorIdentifier TEXT, -- Unique identifier, follows XSD:Token format
+    AssessmentSessionProctorIdentifier TEXT, -- Unique identifier, follows XSD:Token format
+    AssessmentSessionAllottedTime TEXT, -- Duration of allotted time
+    AssessmentSessionLocation TEXT, -- Description of administration place
+    AssessmentSessionScheduledStartDateTime TEXT, -- Scheduled start date and time
+    AssessmentSessionScheduledEndDateTime TEXT, -- Scheduled end date and time
+    AssessmentSessionActualStartDateTime TEXT, -- Actual start date and time
+    AssessmentSessionActualEndDateTime TEXT, -- Actual end date and time
+    AssessmentSessionSecurityIssue TEXT, -- Description of security issues
+    AssessmentSessionSpecialCircumstanceType TEXT CHECK (AssessmentSessionSpecialCircumstanceType IN (
+        '13807', -- Long-term suspension - non-special education
+        '13808', -- Short-term suspension - non-special education
+        '13809', -- Suspension - special education
+        '13810', -- Truancy - paperwork filed
+        '13811', -- Truancy - no paperwork filed
+        '13812', -- Earlier truancy
+        '13813', -- Chronic absences
+        '13814', -- Catastrophic illness or accident
+        '13815', -- Home schooled for assessed subjects
+        '13816', -- Student took this grade level assessment last year
+        '13817', -- Incarcerated at adult facility
+        '13818', -- Special treatment center
+        '13819', -- Special detention center
+        '13820', -- Parent refusal
+        '13821', -- Cheating
+        '13822', -- Psychological factors of emotional trauma
+        '13823', -- Student not showing adequate effort
+        '13824', -- Homebound
+        '13825', -- Foreign exchange student
+        '13826', -- Student refusal
+        '13827', -- Reading passage read to student (IEP)
+        '13828', -- Non-special education student used calculator on non-calculator items
+        '13829', -- Student used math journal (non-IEP)
+        '13830', -- Other reason for ineligibility
+        '13831', -- Other reason for nonparticipation
+        '13832', -- Left testing
+        '13833', -- Cross-enrolled
+        '13834', -- Only for writing
+        '13835', -- Administration or system failure
+        '13836', -- Teacher cheating or mis-admin
+        '13837', -- Fire alarm
+        '09999' -- Other
+    )),
+    AssessmentSessionSpecialEventDescription TEXT, -- Description of special events
+    AssessmentSessionStaffRoleType TEXT CHECK (AssessmentSessionStaffRoleType IN (
+        'Teacher', -- Teacher
+        'Principal', -- Principal
+        'Administrator', -- Administrator
+        'Proctor', -- Proctor
+        'Observer', -- Observer
+        'Scorer', -- Scorer
+        'Registrar' -- Registrar
+    )),
+    AssessmentSessionType TEXT CHECK (AssessmentSessionType IN (
+        'Standard', -- Standard
+        'Accommodation' -- Accommodation
+    )),
+    LocalEducationAgencyIdentifier TEXT, -- Unique identifier, follows XSD:Token format
+    LEAIdentificationSystem TEXT CHECK (LEAIdentificationSystem IN (
+        'District', -- District-assigned number
+        'ACT', -- College Board/ACT program code set of PK-grade 12 institutions
+        'SEA', -- State Education Agency assigned number
+        'NCES', -- National Center for Education Statistics assigned number
+        'Federal', -- Federal identification number
+        'DUNS', -- Dun and Bradstreet number
+        'CENSUSID', -- Census Bureau identification code
+        'OtherFederal', -- Other federally assigned number
+        'Other', -- Other
+        'SAM' -- System for Award Management Unique Entity Identifier
+    )),
+    SchoolIdentifier TEXT, -- Unique identifier, follows XSD:Token format
+    SchoolIdentificationSystem TEXT CHECK (SchoolIdentificationSystem IN (
+        'School', -- School-assigned number
+        'ACT', -- College Board/ACT program code set of PK-grade 12 institutions
+        'LEA', -- Local Education Agency assigned number
+        'SEA', -- State Education Agency assigned number
+        'NCES', -- National Center for Education Statistics assigned number
+        'Federal', -- Federal identification number
+        'DUNS', -- Dun and Bradstreet number
+        'OtherFederal', -- Other federally assigned number
+        'StateUniversitySystem', -- State University System assigned number
+        'Other', -- Other
+        'SAM' -- System for Award Management Unique Entity Identifier
+    ))
+);
+
+-- Creating table for Assessment Subtest entity
+CREATE TABLE AssessmentSubtest (
+    AssessmentSubtestIdentifier TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
+    AssessmentSubtestIdentifierType TEXT CHECK (AssessmentSubtestIdentifierType IN (
+        'Client', -- Client
+        'Publisher', -- Publisher
+        'Internal', -- Internal
+        'Other' -- Other
+    )),
+    AssessmentSubtestTitle TEXT, -- Name or title of the subtest
+    AssessmentSubtestAbbreviation TEXT, -- Shortened name for reference
+    AssessmentSubtestDescription TEXT, -- Description of the subtest
+    AssessmentSubtestVersion TEXT, -- Version of the subtest
+    AssessmentSubtestMinimumValue REAL, -- Minimum value possible
+    AssessmentSubtestMaximumValue REAL, -- Maximum value possible
+    AssessmentSubtestScaleOptimalValue REAL, -- Optimal value for measurement
+    AssessmentSubtestPublishedDate DATE, -- Date subtest was published
+    AssessmentSubtestRules TEXT, -- Rules for producing subtest score
+    AssessmentAcademicSubject TEXT CHECK (AssessmentAcademicSubject IN (
+        '13371', -- Arts
+        '73065', -- Career and Technical Education
+        '13372', -- English
+        '00256', -- English as a second language (ESL)
+        '00546', -- Foreign Languages
+        '73088', -- History Government - US
+        '73089', -- History Government - World
+        '00554', -- Language arts
+        '01166', -- Mathematics
+        '00560', -- Reading
+        '13373', -- Reading/Language Arts
+        '00562', -- Science
+        '73086', -- Science - Life
+        '73087', -- Science - Physical
+        '13374', -- Social Sciences (History, Geography, Economics, Civics and Government)
+        '02043', -- Special education
+        '01287', -- Writing
+        '09999' -- Other
+    )),
+    AssessmentContentStandardType TEXT CHECK (AssessmentContentStandardType IN (
+        'AssociationStandard', -- Association standard
+        'LocalStandard', -- Local standard
+        'None', -- None
+        'Other', -- Other
+        'OtherStandard', -- Other standard
+        'RegionalStandard', -- Regional standard
+        'SchoolStandard', -- School standard
+        'StatewideStandard' -- Statewide standard
+    )),
+    AssessmentEarlyLearningDevelopmentalDomain TEXT CHECK (AssessmentEarlyLearningDevelopmentalDomain IN (
+        '01', -- Language and Literacy
+        '02', -- Cognition and General Knowledge
+        '03', -- Approaches Toward Learning
+        '04', -- Physical Well-being and Motor
+        '05' -- Social and Emotional Development
+    )),
+    AssessmentFormSubtestContainerOnly TEXT CHECK (AssessmentFormSubtestContainerOnly IN ('Yes', 'No')),
+    AssessmentFormSubtestTier INTEGER, -- Level in subtest hierarchy, default 0
+    AssessmentLevelForWhichDesigned TEXT CHECK (AssessmentLevelForWhichDesigned IN (
+        'Birth', -- Birth
+        'Prenatal', -- Prenatal
+        'IT', -- Infant/toddler
+        'PR', -- Preschool
+        'PK', -- Prekindergarten
+        'TK', -- Transitional Kindergarten
+        'KG', -- Kindergarten
+        '01', -- First grade
+        '02', -- Second grade
+        '03', -- Third grade
+        '04', -- Fourth grade
+        '05', -- Fifth grade
+        '06', -- Sixth grade
+        '07', -- Seventh grade
+        '08', -- Eighth grade
+        '09', -- Ninth grade
+        '10', -- Tenth grade
+        '11', -- Eleventh grade
+        '12', -- Twelfth grade
+        '13', -- Grade 13
+        'PS', -- Postsecondary
+        'UG', -- Ungraded
+        'AE', -- Adult Education
+        'Other' -- Other
+    )),
+    AssessmentPurpose TEXT CHECK (AssessmentPurpose IN (
+        '00050', -- Admission
+        '00051', -- Assessment of student's progress
+        '73055', -- College Readiness
+        '00063', -- Course credit
+        '00064', -- Course requirement
+        '73069', -- Diagnosis
+        '03459', -- Federal accountability
+        '73068', -- Inform local or state policy
+        '00055', -- Instructional decision
+        '03457', -- Local accountability
+        '02400', -- Local graduation requirement
+        '73042', -- Obtain a state- or industry-recognized certificate or license
+        '73043', -- Obtain postsecondary credit for the course
+        '73067', -- Program eligibility
+        '00057', -- Program evaluation
+        '00058', -- Program placement
+        '00062', -- Promotion to or retention in a grade or program
+        '00061', -- Screening
+        '03458', -- State accountability
+        '09999', -- Other
+        '00054' -- State graduation requirement
+    )),
+    AssessmentScoreMetricType TEXT CHECK (AssessmentScoreMetricType IN (
+        '00512', -- Achievement/proficiency level
+        '00494', -- ACT score
+        '00490', -- Age score
+        '00491', -- C-scaled scores
+        '00492', -- College Board examination scores
+        '00493', -- Grade equivalent or grade-level indicator
+        '03473', -- Graduation score
+        '03474', -- Growth/value-added/indexing
+        '03475', -- International Baccalaureate score
+        '00144', -- Letter grade/mark
+        '00513', -- Mastery level
+        '00497', -- Normal curve equivalent
+        '00498', -- Normalized standard score
+        '00499', -- Number score
+        '00500', -- Pass-fail
+        '03476', -- Percentile
+        '00502', -- Percentile rank
+        '00503', -- Proficiency level
+        '03477', -- Promotion score
+        '00504', -- Ranking
+        '00505', -- Ratio IQ's
+        '03478', -- Raw score
+        '03479', -- Scale score
+        '00506', -- Standard age score
+        '00508', -- Stanine score
+        '00509', -- Sten score
+        '00510', -- T-score
+        '03480', -- Workplace readiness score
+        '00511', -- Z-score
+        '03481', -- SAT Score
+        '09999' -- Other
+    ))
+);
+
+-- Creating table for Goal entity
+CREATE TABLE Goal (
+    GoalDescription TEXT, -- Description of desired outcomes
+    GoalSuccessCriteria TEXT, -- Criteria for goal attainment
+    GoalStartDate DATE, -- Date goal becomes active
+    GoalEndDate DATE -- Date goal expires or is achieved
+);
+
+-- Creating table for Learner Action entity
+CREATE TABLE LearnerAction (
+    LearnerActionActorIdentifier TEXT, -- Unique identifier, follows XSD:Token format
+    LearnerActionDateTime TEXT, -- Date and time of action
+    LearnerActionType TEXT CHECK (LearnerActionType IN (
+        'abandoned', -- Abandoned
+        'answered', -- Answered
+        'asked', -- Asked
+        'attempted', -- Attempted
+        'attended', -- Attended
+        'commented', -- Commented
+        'completed', -- Completed
+        'exited', -- Exited
+        'experienced', -- Experienced
+        'failed', -- Failed
+        'imported', -- Imported
+        'initialized', -- Initialized
+        'interacted', -- Interacted
+        'launched', -- Launched
+        'logged-in', -- Logged-In
+        'logged-out', -- Logged-Out
+        'mastered', -- Mastered
+        'passed', -- Passed
+        'preferred', -- Preferred
+        'progressed', -- Progressed
+        'registered', -- Registered
+        'responded', -- Responded
+        'resumed', -- Resumed
+        'satisfied', -- Satisfied
+        'scored', -- Scored
+        'shared', -- Shared
+        'suspended', -- Suspended
+        'terminated', -- Terminated
+        'voided', -- Voided
+        'waived' -- Waived
+    )),
+    LearnerActionValue TEXT, -- Input value or URL
+    LearnerActionObjectDescription TEXT, -- Description of action object
+    LearnerActionObjectIdentifier TEXT, -- Unique identifier or URL
+    LearnerActionObjectType TEXT -- Type of action object
+);
+
+-- Creating table for Learner Activity entity
+CREATE TABLE LearnerActivity (
+    LearnerActivityTitle TEXT, -- Title of assigned work
+    LearnerActivityDescription TEXT, -- Description for learner
+    LearnerActivityType TEXT CHECK (LearnerActivityType IN (
+        'Assignment', -- Assignment
+        'LearningResource', -- Learning Resource
+        'Activity', -- Activity
+        'Lesson' -- Lesson
+    )),
+    LearnerActivityPrerequisite TEXT, -- Required skills or competencies
+    LearnerActivityCreationDate DATE, -- Creation date
+    LearnerActivityMaximumTimeAllowed REAL, -- Time to complete
+    LearnerActivityMaximumTimeAllowedUnit TEXT CHECK (LearnerActivityMaximumTimeAllowedUnit IN (
+        'Week', -- Week
+        'Day', -- Day
+        'Hour', -- Hour
+        'Minute', -- Minute
+        'Second' -- Second
+    )),
+    LearnerActivityDueDate DATE, -- Due date
+    LearnerActivityDueTime TEXT, -- Due time
+    LearnerActivityMaximumAttemptsAllowed INTEGER, -- Number of allowed attempts
+    LearnerActivityAddToGradeBookFlag TEXT CHECK (LearnerActivityAddToGradeBookFlag IN (
+        'Yes', -- Yes
+        'No', -- No
+        'NotSelected' -- Not selected
+    )),
+    LearnerActivityReleaseDate DATE, -- Date assignment is displayed
+    LearnerActivityWeight REAL, -- Percentage weight
+    LearnerActivityPossiblePoints REAL, -- Possible points
+    LearnerActivityRubricURL TEXT, -- URL to rubric
+    LearnerActivityLanguage TEXT -- ISO 639-2 language code, see http://www.loc.gov/standards/iso639-2/langhome.html
+);
+
+-- Creating table for Rubric entity
+CREATE TABLE Rubric (
+    AssessmentRubricIdentifier TEXT, -- Unique identifier, follows XSD:Token format
+    AssessmentRubricTitle TEXT, -- Title of the rubric
+    RubricDescription TEXT, -- Intended use of the rubric
+    AssessmentRubricURLReference TEXT, -- URL location of rubric
+    RubricCriterionCategory TEXT, -- Category for grouping criteria
+    RubricCriterionDescription TEXT, -- Description of quality criterion
+    RubricCriterionTitle TEXT, -- Title of criterion
+    RubricCriterionPosition INTEGER, -- Position in criteria list
+    RubricCriterionWeight REAL, -- Weight for scored rubrics
+    RubricCriterionLevelDescription TEXT, -- Benchmarks for achievement
+    RubricCriterionLevelFeedback TEXT, -- Feedback for evaluated person
+    RubricCriterionLevelPosition INTEGER, -- Position in level list
+    RubricCriterionLevelQualityLabel TEXT, -- Qualitative description
+    RubricCriterionLevelScore REAL -- Points for achieving level
+);
+
 -- Creating table for Authentication Identity Provider entity
 CREATE TABLE AuthenticationIdentityProvider (
     AuthenticationIdentityProviderName TEXT NOT NULL, -- Name of the provider that can authenticate identity
