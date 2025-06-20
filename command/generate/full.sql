@@ -3513,9 +3513,9 @@ CREATE TABLE EarlyChildhoodClassGroup (
     ))
 );
 
--- Career and Technical
+-- Career and Technical (CTE)
 -- Creating table for Course entity
-CREATE TABLE CNTCourse (
+CREATE TABLE CTECourse (
     CourseIdentifier TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
     CourseTitle TEXT NOT NULL, -- Descriptive name of the course
     CourseDescription TEXT, -- Description of course content/goals
@@ -3655,7 +3655,7 @@ CREATE TABLE CNTCourse (
 );
 
 -- Creating table for Course Section entity
-CREATE TABLE CNTCourseSection (
+CREATE TABLE CTECourseSection (
     CourseSectionIdentifier TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
     CourseIdentifier TEXT, -- References Course table
     AgencyCourseIdentifier TEXT, -- Regional/state identifier, follows XSD:Token
@@ -4006,7 +4006,7 @@ CREATE TABLE CNTCourseSection (
 );
 
 -- Creating table for Course Section Attendance entity
-CREATE TABLE CNTCourseSectionAttendance (
+CREATE TABLE CTECourseSectionAttendance (
     CourseSectionIdentifier TEXT NOT NULL, -- References CourseSection table
     AttendanceEventDate DATE, -- Date of attendance event
     AttendanceEventType TEXT CHECK (AttendanceEventType IN (
@@ -4028,7 +4028,7 @@ CREATE TABLE CNTCourseSectionAttendance (
 );
 
 -- Creating table for CTE Student entity
-CREATE TABLE CNTCTEStudent (
+CREATE TABLE CTEStudent (
     StudentIdentifier TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
     StudentIdentificationSystem TEXT CHECK (StudentIdentificationSystem IN (
         'CanadianSIN', -- Canadian Social Insurance Number
@@ -4482,7 +4482,7 @@ CREATE TABLE CNTCTEStudent (
 );
 
 -- Creating table for Program entity
-CREATE TABLE CNTProgram (
+CREATE TABLE CTEProgram (
     ProgramName TEXT, -- Name of the program
     EnrollmentCapacity INTEGER, -- Max age-appropriate students
     PrimaryProgramIndicator TEXT CHECK (PrimaryProgramIndicator IN ('Yes', 'No')),
