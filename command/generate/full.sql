@@ -3655,7 +3655,7 @@ CREATE TABLE CNTCourse (
 );
 
 -- Creating table for Course Section entity
-CREATE TABLE CNTCNTCourseSection (
+CREATE TABLE CNTCourseSection (
     CourseSectionIdentifier TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
     CourseIdentifier TEXT, -- References Course table
     AgencyCourseIdentifier TEXT, -- Regional/state identifier, follows XSD:Token
