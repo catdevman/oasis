@@ -32,6 +32,7 @@ func main() {
 	pluginMap := map[string]plugin.Plugin{
 		"routePlugin": &shared.ServeMuxPlugin{},
 	}
+	//TODO: this should be configurable
 	dir := "./plugins"
 	executables, err := findExecutables(dir)
 	if err != nil {
