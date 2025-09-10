@@ -1,0 +1,1832 @@
+Domain,Entity,Category,Element Name,Definition,Option Set,Status,Change Notes,Usage Notes,Global,Technical Name,URL,Data Model ID
+Assessments,Assessment,,Assessment Academic Subject,"The description of the academic content or subject area (e.g., arts, mathematics, reading, or a foreign language) being evaluated.","13371 - Arts
+73065 - Career and Technical Education
+13372 - English
+00256 - English as a second language (ESL)
+00546 - Foreign Languages
+73088 - History Government - US
+73089 - History Government - World
+00554 - Language arts
+01166 - Mathematics
+00560 - Reading
+13373 - Reading/Language Arts
+00562 - Science
+73086 - Science - Life
+73087 - Science - Physical
+13374 - Social Sciences (History, Geography, Economics, Civics and Government)
+02043 - Special education
+01287 - Writing
+09999 - Other
+",,,,000021,AssessmentAcademicSubject,https://ceds.ed.gov/cedselementdetails.aspx?termid=23021,65174
+Assessments,Assessment,,Assessment Early Learning Developmental Domain,Developmental domains related to early learning and used for assessing a child's kindergarten readiness.,"01 - Language and Literacy
+02 - Cognition and General Knowledge
+03 - Approaches Toward Learning
+04 - Physical Well-being and Motor
+05 - Social and Emotional Development
+",,,"Used by states in reporting Kindergarten Entry Assessment (KEA) results as defined for some federal grant programs.<BR/><BR/>For each domain used by the state, the state would provide:<BR/>- The total number of children who participated in the KEA for each domain<BR/>- The number of children who participated in the KEA for each domain AND was at or above what the state defines as “ready” for kindergarten for that domain.<BR/><BR/>The counts may be calculated using unit-level data defined for Assessment Subtest (scoring method and what is being measured, e.g. the Domain), related Assessment Performance Levels (e.g. ""Ready""), related to each student Assessment Result.",001000,AssessmentEarlyLearningDevelopmentalDomain,https://ceds.ed.gov/cedselementdetails.aspx?termid=24003,65509
+Assessments,Assessment,,Assessment Family Short Name,"The abbreviated title of the Assessment Family. An Assessment Family is a set of assessments with a common name, jurisdiction, or focus.",None,,,"Examples: SAT, GRE, NAEP",000933,AssessmentFamilyShortName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23934,65392
+Assessments,Assessment,,Assessment Family Title,"The full title of the Assessment Family. An Assessment Family is a set of assessments with a common name, jurisdiction, or focus, such as Graduate Record Exam or National Assessment of Educational Progress.",None,,,,000932,AssessmentFamilyTitle,https://ceds.ed.gov/cedselementdetails.aspx?termid=23933,65391
+Assessments,Assessment,,Assessment GUID,The globally unique identifier of an Assessment using a RFC 4122 compliant hexadecimal string.,None,,,"CEDS ""GUID"" elements are defined as RFC 4122 compliant 32-character hexadecimal strings (36 characters with dashes). For example, 21EC2020-3AEA-1069-A2DD-08002B30309D. <br/><br/>Values MAY be encoded using a hash function such as HMAC-MD5 or HMAC-SHA1, resulting in a string up to 40 characters.",000981,AssessmentGUID,https://ceds.ed.gov/cedselementdetails.aspx?termid=23982,65433
+Assessments,Assessment,,Assessment Identification System,"A coding scheme that is used for identification and record-keeping purposes by schools, social services, or other agencies to refer to an assessment.","School - School-assigned number
+District - District-assigned number
+State - State-assigned number
+Federal - Federal identification number
+OtherFederal - Other federally assigned number
+TestContractor - Test contractor assigned assessment number
+Other - Other
+",Updated,Add new DES location,,000365,AssessmentIdentificationSystem,https://ceds.ed.gov/cedselementdetails.aspx?termid=23158,65179
+Assessments,Assessment,,Assessment Identifier,"A unique number or alphanumeric code assigned to an assessment by a school, school system, a state, or other agency or entity.  This may be the publisher identifier.",None,Updated,Add new DES location,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001067,AssessmentIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23152,65178
+Assessments,Assessment,,Assessment Level for Which Designed,"The typical grade or combination of grade-levels, developmental levels, or age-levels for which an assessment is designed.","Birth - Birth
+Prenatal - Prenatal
+IT - Infant/toddler
+PR - Preschool
+PK - Prekindergarten
+TK - Transitional Kindergarten
+KG - Kindergarten
+01 - First grade
+02 - Second grade
+03 - Third grade
+04 - Fourth grade
+05 - Fifth grade
+06 - Sixth grade
+07 - Seventh grade
+08 - Eighth grade
+09 - Ninth grade
+10 - Tenth grade
+11 - Eleventh grade
+12 - Twelfth grade
+13 - Grade 13
+PS - Postsecondary
+UG - Ungraded
+AE - Adult Education
+Other - Other
+",,,,000177,AssessmentLevelForWhichDesigned,https://ceds.ed.gov/cedselementdetails.aspx?termid=23177,65180
+Assessments,Assessment,,Assessment Objective,This is the objective that the assessment is measuring.,None,,,,000382,AssessmentObjective,https://ceds.ed.gov/cedselementdetails.aspx?termid=23373,65182
+Assessments,Assessment,,Assessment Provider,Identifies the provider or publisher of the assessment.,None,,,AIF property,001006,AssessmentProvider,https://ceds.ed.gov/cedselementdetails.aspx?termid=24009,65445
+Assessments,Assessment,,Assessment Purpose,The reason for which an assessment is designed or delivered.,"00050 - Admission
+00051 - Assessment of student's progress
+73055 - College Readiness
+00063 - Course credit
+00064 - Course requirement
+73069 - Diagnosis
+03459 - Federal accountability
+73068 - Inform local or state policy
+00055 - Instructional decision
+03457 - Local accountability
+02404 - Local graduation requirement
+73042 - Obtain a state- or industry-recognized certificate or license
+73043 - Obtain postsecondary credit for the course
+73067 - Program eligibility
+00057 - Program evaluation
+00058 - Program placement
+00062 - Promotion to or retention in a grade or program
+00061 - Screening
+03458 - State accountability
+09999 - Other
+00054 - State graduation requirement
+",,,This element might have multiple occurrences associated with any one assessment.,000026,AssessmentPurpose,https://ceds.ed.gov/cedselementdetails.aspx?termid=23026,65175
+Assessments,Assessment,,Assessment Revision Date,"The month, day, and year that the conceptual design for the assessment was most recently revised substantially.",None,,,,001544,AssessmentRevisionDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24519,67815
+Assessments,Assessment,,Assessment Score Metric Type,The specific method used to report the performance and achievement of the assessment. This is the metric that is being used to derive the scores.,"00512 - Achievement/proficiency level
+00494 - ACT score
+00490 - Age score
+00491 - C-scaled scores
+00492 - College Board examination scores
+00493 - Grade equivalent or grade-level indicator
+03473 - Graduation score
+03474 - Growth/value-added/indexing
+03475 - International Baccalaureate score
+00144 - Letter grade/mark
+00513 - Mastery level
+00497 - Normal curve equivalent
+00498 - Normalized standard score
+00499 - Number score
+00500 - Pass-fail
+03476 - Percentile
+00502 - Percentile rank
+00503 - Proficiency level
+03477 - Promotion score
+00504 - Ranking
+00505 - Ratio IQ's
+03478 - Raw score
+03479 - Scale score
+00506 - Standard age score
+00508 - Stanine score
+00509 - Sten score
+00510 - T-score
+03480 - Workplace readiness score
+00511 - Z-score
+03481 - SAT Score
+09999 - Other
+",,,,000369,AssessmentScoreMetricType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23368,65181
+Assessments,Assessment,,Assessment Short Name,An abbreviated title for an assessment.,None,,,,000931,AssessmentShortName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23932,65390
+Assessments,Assessment,,Assessment Title,The title or name of the assessment.,None,,,,000028,AssessmentTitle,https://ceds.ed.gov/cedselementdetails.aspx?termid=23028,65176
+Assessments,Assessment,,Assessment Type,The category of an assessment based on format and content.,"AchievementTest - Achievement test
+AdvancedPlacementTest - Advanced placement test
+AlternateAssessmentELL - Alternate assessment/ELL
+AlternateAssessmentGradeLevelStandards - Alternate assessment/grade-level standards
+AlternativeAssessmentModifiedStandards - Alternative assessment/modified standards
+AptitudeTest - Aptitude Test
+Benchmark - Benchmark
+CognitiveAndPerceptualSkills - Cognitive and perceptual skills test
+ComputerAdaptiveTest - Computer Adaptive Test
+DevelopmentalObservation - Developmental observation
+Diagnostic - Diagnostic
+DirectAssessment - Direct Assessment
+Formative - Formative
+GrowthMeasure - Growth Measure
+Interim - Interim
+KindergartenReadiness - Kindergarten Readiness
+LanguageProficiency - Language proficiency test
+MentalAbility - Mental ability (intelligence) test
+Observation - Observation
+ParentReport - Parent Report
+PerformanceAssessment - Performance assessment
+PortfolioAssessment - Portfolio assessment
+PrekindergartenReadiness - Prekindergarten Readiness
+ReadingReadiness - Reading readiness test
+Screening - Screening
+TeacherReport - Teacher Report
+AlternateAssessmentAlternateStandards - Alternate assessment/alternate standards
+WorkplaceSkills - Workplace skills
+Other - Other
+",Updated,Add new option to option set,,000029,AssessmentType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23029,65177
+Assessments,Assessment,,Assessment Type Administered,The type of assessment administered.,"REGASSWOACC - Regular assessments based on grade-level achievement standards without accommodations
+REGASSWACC - Regular assessments based on grade-level achievement standards with accommodations
+ALTASSGRADELVL - Alternate assessments based on grade-level achievement standards
+ALTASSMODACH - Alternate assessments based on modified achievement standards
+ALTASSALTACH - Alternate assessments based on alternate achievement standards
+AgeLevelWithoutAccommodations - Assessment based on age level standards without accommodations
+AgeLevelWithAccommodations - Assessment based on age level standards with accommodations
+BelowAgeLevelWithoutAccommodations - Assessment based on standards below age level without accommodations
+BelowAgeLevelWithAccommodations - Assessment based on standards below age level with accommodations
+",,,,000415,AssessmentTypeAdministered,https://ceds.ed.gov/cedselementdetails.aspx?termid=23405,65184
+Assessments,Assessment,,Assessment Type Administered to English Learners,The types of assessments administered to English Learners.,"ALTELPASMNTALT - Alternate English language proficiency (ELP) based on alternate ELP achievement standards
+REGELPASMNT - Regular English language proficiency (ELP) assessment
+",,,,001995,AssessmentTypeAdministeredToEnglishLearners,https://ceds.ed.gov/cedselementdetails.aspx?termid=24974,69696
+Assessments,Assessment,,ISO 639-2 Language Code,The code for the specific language or dialect that a person uses to communicate.,See URL column,,,"The CEDS ISO 639-2 Language Code option set comes from the <a href=""http://www.loc.gov/standards/iso639-2/langhome.html"">ISO 639-2 standard</a>, the character encoding in ISO 8859-1 download.  Discontinued codes from the ISO standard are not included in the CEDS list.",000317,ISO6392LanguageCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=23317,65597
+Assessments,Assessment,,ISO 639-3 Language Code,The code for the specific language or dialect that a person uses to communicate.,See URL column,Updated,"Add new option set, change option set","The CEDS ISO 639-3 Language Code option set comes from the <a href=""http://www-01.sil.org/iso639-3/default.asp"">ISO 639-3 standard</a>, the Latin-1 download.  Only living language code types from the ISO standard are included in the CEDS list.  Special scope and discontinued codes are excluded.",001637,ISO6393LanguageCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=24618,68216
+Assessments,Assessment,,ISO 639-5 Language Family,"A code for a specific language family, which supplements the language groups and families in the ISO 639-2 Language Code.","aav - Austro-Asiatic languages
+afa - Afro-Asiatic languages
+alg - Algonquian languages
+alv - Atlantic-Congo languages
+apa - Apache languages
+aqa - Alacalufan languages
+aql - Algic languages
+art - Artificial languages
+ath - Athapascan languages
+auf - Arauan languages
+aus - Australian languages
+awd - Arawakan languages
+azc - Uto-Aztecan languages
+bad - Banda languages
+bai - Bamileke languages
+bat - Baltic languages
+ber - Berber languages
+bih - Bihari languages
+bnt - Bantu languages
+btk - Batak languages
+cai - Central American Indian languages
+cau - Caucasian languages
+cba - Chibchan languages
+ccn - North Caucasian languages
+ccs - South Caucasian languages
+cdc - Chadic languages
+cdd - Caddoan languages
+cel - Celtic languages
+cmc - Chamic languages
+cpe - Creoles and pidgins, Englishâ€‘based
+cpf - Creoles and pidgins, Frenchâ€‘based
+cpp - Creoles and pidgins, Portuguese-based
+crp - Creoles and pidgins
+csu - Central Sudanic languages
+cus - Cushitic languages
+day - Land Dayak languages
+dmn - Mande languages
+dra - Dravidian languages
+egx - Egyptian languages
+esx - Eskimo-Aleut languages
+euq - Basque (family)
+fiu - Finno-Ugrian languages
+fox - Formosan languages
+gem - Germanic languages
+gme - East Germanic languages
+gmq - North Germanic languages
+gmw - West Germanic languages
+grk - Greek languages
+hmx - Hmong-Mien languages
+hok - Hokan languages
+hyx - Armenian (family)
+iir - Indo-Iranian languages
+ijo - Ijo languages
+inc - Indic languages
+ine - Indo-European languages
+ira - Iranian languages
+iro - Iroquoian languages
+itc - Italic languages
+jpx - Japanese (family)
+kar - Karen languages
+kdo - Kordofanian languages
+khi - Khoisan languages
+kro - Kru languages
+map - Austronesian languages
+mkh - Mon-Khmer languages
+mno - Manobo languages
+mun - Munda languages
+myn - Mayan languages
+nah - Nahuatl languages
+nai - North American Indian languages
+ngf - Trans-New Guinea languages
+nic - Niger-Kordofanian languages
+nub - Nubian languages
+omq - Oto-Manguean languages
+omv - Omotic languages
+oto - Otomian languages
+paa - Papuan languages
+phi - Philippine languages
+plf - Central Malayo-Polynesian languages
+poz - Malayo-Polynesian languages
+pqe - Eastern Malayo-Polynesian languages
+pqw - Western Malayo-Polynesian languages
+pra - Prakrit languages
+qwe - Quechuan (family)
+roa - Romance languages
+sai - South American Indian languages
+sal - Salishan languages
+sdv - Eastern Sudanic languages
+sem - Semitic languages
+sgn - sign languages
+sio - Siouan languages
+sit - Sino-Tibetan languages
+sla - Slavic languages
+smi - Sami languages
+son - Songhai languages
+sqj - Albanian languages
+ssa - Nilo-Saharan languages
+syd - Samoyedic languages
+tai - Tai languages
+tbq - Tibeto-Burman languages
+trk - Turkic languages
+tup - Tupi languages
+tut - Altaic languages
+tuw - Tungus languages
+urj - Uralic languages
+wak - Wakashan languages
+wen - Sorbian languages
+xgn - Mongolian languages
+xnd - Na-Dene languages
+ypk - Yupik languages
+zhx - Chinese (family)
+zle - East Slavic languages
+zls - South Slavic languages
+zlw - West Slavic languages
+znd - Zande languages
+",,,"The CEDS ISO 639-5 Language Family option set comes from the <a href=""http://www.loc.gov/standards/iso639-5/index.html"">ISO 639-5 standard</a>.",001638,ISO6395LanguageFamily,https://ceds.ed.gov/cedselementdetails.aspx?termid=24619,68223
+Assessments,Assessment Administration,,Assessment Administration Assessment Family,The title of the assessment family to be administered.,None,,,"A typical scenario for an assessment administration is a state-wide administration of an accountability test.  For example, in Florida ""Florida Comprehensive Assessment Test"".",000967,AssessmentAdministrationAssessmentFamily,https://ceds.ed.gov/cedselementdetails.aspx?termid=23968,66848
+Assessments,Assessment Administration,,Assessment Administration Code,The code given to the assessment event by a state or other authority directing overall administration.,None,,,,000961,AssessmentAdministrationCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=23962,66849
+Assessments,Assessment Administration,,Assessment Administration Finish Date,The finish date of the time period designated for the assessment administration.,None,,,,000964,AssessmentAdministrationFinishDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23965,66850
+Assessments,Assessment Administration,,Assessment Administration Finish Time,The finish time of the time period designated for the assessment administration.,None,,,,000965,AssessmentAdministrationFinishTime,https://ceds.ed.gov/cedselementdetails.aspx?termid=23966,66851
+Assessments,Assessment Administration,,Assessment Administration Name,The name given to an assessment event.,None,,,,000977,AssessmentAdministrationName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23978,65429
+Assessments,Assessment Administration,,Assessment Administration Organization Name,The name of the organization with overall responsibility for the assessment event.,None,,,,000966,AssessmentAdministrationOrganizationName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23967,66852
+Assessments,Assessment Administration,,Assessment Administration Period Description,The period or window in which an assessment is supposed to be administered.,None,,,,001531,AssessmentAdministrationPeriodDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24506,68114
+Assessments,Assessment Administration,,Assessment Administration Start Date,The start date of the time period designated for the assessment administration.,None,,,,000962,AssessmentAdministrationStartDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23963,66853
+Assessments,Assessment Administration,,Assessment Administration Start Time,The start time of the time period designated for the assessment administration.,None,,,,000963,AssessmentAdministrationStartTime,https://ceds.ed.gov/cedselementdetails.aspx?termid=23964,66854
+Assessments,Assessment Administration,,Assessment Identification System,"A coding scheme that is used for identification and record-keeping purposes by schools, social services, or other agencies to refer to an assessment.","School - School-assigned number
+District - District-assigned number
+State - State-assigned number
+Federal - Federal identification number
+OtherFederal - Other federally assigned number
+TestContractor - Test contractor assigned assessment number
+Other - Other
+",Updated,Add new DES location,,000365,AssessmentIdentificationSystem,https://ceds.ed.gov/cedselementdetails.aspx?termid=23158,65183
+Assessments,Assessment Administration,,Assessment Identifier,"A unique number or alphanumeric code assigned to an assessment by a school, school system, a state, or other agency or entity.  This may be the publisher identifier.",None,Updated,Add new DES location,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001067,AssessmentIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23152,65542
+Assessments,Assessment Administration,,Assessment Secure Indicator,Indicates whether or not the assessment is a secure assessment.,"Yes
+No
+",,,,000384,AssessmentSecureIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=23375,65187
+Assessments,Assessment Administration,,Local Education Agency Identification System,"A coding scheme that is used for identification and record-keeping purposes by schools, social services, or other agencies to refer to a local education agency.","District - District-assigned number
+ACT - College Board/ACT program code set of PK-grade 12 institutions
+SEA - State Education Agency assigned number
+NCES - National Center for Education Statistics assigned number
+Federal - Federal identification number
+DUNS - Dun and Bradstreet number
+CENSUSID - Census Bureau identification code
+OtherFederal - Other federally assigned number
+Other - Other
+SAM - System for Award Management Unique Entity Identifier
+",,,,001072,LEAIdentificationSystem,https://ceds.ed.gov/cedselementdetails.aspx?termid=23159,65593
+Assessments,Assessment Administration,,Local Education Agency Identifier,"A unique number or alphanumeric code assigned to a local education agency by a school system, a state, or other agency or entity.",None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces.  <BR/><BR/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001068,LocalEducationAgencyIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23153,65596
+Assessments,Assessment Administration,,School Identification System,"A coding scheme that is used for identification and record-keeping purposes by schools, social services, or other agencies to refer to an institution.","School - School-assigned number
+ACT - College Board/ACT program code set of PK-grade 12 institutions
+LEA - Local Education Agency assigned number
+SEA - State Education Agency assigned number
+NCES - National Center for Education Statistics assigned number
+Federal - Federal identification number
+DUNS - Dun and Bradstreet number
+OtherFederal - Other federally assigned number
+StateUniversitySystem - State University System assigned number
+Other - Other
+SAM - System for Award Management Unique Entity Identifier
+",,,,001073,SchoolIdentificationSystem,https://ceds.ed.gov/cedselementdetails.aspx?termid=23161,65587
+Assessments,Assessment Administration,,School Identifier,"A unique number or alphanumeric code assigned to an institution by a school, school system, a state, or other agency or entity.",None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001069,SchoolIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23155,65590
+Assessments,Assessment Asset,,Assessment Academic Subject,"The description of the academic content or subject area (e.g., arts, mathematics, reading, or a foreign language) being evaluated.","13371 - Arts
+73065 - Career and Technical Education
+13372 - English
+00256 - English as a second language (ESL)
+00546 - Foreign Languages
+73088 - History Government - US
+73089 - History Government - World
+00554 - Language arts
+01166 - Mathematics
+00560 - Reading
+13373 - Reading/Language Arts
+00562 - Science
+73086 - Science - Life
+73087 - Science - Physical
+13374 - Social Sciences (History, Geography, Economics, Civics and Government)
+02043 - Special education
+01287 - Writing
+09999 - Other
+",,,,000021,AssessmentAcademicSubject,https://ceds.ed.gov/cedselementdetails.aspx?termid=23021,67767
+Assessments,Assessment Asset,,Assessment Asset Content Mime Type,MIME type to specifically indicate the Assessment Asset content type.,None,,,,001203,AssessmentAssetContentMimeType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24154,65572
+Assessments,Assessment Asset,,Assessment Asset Content URL,The Uniform Resource Locator (URL) location of the external Assessment Asset content.,None,,,,001204,AssessmentAssetContentURL,https://ceds.ed.gov/cedselementdetails.aspx?termid=24155,65573
+Assessments,Assessment Asset,,Assessment Asset Content XML,XML encoded in UTF-8 representing the content of the Assessment Asset.,None,,,,001202,AssessmentAssetContentXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24153,65571
+Assessments,Assessment Asset,,Assessment Asset Identifier,A unique code identifying the Assessment Asset provided by the authoring system.,None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001198,AssessmentAssetIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=24149,65567
+Assessments,Assessment Asset,,Assessment Asset Identifier Type,The type of identifier that is provided for this asset.,"Client - Assigned by the client
+Publisher - Assigned by the asset owner
+Internal - Provided by an internal assessment service
+Other - Custom identifier
+",,,,001199,AssessmentAssetIdentifierType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24150,65568
+Assessments,Assessment Asset,,Assessment Asset Name,The name of the Assessment Asset.,None,,,,001200,AssessmentAssetName,https://ceds.ed.gov/cedselementdetails.aspx?termid=24151,65569
+Assessments,Assessment Asset,,Assessment Asset Owner,The name of the ownership rights holder or publisher of the asset.,None,,,,001201,AssessmentAssetOwner,https://ceds.ed.gov/cedselementdetails.aspx?termid=24152,65570
+Assessments,Assessment Asset,,Assessment Asset Published Date,The date that this version of the asset was made available for use.,None,,,,001197,AssessmentAssetPublishedDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24148,65566
+Assessments,Assessment Asset,,Assessment Asset Type,"Specifies a predominant type of assessment asset represented by the Learning Resource.  Assessment assets represent any content used to compose an assessment item, is referenced by an item but not part of the item content itself, or is content that is included as part of a section within an assessment form. Assets can be static content such as art work or dynamic assets such as calculators.","ReadingPassage - Reading passage
+GraphicArt - Graphic art
+Map - Map
+FormulaSheet - Formula sheet
+Table - Table
+Chart - Chart
+Audio - Audio
+Video - Video
+Scenario - Scenario
+Simulation - Simulation
+StoryBoard - Story board
+LabSet - Lab set
+PeriodicTable - Periodic table
+TranslationDictionary - Translation dictionary
+BasicCalculator - Basic calculator
+StandardCalculator - Standard calculator
+ScientificCalculator - Scientific calculator
+GraphingCalculator - Graphing calculator
+Protractor - Protractor
+MetricRuler - Metric ruler
+EnglishRuler - English ruler
+UnitsRuler - Units ruler
+ReadingLine - Reading line
+LineDraw - Line draw
+Highlighter - Highlighter
+OtherInteractive - Other interactive
+OtherNonInteractive - Other non-interactive
+Other - Other
+",,,The standard option set may be extended based on local and implementation-specific requirements.  Commonly used options may be submitted for inclusion in future versions of CEDS.,001196,AssessmentAssetType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24147,65565
+Assessments,Assessment Asset,,Assessment Asset Version,A version number or label defined by the publisher.,None,,,"In some use cases a date, such as Learning Resource Date Created may be used as an alternative to a version number.  Each use case may adopt different rules depending on the application requirements for maintenance of current version only or the multiple objects/records representing the complete version history.",001195,AssessmentAssetVersion,https://ceds.ed.gov/cedselementdetails.aspx?termid=24146,65563
+Assessments,Assessment Asset,,Assessment Level for Which Designed,"The typical grade or combination of grade-levels, developmental levels, or age-levels for which an assessment is designed.","Birth - Birth
+Prenatal - Prenatal
+IT - Infant/toddler
+PR - Preschool
+PK - Prekindergarten
+TK - Transitional Kindergarten
+KG - Kindergarten
+01 - First grade
+02 - Second grade
+03 - Third grade
+04 - Fourth grade
+05 - Fifth grade
+06 - Sixth grade
+07 - Seventh grade
+08 - Eighth grade
+09 - Ninth grade
+10 - Tenth grade
+11 - Eleventh grade
+12 - Twelfth grade
+13 - Grade 13
+PS - Postsecondary
+UG - Ungraded
+AE - Adult Education
+Other - Other
+",,,,000177,AssessmentLevelForWhichDesigned,https://ceds.ed.gov/cedselementdetails.aspx?termid=23177,67800
+Assessments,Assessment Asset,,ISO 639-2 Language Code,The code for the specific language or dialect that a person uses to communicate.,See URL column,,,"The CEDS ISO 639-2 Language Code option set comes from the <a href=""http://www.loc.gov/standards/iso639-2/langhome.html"">ISO 639-2 standard</a>, the character encoding in ISO 8859-1 download.  Discontinued codes from the ISO standard are not included in the CEDS list.",000317,ISO6392LanguageCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=23317,65598
+Assessments,Assessment Asset,,ISO 639-3 Language Code,The code for the specific language or dialect that a person uses to communicate.,See URL column,Updated,"Add new option set, change option set","The CEDS ISO 639-3 Language Code option set comes from the <a href=""http://www-01.sil.org/iso639-3/default.asp"">ISO 639-3 standard</a>, the Latin-1 download.  Only living language code types from the ISO standard are included in the CEDS list.  Special scope and discontinued codes are excluded.",001637,ISO6393LanguageCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=24618,68217
+Assessments,Assessment Asset,,ISO 639-5 Language Family,"A code for a specific language family, which supplements the language groups and families in the ISO 639-2 Language Code.","aav - Austro-Asiatic languages
+afa - Afro-Asiatic languages
+alg - Algonquian languages
+alv - Atlantic-Congo languages
+apa - Apache languages
+aqa - Alacalufan languages
+aql - Algic languages
+art - Artificial languages
+ath - Athapascan languages
+auf - Arauan languages
+aus - Australian languages
+awd - Arawakan languages
+azc - Uto-Aztecan languages
+bad - Banda languages
+bai - Bamileke languages
+bat - Baltic languages
+ber - Berber languages
+bih - Bihari languages
+bnt - Bantu languages
+btk - Batak languages
+cai - Central American Indian languages
+cau - Caucasian languages
+cba - Chibchan languages
+ccn - North Caucasian languages
+ccs - South Caucasian languages
+cdc - Chadic languages
+cdd - Caddoan languages
+cel - Celtic languages
+cmc - Chamic languages
+cpe - Creoles and pidgins, Englishâ€‘based
+cpf - Creoles and pidgins, Frenchâ€‘based
+cpp - Creoles and pidgins, Portuguese-based
+crp - Creoles and pidgins
+csu - Central Sudanic languages
+cus - Cushitic languages
+day - Land Dayak languages
+dmn - Mande languages
+dra - Dravidian languages
+egx - Egyptian languages
+esx - Eskimo-Aleut languages
+euq - Basque (family)
+fiu - Finno-Ugrian languages
+fox - Formosan languages
+gem - Germanic languages
+gme - East Germanic languages
+gmq - North Germanic languages
+gmw - West Germanic languages
+grk - Greek languages
+hmx - Hmong-Mien languages
+hok - Hokan languages
+hyx - Armenian (family)
+iir - Indo-Iranian languages
+ijo - Ijo languages
+inc - Indic languages
+ine - Indo-European languages
+ira - Iranian languages
+iro - Iroquoian languages
+itc - Italic languages
+jpx - Japanese (family)
+kar - Karen languages
+kdo - Kordofanian languages
+khi - Khoisan languages
+kro - Kru languages
+map - Austronesian languages
+mkh - Mon-Khmer languages
+mno - Manobo languages
+mun - Munda languages
+myn - Mayan languages
+nah - Nahuatl languages
+nai - North American Indian languages
+ngf - Trans-New Guinea languages
+nic - Niger-Kordofanian languages
+nub - Nubian languages
+omq - Oto-Manguean languages
+omv - Omotic languages
+oto - Otomian languages
+paa - Papuan languages
+phi - Philippine languages
+plf - Central Malayo-Polynesian languages
+poz - Malayo-Polynesian languages
+pqe - Eastern Malayo-Polynesian languages
+pqw - Western Malayo-Polynesian languages
+pra - Prakrit languages
+qwe - Quechuan (family)
+roa - Romance languages
+sai - South American Indian languages
+sal - Salishan languages
+sdv - Eastern Sudanic languages
+sem - Semitic languages
+sgn - sign languages
+sio - Siouan languages
+sit - Sino-Tibetan languages
+sla - Slavic languages
+smi - Sami languages
+son - Songhai languages
+sqj - Albanian languages
+ssa - Nilo-Saharan languages
+syd - Samoyedic languages
+tai - Tai languages
+tbq - Tibeto-Burman languages
+trk - Turkic languages
+tup - Tupi languages
+tut - Altaic languages
+tuw - Tungus languages
+urj - Uralic languages
+wak - Wakashan languages
+wen - Sorbian languages
+xgn - Mongolian languages
+xnd - Na-Dene languages
+ypk - Yupik languages
+zhx - Chinese (family)
+zle - East Slavic languages
+zls - South Slavic languages
+zlw - West Slavic languages
+znd - Zande languages
+",,,"The CEDS ISO 639-5 Language Family option set comes from the <a href=""http://www.loc.gov/standards/iso639-5/index.html"">ISO 639-5 standard</a>.",001638,ISO6395LanguageFamily,https://ceds.ed.gov/cedselementdetails.aspx?termid=24619,68224
+Assessments,Assessment Form,,Assessment Academic Subject,"The description of the academic content or subject area (e.g., arts, mathematics, reading, or a foreign language) being evaluated.","13371 - Arts
+73065 - Career and Technical Education
+13372 - English
+00256 - English as a second language (ESL)
+00546 - Foreign Languages
+73088 - History Government - US
+73089 - History Government - World
+00554 - Language arts
+01166 - Mathematics
+00560 - Reading
+13373 - Reading/Language Arts
+00562 - Science
+73086 - Science - Life
+73087 - Science - Physical
+13374 - Social Sciences (History, Geography, Economics, Civics and Government)
+02043 - Special education
+01287 - Writing
+09999 - Other
+",,,,000021,AssessmentAcademicSubject,https://ceds.ed.gov/cedselementdetails.aspx?termid=23021,65772
+Assessments,Assessment Form,,Assessment Form Accommodation List,"The human readable list of one or more of the specific accommodations available. If no accommodations are provided, then this list will not be present.",None,,,,001185,AssessmentFormAccommodationList,https://ceds.ed.gov/cedselementdetails.aspx?termid=24136,66487
+Assessments,Assessment Form,,Assessment Form Adaptive Indicator,Indicates that the assessment form was generated using an algorithm rather than a fixed form.,"Yes
+No
+",,,,001532,AssessmentFormAdaptiveIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24507,67771
+Assessments,Assessment Form,,Assessment Form Algorithm Identifier,An identifier for algorithm used to generate a custom form for an adaptive test.,None,,,"The algorithm is typically used to generate the entire assessment form, but there may be cases in which it is used to generate only one part (Assessment Form Section).<br/><br/>CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/> An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001533,AssessmentFormAlgorithmIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=24508,67772
+Assessments,Assessment Form,,Assessment Form Algorithm Version,The version of the algorithm used to generate a custom form for an adaptive test.,None,,,"The algorithm is typically used to generate the entire assessment form, but there may be cases in which it is used to generate only one part (Assessment Form Section).",001534,AssessmentFormAlgorithmVersion,https://ceds.ed.gov/cedselementdetails.aspx?termid=24509,67777
+Assessments,Assessment Form,,Assessment Form GUID,The globally unique identifier of an Assessment Form.,None,,,"CEDS ""GUID"" elements are defined as RFC 4122 compliant 32-character hexadecimal strings (36 characters with dashes). For example, 21EC2020-3AEA-1069-A2DD-08002B30309D. <br/><br/>Values MAY be encoded using a hash function such as HMAC-MD5 or HMAC-SHA1, resulting in a string up to 40 characters.",001535,AssessmentFormGUID,https://ceds.ed.gov/cedselementdetails.aspx?termid=24510,67779
+Assessments,Assessment Form,,Assessment Form Intended Administration End Date,The ending date of the time period in which the assessment form is intended to be administered.,None,,,"All CEDS Exit and End Dates represent the last day of the date range specified, such as the last day that a person was enrolled, participated, or received services.",001187,AssessmentFormIntendedAdministrationEndDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24138,65555
+Assessments,Assessment Form,,Assessment Form Name,The name of a given assessment form.,None,,,,000024,AssessmentFormName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23024,65191
+Assessments,Assessment Form,,Assessment Form Number,The number of a given assessment form.,None,,,,000366,AssessmentFormNumber,https://ceds.ed.gov/cedselementdetails.aspx?termid=23365,65192
+Assessments,Assessment Form,,Assessment Form Platforms Supported,A human readable list of delivery platforms the form will support.,None,,,,001188,AssessmentFormPlatformsSupported,https://ceds.ed.gov/cedselementdetails.aspx?termid=24139,65556
+Assessments,Assessment Form,,Assessment Form Version,The version number of the Assessment Form.,None,,,,001183,AssessmentFormVersion,https://ceds.ed.gov/cedselementdetails.aspx?termid=24134,66484
+Assessments,Assessment Form,,Assessment Language,The language in which the assessment form is designed to be delivered.,See URL column,,,"The CEDS ISO 639-2 Language Code option set comes from the <a href=""http://www.loc.gov/standards/iso639-2/langhome.html"">ISO 639-2 standard</a>, the character encoding in ISO 8859-1 download.  Discontinued codes from the ISO standard are not included in the CEDS list.",001089,AssessmentLanguage,https://ceds.ed.gov/cedselementdetails.aspx?termid=24073,65512
+Assessments,Assessment Form,,Assessment Level for Which Designed,"The typical grade or combination of grade-levels, developmental levels, or age-levels for which an assessment is designed.","Birth - Birth
+Prenatal - Prenatal
+IT - Infant/toddler
+PR - Preschool
+PK - Prekindergarten
+TK - Transitional Kindergarten
+KG - Kindergarten
+01 - First grade
+02 - Second grade
+03 - Third grade
+04 - Fourth grade
+05 - Fifth grade
+06 - Sixth grade
+07 - Seventh grade
+08 - Eighth grade
+09 - Ninth grade
+10 - Tenth grade
+11 - Eleventh grade
+12 - Twelfth grade
+13 - Grade 13
+PS - Postsecondary
+UG - Ungraded
+AE - Adult Education
+Other - Other
+",,,,000177,AssessmentLevelForWhichDesigned,https://ceds.ed.gov/cedselementdetails.aspx?termid=23177,67793
+Assessments,Assessment Form,,Assessment Secure Indicator,Indicates whether or not the assessment is a secure assessment.,"Yes
+No
+",,,,000384,AssessmentSecureIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=23375,67743
+Assessments,Assessment Form,,Intended Administration Start Date,The beginning date of the time period in which the form is intended to be administered.,None,,,,001186,IntendedAdministrationStartDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24137,65554
+Assessments,Assessment Form,,Learning Resource Published Date,"The published date of an educational resource, such as instructional media, an assessment form, or section of an assessment form.",None,,,,001184,LearningResourcePublishedDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24135,66485
+Assessments,Assessment Form,Assessment Form Section,Assessment Academic Subject,"The description of the academic content or subject area (e.g., arts, mathematics, reading, or a foreign language) being evaluated.","13371 - Arts
+73065 - Career and Technical Education
+13372 - English
+00256 - English as a second language (ESL)
+00546 - Foreign Languages
+73088 - History Government - US
+73089 - History Government - World
+00554 - Language arts
+01166 - Mathematics
+00560 - Reading
+13373 - Reading/Language Arts
+00562 - Science
+73086 - Science - Life
+73087 - Science - Physical
+13374 - Social Sciences (History, Geography, Economics, Civics and Government)
+02043 - Special education
+01287 - Writing
+09999 - Other
+",,,,000021,AssessmentAcademicSubject,https://ceds.ed.gov/cedselementdetails.aspx?termid=23021,65776
+Assessments,Assessment Form,Assessment Form Section,Assessment Form Algorithm Identifier,An identifier for algorithm used to generate a custom form for an adaptive test.,None,,,"The algorithm is typically used to generate the entire assessment form, but there may be cases in which it is used to generate only one part (Assessment Form Section).<br/><br/>CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/> An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001533,AssessmentFormAlgorithmIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=24508,67775
+Assessments,Assessment Form,Assessment Form Section,Assessment Form Section GUID,The globally unique identifier of an Assessment Form Section using a RFC 4122 compliant hexadecimal string.,None,,,"CEDS ""GUID"" elements are defined as RFC 4122 compliant 32-character hexadecimal strings (36 characters with dashes). For example, 21EC2020-3AEA-1069-A2DD-08002B30309D. <br/><br/>Values MAY be encoded using a hash function such as HMAC-MD5 or HMAC-SHA1, resulting in a string up to 40 characters.",000980,AssessmentFormSectionGUID,https://ceds.ed.gov/cedselementdetails.aspx?termid=23981,65432
+Assessments,Assessment Form,Assessment Form Section,Assessment Form Section Identifier,A unique number or alphanumeric code assigned to the Assessment Form Section using the system specified by Identification System for Assessment Form Section.,None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001191,AssessmentFormSectionIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=24142,65559
+Assessments,Assessment Form,Assessment Form Section,Assessment Form Section Item Field Test Indicator,"Indicates that the assessment item is being field tested on this form of the test, and is not to be included for scoring.","Yes
+No
+",,,,001536,AssessmentFormSectionItemFieldTestIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24511,68116
+Assessments,Assessment Form,Assessment Form Section,Assessment Form Section Reentry,"Indicates that this section can be re-entered, meaning the test taker can return to this section after they have left the section. A common example of this is a two section test where one section does not allow the use of a calculator and the other does. Typically the test taker cannot return to the non-calculator section after they have used a calculator.","Yes
+No
+",,,,001194,AssessmentFormSectionReentry,https://ceds.ed.gov/cedselementdetails.aspx?termid=24145,65562
+Assessments,Assessment Form,Assessment Form Section,Assessment Form Section Sealed,"Indicates this section is sealed, meaning the test taker cannot enter the section until authorized by the proctor.","Yes
+No
+",,,,001193,AssessmentFormSectionSealed,https://ceds.ed.gov/cedselementdetails.aspx?termid=24144,65561
+Assessments,Assessment Form,Assessment Form Section,Assessment Form Section Sequence Number,The position of the assessment section presented in the sequence of sections within an assessment form.,None,,,,000979,AssessmentFormSectionSequenceNumber,https://ceds.ed.gov/cedselementdetails.aspx?termid=23980,65431
+Assessments,Assessment Form,Assessment Form Section,Assessment Form Section Time Limit,"If this section is timed, then this will identify the maximum amount of time the test taker can spend within this section.",None,,,,001192,AssessmentFormSectionTimeLimit,https://ceds.ed.gov/cedselementdetails.aspx?termid=24143,65560
+Assessments,Assessment Form,Assessment Form Section,Assessment Form Section Version,The version number of the Assessment Form Section.,None,,,,001189,AssessmentFormSectionVersion,https://ceds.ed.gov/cedselementdetails.aspx?termid=24140,65557
+Assessments,Assessment Form,Assessment Form Section,Identification System for Assessment Form Section,A coding scheme that is used for identification of an Assessment Form Section.,"Client - Client
+Publisher - Publisher
+Internal - Internal
+Other - Other
+",,,,001190,IdentificationSystemForAssessmentFormSection,https://ceds.ed.gov/cedselementdetails.aspx?termid=24141,65558
+Assessments,Assessment Form,Assessment Form Section,Learning Resource Published Date,"The published date of an educational resource, such as instructional media, an assessment form, or section of an assessment form.",None,,,,001184,LearningResourcePublishedDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24135,66486
+Assessments,Assessment Form,Assessment Form Subtest Assessment Item,Assessment Form Subtest Item Weight Correct,A weighting factor for how the item score is used to compute a sub-test score when the item is correct or partially correct. Item weight of 1 indicates the full item score is used. A weight of .5 would indicate the item only contributes one half of the item score to the subtest. A weight of 0 indicates the item does not affect the sub test score.,None,,,,001010,AssessmentFormSubtestItemWeightCorrect,https://ceds.ed.gov/cedselementdetails.aspx?termid=24013,65449
+Assessments,Assessment Form,Assessment Form Subtest Assessment Item,Assessment Form Subtest Item Weight Incorrect,A weighting factor for how the item score is used to compute a sub-test score when the item is attempted and incorrect. Item weight should be a negative value if the item subtracts from the score if missed.,None,,,,001012,AssessmentFormSubtestItemWeightIncorrect,https://ceds.ed.gov/cedselementdetails.aspx?termid=24014,65450
+Assessments,Assessment Form,Assessment Form Subtest Assessment Item,Assessment Form Subtest Item Weight Not Attempted,A weighting factor for how the item score is used to compute a sub-test score when the item has not been attempted by the student. Item weight should be a negative value if the item subtracts from the score if not attempted.,None,,,,001013,AssessmentFormSubtestItemWeightNotAttempted,https://ceds.ed.gov/cedselementdetails.aspx?termid=24015,65451
+Assessments,Assessment Item,,Assessment Academic Subject,"The description of the academic content or subject area (e.g., arts, mathematics, reading, or a foreign language) being evaluated.","13371 - Arts
+73065 - Career and Technical Education
+13372 - English
+00256 - English as a second language (ESL)
+00546 - Foreign Languages
+73088 - History Government - US
+73089 - History Government - World
+00554 - Language arts
+01166 - Mathematics
+00560 - Reading
+13373 - Reading/Language Arts
+00562 - Science
+73086 - Science - Life
+73087 - Science - Physical
+13374 - Social Sciences (History, Geography, Economics, Civics and Government)
+02043 - Special education
+01287 - Writing
+09999 - Other
+",,,,000021,AssessmentAcademicSubject,https://ceds.ed.gov/cedselementdetails.aspx?termid=23021,66114
+Assessments,Assessment Item,,Assessment Item Allotted Time,The amount of time allotted for a specific item.,None,,,,000403,AssessmentItemAllottedTime,https://ceds.ed.gov/cedselementdetails.aspx?termid=23395,65198
+Assessments,Assessment Item,,Assessment Item Bank Identifier,"If the assessment is provided with an item bank, then this identifies the item bank: a unique code or number used by the item banking system.",None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001181,AssessmentItemBankIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=24132,66480
+Assessments,Assessment Item,,Assessment Item Bank Name,"If the assessment is provided with an item bank, then this is the name of the item bank.",None,,,,001182,AssessmentItemBankName,https://ceds.ed.gov/cedselementdetails.aspx?termid=24133,66482
+Assessments,Assessment Item,,Assessment Item Body Text,"The complete text of an assessment item including all applicable parts such as stimulus, stem, and possible response options presented.",None,,,,001267,AssessmentItemBodyText,https://ceds.ed.gov/cedselementdetails.aspx?termid=24233,66124
+Assessments,Assessment Item,,Assessment Item Difficulty,The percentage of students who answered the item correctly during trial testing of the item.,None,,,,000391,AssessmentItemDifficulty,https://ceds.ed.gov/cedselementdetails.aspx?termid=23383,65194
+Assessments,Assessment Item,,Assessment Item Distractor Analysis,The analysis of the distractors provided for a specific assessment.,None,,,,000398,AssessmentItemDistractorAnalysis,https://ceds.ed.gov/cedselementdetails.aspx?termid=23390,65196
+Assessments,Assessment Item,,Assessment Item Identifier,The identifier that uniquely identifies an assessment item.,None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",000630,AssessmentItemIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23623,65202
+Assessments,Assessment Item,,Assessment Item Linking Item Indicator,Indicates that the item is intended to be administered in two different grades for the goal of establishing cross grade comparison.,"Yes
+No
+",,,,001261,AssessmentItemLinkingItemIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24227,66111
+Assessments,Assessment Item,,Assessment Item Maximum Score,The maximum number of points possible for the assessment item.,None,,,,000707,AssessmentItemMaximumScore,https://ceds.ed.gov/cedselementdetails.aspx?termid=23683,65203
+Assessments,Assessment Item,,Assessment Item Minimum Score,The minimum number of points possible for the assessment item.,None,,,,000708,AssessmentItemMinimumScore,https://ceds.ed.gov/cedselementdetails.aspx?termid=23684,65204
+Assessments,Assessment Item,,Assessment Item Release Status,Indicates that the assessment item has been released to the public.,"Yes
+No
+",,,,001263,AssessmentItemReleaseStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=24229,66116
+Assessments,Assessment Item,,Assessment Item Response Security Issue,"The description of security issue, if any, related to a learner's response to an assessment item.",None,,,For example: Suspected plagiarism ; Computer left test window ; Excessive response time ; Proctor suspected copying ; Student identity not confirmed ; No proctor present ; Student carried wireless mobile device during test ; Student terminated test early and restarted ; Excessive erasures on test form ; Response pattern identical to another student's,000969,AssessmentItemResponseSecurityIssue,https://ceds.ed.gov/cedselementdetails.aspx?termid=23970,66855
+Assessments,Assessment Item,,Assessment Item Stem,The statement of the question or prompt for an Assessment Item to which the student responds.,None,,,,000400,AssessmentItemStem,https://ceds.ed.gov/cedselementdetails.aspx?termid=23392,65197
+Assessments,Assessment Item,,Assessment Item Stimulus," The text, source (e.g., video clip), and/or graphic about which the assessment item is written. The stimulus provides the context of the item/task to which the student must respond.",None,,,,001268,AssessmentItemStimulus,https://ceds.ed.gov/cedselementdetails.aspx?termid=24234,66126
+Assessments,Assessment Item,,Assessment Item Text Complexity System,The scaling system used to specify the text complexity of an assessment item.,"01 - Automated Readability Index
+02 - Bormuth Index
+03 - Coleman Liau Index
+04 - Coh-Metrix Readability
+05 - Dale-Chall Readability Formula
+06 - Flesch-Kincaid Grade Level
+07 - Flesch Reading Ease Formula
+08 - FORCAST
+09 - Fry Readability Formula
+10 - Gunning-Fog Scale
+11 - Hull Formula
+12 - Lexile
+13 - Linsear Write Formula
+14 - McAlpine EFLAW
+15 - Powers-Sumner-Kearl
+16 - Raygor Readability Estimate
+17 - SMOG Index
+18 - Spache Readability Formula
+19 - Strain Index
+",,,,000907,AssessmentItemTextComplexitySystem,https://ceds.ed.gov/cedselementdetails.aspx?termid=23907,65367
+Assessments,Assessment Item,,Assessment Item Text Complexity Value,"The complexity of the text using the scaling system defined by Text Complexity System, e.g. Lexile™ for assessment items with a reading passage.",None,,,,000906,AssessmentItemTextComplexityValue,https://ceds.ed.gov/cedselementdetails.aspx?termid=23906,65366
+Assessments,Assessment Item,,Assessment Item Type,The specific type of assessment item.,"MultipleChoice - Multiple-choice
+FillInTheBlank - Fill-in-the-blank
+TrueFalse - True/False
+MultipleResponse - Multiple Response
+Matching - Matching
+ShortAnswer - Short answer
+Labeling - Labeling
+VisualRepresentation - Visual representation
+ShowYourWork - Show your work
+OtherConstructedResponse - Other constructed response
+PerformanceTask - Performance task
+ExtendedResponse - Extended Response (Essay)
+TechnologyEnhancedInteractive - Technology Enhanced / Interactive
+Reordering - Reordering
+Substitution - Substitution
+Other - Other
+",,,,000390,AssessmentItemType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23382,65193
+Assessments,Assessment Item,,Assessment Level for Which Designed,"The typical grade or combination of grade-levels, developmental levels, or age-levels for which an assessment is designed.","Birth - Birth
+Prenatal - Prenatal
+IT - Infant/toddler
+PR - Preschool
+PK - Prekindergarten
+TK - Transitional Kindergarten
+KG - Kindergarten
+01 - First grade
+02 - Second grade
+03 - Third grade
+04 - Fourth grade
+05 - Fifth grade
+06 - Sixth grade
+07 - Seventh grade
+08 - Eighth grade
+09 - Ninth grade
+10 - Tenth grade
+11 - Eleventh grade
+12 - Twelfth grade
+13 - Grade 13
+PS - Postsecondary
+UG - Ungraded
+AE - Adult Education
+Other - Other
+",,,,000177,AssessmentLevelForWhichDesigned,https://ceds.ed.gov/cedselementdetails.aspx?termid=23177,67795
+Assessments,Assessment Item,,NAEP Aspects of Reading,Aspects of reading defined by the National Assessment of Educational Progress (NAEP 2005b Framework).,"DevelopingInterpretation - Developing Interpretation
+MakingReaderTextConnections - Making reader/text connections
+ExaminingContentAndStructure - Examining content and structure
+",,,,001122,NAEPAspectsOfReading,https://ceds.ed.gov/cedselementdetails.aspx?termid=24166,65782
+Assessments,Assessment Item,,NAEP Mathematical Complexity Level,Complexity levels defined by the National Assessment of Educational Progress (NAEP 2005a Framework).,"LowComplexity - Low complexity
+ModerateComplexity - Moderate complexity
+HighComplexity - High complexity
+",,,,001088,NAEPMathematicalComplexityLevel,https://ceds.ed.gov/cedselementdetails.aspx?termid=24072,65511
+Assessments,Assessment Item,Assessment Item APIP,Assessment Item Adaptive Indicator,This indicator determines whether an assessment item is an adaptive item.,"Yes
+No
+",,,,001139,AssessmentItemAdaptiveIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24111,65553
+Assessments,Assessment Item,Assessment Item APIP,Assessment Item APIP Item Body XML,"The item body contains the text, graphics, media objects, and interactions that describe the item's content and information about how it is structured. The body is presented by combining it with stylesheet information, either explicitly or implicitly using the default style rules of the delivery or authoring system. This element contains the appropriate XML from the IMS Global APIP Specification defining the various item body interactions.",None,,,,001138,AssessmentItemAPIPItemBodyXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24110,65552
+Assessments,Assessment Item,Assessment Item APIP,Assessment Item APIP Modal Feedback XML,Modal feedback is shown to the candidate directly following response processing. The value of an outcome variable is used in conjunction with the showHide and identifier attributes to determine whether or not the feedback is shown in a similar way to feedbackElement. The XML from the IMS Global APIP Specification would be included.,None,,,,001137,AssessmentItemAPIPModalFeedbackXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24109,65551
+Assessments,Assessment Item,Assessment Item APIP,Assessment Item APIP Outcome Declaration XML,Outcome variables are declared by outcome declarations. Their value is set either from a default given in the declaration itself or by a responseRule during response processing.  The XML from the IMS Global APIP Specification would be included.,None,,,,001134,AssessmentItemAPIPOutcomeDeclarationXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24106,65548
+Assessments,Assessment Item,Assessment Item APIP,Assessment Item APIP Response Declaration XML,Response declarations state what the response variables include.  The response declaration may assign an optional correct response. The XML from the IMS Global APIP Specification would be included.,None,,,,001133,AssessmentItemAPIPResponseDeclarationXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24105,65547
+Assessments,Assessment Item,Assessment Item APIP,Assessment Item APIP Response Processing Template URL,These templates are described using the processing language defined in IMS Global APIP specification and are distributed (in XML form) along with it. Delivery engines that support generalized response processing do not need to implement special mechanisms to support them as a template file can be parsed directly while processing the assessment item that refers to it. This element provides the URL for the template.,None,,,,001131,AssessmentItemAPIPResponseProcessingTemplateURL,https://ceds.ed.gov/cedselementdetails.aspx?termid=24103,65545
+Assessments,Assessment Item,Assessment Item APIP,Assessment Item APIP Response Processing XML,"Response processing is the process by which the Delivery Engine assigns outcomes based on the learner's responses. The outcomes may be used to provide feedback to the learner Feedback is either provided immediately following the end of the learner's attempt or it is provided at some later time, perhaps as part of a summary report on the item session. The XML from the IMS Global APIP Specification would be included.",None,,,,001132,AssessmentItemAPIPResponseProcessingXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24104,65546
+Assessments,Assessment Item,Assessment Item APIP,Assessment Item APIP Template Declaration XML,Template declarations declare item variables that are to be used specifically for the purposes of cloning items. They can have their value set only during template processing. They are referred to within the item body in order to individualize the clone and possibly also within the response Processing rules if the cloning process affects the way the item is scored.  The XML from the IMS Global APIP Specification would be included.,None,,,,001135,AssessmentItemAPIPTemplateDeclarationXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24107,65549
+Assessments,Assessment Item,Assessment Item APIP,Assessment Item APIP Template Processing XML,"Template processing consists of one or more template rules that are followed by the cloning engine or delivery system in order to assign values to the template variables. Template processing is identical in form to responseProcessing except that the purpose is to assign values to template variables, not outcome variables. The XML from the IMS Global APIP Specification would be included.",None,,,,001136,AssessmentItemAPIPTemplateProcessingXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24108,65550
+Assessments,Assessment Item,Assessment Item APIP,Assessment Item Result XML,The  assessment item result formatted according to the IMS Global QTI  Specification.,None,,,See http://www.imsglobal.org/question/qtiv2p1/imsqti_resultv2p1.html#element10818,001284,AssessmentItemResultXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24250,67067
+Assessments,Assessment Item,Assessment Item APIP Interaction,APIP Interaction Sequence Number,The position of this APIP Interaction in a sequence of interactions.,None,,,,001529,APIPInteractionSequenceNumber,https://ceds.ed.gov/cedselementdetails.aspx?termid=24504,67765
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body Associate Interaction XML,An associate interaction presents candidates with a number of choices and allows them to create associations between them. The XML from the IMS Global APIP Specification would be included.,None,,,,001123,AssessmentItemBodyAssociateInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24100,65540
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body Choice Interaction XML,"The choice interaction presents a set of choices to the candidate. The candidate's task is to select one or more of the choices, up to a maximum of maxChoices. The interaction is always initialized with no choices selected. The XML from the IMS Global APIP Specification would be included.",None,,,,001112,AssessmentItemBodyChoiceInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24090,65530
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body Drawing Interaction XML,The drawing interaction allows the candidate to use a common set of drawing tools to modify a given graphical image (the canvas). It must be bound to a response variable with base-type file and single cardinality. The result is a file in the same format as the original image. The XML from the IMS Global APIP Specification would be included.,None,,,,001103,AssessmentItemBodyDrawingInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24080,65521
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body End Attempt Interaction XML,"The end attempt interaction is a special type of interaction which allows item authors to provide the candidate with control over the way in which the candidate terminates an attempt. The candidate can use the interaction to terminate the attempt (triggering response processing) immediately, typically to request a hint. It must be bound to a response variable with base-type boolean and single cardinality. The XML from the IMS Global APIP Specification would be included.",None,,,,001121,AssessmentItemBodyEndAttemptInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24098,65538
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body Extended Text Interaction XML,An extended text interaction allows the candidate to enter an extended amount of text. The XML from the IMS Global APIP Specification would be included.,None,,,,001120,AssessmentItemBodyExtendedTextInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24097,65537
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body Gap Match Interaction XML,"A gap match interaction contains a number gaps that the candidate can fill from an associated set of choices. The candidate must be able to review the content with the gaps filled in context, as indicated by their choices. The XML from the IMS Global APIP Specification would be included.",None,,,,001104,AssessmentItemBodyGapMatchInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24081,65522
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body Graphic Gap Match Interaction XML,"A graphic gap-match interaction is a graphical interaction with a set of gaps that are defined as areas (hotspots) of the graphic image and an additional set of gap choices that are defined outside the image. The candidate must associate the gap choices with the gaps in the image and be able to review the image with the gaps filled in context, as indicated by their choices. Care should be taken when designing these interactions to ensure that the gaps in the image are a suitable size to receive the required gap choices. It must be clear to the candidate which hotspot each choice has been associated with. When associated, choices must appear wholly inside the gaps if at all possible and, where overlaps are required, should not hide each other completely. If the candidate indicates the association by positioning the choice over the gap (e.g., drag and drop) the system should 'snap' it to the nearest position that satisfies these requirements. The XML from the IMS Global APIP Specification would be included.",None,,,,001106,AssessmentItemBodyGraphicGapMatchInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24083,65524
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body Graphic Order Interaction XML,"A graphic order interaction is a graphic interaction with a corresponding set of choices that are defined as areas of the graphic image. The candidate's task is to impose an ordering on the areas (hotspots). The order hotspot interaction should only be used when the spatial relationship of the choices with respect to each other (as represented by the graphic image) is important to the needs of the item. Otherwise, orderInteraction should be used instead with separate material for each option. The XML from the IMS Global APIP Specification would be included.",None,,,,001108,AssessmentItemBodyGraphicOrderInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24085,65526
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body Hot Spot Interaction XML,"A hotspot interaction is a graphical interaction with a corresponding set of choices that are defined as areas of the graphic image. The candidate's task is to select one or more of the areas (hotspots). The hotspot interaction should only be used when the spatial relationship of the choices with respect to each other (as represented by the graphic image) is important to the needs of the item. Otherwise, choiceInteraction should be used instead with separate material for each option. The XML from the IMS Global APIP Specification would be included.",None,,,,001107,AssessmentItemBodyHotSpotInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24084,65525
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body Hottext Interaction XML,"The hottext interaction presents a set of choices to the candidate represented as selectable runs of text embedded within a surrounding context, such as a simple passage of text. Like choiceInteraction, the candidate's task is to select one or more of the choices, up to a maximum of maxChoices. The interaction is initialized from the defaultValue of the associated response variable, a NULL value indicating that no choices are selected (the usual case). The XML from the IMS Global APIP Specification would be included.",None,,,,001116,AssessmentItemBodyHottextInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24093,65533
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body Inline Choice Interaction XML,"A inline choice is an inline interaction that presents the user with a set of choices, each of which is a simple piece of text. The candidate's task is to select one of the choices. Unlike the Choice Interaction, the delivery engine must allow the candidate to review their choice within the context of the surrounding text.",None,,,,001114,AssessmentItemBodyInlineChoiceInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24091,65531
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body Match Interaction XML,"A match interaction presents candidates with two sets of choices and allows them to create associates between pairs of choices in the two sets, but not between pairs of choices in the same set. Further restrictions can still be placed on the allowable associations using the matchMax attribute of the choices. The XML from the IMS Global APIP Specification would be included.",None,,,,001105,AssessmentItemBodyMatchInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24082,65523
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body Media Interaction XML,"The media interaction allows more control over the way the candidate interacts with a time-based media object and allows the number of times the media object was experienced to be reported in the value of the associated response variable, which must be of base-type integer and single cardinality. The XML from the IMS Global APIP Specification would be included.",None,,,,001115,AssessmentItemBodyMediaInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24092,65532
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body Order Interaction XML,"In an order interaction the candidate's task is to reorder the choices, the order in which the choices are displayed initially is significant. By default the candidate's task is to order all of the choices but a subset of the choices can be requested using the maxChoices and minChoices attributes. When specified the candidate must select a subset of the choices and impose an ordering on them. The XML from the IMS Global APIP Specification would be included.",None,,,,001117,AssessmentItemBodyOrderInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24094,65534
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body Position Object Interaction XML,"The position object interaction consists of a single image which must be positioned on another graphic image (the stage) by the candidate. Like selectPointInteraction, the associated response may have an areaMapping that scores the response on the basis of comparing it against predefined areas but the delivery engine must not indicate these areas of the stage. Only the actual position(s) selected by the candidate shall be indicated. The XML from the IMS Global APIP Specification would be included.",None,,,,001118,AssessmentItemBodyPositionObjectInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24095,65535
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body Select Point Interaction,"A graphic associate interaction is a graphic interaction with a corresponding set of choices that are defined as areas of the graphic image. The candidate's task is to associate the areas (hotspots) with each other. The graphic associate interaction should only be used when the graphical relationship of the choices with respect to each other (as represented by the graphic image) is important to the needs of the item. Otherwise, associateInteraction should be used instead with separate Material for each option. The XML from the IMS Global APIP Specification would be included.",None,,,,001110,AssessmentItemBodySelectPointInteraction,https://ceds.ed.gov/cedselementdetails.aspx?termid=24088,65528
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body Select Point Interaction XML,"Like hotspotInteraction, a select point interaction is a graphic interaction. The candidate's task is to select one or more points. The associated response may have an areaMapping that scores the response on the basis of comparing it against predefined areas but the delivery engine must not indicate these areas of the image. Only the actual point(s) selected by the candidate shall be indicated. The XML from the IMS Global APIP Specification would be included.",None,,,,001109,AssessmentItemBodySelectPointInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24087,65527
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body Slider Interaction XML,The slider interaction presents the candidate with a control for selecting a numerical value between a lower and upper bound. It must be bound to a response variable with single cardinality with a base-type of either integer or float. The XML from the IMS Global APIP Specification would be included.,None,,,,001111,AssessmentItemBodySliderInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24089,65529
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body Text Entry Interaction XML,"A textEntry interaction obtains a simple piece of text from the candidate. Like inlineChoiceInteraction, the delivery engine must allow the candidate to review their choice within the context of the surrounding text. The XML from the IMS Global APIP Specification would be included.",None,,,,001119,AssessmentItemBodyTextEntryInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24096,65536
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Body Upload Interaction XML,The upload interaction allows the candidate to upload a pre-prepared file representing their response. It must be bound to a response variable with base-type file and single cardinality. The XML from the IMS Global APIP Specification would be included.,None,,,,001222,AssessmentItemBodyUploadInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24099,65539
+Assessments,Assessment Item,Assessment Item APIP Interaction,Assessment Item Interaction Type,The assessment item body interaction type as defined by IMS Global specifications.,"CustomInteraction - Custom Interaction
+DrawingInteraction - Drawing Interaction
+GapMatchInteraction - Gap Match Interaction
+MatchInteraction - Match Interaction
+GraphicGapMatchInteraction - Graphic Gap Match Interaction
+HotspotInteraction - Hotspot Interaction
+GraphicOrderInteraction - Graphic Order Interaction
+GraphicAssociateInteraction - Graphic Associate Interaction
+ChoiceInteraction - Choice Interaction
+InlineChoiceInteraction - Inline Choice Interaction
+MediaInteraction - Media Interaction
+HottextInteraction - Hottext Interaction
+OrderInteraction - Order Interaction
+PositionObjectInteraction - Position Object Interaction
+TextEntryInteraction - Text Entry Interaction
+ExtendedTextInteraction - Extended Text Interaction
+EndAttemptInteraction - End Attempt Interaction
+UploadInteraction - Upload Interaction
+AssociateInteraction - Associate Interaction
+",,,,001158,AssessmentItemInteractionType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24117,66703
+Assessments,Assessment Item,Assessment Item Body Custom Interaction,Assessment Item Body Custom Interaction XML,The custom interaction provides an opportunity for extensibility of this specification to include support for interactions not currently documented.  The XML from the IMS Global APIP Specification would be included.,None,,,,001102,AssessmentItemBodyCustomInteractionXML,https://ceds.ed.gov/cedselementdetails.aspx?termid=24079,65520
+Assessments,Assessment Item,Assessment Item Characteristic,Assessment Item Characteristic Type,The type of psychometric measure provided for assessment item.,"MeanSquareFit - Mean Square Fit
+WeightedMeanSquareFit - Weighted Mean Square Fit
+RevisedMeanSquareFit - Revised Mean Square Fit
+RevisedPointBiserial - Revised Point Biserial Measure
+RaschItemScore - Rasch Item Score
+ResponseCorrelation - Response Correlation
+ResponseCorrelationSquared - Response Correlation Squared
+ZCHISquare - Z CHI Square
+Pval - Pval
+PointBiserial - Point Biserial
+Biserial - Biserial
+DiscriminationIndex - Discrimination Index
+ReliabilityCoefficient - Reliability Coefficient
+CoefficientAlpha - Coefficient Alpha
+ItemTestCorrelation - Item Test Correlation
+ItemVariance - Item Variance
+ScaleValue - Scale Value
+",,,,000392,AssessmentItemCharacteristicType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23384,65195
+Assessments,Assessment Item,Assessment Item Characteristic,Assessment Item Characteristic Value,A psychometric measure provided for an assessment item.,None,,,,000709,AssessmentItemCharacteristicValue,https://ceds.ed.gov/cedselementdetails.aspx?termid=23685,65205
+Assessments,Assessment Item,Assessment Item Possible Response,Assessment Item Possible Response Correct Indicator,Indicates that the possible response is the correct response.,"Yes
+No
+",,,,001217,AssessmentItemPossibleResponseCorrectIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24183,65628
+Assessments,Assessment Item,Assessment Item Possible Response,Assessment Item Possible Response Feedback Message,A message provided to the person being assessed after giving a response that matches the possible response.,None,,,"This may be a message of affirmation for a correct answer or descriptive feedback for an incorrect answer.  For example, if the item asked the question what is 2 times 3 and the learner answered 5, the Feedback Message might be ""Try multiplication instead of addition.""",000904,AssessmentItemPossibleResponseFeedbackMessage,https://ceds.ed.gov/cedselementdetails.aspx?termid=23904,65364
+Assessments,Assessment Item,Assessment Item Possible Response,Assessment Item Possible Response Option,The possible response presented to the participant within a selected-response/multiple-choice assessment item.,None,,,,001269,AssessmentItemPossibleResponseOption,https://ceds.ed.gov/cedselementdetails.aspx?termid=24235,66128
+Assessments,Assessment Item,Assessment Item Possible Response,Assessment Item Possible Response Sequence Number,"The position of this response in the list of responses displayed, such as for a multiple choice item type.",None,,,,000905,AssessmentItemPossibleResponseSequenceNumber,https://ceds.ed.gov/cedselementdetails.aspx?termid=23905,65365
+Assessments,Assessment Item,Assessment Item Possible Response,Assessment Item Possible Response Value,"The description of each distracter on an assessment item, explaining why it is there, what misunderstandings it exposes.",None,,,,000908,AssessmentItemPossibleResponse,https://ceds.ed.gov/cedselementdetails.aspx?termid=23908,65368
+Assessments,Assessment Item,Assessment Item Response,Assessment Item Response Aid Set Used,"A tool or aid set used while viewing the item. This can include things like a calculator, reference tools, etc.",None,,,"This a permissible set of tools suggested for use for successful completion of a test question, not an accommodation.",000406,AssessmentItemResponseAidSetUsed,https://ceds.ed.gov/cedselementdetails.aspx?termid=23397,65223
+Assessments,Assessment Item,Assessment Item Response,Assessment Item Response Choice Pattern,The distribution of responses for each choice in the assessment item.,None,,,,000393,AssessmentItemResponseChoicePattern,https://ceds.ed.gov/cedselementdetails.aspx?termid=23385,65919
+Assessments,Assessment Item,Assessment Item Response,Assessment Item Response Descriptive Feedback,The formative descriptive feedback that was given to a learner in response to the results from a scored/evaluated assessment item.,None,,,,000891,AssessmentItemResponseDescriptiveFeedback,https://ceds.ed.gov/cedselementdetails.aspx?termid=23891,66342
+Assessments,Assessment Item,Assessment Item Response,Assessment Item Response Descriptive Feedback Date,The date and time the descriptive feedback was entered in response to the results from a scored/evaluated assessment item.,None,,,,001537,AssessmentItemResponseDescriptiveFeedbackDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24512,67786
+Assessments,Assessment Item,Assessment Item Response,Assessment Item Response Duration,The total amount of time in seconds or milliseconds  that a person spent responding to a given assessment item.,None,,,,000402,AssessmentItemResponseDuration,https://ceds.ed.gov/cedselementdetails.aspx?termid=23394,65920
+Assessments,Assessment Item,Assessment Item Response,Assessment Item Response First Attempt Duration,"The amount of time in seconds or milliseconds that a person took to give an initial response, a first attempt to answer a formative assessment item.",None,,,Formative assessments often allow learners to make multiple attempts until a correct or acceptable answer is given.  In such cases it is valuable to know both the time it took for the initial response and the total time spent responding to the problem.,000957,AssessmentItemResponseFirstAttemptDuration,https://ceds.ed.gov/cedselementdetails.aspx?termid=23958,65416
+Assessments,Assessment Item,Assessment Item Response,Assessment Item Response Hint Count,The total number of hints presented as the learner responded to a formative assessment item.  This may include hints requested by the learner or hints automatically presented such as in an online tutoring system. Presentation of a scaffolding item is a separate response record and not counted as a hint.,None,,,,000955,AssessmentItemResponseHintCount,https://ceds.ed.gov/cedselementdetails.aspx?termid=23956,65414
+Assessments,Assessment Item,Assessment Item Response,Assessment Item Response Hint Included Answer,Indicates that one of the hints presented included the correct answer.,"Yes
+No
+",,,"A typical scenario for an online tutoring application may present a series of hints for a formative assessment item with the last hint being the correct answer.  The learner must enter the correct answer before continuing.  This data element is a flag that the learner was presented with the ""bottom hint"", which is the correct answer.",000956,AssessmentItemResponseHintIncludedAnswer,https://ceds.ed.gov/cedselementdetails.aspx?termid=23957,65415
+Assessments,Assessment Item,Assessment Item Response,Assessment Item Response Scaffolding Item Flag,"Indicates that the response is to a scaffolding problem rather than the main/assigned problem.  A scaffolding item is a follow-up formative assessment item used to assess prerequisite or component skills, presented immediately after a learner gives an incorrect answer on the previous item.","Yes
+No
+",,,,000954,AssessmentItemResponseScaffoldingItemFlag,https://ceds.ed.gov/cedselementdetails.aspx?termid=23955,65413
+Assessments,Assessment Item,Assessment Item Response,Assessment Item Response Score Status,The status of scoring a person's response to an assessment item.,"NotScored -  Not Scored
+Scored - Scored
+ScoringError - Scoring error
+WaitingForMachineScore - Waiting For Machine Score
+",,,,001538,AssessmentItemResponseScoreStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=24513,67790
+Assessments,Assessment Item,Assessment Item Response,Assessment Item Response Score Value,The score given to a person's response to an assessment item.,None,,,,000724,AssessmentItemResponseScoreValue,https://ceds.ed.gov/cedselementdetails.aspx?termid=23700,65226
+Assessments,Assessment Item,Assessment Item Response,Assessment Item Response Start Date,The date on which the assessment item was presented to the learner.,None,,,,000959,AssessmentItemResponseStartDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23960,65418
+Assessments,Assessment Item,Assessment Item Response,Assessment Item Response Start Time,The time of day that the assessment item was presented to the learner.,None,,,,000958,AssessmentItemResponseStartTime,https://ceds.ed.gov/cedselementdetails.aspx?termid=23959,65417
+Assessments,Assessment Item,Assessment Item Response,Assessment Item Response Status,The status of the response for a given item.,"Correct - Correct
+Incorrect - Incorrect
+Complete - Complete
+PartialComplete - Partial Complete
+Viewed - Viewed
+NotViewed - Not Viewed
+Attempted - Attempted
+Incomplete - Incomplete
+InProgress - In Progress
+NotProficient - Not Yet Proficient
+Proficient - Proficient
+",,,,000405,AssessmentItemResponseStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=23396,65222
+Assessments,Assessment Item,Assessment Item Response,Assessment Item Response Value," A specific response to an assessment item by the person being assessed.",None,,,,001063,AssessmentItemResponseValue,https://ceds.ed.gov/cedselementdetails.aspx?termid=24069,65504
+Assessments,Assessment Item,Assessment Item Response,Assessment Result Descriptive Feedback Date Time,The date and time the descriptive feedback was entered for a scored/evaluated portion of an assessment.,None,,,,001545,AssessmentResultDescriptiveFeedbackDateTime,https://ceds.ed.gov/cedselementdetails.aspx?termid=24520,67817
+Assessments,Assessment Item,Assessment Item Response,Proficiency Status,An indication of whether a student's scores were proficient.,"Proficient - Proficient
+NotProficient - Not proficient
+",,,,000573,ProficiencyStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=23565,65225
+Assessments,Assessment Item,Assessment Item Response Theory,Assessment Item Response Theory DIF Value,"A value representing the Differential Item Functioning, also referred to as  measurement bias, for the assessment item.  The value represents differences in the functioning of the item across groups which are matched on the attribute being measure by the item.  The value is calculated using Mantel-Haenszel approach or a comparable algorithm so that a value of 1.0 represents no bias.",None,,,,001264,AssessmentItemResponseTheoryDIFValue,https://ceds.ed.gov/cedselementdetails.aspx?termid=24230,66118
+Assessments,Assessment Item,Assessment Item Response Theory,Assessment Item Response Theory Kappa Algorithm,The algorithm used to derive the Assessment Item Kappa Value,"CohenUnweighted - Cohen's unweighted algorithm
+CohenWeighted - Cohen's weighted algorithm
+FleissAlgorithm - Fleiss algorithm
+",,,,001266,AssessmentItemResponseTheoryKappaAlgorithm,https://ceds.ed.gov/cedselementdetails.aspx?termid=24232,66122
+Assessments,Assessment Item,Assessment Item Response Theory,Assessment Item Response Theory Kappa Value,The measure used to represent the degree of agreement among raters.,None,,,,001265,AssessmentItemResponseTheoryKappaValue,https://ceds.ed.gov/cedselementdetails.aspx?termid=24231,66120
+Assessments,Assessment Item,Assessment Item Response Theory,Assessment Item Response Theory Parameter A,"The Item Response Theory value representing the discrimination of the item. The a parameter is found by taking the slope of the line tangent to the item characteristic curve at the inflection point, B. The parameter is the steepness of the curve at its steepest point.",None,,,,001251,AssessmentItemResponseTheoryParameterA,https://ceds.ed.gov/cedselementdetails.aspx?termid=24217,66092
+Assessments,Assessment Item,Assessment Item Response Theory,Assessment Item Response Theory Parameter B,The Item Response Theory value representing the difficulty of the item.   It is the Theta value for the location of the inflection point of the item characteristic curve.,None,,,,001252,AssessmentItemResponseTheoryParameterB,https://ceds.ed.gov/cedselementdetails.aspx?termid=24218,66094
+Assessments,Assessment Item,Assessment Item Response Theory,Assessment Item Response Theory Parameter C,The Item Response Theory value for multiple choice items representing the guessing of the item. The c parameter is a lower asymptote. It is the low point of the curve as it moves to negative infinity on the horizontal axis. You can think of c as the probability that a chicken would get the item right.,None,,,,001254,AssessmentItemResponseTheoryParameterC,https://ceds.ed.gov/cedselementdetails.aspx?termid=24220,66098
+Assessments,Assessment Item,Assessment Item Response Theory,Assessment Item Response Theory Parameter D1,"For   polytomous assessment items with more than two possible responses, this is the item response theory value representing the threshold between the first and second item characteristic functions.",None,,,,001255,AssessmentItemResponseTheoryParameterD1,https://ceds.ed.gov/cedselementdetails.aspx?termid=24221,66100
+Assessments,Assessment Item,Assessment Item Response Theory,Assessment Item Response Theory Parameter D2,"For   polytomous assessment items with more than two possible responses, this is the item response theory value representing the threshold between the second and third item characteristic functions.",None,,,,001256,AssessmentItemResponseTheoryParameterD2,https://ceds.ed.gov/cedselementdetails.aspx?termid=24222,66102
+Assessments,Assessment Item,Assessment Item Response Theory,Assessment Item Response Theory Parameter D3,"For   polytomous assessment items with more than three possible responses, this is the item response theory value representing the threshold between the third and fourth item characteristic functions.",None,,,,001257,AssessmentItemResponseTheoryParameterD3,https://ceds.ed.gov/cedselementdetails.aspx?termid=24223,66104
+Assessments,Assessment Item,Assessment Item Response Theory,Assessment Item Response Theory Parameter D4,"For   polytomous assessment items with more than four possible responses, this is the item response theory value representing the threshold between the fourth and fifth item characteristic functions.",None,,,,001258,AssessmentItemResponseTheoryParameterD4,https://ceds.ed.gov/cedselementdetails.aspx?termid=24224,66106
+Assessments,Assessment Item,Assessment Item Response Theory,Assessment Item Response Theory Parameter D5,"For   polytomous assessment items with more than five possible responses, this is the item response theory value representing the threshold between the fifth and sixth item characteristic functions.",None,,,,001259,AssessmentItemResponseTheoryParameterD5,https://ceds.ed.gov/cedselementdetails.aspx?termid=24225,66108
+Assessments,Assessment Item,Assessment Item Response Theory,Assessment Item Response Theory Parameter D6,"For   polytomous assessment items with more than six possible responses, this is the item response theory value representing the threshold between the sixth and seventh item characteristic functions.",None,,,,001260,AssessmentItemResponseTheoryParameterD6,https://ceds.ed.gov/cedselementdetails.aspx?termid=24226,66110
+Assessments,Assessment Item,Assessment Item Response Theory,Assessment Item Response Theory Parameter Difficulty Category,A category for the difficulty of the item based on the Item Response Theory value.,"None - None: 0
+VeryLow - Very low: 0.01 - 0.34
+Low - Low: 0.35 - 0.64
+Moderate - Moderate: 0.65 - 1.34
+High - High: 1.35 - 1.69
+VeryHigh - Very high: > 1.70
+Perfect - Perfect: + infinity
+",,,,001253,AssessmentItemResponseTheoryParameterDifficultyCategory,https://ceds.ed.gov/cedselementdetails.aspx?termid=24219,66096
+Assessments,Assessment Item,Assessment Item Response Theory,Assessment Item Response Theory Point Biserial Correlation Value,The correlation between correct answers on this item and total correct answers on the test during a previous administration. ,None,,,,001262,AssessmentItemResponseTheoryPointBiserialCorrelationValue,https://ceds.ed.gov/cedselementdetails.aspx?termid=24228,67026
+Assessments,Assessment Item,Rubric,Rubric Criterion Category,A textual label for category by which Rubric Criterion may be grouped.,None,,,,001469,RubricCriterionCategory,https://ceds.ed.gov/cedselementdetails.aspx?termid=24441,67376
+Assessments,Assessment Item,Rubric,Rubric Criterion Description,"Text describing a criterion that must be met to demonstrate quality for a product, process, or performance task.",None,,,,001470,RubricCriterionDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24442,67379
+Assessments,Assessment Item,Rubric,Rubric Criterion Level Description,"Text describing  one or more benchmarks that must be met to achieve a degree of achievement on a product, process, or performance task.",None,,,,001471,RubricCriterionLevelDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24443,67382
+Assessments,Assessment Item,Rubric,Rubric Criterion Level Feedback,Pre-defined feedback text to be relayed to the person or organization being evaluated.  This may include guidance and suggestions for improvement or development.,None,,,,001472,RubricCriterionLevelFeedback,https://ceds.ed.gov/cedselementdetails.aspx?termid=24444,67386
+Assessments,Assessment Item,Rubric,Rubric Criterion Level Position,A numeric value representing the level's position in the list of levels defined for the Rubric Criterion.,None,,,,001473,RubricCriterionLevelPosition,https://ceds.ed.gov/cedselementdetails.aspx?termid=24445,67389
+Assessments,Assessment Item,Rubric,Rubric Criterion Level Quality Label,A qualitative description of this degree of achievement used for column headers or row labels in tabular rubrics.,None,,,,001474,RubricCriterionLevelQualityLabel,https://ceds.ed.gov/cedselementdetails.aspx?termid=24446,67392
+Assessments,Assessment Item,Rubric,Rubric Criterion Level Score,The points awarded for achieving this level.,None,,,,001475,RubricCriterionLevelScore,https://ceds.ed.gov/cedselementdetails.aspx?termid=24447,67395
+Assessments,Assessment Item,Rubric,Rubric Criterion Position,A numeric value representing this criterion's position in the criteria list for this rubric.,None,,,,001476,RubricCriterionPosition,https://ceds.ed.gov/cedselementdetails.aspx?termid=24448,67398
+Assessments,Assessment Item,Rubric,Rubric Criterion Title,The title of the rubric criterion.,None,,,,001477,RubricCriterionTitle,https://ceds.ed.gov/cedselementdetails.aspx?termid=24449,67401
+Assessments,Assessment Item,Rubric,Rubric Criterion Weight,"A numeric weight assigned to this Rubric Criterion, used for scored rubrics.",None,,,,001478,RubricCriterionWeight,https://ceds.ed.gov/cedselementdetails.aspx?termid=24450,67404
+Assessments,Assessment Item,Rubric,Rubric Description,Text describing the intended use of the rubric.,None,,,,001479,RubricDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24451,67407
+Assessments,Assessment Item,Rubric,Rubric Identifier,An identifier assigned to a rubric.,None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",000422,AssessmentRubricIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23412,66419
+Assessments,Assessment Item,Rubric,Rubric Title,The title of the rubric.,None,,,,000421,AssessmentRubricTitle,https://ceds.ed.gov/cedselementdetails.aspx?termid=23411,66418
+Assessments,Assessment Item,Rubric,Rubric URL Reference,The URL location where the rubric may be found.,None,,,,000423,AssessmentRubricURLReference,https://ceds.ed.gov/cedselementdetails.aspx?termid=23413,66420
+Assessments,Assessment Participant Session,,Accommodation Other Description,The description of the accommodation when 'Accommodation Type' is set to 'Other'.,None,,,,001157,AccommodationOtherDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24116,66702
+Assessments,Assessment Participant Session,,Accommodation Type,The specific accommodation necessary for assessment or instruction.,"03513 - Additional example items/tasks
+00461 - Adjustable swivel arm
+00462 - Adjustable table height
+03514 - Administration in several sessions
+13803 - Alternate representation
+13793 - Answer masking
+03515 - Answers written directly in test booklet
+03517 - Arithmetic table (math or science)
+75005 - Native language
+03519 - Assistive device that does interfere with independent work of the student
+03518 - Assistive device that does not interfere with independent work of the student
+75006 - Audio recordings
+13791 - Auditory calming
+00463 - Braille
+03522 - Braille writer, no thesaurus, spell- or grammar-checker
+75007 - Breaks
+03524 - Calculator (math or science)
+13800 - Chunking
+03525 - Clarify directions
+03526 - Colored lenses
+03527 - Computer administration
+03528 - Cranmer abacus
+03529 - Cueing
+75008 - Dictated oral response
+03530 - Dictionary in English
+03531 - Dictionary in native language
+03533 - Directions read aloud or explained
+13795 - Encouraging prompts
+00937 - Enlarged keyboard
+00464 - Enlarged monitor view
+03534 - Examiner familiarity
+00465 - Extra time
+13797 - Flagging
+03535 - Font enlarged beyond print version requirements
+13789 - Foreground/Background colors
+03536 - Foreign language interpreter
+03537 - Foreign language interpreter for instructions, ask questions
+03538 - Format
+03539 - Hospital/home testing
+13790 - Increase white space
+13805 - Item translation
+13798 - Keyword highlighting
+13804 - Keyword translation
+75009 - Large print
+13796 - Line reader
+75010 - Linguistic modification of directions
+03541 - Magnification device
+75011 - Manually coded English or American Sign Language to present questions
+13792 - Masking
+03543 - Math manipulatives (math or science)
+03544 - Modification of linguistic complexity
+00469 - Multi-day administration
+03545 - Multiple test sessions
+13802 - Negatives removed
+03546 - Oral directions in the native language
+09999 - Other
+03547 - Paraphrasing
+03548 - Physical supports
+00471 - Recorder or amanuensis
+13801 - Reduced answer choices
+03549 - Response dictated in American Sign Language
+03550 - Response in native language
+13788 - Reverse contrast
+13799 - Scaffolding
+03551 - Scheduled extended time
+00473 - Separate room
+03552 - Separate room with other English Learners under supervision of district employee
+73070 - Sign Language Video
+03553 - Signer/sign language for instructions, ask questions
+00474 - Signer/sign language interpreter
+03554 - Simplified language
+03555 - Small-group or individual administration
+00475 - Special furniture
+00476 - Special lighting
+03558 - Specialized setting
+03556 - Speech recognition system
+03557 - Spell-checker
+13794 - Structured masking
+03559 - Student read aloud
+03560 - Student-requested extended time
+75012 - Supervised breaks
+13806 - Tactile
+03562 - Technological aid
+75013 - Test administered at best time of day for student
+03563 - Test administrator marked / wrote test at student's direction
+03564 - Test administrator read questions aloud
+03566 - Text changes in vocabulary
+00477 - Track ball
+03567 - Translation dictionary
+09997 - Unknown
+00479 - Untimed
+03568 - Verbalized problem-solving
+75014 - Video recordings
+03570 - Visual cues
+03571 - Word processor
+03572 - Word processor - grammar-checker turned off
+03573 - Word processor - grammar-checker enabled on essay response portion of test
+75015 - Alternate assignments or goals
+75016 - Behavior management program
+75017 - Check for understanding
+75018 - Frequent feedback
+75019 - Peer support
+",,,,000385,AccommodationType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23376,66355
+Assessments,Assessment Participant Session,,Assessment Accommodation Category,A category of accommodations needed for a given assessment.,"Scheduling - Scheduling accommodations
+Setting - Settings accommodations
+EquipmentOrTechnology - Student equipment/technology
+TestAdministration - Test administration accommodation
+TestMaterial - Test material accommodations
+TestResponse - Test response accommodation
+EnglishLearner - English learner accommodation
+504 - 504 accommodation
+Other - Other
+",,,,000383,AssessmentAccommodationCategory,https://ceds.ed.gov/cedselementdetails.aspx?termid=23374,65833
+Assessments,Assessment Participant Session,,Assessment Participant Session Database Name,The name of the database that was used to administer the test.,None,,,,001539,AssessmentParticipantSessionDatabaseName,https://ceds.ed.gov/cedselementdetails.aspx?termid=24514,67802
+Assessments,Assessment Participant Session,,Assessment Participant Session Delivery Device Details,The details about the device or platform by with which the assessment was delivered to the learner.,None,,,For example web browser version and screen resolution.,001003,AssessmentParticipantSessionDeliveryDeviceDetails,https://ceds.ed.gov/cedselementdetails.aspx?termid=24006,65442
+Assessments,Assessment Participant Session,,Assessment Participant Session GUID,A globally unique identifier for an instance of a person taking an assessment.,None,,,"CEDS ""GUID"" elements are defined as RFC 4122 compliant 32-character hexadecimal strings (36 characters with dashes). For example, 21EC2020-3AEA-1069-A2DD-08002B30309D. <br/><br/>Values MAY be encoded using a hash function such as HMAC-MD5 or HMAC-SHA1, resulting in a string up to 40 characters.",001540,AssessmentParticipantSessionGUID,https://ceds.ed.gov/cedselementdetails.aspx?termid=24515,67804
+Assessments,Assessment Participant Session,,Assessment Participant Session Language,The language that the assessment is administered.,See URL column,,,"The CEDS ISO 639-2 Language Code option set comes from the <a href=""http://www.loc.gov/standards/iso639-2/langhome.html"">ISO 639-2 standard</a>, the character encoding in ISO 8859-1 download.  Discontinued codes from the ISO standard are not included in the CEDS list.",000371,AssessmentParticipantSessionLanguage,https://ceds.ed.gov/cedselementdetails.aspx?termid=23370,65918
+Assessments,Assessment Participant Session,,Assessment Participant Session Platform Type,The platform with which the assessment was delivered to the student during the assessment session.,"Paper - Paper
+Computer - Computer
+Mobile - Mobile
+Clicker - Clicker
+Other - Other
+Handheld - Handheld
+Tablet - Tablet
+",,,,000386,AssessmentParticipantSessionPlatformType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23377,65188
+Assessments,Assessment Participant Session,,Assessment Participant Session Platform User Agent," A list of product tokens (keywords) with optional comments that identifies the client hardware and software with which the assessment was delivered to the student during the assessment session.",None,,,"Implementation Note: The recommended approach is to store the User-Agent string returned as part of an HTTP header.  For example, an assessment session delivery via iPad might have ""Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405""",001152,AssessmentParticipantSessionPlatformUserAgent,https://ceds.ed.gov/cedselementdetails.aspx?termid=24112,66473
+Assessments,Assessment Participant Session,,Assessment Participant Session Security Issue,Describes an issue related to the security of a testing instrument identified during a specific instance of delivering an assessment to a specific person during a specific time period.,None,,,,001130,AssessmentParticipantSessionSecurityIssue,https://ceds.ed.gov/cedselementdetails.aspx?termid=24102,65544
+Assessments,Assessment Participant Session,,Assessment Participant Session Time Assessed,The overall time a learner actually spent during the  assessment session.,None,,,,000407,AssessmentParticipantSessionTimeAssessed,https://ceds.ed.gov/cedselementdetails.aspx?termid=23398,65835
+Assessments,Assessment Participant Session,,Assessment Session Actual End Date Time,Date and time the assessment actually ended.,None,,,"When associated to an assessment session this is the actual end date and time.  When associated to an individual taking an assessment, this is the actual date and time when the individual finished.",001022,AssessmentSessionActualEndDateTime,https://ceds.ed.gov/cedselementdetails.aspx?termid=24024,65462
+Assessments,Assessment Participant Session,,Assessment Session Actual Start Date Time,Date and time the assessment actually began.,None,,,"When associated to an assessment session this is the actual start date and time.  When associated to an individual taking an assessment, this is the actual date and time when the individual started.",001021,AssessmentSessionActualStartDateTime,https://ceds.ed.gov/cedselementdetails.aspx?termid=24023,65460
+Assessments,Assessment Participant Session,,Assessment Session Location," The description of the place where an assessment is administered.",None,,,,000597,AssessmentSessionLocation,https://ceds.ed.gov/cedselementdetails.aspx?termid=23590,65922
+Assessments,Assessment Participant Session,,Assessment Session Security Issue,"The description of a security issue, if any, discovered for an administration of an assessment, such as suspected cheating by a student or a teacher changing answers after a student takes the test.",None,,,For example: Suspected plagiarism ; Computer left test window ; Excessive response time ; Proctor suspected copying ; Student identity not confirmed ; No proctor present ; Student carried wireless mobile device during test ; Student terminated test early and restarted ; Excessive erasures on test form ; Response pattern identical to another student's,000968,AssessmentSessionSecurityIssue,https://ceds.ed.gov/cedselementdetails.aspx?termid=23969,65516
+Assessments,Assessment Participant Session,,Assessment Session Special Circumstance Type,"An unusual event occurred during the administration of the assessment. This could include fire alarm, student became ill, etc.","13807 - Long-term suspension - non-special education
+13808 - Short-term suspension - non-special education
+13809 - Suspension - special education
+13810 - Truancy - paperwork filed
+13811 - Truancy - no paperwork filed
+13812 - Earlier truancy
+13813 - Chronic absences
+13814 - Catastrophic illness or accident
+13815 - Home schooled for assessed subjects
+13816 - Student took this grade level assessment last year
+13817 - Incarcerated at adult facility
+13818 - Special treatment center
+13819 - Special detention center
+13820 - Parent refusal
+13821 - Cheating
+13822 - Psychological factors of emotional trauma
+13823 - Student not showing adequate effort
+13824 - Homebound
+13825 - Foreign exchange student
+13826 - Student refusal
+13827 - Reading passage read to student (IEP)
+13828 - Non-special education student used calculator on non-calculator items
+13829 - Student used math journal (non-IEP)
+13830 - Other reason for ineligibility
+13831 - Other reason for nonparticipation
+13832 - Left testing
+13833 - Cross-enrolled
+13834 - Only for writing
+13835 - Administration or system failure
+13836 - Teacher cheating or mis-admin
+13837 - Fire alarm
+09999 - Other
+",,,,000389,AssessmentSessionSpecialCircumstanceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23380,66847
+Assessments,Assessment Participant Session,,Assessment Session Special Event Description,Describes special events that occur before during or after the assessment session that may impact use of results according to rules related to the Assessment Registration Testing Indicator.,None,,,,001093,AssessmentSessionSpecialEventDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24077,65517
+Assessments,Assessment Performance Level,,Assessment Performance Level Descriptive Feedback,A feedback message designed to be reported with the assessment performance level.,None,,,,001218,AssessmentPerformanceLevelDescriptiveFeedback,https://ceds.ed.gov/cedselementdetails.aspx?termid=24184,66843
+Assessments,Assessment Performance Level,,Assessment Performance Level Identifier,A unique number or alphanumeric code assigned to an assessment performance level.,None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",000717,AssessmentPerformanceLevelIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23693,65253
+Assessments,Assessment Performance Level,,Assessment Performance Level Label,A label representing the performance level appropriate for use on a report.,None,,,,000718,AssessmentPerformanceLevelLabel,https://ceds.ed.gov/cedselementdetails.aspx?termid=23694,65254
+Assessments,Assessment Performance Level,,Assessment Performance Level Lower Cut Score,Lowest possible score for the performance level.,None,,,,000418,AssessmentPerformanceLevelLowerCutScore,https://ceds.ed.gov/cedselementdetails.aspx?termid=23408,65251
+Assessments,Assessment Performance Level,,Assessment Performance Level Score Metric,The metric or scale used for score reporting.,"00512 - Achievement/proficiency level
+00494 - ACT score
+00490 - Age score
+00491 - C-scaled scores
+00492 - College Board examination scores
+00493 - Grade equivalent or grade-level indicator
+03473 - Graduation score
+03474 - Growth/value-added/indexing
+03475 - International Baccalaureate score
+00144 - Letter grade/mark
+00513 - Mastery level
+00497 - Normal curve equivalent
+00498 - Normalized standard score
+00499 - Number score
+00500 - Pass-fail
+03476 - Percentile
+00502 - Percentile rank
+00503 - Proficiency level
+03477 - Promotion score
+00504 - Ranking
+00505 - Ratio IQ's
+03478 - Raw score
+03479 - Scale score
+00506 - Standard age score
+00508 - Stanine score
+00509 - Sten score
+00510 - T-score
+03480 - Workplace readiness score
+00511 - Z-score
+09999 - Other
+",,,,000417,AssessmentPerformanceLevelScoreMetric,https://ceds.ed.gov/cedselementdetails.aspx?termid=23407,65250
+Assessments,Assessment Performance Level,,Assessment Performance Level Upper Cut Score,Highest possible score for the performance level.,None,,,,000419,AssessmentPerformanceLevelUpperCutScore,https://ceds.ed.gov/cedselementdetails.aspx?termid=23409,65252
+Assessments,Assessment Personal Needs Profile,,Assessment Need Language Type,Defines as part of an Assessment Personal Needs Profile a preference for the language of the user interface.,See URL column,,,"The CEDS ISO 639-2 Language Code option set comes from the <a href=""http://www.loc.gov/standards/iso639-2/langhome.html"">ISO 639-2 standard</a>, the character encoding in ISO 8859-1 download.  Discontinued codes from the ISO standard are not included in the CEDS list.",001023,AssessmentNeedLanguageType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24025,65463
+Assessments,Assessment Personal Needs Profile,,Assessment Need Type,A type of need identified for a learner as part of an assessment need profile.,None,,,,001127,AssessmentNeedType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24101,65541
+Assessments,Assessment Personal Needs Profile,,Assessment Personal Needs Profile Activate by Default,Determines if the alternative accessible content is rendered as the default content for the learner.,"Yes
+No
+",,,This flag may apply to any need within the Assessment Personal Need Profile.,001005,AssessmentPersonalNeedsProfileActivateByDefault,https://ceds.ed.gov/cedselementdetails.aspx?termid=24008,65444
+Assessments,Assessment Personal Needs Profile,,Assessment Personal Needs Profile Assigned Support,Defines whether or not the individual needs the kind of support defined by the entity.,"Yes
+No
+",,,This flag may apply to any need within the Assessment Personal Need Profile.,001004,AssessmentPersonalNeedsProfileAssignedSupport,https://ceds.ed.gov/cedselementdetails.aspx?termid=24007,65443
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Content,Assessment Need Alternative Representation Type,Defines as part of an Assessment Personal Needs Profile the default presentation mode of the associated Alternative Representations accessibility.,"Audio - Audio
+Video - Video
+Graphic - Graphic
+Text - Text
+Interactive - Interactive
+",,,,001041,AssessmentNeedAlternativeRepresentationType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24045,65482
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Content,Assessment Need Directions Only,Defines as part of an Assessment Personal Needs Profile whether or not the verbal alternative content presentation should be applied to directive content only.,"Yes
+No
+",,,,001045,AssessmentNeedDirectionsOnly,https://ceds.ed.gov/cedselementdetails.aspx?termid=24050,65486
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Content,Assessment Need Hazard Type,Defines as part of an Assessment Personal Needs Profile a characteristic of a digital resource that may be specified as being dangerous to a user.,"Flashing - Flashing
+Sound - Sound
+Olfactory - Olfactory
+MotionSimulation - Motion simulation
+",,,,001024,AssessmentNeedHazardType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24026,65464
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Content,Assessment Need Item Translation Display Language Type,Defines as part of an Assessment Personal Needs Profile the default language for the displayed translation.,See URL column,,,"The CEDS ISO 639-2 Language Code option set comes from the <a href=""http://www.loc.gov/standards/iso639-2/langhome.html"">ISO 639-2 standard</a>, the character encoding in ISO 8859-1 download.  Discontinued codes from the ISO standard are not included in the CEDS list.",001038,AssessmentNeedItemTranslationDisplayLanguageType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24042,65479
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Content,Assessment Need Keyword Translation Language Type,Defines as part of an Assessment Personal Needs Profile the default language for the keyword translation.,See URL column,,,"The CEDS ISO 639-2 Language Code option set comes from the <a href=""http://www.loc.gov/standards/iso639-2/langhome.html"">ISO 639-2 standard</a>, the character encoding in ISO 8859-1 download.  Discontinued codes from the ISO standard are not included in the CEDS list.",001039,AssessmentNeedKeywordTranslationLanguageType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24043,65480
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Content,Assessment Need Support Tool Type,Defines as part of an Assessment Personal Needs Profile the electronic tool associated with a resource.,"Dictionary - Dictionary
+Calculator - Calculator
+NoteTaking - Note taking
+PeerInteraction - Peer interaction
+Thesaurus - Thesaurus
+Abacus - Abacus
+SpellChecker - Spell checker
+Homophone - Homophone checker
+MindMapping - Mind mapping software
+OutlineTool - Outline tool
+",,,,001025,AssessmentNeedSupportToolType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24027,65465
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Content,Assessment Need User Spoken Preference Type,Used as part of an Assessment Personal Needs Profile to define the type of material that should be rendered using the read aloud alternative content.,"TextOnly - Text only
+TextGraphics - Text and graphics
+GraphicsOnly - Graphics only
+NonVisual - Non-visual
+",,,,001044,AssessmentNeedUserSpokenPreferenceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24049,65485
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Control,Assessment Need Time Multiplier,Defines the multiplier to be applied to the time limit to determine the total testing time allowed when Additional Testing Time is specified as part of an Assessment Personal Needs Profile.  If the value is ‘unlimited’ then there is no time limit for the test.,None,,,,001049,AssessmentNeedTimeMultiplier,https://ceds.ed.gov/cedselementdetails.aspx?termid=24055,65490
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Braille Dot Pressure,Defines as part of an Assessment Personal Needs Profile the resistance pressure of Braille display pins.,None,,,,001036,AssessmentNeedBrailleDotPressure,https://ceds.ed.gov/cedselementdetails.aspx?termid=24040,65477
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Braille Grade Type,Defines as part of an Assessment Personal Needs Profile the grade of Braille to use when using a Braille display.,"Contracted - Contracted
+Uncontracted - Uncontracted
+",,,,001032,AssessmentNeedBrailleGradeType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24035,65473
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Braille Mark Type,Defines as part of an Assessment Personal Needs Profile what textual properties to mark when using a Braille display.,"Highlight - Highlight
+Bold - Bold
+Underline - Underline
+Italic - Italic
+Strikeout - Strikeout
+Color - Color
+",,,,001035,AssessmentNeedBrailleMarkType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24038,65476
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Braille Status Cell Type,Defines as part of an Assessment Personal Needs Profile the preferred presence or location of a Braille display status cell.,"Off - Off
+Left - Left
+Right - Right
+",,,,001037,AssessmentNeedBrailleStatusCellType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24041,65478
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Invert Color Choice,Defines as part of an Assessment Personal Needs Profile the Access for All (AfA) preference to invert the foreground and background Colors.,"Yes
+No
+",,,,001030,AssessmentNeedInvertColorChoice,https://ceds.ed.gov/cedselementdetails.aspx?termid=24033,65471
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Line Reader Highlight Color,The color defined as part of an Assessment Personal Needs Profile to be used to highlight the point of line reader activity i.e. the line being read.,None,,,,001050,AssessmentNeedLineReaderHighlightColor,https://ceds.ed.gov/cedselementdetails.aspx?termid=24056,65491
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Link Indication Type,Defines as part of an Assessment Personal Needs Profile the characteristics of presentation for a hyperlink when using a screen reader.,"SpeakLink - Speak link
+DifferentVoice - Different voice
+SoundEffect - Sound effect
+None - None
+",,,,001027,AssessmentNeedLinkIndicationType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24029,65467
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Magnification,Defines as part of an Assessment Personal Needs Profile the preferred magnification of the screen as a factor of a screen’s original size.,None,,,,001031,AssessmentNeedMagnification,https://ceds.ed.gov/cedselementdetails.aspx?termid=24034,65472
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Masking Type,Specifies as part of an Assessment Personal Needs Profile the type of masks the user is able to create  to cover portions of the question until needed.,"CustomMask - Custom mask
+AnswerMask - Answer mask
+",,,,001046,AssessmentNeedMaskingType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24051,65487
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Number of Braille Cells,Defines as part of an Assessment Personal Needs Profile the number of active Braille cells in a Braille display.,None,,,,001034,AssessmentNeedNumberOfBrailleCells,https://ceds.ed.gov/cedselementdetails.aspx?termid=24037,65475
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Number of Braille Dots Type,Defines as part of an Assessment Personal Needs Profile the number of dots in a Braille cell.,"6 - Six Braille Dots
+8 - Eight Braille Dots
+",,,,001033,AssessmentNeedNumberOfBrailleDotsType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24036,65474
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Pitch,Defines as part of an Assessment Personal Needs Profile the pitch of a speech synthesizer.,None,,,,001087,AssessmentNeedPitch,https://ceds.ed.gov/cedselementdetails.aspx?termid=24031,65469
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Read at Start Preference,Used as part of an Assessment Personal Needs Profile to define if the spoken play-back should commence from the start of a recording or not.,"Yes
+No
+",,,,001043,AssessmentNeedReadAtStartPreference,https://ceds.ed.gov/cedselementdetails.aspx?termid=24048,65484
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Signing Type,Defines as part of an Assessment Personal Needs Profile the type of signing preferred by the user.,"ASL - American Sign Language
+SignedEnglish - Signed English
+",,,,001040,AssessmentNeedSigningType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24044,65481
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Sound File URL,The URI of the sound file that is to be played to the user as an expression of encouragement when Masking is specified as part of an Assessment Personal Needs Profile. It is left to the system to determine when to play this audio file.,None,,,,001048,AssessmentNeedSoundFileURL,https://ceds.ed.gov/cedselementdetails.aspx?termid=24053,65489
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Speech Rate,Defines as part of an Assessment Personal Needs Profile the rate of speech of a speech synthesizer.,None,,,,001028,AssessmentNeedSpeechRate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24030,65468
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Spoken Source Preference Type,Defines as part of an Assessment Personal Needs Profile the preferred spoken audio form.,"Human - Human
+Synthetic - Synthetic
+",,,,001042,AssessmentNeedSpokenSourcePreferenceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24046,65483
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Text Messaging String,The text string that is to be displayed to the user as an expression of encouragement when Masking is specified as part of an Assessment Personal Needs Profile.  It is left to the system to determine when to display this string.,None,,,,001047,AssessmentNeedTextMessagingString,https://ceds.ed.gov/cedselementdetails.aspx?termid=24052,65488
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Usage Type,Defines as part of an Assessment Personal Needs Profile the rating for the collection of Access for All (AfA) needs and preferences.,"Required - Required
+Preferred - Preferred
+OptionallyUse - Optionally  use
+Prohibited - Prohibited
+",,,,001026,AssessmentNeedUsageType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24028,65466
+Assessments,Assessment Personal Needs Profile,Assessment Need Profile Display,Assessment Need Volume,Defines as part of an Assessment Personal Needs Profile the volume of a speech synthesizer.,None,,,,001029,AssessmentNeedVolume,https://ceds.ed.gov/cedselementdetails.aspx?termid=24032,65470
+Assessments,Assessment Personal Needs Profile,Assessment Need Screen Enhancement,Assessment Need Background Color,This is the preferred Background color for screen enhancement defined as part of an Assessment Personal Needs Profile.,None,,,,001053,AssessmentNeedBackgroundColor,https://ceds.ed.gov/cedselementdetails.aspx?termid=24059,65494
+Assessments,Assessment Personal Needs Profile,Assessment Need Screen Enhancement,Assessment Need Foreground Color,This is the preferred Foreground color for screen enhancement defined as part of an Assessment Personal Needs Profile.,None,,,,001052,AssessmentNeedForegroundColor,https://ceds.ed.gov/cedselementdetails.aspx?termid=24058,65493
+Assessments,Assessment Personal Needs Profile,Assessment Need Screen Enhancement,Assessment Need Increased Whitespacing Type,"Defines the user preferences for white spacing in lines, words and characters as part of an Assessment Personal Needs Profile.","Line - Line
+Word - Word
+Character - Character
+",,,,001054,AssessmentNeedIncreasedWhitespacingType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24060,65495
+Assessments,Assessment Personal Needs Profile,Assessment Need Screen Enhancement,Assessment Need Overlay Color,This is the preferred color for the overlay for screen enhancement defined as part of an Assessment Personal Needs Profile.,None,,,,001051,AssessmentNeedOverlayColor,https://ceds.ed.gov/cedselementdetails.aspx?termid=24057,65492
+Assessments,Assessment Registration,,Accommodation Other Description,The description of the accommodation when 'Accommodation Type' is set to 'Other'.,None,,,,001157,AccommodationOtherDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24116,66701
+Assessments,Assessment Registration,,Assessment Accommodation Category,A category of accommodations needed for a given assessment.,"Scheduling - Scheduling accommodations
+Setting - Settings accommodations
+EquipmentOrTechnology - Student equipment/technology
+TestAdministration - Test administration accommodation
+TestMaterial - Test material accommodations
+TestResponse - Test response accommodation
+EnglishLearner - English learner accommodation
+504 - 504 accommodation
+Other - Other
+",,,,000383,AssessmentAccommodationCategory,https://ceds.ed.gov/cedselementdetails.aspx?termid=23374,65220
+Assessments,Assessment Registration,,Assessment Form Number,The number of a given assessment form.,None,,,,000366,AssessmentFormNumber,https://ceds.ed.gov/cedselementdetails.aspx?termid=23365,67781
+Assessments,Assessment Registration,,Assessment Identification System,"A coding scheme that is used for identification and record-keeping purposes by schools, social services, or other agencies to refer to an assessment.","School - School-assigned number
+District - District-assigned number
+State - State-assigned number
+Federal - Federal identification number
+OtherFederal - Other federally assigned number
+TestContractor - Test contractor assigned assessment number
+Other - Other
+",Updated,Add new DES location,,000365,AssessmentIdentificationSystem,https://ceds.ed.gov/cedselementdetails.aspx?termid=23158,67785
+Assessments,Assessment Registration,,Assessment Identifier,"A unique number or alphanumeric code assigned to an assessment by a school, school system, a state, or other agency or entity.  This may be the publisher identifier.",None,Updated,Add new DES location,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001067,AssessmentIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23152,70015
+Assessments,Assessment Registration,,Assessment Participant Session Platform Type,The platform with which the assessment was delivered to the student during the assessment session.,"Paper - Paper
+Computer - Computer
+Mobile - Mobile
+Clicker - Clicker
+Other - Other
+Handheld - Handheld
+Tablet - Tablet
+",,,,000386,AssessmentParticipantSessionPlatformType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23377,67806
+Assessments,Assessment Registration,,Assessment Registration Assignor Identifier,The unique identifier of the person who assigned the assessment to the learner.,None,,,"For example, the unique identifier of a classroom teacher or school principal.<BR/><BR/>CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <BR/><BR/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",000889,AssessmentRegistrationAssignorIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23889,66340
+Assessments,Assessment Registration,,Assessment Registration Completion Status,The completion and scoring status for an instance of a person taking an assessment.,"Appeal - Appeal
+Completed - Completed
+Expired - Expired
+Handscoring - Handscoring
+Invalidated - Invalidated
+Paused - Paused
+Reported - Reported
+Reset - Reset
+Scored - Scored
+Submitted - Submitted
+",,,,001541,AssessmentRegistrationCompletionStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=24516,67808
+Assessments,Assessment Registration,,Assessment Registration Completion Status Date Time,The date and time the completion and scoring status was changed for an instance of a person taking an assessment.,None,,,,001542,AssessmentRegistrationCompletionStatusDateTime,https://ceds.ed.gov/cedselementdetails.aspx?termid=24517,67810
+Assessments,Assessment Registration,,Assessment Registration Creation Date,Date/time assignment is made.,None,,,,001017,AssessmentRegistrationCreationDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24019,65455
+Assessments,Assessment Registration,,Assessment Registration Days of Instruction,The number of days of instruction the student has taken prior to testing.,None,,,,001015,AssessmentRegistrationDaysOfInstruction,https://ceds.ed.gov/cedselementdetails.aspx?termid=24017,65453
+Assessments,Assessment Registration,,Assessment Registration Grade Level to Be Assessed,The grade or level at which the learner is to be assessed.,"01043 - No school completed 
+IT - Infant/toddler
+PR - Preschool
+PK - Prekindergarten
+TK - Transitional Kindergarten
+KG - Kindergarten
+01 - First grade
+02 - Second grade
+03 - Third grade
+04 - Fourth grade
+05 - Fifth grade
+06 - Sixth grade
+07 - Seventh grade
+08 - Eighth grade
+09 - Ninth grade
+10 - Tenth grade
+11 - Eleventh grade
+12 - Twelfth grade
+13 - Grade 13
+PS - Postsecondary
+UG - Ungraded
+AE - Adult Education
+01044 - High school diploma 
+02408 - High school completers (e.g., certificate of attendance) 
+02409 - High school equivalency (e.g., GED) 
+00819 - Career and Technical Education certificate
+01049 - Some college but no degree 
+01047 - Formal award, certificate or diploma (less than one year) 
+01048 - Formal award, certificate or diploma (more than or equal to one year) 
+01050 - Associate's degree (two years or more) 
+73063 - Adult education certification, endorsement, or degree
+01051 - Bachelor's (Baccalaureate) degree 
+01054 - Master's degree (e.g., M.A., M.S., M. Eng., M.Ed., M.S.W., M.B.A., M.L.S.) 
+01055 - Specialist's degree (e.g., Ed.S.) 
+73081 - Post-master’s certificate
+01052 - Graduate certificate 
+01057 - Doctoral (Doctor's) degree 
+01053 - First-professional degree 
+01056 - Post-professional degree 
+73083 - Doctor’s degree-professional practice
+73084 - Doctor’s degree-other
+73085 - Doctor’s degree-research/scholarship
+Other - Other
+",,," Informs selection of the assessment form appropriate for the grade level to be tested.",001057,AssessmentRegistrationGradeLevelToBeAssessed,https://ceds.ed.gov/cedselementdetails.aspx?termid=24063,65498
+Assessments,Assessment Registration,,Assessment Registration Participation Indicator,An indication of whether a student participated in an assessment.,"Participated - Participated
+DidNotParticipate - Did Not Participate
+",,,,000025,AssessmentRegistrationParticipationIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=23025,65185
+Assessments,Assessment Registration,,Assessment Registration Reason Not Completing,The primary reason a participant did not complete an assessment.,"ParentsOptOut - Parents opt out
+Absent - Absent during
+Other - Did not participate for other reason
+OutOfLevelTest - Participated in an out of level test
+NoValidScore - No valid score
+Medical - Medical emergency
+Moved - Moved
+LeftProgram - Person left program - unable to locate
+",,,"This may apply to any learner, but is used particularly for reporting based on children with disabilities (IDEA).",000540,AssessmentRegistrationReasonNotCompleting,https://ceds.ed.gov/cedselementdetails.aspx?termid=23531,65221
+Assessments,Assessment Registration,,Assessment Registration Retest Indicator,Indicates if this registration is for a retest (retake). Retest can occur if a student failed a prior attempt and is eligible to retake. Other retest scenarios also can occur.,"Yes
+No
+",,,,001016,AssessmentRegistrationRetestIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24018,65454
+Assessments,Assessment Registration,,Assessment Registration Score Publish Date,"The date set by the testing program when the test scores are published.  For formative or classroom assessments, this will likely be the date when the scored the individual test.  For summative assessments, this date is likely set for a group of assessments when the processing system releases the scores.",None,,,,001056,AssessmentRegistrationScorePublishDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24062,65497
+Assessments,Assessment Registration,,Assessment Registration Test Attempt Identifier,A unique identifier for the test attempt assigned by the delivery system.,None,,,"For paper-based tests this is typically a batch/stack/serial number and for online tests it is likely a unique internal identifier. Used to locate the original attempt.<br/><br/>CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001162,AssessmentRegistrationTestAttemptIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=24119,66477
+Assessments,Assessment Registration,,Assessment Registration Testing Indicator,"Indicates rules about use of results based on Special Events before, during or after the test. The option set values are determined by the testing program.",None,,,"For example, ""do not score"", ""do not report"".",001055,AssessmentRegistrationTestingIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24061,65496
+Assessments,Assessment Registration,,Grade Level When Assessed,The grade or developmental level of a student when assessed.,"IT - Infant/toddler
+PR - Preschool
+PK - Prekindergarten
+TK - Transitional Kindergarten
+KG - Kindergarten
+01 - First grade
+02 - Second grade
+03 - Third grade
+04 - Fourth grade
+05 - Fifth grade
+06 - Sixth grade
+07 - Seventh grade
+08 - Eighth grade
+09 - Ninth grade
+10 - Tenth grade
+11 - Eleventh grade
+12 - Twelfth grade
+13 - Grade 13
+PS - Postsecondary
+UG - Ungraded
+Other - Other
+OutOfSchool - Out of school
+AE - Adult Education
+",,,,000126,GradeLevelWhenAssessed,https://ceds.ed.gov/cedselementdetails.aspx?termid=23126,65219
+Assessments,Assessment Registration,,LEA Full Academic Year,"An indication of whether a student was in membership in the LEA education unit for a full academic year, according to the state’s definition of Full Academic Year.","Yes
+No
+",,,,001762,LEAFullAcademicYear,https://ceds.ed.gov/cedselementdetails.aspx?termid=24743,68972
+Assessments,Assessment Registration,,Local Education Agency Identification System,"A coding scheme that is used for identification and record-keeping purposes by schools, social services, or other agencies to refer to a local education agency.","District - District-assigned number
+ACT - College Board/ACT program code set of PK-grade 12 institutions
+SEA - State Education Agency assigned number
+NCES - National Center for Education Statistics assigned number
+Federal - Federal identification number
+DUNS - Dun and Bradstreet number
+CENSUSID - Census Bureau identification code
+OtherFederal - Other federally assigned number
+Other - Other
+SAM - System for Award Management Unique Entity Identifier
+",,,,001072,LEAIdentificationSystem,https://ceds.ed.gov/cedselementdetails.aspx?termid=23159,65591
+Assessments,Assessment Registration,,Local Education Agency Identifier,"A unique number or alphanumeric code assigned to a local education agency by a school system, a state, or other agency or entity.",None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces.  <BR/><BR/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001068,LocalEducationAgencyIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23153,65594
+Assessments,Assessment Registration,,Reason Not Tested,The primary reason a student is not tested.,"03451 - Absent
+03455 - Disruptive behavior
+03454 - Medical waiver
+03456 - Previously passed the examination
+03452 - Refusal by parent
+03453 - Refusal by student
+09999 - Other
+",,,,000228,ReasonNotTested,https://ceds.ed.gov/cedselementdetails.aspx?termid=23228,67028
+Assessments,Assessment Registration,,School Full Academic Year,"An indication of whether a student was in membership in the school education unit for a full academic year, according to the state’s definition of Full Academic Year.","Yes
+No
+",,,,001763,SchoolFullAcademicYear,https://ceds.ed.gov/cedselementdetails.aspx?termid=24744,68991
+Assessments,Assessment Registration,,School Identification System,"A coding scheme that is used for identification and record-keeping purposes by schools, social services, or other agencies to refer to an institution.","School - School-assigned number
+ACT - College Board/ACT program code set of PK-grade 12 institutions
+LEA - Local Education Agency assigned number
+SEA - State Education Agency assigned number
+NCES - National Center for Education Statistics assigned number
+Federal - Federal identification number
+DUNS - Dun and Bradstreet number
+OtherFederal - Other federally assigned number
+StateUniversitySystem - State University System assigned number
+Other - Other
+SAM - System for Award Management Unique Entity Identifier
+",,,,001073,SchoolIdentificationSystem,https://ceds.ed.gov/cedselementdetails.aspx?termid=23161,65585
+Assessments,Assessment Registration,,School Identifier,"A unique number or alphanumeric code assigned to an institution by a school, school system, a state, or other agency or entity.",None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001069,SchoolIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23155,65588
+Assessments,Assessment Registration,,State Agency Identification System,A coding scheme that is used for identification and record-keeping purposes to refer to a state agency.,"State - State-assigned number
+Federal - Federal identification number
+FEIN - Federal Employer Identification Number
+NCES - National Center for Education Statistics Assigned Number
+SAM - System for Award Management Unique Entity Identifier
+Other - Other
+",,,,001491,StateAgencyIdentificationSystem,https://ceds.ed.gov/cedselementdetails.aspx?termid=24463,67920
+Assessments,Assessment Registration,,State Agency Identifier,A unique number or alphanumeric code assigned to a state agency.,None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces.  <BR/><BR/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001490,StateAgencyIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=24462,67921
+Assessments,Assessment Registration,,State Full Academic Year,"An indication of whether a student was in membership in the state education unit for a full academic year, according to the state’s definition of Full Academic Year.","Yes
+No
+",,,,001761,StateFullAcademicYear,https://ceds.ed.gov/cedselementdetails.aspx?termid=24742,68994
+Assessments,Assessment Result,,Assessment Result Data Type," The data type of the assessment result score value.","Integer - Integer
+Decimal - Decimal
+Percentile - Percentile
+String - String
+",,,"An Assessment Result in CEDS may apply to an entire assessment or one aspect of evaluation as defined in the related “subtest” entity.  The Assessment Result entity is repeatable, so there could be multiple Assessment Result Score Values each using a different Assessment Result Data Type, and each of these score values may be associated with one or more Assessment Performance Level(s).",001543,AssessmentResultDataType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24518,67813
+Assessments,Assessment Result,,Assessment Result Date Created,The date on which the assessment result was generated.,None,,,,000971,AssessmentResultDateCreated,https://ceds.ed.gov/cedselementdetails.aspx?termid=23972,65423
+Assessments,Assessment Result,,Assessment Result Date Updated,"The most recent date that the result was calculated/updated.  The value should be the same as Assessment Result Date Created if the subtest has only been scored once, but may be different if the score was recalculated with a different result.",None,,,"This flag is to handle cases when a subtest result is originally scored using incorrect parameters and then rescored, such as if the grade level attributed to the student was originally encoded incorrectly and later corrected.  An operational system may also capture the history of if rescored more than once.",000970,AssessmentResultDateUpdated,https://ceds.ed.gov/cedselementdetails.aspx?termid=23971,65422
+Assessments,Assessment Result,,Assessment Result Descriptive Feedback,The formative descriptive feedback that was given to a learner based on a scored/evaluated portion of an assessment as recorded in the result entity.,None,,,,000890,AssessmentResultDescriptiveFeedback,https://ceds.ed.gov/cedselementdetails.aspx?termid=23890,66341
+Assessments,Assessment Result,,Assessment Result Descriptive Feedback Date Time,The date and time the descriptive feedback was entered for a scored/evaluated portion of an assessment.,None,,,,001545,AssessmentResultDescriptiveFeedbackDateTime,https://ceds.ed.gov/cedselementdetails.aspx?termid=24520,68118
+Assessments,Assessment Result,,Assessment Result Descriptive Feedback Source,"Identifies the source of the descriptive feedback that was given to a learner based on a scored/evaluated portion of an assessment. May indicate if this is teacher, scorer, or system generated feedback. Values for this attribute would be determined by the assessment program.",None,,,,001092,AssessmentResultDescriptiveFeedbackSource,https://ceds.ed.gov/cedselementdetails.aspx?termid=24076,65508
+Assessments,Assessment Result,,Assessment Result Diagnostic Statement,"A statement intended for use by education professionals, using professional terminology, to interpret learner needs based on the scored/evaluated portion of an assessment.  This statement may inform Descriptive Feedback given to the learner.",None,,,,001219,AssessmentResultDiagnosticStatement,https://ceds.ed.gov/cedselementdetails.aspx?termid=24185,66844
+Assessments,Assessment Result,,Assessment Result Number of Responses,The number of responses that are included with the Student Score Set. Responses are those items that were attempted (partially or fully answered) by the student and not necessarily the number of items in the assessment (which can be determined from the assessment object).,None,,,,001009,AssessmentResultNumberOfResponses,https://ceds.ed.gov/cedselementdetails.aspx?termid=24012,65448
+Assessments,Assessment Result,,Assessment Result Preliminary Indicator,"If this score is preliminary, then this attribute value should be set.  Preliminary scores may be provided for early use by the assessment program or user while final scoring is occurring.","Yes
+No
+",,,,001007,AssessmentResultPreliminaryIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24010,65446
+Assessments,Assessment Result,,Assessment Result Pretest Outcome,The results of a pre-test in academic subjects.,"GradeLevel - At or above Grade Level
+BelowGradeLevel - Below Grade Level
+NA - Not applicable
+",,,,000572,AssessmentResultPretestOutcome,https://ceds.ed.gov/cedselementdetails.aspx?termid=23564,65224
+Assessments,Assessment Result,,Assessment Result Score Standard Error,"The measure of sampling variability and measurement error for the score, the amount of error to be expected in the score.",None,,,See http://nces.ed.gov/nationsreportcard/NDEHelp/WebHelp/standard_error.htm,001546,AssessmentResultScoreStandardError,https://ceds.ed.gov/cedselementdetails.aspx?termid=24522,67820
+Assessments,Assessment Result,,Assessment Result Score Type,Indicates the purpose for which this assessment score instance was recorded.,"Initial - An initial assessment score instance.
+Reliability - An assessment score instance recorded as a measure of reliability
+Resolution -  An assessment score instance recorded after resolution of scoring or data issues.
+Backread - An assessment score recorded to determine whether or not each individual scorer is correctly applying the scoring guide to student responses.
+Final - The final assessment score instance.
+",,,,001547,AssessmentResultScoreType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24523,67822
+Assessments,Assessment Result,,Assessment Result Score Value,"A meaningful raw score, derived score, or statistical expression of the performance of a person on an assessment. The type of result is indicated by the Assessment Score Metric Type element. The results can be expressed as a number, percentile, range, level, etc. The score relates to all scored items or a sub test scoring one aspect of performance on the test. This value may or may not correspond to one or more Performance Levels.",None,,,"Information for interpreting the score is defined by elements in the related Assessment Subtest entity.  This includes the minimum, maximum, and optimal values for the measurement. Assessment Subtest defines information for scoring an Assessment Form, which may be for the entire assessment or one aspect of evaluation. The Assessment Subtest may in turn be associated with one or more content standards using the Learning Standard Item Association entity.",000245,AssessmentResultScoreValue,https://ceds.ed.gov/cedselementdetails.aspx?termid=23245,65227
+Assessments,Assessment Result,,Assessment Score Metric Type,The specific method used to report the performance and achievement of the assessment. This is the metric that is being used to derive the scores.,"00512 - Achievement/proficiency level
+00494 - ACT score
+00490 - Age score
+00491 - C-scaled scores
+00492 - College Board examination scores
+00493 - Grade equivalent or grade-level indicator
+03473 - Graduation score
+03474 - Growth/value-added/indexing
+03475 - International Baccalaureate score
+00144 - Letter grade/mark
+00513 - Mastery level
+00497 - Normal curve equivalent
+00498 - Normalized standard score
+00499 - Number score
+00500 - Pass-fail
+03476 - Percentile
+00502 - Percentile rank
+00503 - Proficiency level
+03477 - Promotion score
+00504 - Ranking
+00505 - Ratio IQ's
+03478 - Raw score
+03479 - Scale score
+00506 - Standard age score
+00508 - Stanine score
+00509 - Sten score
+00510 - T-score
+03480 - Workplace readiness score
+00511 - Z-score
+03481 - SAT Score
+09999 - Other
+",,,,000369,AssessmentScoreMetricType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23368,65515
+Assessments,Assessment Result,,Diagnostic Statement Source,Identifies the source of the Diagnostic Statement based on a scored/evaluated portion of an assessment.,None,,,,001008,DiagnosticStatementSource,https://ceds.ed.gov/cedselementdetails.aspx?termid=24011,65447
+Assessments,Assessment Result,,Instructional Recommendation,This provides the next steps for instruction for the student based upon the assessment results and student characteristics.,None,,,,000370,InstructionalRecommendation,https://ceds.ed.gov/cedselementdetails.aspx?termid=23369,67027
+Assessments,Assessment Result,Assessment Performance Level,Assessment Performance Level Descriptive Feedback,A feedback message designed to be reported with the assessment performance level.,None,,,,001218,AssessmentPerformanceLevelDescriptiveFeedback,https://ceds.ed.gov/cedselementdetails.aspx?termid=24184,68702
+Assessments,Assessment Result,Assessment Performance Level,Assessment Performance Level Identifier,A unique number or alphanumeric code assigned to an assessment performance level.,None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",000717,AssessmentPerformanceLevelIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23693,68700
+Assessments,Assessment Result,Assessment Performance Level,Assessment Performance Level Label,A label representing the performance level appropriate for use on a report.,None,,,,000718,AssessmentPerformanceLevelLabel,https://ceds.ed.gov/cedselementdetails.aspx?termid=23694,68701
+Assessments,Assessment Result,Assessment Performance Level,Assessment Performance Level Lower Cut Score,Lowest possible score for the performance level.,None,,,,000418,AssessmentPerformanceLevelLowerCutScore,https://ceds.ed.gov/cedselementdetails.aspx?termid=23408,68698
+Assessments,Assessment Result,Assessment Performance Level,Assessment Performance Level Score Metric,The metric or scale used for score reporting.,"00512 - Achievement/proficiency level
+00494 - ACT score
+00490 - Age score
+00491 - C-scaled scores
+00492 - College Board examination scores
+00493 - Grade equivalent or grade-level indicator
+03473 - Graduation score
+03474 - Growth/value-added/indexing
+03475 - International Baccalaureate score
+00144 - Letter grade/mark
+00513 - Mastery level
+00497 - Normal curve equivalent
+00498 - Normalized standard score
+00499 - Number score
+00500 - Pass-fail
+03476 - Percentile
+00502 - Percentile rank
+00503 - Proficiency level
+03477 - Promotion score
+00504 - Ranking
+00505 - Ratio IQ's
+03478 - Raw score
+03479 - Scale score
+00506 - Standard age score
+00508 - Stanine score
+00509 - Sten score
+00510 - T-score
+03480 - Workplace readiness score
+00511 - Z-score
+09999 - Other
+",,,,000417,AssessmentPerformanceLevelScoreMetric,https://ceds.ed.gov/cedselementdetails.aspx?termid=23407,68697
+Assessments,Assessment Result,Assessment Performance Level,Assessment Performance Level Upper Cut Score,Highest possible score for the performance level.,None,,,,000419,AssessmentPerformanceLevelUpperCutScore,https://ceds.ed.gov/cedselementdetails.aspx?termid=23409,68699
+Assessments,Assessment Result,Scorer,First Name,"The full legal first name given to a person at birth, baptism, or through legal change.",None,,,"Workforce Note: To collect data on workforce program participation, a data match will have to be negotiated between state agencies.  The data match makes use of name, social security number, gender and ethnicity data.",000115,FirstName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23115,67860
+Assessments,Assessment Result,Scorer,Last or Surname,The full legal last name borne in common by members of a family.,None,,,"Workforce <BR/>Note: To collect data on workforce program participation, a data match will have to be negotiated between state agencies.  The data match makes use of name, social security number, gender and ethnicity data.",000172,LastOrSurname,https://ceds.ed.gov/cedselementdetails.aspx?termid=23172,67864
+Assessments,Assessment Result,Scorer,Person Identification System,A coding scheme that is used for identification of a person.,"SSN - Social Security Administration number
+USVisa - US government Visa number
+PIN - Personal identification number
+Federal - Federal identification number
+DriversLicense - Driver's license number
+Medicaid - Medicaid number
+HealthRecord - Health record number
+ProfessionalCertificate - Professional certificate or license number
+School - School-assigned number
+District - District-assigned number
+State - State-assigned number
+Institution - Institution-assigned number
+OtherFederal - Other federally assigned number
+SelectiveService - Selective Service Number
+CanadianSIN - Canadian Social Insurance Number
+BirthCertificate - Birth certificate number
+Other - Other
+",Updated,Added new option to existing option set,,001571,PersonIdentificationSystem,https://ceds.ed.gov/cedselementdetails.aspx?termid=24550,67906
+Assessments,Assessment Result,Scorer,Person Identifier,"A unique number or alphanumeric code assigned to a person by a school, school system, a state, or other agency or entity.",None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces.  <BR/><BR/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001572,PersonIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=24551,67911
+Assessments,Assessment Session,,Assessment Session Actual End Date Time,Date and time the assessment actually ended.,None,,,"When associated to an assessment session this is the actual end date and time.  When associated to an individual taking an assessment, this is the actual date and time when the individual finished.",001022,AssessmentSessionActualEndDateTime,https://ceds.ed.gov/cedselementdetails.aspx?termid=24024,65461
+Assessments,Assessment Session,,Assessment Session Actual Start Date Time,Date and time the assessment actually began.,None,,,"When associated to an assessment session this is the actual start date and time.  When associated to an individual taking an assessment, this is the actual date and time when the individual started.",001021,AssessmentSessionActualStartDateTime,https://ceds.ed.gov/cedselementdetails.aspx?termid=24023,65459
+Assessments,Assessment Session,,Assessment Session Administrator Identifier,The unique identifier of the person overseeing the administration of an assessment. This is typically at a district or school level or at an administrator at a testing facility.,None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",000410,AssessmentSessionAdministratorIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23400,65921
+Assessments,Assessment Session,,Assessment Session Allotted Time,The duration of time allotted for the assessment session.,None,,,,000408,AssessmentSessionAllottedTime,https://ceds.ed.gov/cedselementdetails.aspx?termid=23399,65189
+Assessments,Assessment Session,,Assessment Session Location," The description of the place where an assessment is administered.",None,,,,000597,AssessmentSessionLocation,https://ceds.ed.gov/cedselementdetails.aspx?termid=23590,65441
+Assessments,Assessment Session,,Assessment Session Proctor Identifier,The unique identifier of the person overseeing the assessment session in the setting.,None,,,"This could be the identifier for a teacher, a paraprofessional or individual at a testing site.<br/><br/>CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",000411,AssessmentSessionProctorIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23401,65190
+Assessments,Assessment Session,,Assessment Session Scheduled End Date Time,Date and time the assessment is scheduled to end.,None,,,"All CEDS Exit and End Dates represent the last day of the date range specified, such as the last day that a person was enrolled, participated, or received services.",001020,AssessmentSessionScheduledEndDateTime,https://ceds.ed.gov/cedselementdetails.aspx?termid=24022,65458
+Assessments,Assessment Session,,Assessment Session Scheduled Start Date Time,Date and time the assessment is scheduled to begin.,None,,,,001019,AssessmentSessionScheduledStartDateTime,https://ceds.ed.gov/cedselementdetails.aspx?termid=24021,65457
+Assessments,Assessment Session,,Assessment Session Security Issue,"The description of a security issue, if any, discovered for an administration of an assessment, such as suspected cheating by a student or a teacher changing answers after a student takes the test.",None,,,For example: Suspected plagiarism ; Computer left test window ; Excessive response time ; Proctor suspected copying ; Student identity not confirmed ; No proctor present ; Student carried wireless mobile device during test ; Student terminated test early and restarted ; Excessive erasures on test form ; Response pattern identical to another student's,000968,AssessmentSessionSecurityIssue,https://ceds.ed.gov/cedselementdetails.aspx?termid=23969,65421
+Assessments,Assessment Session,,Assessment Session Special Circumstance Type,"An unusual event occurred during the administration of the assessment. This could include fire alarm, student became ill, etc.","13807 - Long-term suspension - non-special education
+13808 - Short-term suspension - non-special education
+13809 - Suspension - special education
+13810 - Truancy - paperwork filed
+13811 - Truancy - no paperwork filed
+13812 - Earlier truancy
+13813 - Chronic absences
+13814 - Catastrophic illness or accident
+13815 - Home schooled for assessed subjects
+13816 - Student took this grade level assessment last year
+13817 - Incarcerated at adult facility
+13818 - Special treatment center
+13819 - Special detention center
+13820 - Parent refusal
+13821 - Cheating
+13822 - Psychological factors of emotional trauma
+13823 - Student not showing adequate effort
+13824 - Homebound
+13825 - Foreign exchange student
+13826 - Student refusal
+13827 - Reading passage read to student (IEP)
+13828 - Non-special education student used calculator on non-calculator items
+13829 - Student used math journal (non-IEP)
+13830 - Other reason for ineligibility
+13831 - Other reason for nonparticipation
+13832 - Left testing
+13833 - Cross-enrolled
+13834 - Only for writing
+13835 - Administration or system failure
+13836 - Teacher cheating or mis-admin
+13837 - Fire alarm
+09999 - Other
+",,,,000389,AssessmentSessionSpecialCircumstanceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23380,66846
+Assessments,Assessment Session,,Assessment Session Special Event Description,Describes special events that occur before during or after the assessment session that may impact use of results according to rules related to the Assessment Registration Testing Indicator.,None,,,,001093,AssessmentSessionSpecialEventDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24077,65518
+Assessments,Assessment Session,,Assessment Session Staff Role Type,The type of role served related to the administration of an assessment session.,"Teacher - Teacher
+Principal - Principal
+Administrator - Administrator
+Proctor - Proctor
+Observer - Observer
+Scorer - Scorer
+Registrar - Registrar
+",,,,001212,AssessmentSessionStaffRoleType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24179,65622
+Assessments,Assessment Session,,Assessment Session Type,The type of session that is scheduled.,"Standard - Standard
+Accommodation - Accommodation
+",,,,001018,AssessmentSessionType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24020,65456
+Assessments,Assessment Session,,Local Education Agency Identification System,"A coding scheme that is used for identification and record-keeping purposes by schools, social services, or other agencies to refer to a local education agency.","District - District-assigned number
+ACT - College Board/ACT program code set of PK-grade 12 institutions
+SEA - State Education Agency assigned number
+NCES - National Center for Education Statistics assigned number
+Federal - Federal identification number
+DUNS - Dun and Bradstreet number
+CENSUSID - Census Bureau identification code
+OtherFederal - Other federally assigned number
+Other - Other
+SAM - System for Award Management Unique Entity Identifier
+",,,,001072,LEAIdentificationSystem,https://ceds.ed.gov/cedselementdetails.aspx?termid=23159,65592
+Assessments,Assessment Session,,Local Education Agency Identifier,"A unique number or alphanumeric code assigned to a local education agency by a school system, a state, or other agency or entity.",None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces.  <BR/><BR/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001068,LocalEducationAgencyIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23153,65595
+Assessments,Assessment Session,,School Identification System,"A coding scheme that is used for identification and record-keeping purposes by schools, social services, or other agencies to refer to an institution.","School - School-assigned number
+ACT - College Board/ACT program code set of PK-grade 12 institutions
+LEA - Local Education Agency assigned number
+SEA - State Education Agency assigned number
+NCES - National Center for Education Statistics assigned number
+Federal - Federal identification number
+DUNS - Dun and Bradstreet number
+OtherFederal - Other federally assigned number
+StateUniversitySystem - State University System assigned number
+Other - Other
+SAM - System for Award Management Unique Entity Identifier
+",,,,001073,SchoolIdentificationSystem,https://ceds.ed.gov/cedselementdetails.aspx?termid=23161,65586
+Assessments,Assessment Session,,School Identifier,"A unique number or alphanumeric code assigned to an institution by a school, school system, a state, or other agency or entity.",None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001069,SchoolIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23155,65589
+Assessments,Assessment Subtest,,Assessment Academic Subject,"The description of the academic content or subject area (e.g., arts, mathematics, reading, or a foreign language) being evaluated.","13371 - Arts
+73065 - Career and Technical Education
+13372 - English
+00256 - English as a second language (ESL)
+00546 - Foreign Languages
+73088 - History Government - US
+73089 - History Government - World
+00554 - Language arts
+01166 - Mathematics
+00560 - Reading
+13373 - Reading/Language Arts
+00562 - Science
+73086 - Science - Life
+73087 - Science - Physical
+13374 - Social Sciences (History, Geography, Economics, Civics and Government)
+02043 - Special education
+01287 - Writing
+09999 - Other
+",,,,000021,AssessmentAcademicSubject,https://ceds.ed.gov/cedselementdetails.aspx?termid=23021,65206
+Assessments,Assessment Subtest,,Assessment Content Standard Type,An indication as to whether an assessment conforms to a standard.,"AssociationStandard - Association standard
+LocalStandard - Local standard
+None - None
+Other - Other
+OtherStandard - Other standard
+RegionalStandard - Regional standard
+SchoolStandard - School standard
+StatewideStandard - Statewide standard
+",,,,000605,AssessmentContentStandardType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23598,65217
+Assessments,Assessment Subtest,,Assessment Early Learning Developmental Domain,Developmental domains related to early learning and used for assessing a child's kindergarten readiness.,"01 - Language and Literacy
+02 - Cognition and General Knowledge
+03 - Approaches Toward Learning
+04 - Physical Well-being and Motor
+05 - Social and Emotional Development
+",,,"Used by states in reporting Kindergarten Entry Assessment (KEA) results as defined for some federal grant programs.<BR/><BR/>For each domain used by the state, the state would provide:<BR/>- The total number of children who participated in the KEA for each domain<BR/>- The number of children who participated in the KEA for each domain AND was at or above what the state defines as “ready” for kindergarten for that domain.<BR/><BR/>The counts may be calculated using unit-level data defined for Assessment Subtest (scoring method and what is being measured, e.g. the Domain), related Assessment Performance Levels (e.g. ""Ready""), related to each student Assessment Result.",001000,AssessmentEarlyLearningDevelopmentalDomain,https://ceds.ed.gov/cedselementdetails.aspx?termid=24003,68304
+Assessments,Assessment Subtest,,Assessment Form Subtest Container Only,"In a hierarchy of subtests, this indicates that this tier is only used as a level in the hierarchy and does not represent a scoring model.","Yes
+No
+",,,,001215,AssessmentFormSubtestContainerOnly,https://ceds.ed.gov/cedselementdetails.aspx?termid=24181,65626
+Assessments,Assessment Subtest,,Assessment Form Subtest Tier,"In a hierarchy of subtests, this element represents the level of the sub test in the hierarchy.  The top tier and default is zero.",None,,,,001214,AssessmentFormSubtestTier,https://ceds.ed.gov/cedselementdetails.aspx?termid=24180,65625
+Assessments,Assessment Subtest,,Assessment Level for Which Designed,"The typical grade or combination of grade-levels, developmental levels, or age-levels for which an assessment is designed.","Birth - Birth
+Prenatal - Prenatal
+IT - Infant/toddler
+PR - Preschool
+PK - Prekindergarten
+TK - Transitional Kindergarten
+KG - Kindergarten
+01 - First grade
+02 - Second grade
+03 - Third grade
+04 - Fourth grade
+05 - Fifth grade
+06 - Sixth grade
+07 - Seventh grade
+08 - Eighth grade
+09 - Ninth grade
+10 - Tenth grade
+11 - Eleventh grade
+12 - Twelfth grade
+13 - Grade 13
+PS - Postsecondary
+UG - Ungraded
+AE - Adult Education
+Other - Other
+",,,,000177,AssessmentLevelForWhichDesigned,https://ceds.ed.gov/cedselementdetails.aspx?termid=23177,67798
+Assessments,Assessment Subtest,,Assessment Purpose,The reason for which an assessment is designed or delivered.,"00050 - Admission
+00051 - Assessment of student's progress
+73055 - College Readiness
+00063 - Course credit
+00064 - Course requirement
+73069 - Diagnosis
+03459 - Federal accountability
+73068 - Inform local or state policy
+00055 - Instructional decision
+03457 - Local accountability
+02404 - Local graduation requirement
+73042 - Obtain a state- or industry-recognized certificate or license
+73043 - Obtain postsecondary credit for the course
+73067 - Program eligibility
+00057 - Program evaluation
+00058 - Program placement
+00062 - Promotion to or retention in a grade or program
+00061 - Screening
+03458 - State accountability
+09999 - Other
+00054 - State graduation requirement
+",,,This element might have multiple occurrences associated with any one assessment.,000026,AssessmentPurpose,https://ceds.ed.gov/cedselementdetails.aspx?termid=23026,65207
+Assessments,Assessment Subtest,,Assessment Score Metric Type,The specific method used to report the performance and achievement of the assessment. This is the metric that is being used to derive the scores.,"00512 - Achievement/proficiency level
+00494 - ACT score
+00490 - Age score
+00491 - C-scaled scores
+00492 - College Board examination scores
+00493 - Grade equivalent or grade-level indicator
+03473 - Graduation score
+03474 - Growth/value-added/indexing
+03475 - International Baccalaureate score
+00144 - Letter grade/mark
+00513 - Mastery level
+00497 - Normal curve equivalent
+00498 - Normalized standard score
+00499 - Number score
+00500 - Pass-fail
+03476 - Percentile
+00502 - Percentile rank
+00503 - Proficiency level
+03477 - Promotion score
+00504 - Ranking
+00505 - Ratio IQ's
+03478 - Raw score
+03479 - Scale score
+00506 - Standard age score
+00508 - Stanine score
+00509 - Sten score
+00510 - T-score
+03480 - Workplace readiness score
+00511 - Z-score
+03481 - SAT Score
+09999 - Other
+",,,,000369,AssessmentScoreMetricType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23368,65212
+Assessments,Assessment Subtest,,Assessment Subtest Abbreviation,The shortened name identifying the assessment for use in reference and/or reports.,None,,,,000368,AssessmentSubtestAbbreviation,https://ceds.ed.gov/cedselementdetails.aspx?termid=23367,65211
+Assessments,Assessment Subtest,,Assessment Subtest Description,"The description of the subtest (e.g., vocabulary, measurement, or geometry).",None,,,,000274,AssessmentSubtestDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=23274,65208
+Assessments,Assessment Subtest,,Assessment Subtest Identifier,A unique number or alphanumeric code assigned to an assessment subtest.,None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",000367,AssessmentSubtestIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23366,65210
+Assessments,Assessment Subtest,,Assessment Subtest Identifier Type,The type of identifier that is provided for a Subtest.,"Client - Client
+Publisher - Publisher
+Internal - Internal
+Other - Other
+",,,,001014,AssessmentSubtestIdentifierType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24016,65452
+Assessments,Assessment Subtest,,Assessment Subtest Maximum Value,The maximum value for the measurement.,None,,,,000396,AssessmentSubtestMaximumValue,https://ceds.ed.gov/cedselementdetails.aspx?termid=23388,65215
+Assessments,Assessment Subtest,,Assessment Subtest Minimum Value,The minimum value possible for the measurement.,None,,,,000395,AssessmentSubtestMinimumValue,https://ceds.ed.gov/cedselementdetails.aspx?termid=23387,65214
+Assessments,Assessment Subtest,,Assessment Subtest Optimal Value,The optimal value for this measurement.,None,,,"The Optimal Value may be the same as the Maximum Value, the Minimum Value, or something in between.",000397,AssessmentSubtestScaleOptimalValue,https://ceds.ed.gov/cedselementdetails.aspx?termid=23389,65216
+Assessments,Assessment Subtest,,Assessment Subtest Published Date,The date on which the Subtest was published.,None,,,,001091,AssessmentSubtestPublishedDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24075,65507
+Assessments,Assessment Subtest,,Assessment Subtest Rules,A description of the rules to produce a student test/subtest score from for a grouping of student item scores.,None,,,,000719,AssessmentSubtestRules,https://ceds.ed.gov/cedselementdetails.aspx?termid=23695,65218
+Assessments,Assessment Subtest,,Assessment Subtest Title,The name or title of the subtest.,None,Updated,Modify element format maximum length,,000275,AssessmentSubtestTitle,https://ceds.ed.gov/cedselementdetails.aspx?termid=23275,65209
+Assessments,Assessment Subtest,,Assessment Subtest Version,The version of the subtest that is included for the assessment.,None,,,,000388,AssessmentSubtestVersion,https://ceds.ed.gov/cedselementdetails.aspx?termid=23379,65213
+Assessments,Assessment Subtest,Assessment Performance Level,Assessment Performance Level Descriptive Feedback,A feedback message designed to be reported with the assessment performance level.,None,,,,001218,AssessmentPerformanceLevelDescriptiveFeedback,https://ceds.ed.gov/cedselementdetails.aspx?termid=24184,68708
+Assessments,Assessment Subtest,Assessment Performance Level,Assessment Performance Level Identifier,A unique number or alphanumeric code assigned to an assessment performance level.,None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",000717,AssessmentPerformanceLevelIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23693,68706
+Assessments,Assessment Subtest,Assessment Performance Level,Assessment Performance Level Label,A label representing the performance level appropriate for use on a report.,None,,,,000718,AssessmentPerformanceLevelLabel,https://ceds.ed.gov/cedselementdetails.aspx?termid=23694,68707
+Assessments,Assessment Subtest,Assessment Performance Level,Assessment Performance Level Lower Cut Score,Lowest possible score for the performance level.,None,,,,000418,AssessmentPerformanceLevelLowerCutScore,https://ceds.ed.gov/cedselementdetails.aspx?termid=23408,68704
+Assessments,Assessment Subtest,Assessment Performance Level,Assessment Performance Level Score Metric,The metric or scale used for score reporting.,"00512 - Achievement/proficiency level
+00494 - ACT score
+00490 - Age score
+00491 - C-scaled scores
+00492 - College Board examination scores
+00493 - Grade equivalent or grade-level indicator
+03473 - Graduation score
+03474 - Growth/value-added/indexing
+03475 - International Baccalaureate score
+00144 - Letter grade/mark
+00513 - Mastery level
+00497 - Normal curve equivalent
+00498 - Normalized standard score
+00499 - Number score
+00500 - Pass-fail
+03476 - Percentile
+00502 - Percentile rank
+00503 - Proficiency level
+03477 - Promotion score
+00504 - Ranking
+00505 - Ratio IQ's
+03478 - Raw score
+03479 - Scale score
+00506 - Standard age score
+00508 - Stanine score
+00509 - Sten score
+00510 - T-score
+03480 - Workplace readiness score
+00511 - Z-score
+09999 - Other
+",,,,000417,AssessmentPerformanceLevelScoreMetric,https://ceds.ed.gov/cedselementdetails.aspx?termid=23407,68703
+Assessments,Assessment Subtest,Assessment Performance Level,Assessment Performance Level Upper Cut Score,Highest possible score for the performance level.,None,,,,000419,AssessmentPerformanceLevelUpperCutScore,https://ceds.ed.gov/cedselementdetails.aspx?termid=23409,68705
+Assessments,Goal,,Goal Description,A statement that describes the desired outcomes.,None,,,,000903,GoalDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=23903,65363
+Assessments,Goal,,Goal End Date,The date on which the goal expires or has been achieved.,None,,,"For federal reporting use cases some codes are required to be reported and others are not. All CEDS Exit and End Dates represent the last day of the date range specified, such as the last day that a person was enrolled, participated, or received services.",001166,GoalEndDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24170,67885
+Assessments,Goal,,Goal Start Date,The date on which the goal becomes active.,None,,,,001165,GoalStartDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24169,67887
+Assessments,Goal,,Goal Success Criteria,One or more statements that describes the criteria used by teachers and students to check for attainment of a goal.,None,,,,000902,GoalSuccessCriteria,https://ceds.ed.gov/cedselementdetails.aspx?termid=23902,65362
+Assessments,Learner Action,,Learner Action Actor Identifier," A unique identifier for the person performing the learner action.  The identifier should be encrypted when integrating learning experience data across systems to secure the privacy of the learner.",None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001557,LearnerActionActorIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=24533,67866
+Assessments,Learner Action,,Learner Action Date Time,The date and time at which the action was taken.,None,,,,000937,LearnerActionDateTime,https://ceds.ed.gov/cedselementdetails.aspx?termid=23938,65396
+Assessments,Learner Action,,Learner Action Object Description,A description of the object upon which the person has performed the Learner Action.,None,,,,001558,LearnerActionObjectDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24534,67872
+Assessments,Learner Action,,Learner Action Object Identifier,A globally unique identifier for the object upon which the learning has performed the Learner Action which may be a URL with information about a learning resource or to launch the resource.,None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001559,LearnerActionObjectIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=24535,67875
+Assessments,Learner Action,,Learner Action Object Type,The type of object upon which a person has performed the Learner Action.,None,,,,001560,LearnerActionObjectType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24536,67878
+Assessments,Learner Action,,Learner Action Type,The type of action taken by the learner.,"abandoned - Abandoned
+answered - Answered
+asked - Asked
+attempted - Attempted
+attended - Attended
+commented - Commented
+completed - Completed
+exited - Exited
+experienced - Experienced
+failed - Failed
+imported - Imported
+initialized - Initialized
+interacted - Interacted
+launched - Launched
+logged-in - Logged-In
+logged-out - Logged-Out
+mastered - Mastered
+passed - Passed
+preferred - Preferred
+progressed - Progressed
+registered - Registered
+responded - Responded
+resumed - Resumed
+satisfied - Satisfied
+scored - Scored
+shared - Shared
+suspended - Suspended
+terminated - Terminated
+voided - Voided
+waived - Waived
+",,,"The CEDS Learner Action Type option set comes from the <a href=""https://w3id.org/xapi/adl"">ADL Controlled Vocabulary</a>, xAPI specification.",000934,LearnerActionType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23935,65393
+Assessments,Learner Action,,Learner Action Value,"The value representing input by the learner using an online system, such as a value entered in response to an assessment question, or the URL of a learning resource link clicked.",None,,,,000935,LearnerActionValue,https://ceds.ed.gov/cedselementdetails.aspx?termid=23936,65394
+Assessments,Learner Activity,,Learner Activity Add to Grade Book Flag,Identifies the assignment as one that is graded.,"Yes - Yes
+No - No
+NotSelected - Not selected
+",,,,000949,LearnerActivityAddToGradeBookFlag,https://ceds.ed.gov/cedselementdetails.aspx?termid=23950,65408
+Assessments,Learner Activity,,Learner Activity Creation Date,The creation date of the assignment.,None,,,,000943,LearnerActivityCreationDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23944,65402
+Assessments,Learner Activity,,Learner Activity Description,The description and context for the assignment  described in a way that the learner can understand.,None,,,,000940,LearnerActivityDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=23941,65399
+Assessments,Learner Activity,,Learner Activity Due Date,The date assignment is due.,None,,,,000946,LearnerActivityDueDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23947,65405
+Assessments,Learner Activity,,Learner Activity Due Time,The time the assignment is due.,None,,,,000947,LearnerActivityDueTime,https://ceds.ed.gov/cedselementdetails.aspx?termid=23948,65406
+Assessments,Learner Activity,,Learner Activity Language,The default language used for the assignment.,See URL column,,,"The CEDS ISO 639-2 Language Code option set comes from the <a href=""http://www.loc.gov/standards/iso639-2/langhome.html"">ISO 639-2 standard</a>, the character encoding in ISO 8859-1 download.  Discontinued codes from the ISO standard are not included in the CEDS list.",000938,LearnerActivityLanguage,https://ceds.ed.gov/cedselementdetails.aspx?termid=23939,65397
+Assessments,Learner Activity,,Learner Activity Maximum Attempts Allowed,The number attempts a student may make on this assignment. Assumed to be unlimited if zero or omitted.,None,,,,000948,LearnerActivityMaximumAttemptsAllowed,https://ceds.ed.gov/cedselementdetails.aspx?termid=23949,65407
+Assessments,Learner Activity,,Learner Activity Maximum Time Allowed,The time required to complete the assignment.,None,,,Time allowed is assumed to be unlimited if zero or omitted.,000944,LearnerActivityMaximumTimeAllowed,https://ceds.ed.gov/cedselementdetails.aspx?termid=23945,65403
+Assessments,Learner Activity,,Learner Activity Maximum Time Allowed Unit,The unit of time of the Maximum Time Allowed value.,"Week - Week
+Day - Day
+Hour - Hour
+Minute - Minute
+Second - Second
+",,,,000945,LearnerActivityMaximumTimeAllowedUnit,https://ceds.ed.gov/cedselementdetails.aspx?termid=23946,65404
+Assessments,Learner Activity,,Learner Activity Possible Points,The number of possible points for an assignment.,None,,,,000952,LearnerActivityPossiblePoints,https://ceds.ed.gov/cedselementdetails.aspx?termid=23953,65411
+Assessments,Learner Activity,,Learner Activity Prerequisite,The description of the skills or competencies the student must have to engage in assignment.,None,,,Note: Prerequisites may also be referenced via an associated Learning Goal and Competency Set (prerequisites for individual competencies).  For some applications enumeration of the detailed prerequisites will have greater utility than a single descriptive field.,000941,LearnerActivityPrerequisite,https://ceds.ed.gov/cedselementdetails.aspx?termid=23942,65400
+Assessments,Learner Activity,,Learner Activity Release Date,The date the student was informed about an assignment or that an automated system displays the assignment.,None,,,,000950,LearnerActivityReleaseDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23951,65409
+Assessments,Learner Activity,,Learner Activity Rubric URL,The Uniform Resource Locator pointing to a rubric that may be used to evaluate learner performance on the assignment.,None,,,,000953,LearnerActivityRubricURL,https://ceds.ed.gov/cedselementdetails.aspx?termid=23954,65412
+Assessments,Learner Activity,,Learner Activity Title,"The title for work assigned to the learner, which can comprise of learning resources, activities, and assessments.",None,,,,000939,LearnerActivityTitle,https://ceds.ed.gov/cedselementdetails.aspx?termid=23940,65398
+Assessments,Learner Activity,,Learner Activity Type,The type of work assigned to the learner.,"Assignment - Assignment
+LearningResource - Learning Resource
+Activity - Activity
+Lesson - Lesson
+",,,,000942,LearnerActivityType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23943,65401
+Assessments,Learner Activity,,Learner Activity Weight,The percentage weight of the assignment during the particular course or term.,None,,,,000951,LearnerActivityWeight,https://ceds.ed.gov/cedselementdetails.aspx?termid=23952,65410
+Assessments,Rubric,,Rubric Criterion Category,A textual label for category by which Rubric Criterion may be grouped.,None,,,,001469,RubricCriterionCategory,https://ceds.ed.gov/cedselementdetails.aspx?termid=24441,67377
+Assessments,Rubric,,Rubric Criterion Description,"Text describing a criterion that must be met to demonstrate quality for a product, process, or performance task.",None,,,,001470,RubricCriterionDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24442,67380
+Assessments,Rubric,,Rubric Criterion Level Description,"Text describing  one or more benchmarks that must be met to achieve a degree of achievement on a product, process, or performance task.",None,,,,001471,RubricCriterionLevelDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24443,67383
+Assessments,Rubric,,Rubric Criterion Level Feedback,Pre-defined feedback text to be relayed to the person or organization being evaluated.  This may include guidance and suggestions for improvement or development.,None,,,,001472,RubricCriterionLevelFeedback,https://ceds.ed.gov/cedselementdetails.aspx?termid=24444,67387
+Assessments,Rubric,,Rubric Criterion Level Position,A numeric value representing the level's position in the list of levels defined for the Rubric Criterion.,None,,,,001473,RubricCriterionLevelPosition,https://ceds.ed.gov/cedselementdetails.aspx?termid=24445,67390
+Assessments,Rubric,,Rubric Criterion Level Quality Label,A qualitative description of this degree of achievement used for column headers or row labels in tabular rubrics.,None,,,,001474,RubricCriterionLevelQualityLabel,https://ceds.ed.gov/cedselementdetails.aspx?termid=24446,67393
+Assessments,Rubric,,Rubric Criterion Level Score,The points awarded for achieving this level.,None,,,,001475,RubricCriterionLevelScore,https://ceds.ed.gov/cedselementdetails.aspx?termid=24447,67396
+Assessments,Rubric,,Rubric Criterion Position,A numeric value representing this criterion's position in the criteria list for this rubric.,None,,,,001476,RubricCriterionPosition,https://ceds.ed.gov/cedselementdetails.aspx?termid=24448,67399
+Assessments,Rubric,,Rubric Criterion Title,The title of the rubric criterion.,None,,,,001477,RubricCriterionTitle,https://ceds.ed.gov/cedselementdetails.aspx?termid=24449,67402
+Assessments,Rubric,,Rubric Criterion Weight,"A numeric weight assigned to this Rubric Criterion, used for scored rubrics.",None,,,,001478,RubricCriterionWeight,https://ceds.ed.gov/cedselementdetails.aspx?termid=24450,67405
+Assessments,Rubric,,Rubric Description,Text describing the intended use of the rubric.,None,,,,001479,RubricDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24451,67408
+Assessments,Rubric,,Rubric Identifier,An identifier assigned to a rubric.,None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",000422,AssessmentRubricIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23412,66942
+Assessments,Rubric,,Rubric Title,The title of the rubric.,None,,,,000421,AssessmentRubricTitle,https://ceds.ed.gov/cedselementdetails.aspx?termid=23411,66941
+Assessments,Rubric,,Rubric URL Reference,The URL location where the rubric may be found.,None,,,,000423,AssessmentRubricURLReference,https://ceds.ed.gov/cedselementdetails.aspx?termid=23413,66945

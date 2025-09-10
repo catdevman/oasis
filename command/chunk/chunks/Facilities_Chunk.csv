@@ -1,0 +1,1021 @@
+Domain,Entity,Category,Element Name,Definition,Option Set,Status,Change Notes,Usage Notes,Global,Technical Name,URL,Data Model ID
+Facilities,Facility,,Organization Region GeoJSON,"The geo-political area of the organization's facility, building, or site.",None,,,,001750,OrganizationRegionGeoJSON,https://ceds.ed.gov/cedselementdetails.aspx?termid=24731,68998
+Facilities,Facility,Address,Address Apartment Room or Suite Number,"The apartment, room, or suite number of an address.",None,Updated,Add new DES location,,000019,AddressApartmentRoomOrSuiteNumber,https://ceds.ed.gov/cedselementdetails.aspx?termid=23019,65604
+Facilities,Facility,Address,Address City,The name of the city in which an address is located.,None,Updated,Add new DES location,,000040,AddressCity,https://ceds.ed.gov/cedselementdetails.aspx?termid=23040,65605
+Facilities,Facility,Address,Address County Name,"The name of the county, parish, borough, or comparable unit (within a state) in which an address is located.",None,Updated,Add new DES location,,000190,AddressCountyName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23190,65607
+Facilities,Facility,Address,Address Postal Code,A number that identifies each postal delivery area in the United States used as a portion of an address.,None,Updated,Add new DES location,,000214,AddressPostalCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=23214,65606
+Facilities,Facility,Address,Address Street Number and Name,The street number and street name or post office box number of an address.,None,,,,000269,AddressStreetNumberAndName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23269,65603
+Facilities,Facility,Address,Address Type for Organization,The type of address listed for an organization.,"Mailing - Mailing
+Physical - Physical
+Shipping - Shipping
+",Updated,Add new DES location,,001066,AddressTypeForOrganization,https://ceds.ed.gov/cedselementdetails.aspx?termid=23644,65602
+Facilities,Facility,Address,Building Site Number,"The number of the building on the site, if more than one building shares the same address.",None,,,,000602,BuildingSiteNumber,https://ceds.ed.gov/cedselementdetails.aspx?termid=23595,68999
+Facilities,Facility,Address,County ANSI Code,"County code as defined for the identification of counties and equivalent areas of the United States, Puerto Rico, and the insular areas as established by the American National Standards Institute (ANSI) Inter-National Committee for Information Technology Standards (INCITS) in specification BSR INCITS 31-200x or more current updates. See https://www.census.gov/library/reference/code-lists/ansi.html#par_statelist.",None,,,,001209,CountyANSICode,https://ceds.ed.gov/cedselementdetails.aspx?termid=24176,69000
+Facilities,Facility,Address,Do Not Publish Indicator,An indication that the record should not be published.,"Yes
+No
+Unknown
+",,,,001928,DoNotPublishIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24905,69310
+Facilities,Facility,Address,Latitude,"The north or south angular distance from the equator that, when combined with longitude, reflects an estimation of where the address is physically situated.",None,,,,000606,Latitude,https://ceds.ed.gov/cedselementdetails.aspx?termid=23599,68254
+Facilities,Facility,Address,Longitude,"The east or west angular distance from the prime meridian that, when combined with latitude, reflects an estimation of where the address is physically situated.",None,,,,000607,Longitude,https://ceds.ed.gov/cedselementdetails.aspx?termid=23600,68277
+Facilities,Facility,Address,State Abbreviation,The abbreviation for the state (within the United States) or outlying area in which an address is located.,"AK - Alaska
+AL - Alabama
+AR - Arkansas
+AS - American Samoa
+AZ - Arizona
+CA - California
+CO - Colorado
+CT - Connecticut
+DC - District of Columbia
+DE - Delaware
+FL - Florida
+FM - Federated States of Micronesia
+GA - Georgia
+GU - Guam
+HI - Hawaii
+IA - Iowa
+ID - Idaho
+IL - Illinois
+IN - Indiana
+KS - Kansas
+KY - Kentucky
+LA - Louisiana
+MA - Massachusetts
+MD - Maryland
+ME - Maine
+MH - Marshall Islands
+MI - Michigan
+MN - Minnesota
+MO - Missouri
+MP - Northern Marianas
+MS - Mississippi
+MT - Montana
+NC - North Carolina
+ND - North Dakota
+NE - Nebraska
+NH - New Hampshire
+NJ - New Jersey
+NM - New Mexico
+NV - Nevada
+NY - New York
+OH - Ohio
+OK - Oklahoma
+OR - Oregon
+PA - Pennsylvania
+PR - Puerto Rico
+PW - Palau
+RI - Rhode Island
+SC - South Carolina
+SD - South Dakota
+TN - Tennessee
+TX - Texas
+UT - Utah
+VA - Virginia
+VI - Virgin Islands
+VT - Vermont
+WA - Washington
+WI - Wisconsin
+WV - West Virginia
+WY - Wyoming
+AA - Armed Forces America
+AE - Armed Forces Africa, Canada, Europe, and Mideast
+AP - Armed Forces Pacific
+BI - Bureau of Indian Affairs
+DD - Department of Defense Domestic
+DO - Department of Defense Overseas
+",Updated,Add new DES location,,000267,StateAbbreviation,https://ceds.ed.gov/cedselementdetails.aspx?termid=23267,65608
+Facilities,Facility,Budget and Finance,Facility Financing Fee Type,The type of fee that one must pay when getting a mortgage.,"13717 - Application fee
+13718 - Legal fee
+13719 - Origination fee
+",,,,001886,FacilityFinancingFeeType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24867,69009
+Facilities,Facility,Budget and Finance,Facility Lease Amount,The amount of money the school must pay to rent the facility that it is in.,None,,,,001887,FacilityLeaseAmount,https://ceds.ed.gov/cedselementdetails.aspx?termid=24868,69010
+Facilities,Facility,Budget and Finance,Facility Lease Amount Category,The category of payment that a school must pay to rent the facility that it is in.,"13720 - Base rent
+13721 - Credit
+13722 - Escalator
+",,,,001888,FacilityLeaseAmountCategory,https://ceds.ed.gov/cedselementdetails.aspx?termid=24869,69011
+Facilities,Facility,Budget and Finance,Facility Lease Type,"The type of agreement that allows the use and possession of a school, building, or other facility from a third party in return for a regularly scheduled installment payment over an agreed-upon period.","13723 - Building lease
+13724 - Ground lease
+13725 - Lease build to suit
+13726 - Lease shell with significant leasehold improvements
+13727 - Triple-net lease
+",,,,001889,FacilityLeaseType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24870,69012
+Facilities,Facility,Budget and Finance,Facility Mortgage Interest Amount,The amount the borrower pays the lender to compensate the lender for the use of money to purchase a building or facility.,None,,,,001890,FacilityMortgageInterestAmount,https://ceds.ed.gov/cedselementdetails.aspx?termid=24871,69013
+Facilities,Facility,Budget and Finance,Facility Mortgage Interest Type,The type of interest paid on a mortgage to the lender to compensate the lender for the use of money to purchase a building or facility.,"13730 - Add-on interest
+13731 - Adjustable-Rate Mortgage (ARM)
+13732 - Balloon Mortgage
+13733 - Deferred Interest
+13734 - Fixed Payment Mortgage
+13735 - Fixed-rate Mortgage
+13736 - Floating Rate
+13737 - Fully Amortizing Mortgage
+13738 - Graduated-payment Mortgage (GPM)
+13739 - Interest-only loan
+13740 - Open-end Mortgage
+",,,,001891,FacilityMortgageInterestType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24872,69014
+Facilities,Facility,Budget and Finance,Facility Mortgage Type,The status of a mortgage as it relates to priority of payment.,"13741 - Junior Mortgage
+13742 - Multiple
+13743 - Senior or first mortgage
+",,,,001892,FacilityMortgageType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24873,69015
+Facilities,Facility,Budget and Finance,Facility Total Assessed Value,The total assessed value of property that constitutes the basis for public borrowing.,None,,,,001896,FacilityTotalAssessedValue,https://ceds.ed.gov/cedselementdetails.aspx?termid=24877,69016
+Facilities,Facility,Condition,Building Air Distribution System Type,"The primary means by which air is circulated, freshened, and exhausted.","02497 - Air handler units
+02496 - Both mechanical exhaust and supply units
+02493 - Gravity ventilation units
+02494 - Mechanical exhaust units
+02495 - Mechanical supply units
+09999 - Other units
+02492 - Window ventilation units
+",,,,001790,BuildingAirDistributionSystemType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24771,69017
+Facilities,Facility,Condition,Building Communications Management Component System Type,"The type of system, interface, and management components for carrying voice, video, and data throughout a building.","02500 - Data
+14905 - Integrated (voice, data, video, etc.)
+02501 - Public address system
+02499 - Video
+02498 - Voice
+09999 - Other
+",,,,001791,BuildingCommunicationsManagementComponentSystemType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24772,69018
+Facilities,Facility,Condition,Building Cooling Generation System Type,The type of mechanical systems and building designs used for cooling.,"02490 - Ceiling fans or ventilation fans
+02486 - Central cooling system
+02489 - Combination cooling systems
+02488 - Individual (room) unit cooling system
+02487 - Local zone cooling system
+02491 - Natural systems
+09998 - None
+09999 - Other
+",,,,001794,BuildingCoolingGenerationSystemType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24775,69019
+Facilities,Facility,Condition,Building Electrical System Type,The components and system required to distribute electricity throughout the building or site.,"02476 - Circuit breakers
+13570 - Communications and security
+02473 - Electrical distribution
+02475 - Electrical interface
+13571 - Electrical service and distribution
+02472 - Electrical supply
+02474 - Emergency generator
+13572 - Lighting and branch wiring
+09999 - Other
+",,,,001795,BuildingElectricalSystemType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24776,69020
+Facilities,Facility,Condition,Building Fire Protection System Type,The type of system that protects the facility against fire.,"02513 - Alarms
+02511 - Automatic sprinkler
+13579 - Fire protection specialists
+02512 - Fire pump/extinguishers
+02514 - Kitchen fire suppressor system
+13580 - Other fire protection systems
+13581 - Standpipes
+09999 - Other
+",,,,001798,BuildingFireProtectionSystemType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24779,69021
+Facilities,Facility,Condition,Building Heating Generation System Type,The method by which the heat is distributed and delivered throughout the room(s) or building.,"02482 - Central duct system
+02485 - Displacement ventilation
+02484 - Forced air
+02479 - Heat pump
+02478 - Hot water radiator
+02483 - Open plenum system
+02477 - Steam radiator
+02481 - Unit heaters/baseboard heaters
+02480 - Unit ventilators
+09999 - Other
+",,,,001799,BuildingHeatingGenerationSystemType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24780,69022
+Facilities,Facility,Condition,Building HVAC System Type,"The building service system that provides for heating, ventilation and air-conditioning.","13585 - Air distribution system
+13586 - Controls and instrumentation
+13587 - Cooling generation systems
+13588 - Energy supply
+13589 - Heat generating system
+13590 - Other HVAC systems and equipment
+13591 - Systems testing and balancing
+13592 - Terminal and package units
+",,,,001800,BuildingHVACSystemType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24781,69023
+Facilities,Facility,Condition,Building Institutional Equipment Description,"Equipment that is installed for use in support of instructional program such as kilns for art, planetarium equipment for astronomy, fitness equipment for physical education.",None,,,,001801,BuildingInstitutionalEquipmentDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24782,69024
+Facilities,Facility,Condition,Building Mechanical Conveying System Type,Mechanical means for moving people and equipment within buildings.,"02516 - Elevator
+02517 - Escalator
+13593 - Lift
+13594 - Moving Walk
+13595 - Other conveying system
+",,,,001802,BuildingMechanicalConveyingSystemType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24783,69025
+Facilities,Facility,Condition,Building Mechanical System Type,The major manufactured systems required to operate a building.,"02455 - Air distribution system
+02454 - Cooling generation system
+02453 - Heating generation system
+09999 - Other
+",,,,001809,BuildingMechanicalSystemType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24790,69026
+Facilities,Facility,Condition,Building Plumbing System Type,"The component of an on-site system for supplying, eliminating, and treating water.","02470 - Detention ponds
+13596 - Domestic water distribution
+02463 - Drains
+02471 - Filtration system
+02467 - Parcel drainage
+02468 - Piping
+13597 - Plumbing fixtures
+13598 - Rain water drainage
+13599 - Sanitary waste
+02465 - Sewage treatment
+02464 - Vents
+02469 - Water softeners
+02466 - Water source
+02462 - Water supply
+09999 - Other
+",,,,001803,BuildingPlumbingSystemType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24784,69027
+Facilities,Facility,Condition,Building Security System Type,The type of system that protects the facility from intrusion.,"02508 - Card access control system
+02507 - Intrusion detection system
+02509 - Keypad access control system
+02510 - Metal detector
+02499 - Video
+09999 - Other
+",,,,001804,BuildingSecuritySystemType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24785,69028
+Facilities,Facility,Condition,Building System Type,The type of system that is installed in the building or site.,"02455 - Air distribution system
+02456 - Communications system
+02454 - Cooling generation system
+02452 - Electrical system
+02459 - Fire protection system
+02453 - Heating generation system
+02460 - Mechanical system
+02451 - Plumbing system
+02458 - Security system
+02457 - Technology wiring
+02461 - Vertical transportation
+",,,,001811,BuildingSystemType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24792,69029
+Facilities,Facility,Condition,Building Technology Wiring System Type,"The means through which voice, video, audio, and data information are conveyed.","02504 - Coaxial cable
+02503 - Fiber optic cable
+02506 - Twisted pair
+02502 - Wire cable
+02505 - Wireless
+09999 - Other
+",,,,001807,BuildingTechnologyWiringSystemType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24788,69030
+Facilities,Facility,Condition,Building Vertical Transportation System Type,The type of system used to convey persons or freight between floors.,"02516 - Elevator
+02517 - Escalator
+02515 - Stairs
+09999 - Other
+",,,,001812,BuildingVerticalTransportationSystemType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24793,69031
+Facilities,Facility,Condition,Component or Fixture Check Date,"The month, day, and year that the condition of a system, component, equipment, or fixture was  checked.",None,,,,001898,ComponentOrFixtureCheckDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24879,69040
+Facilities,Facility,Condition,Component or Fixture Scheduled Serviced Date,"The month, day, and year a major component, system, equipment, or fixture is scheduled to be serviced for preventive or routine maintenance.",None,,,,001900,ComponentOrFixtureScheduledServicedDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24881,69041
+Facilities,Facility,Condition,Component or Fixture Serviced Date,"The month, day, and year a system, component, equipment, or fixture was serviced for repair or routine maintenance.",None,,,,001899,ComponentOrFixtureServicedDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24880,69042
+Facilities,Facility,Condition,Component or Fixture Useful Life,"The anticipated time (in years) from the time of installation or service that a properly maintained system, component, equipment, or fixture is expected to operate effectively and efficiently.",None,,,,001901,ComponentOrFixtureUsefulLife,https://ceds.ed.gov/cedselementdetails.aspx?termid=24882,69043
+Facilities,Facility,Condition,Facility Applicable Federal Mandate Type,"The particular federal law, regulation, or standard that pertains to a school facility.","02584 - Americans with Disabilities Act (ADA)
+02588 - Asbestos Hazardous Emergency Response Act (AHERA)
+02585 - Individuals with Disabilities Education Act (IDEA)
+02587 - Lead Contamination Control Act
+02586 - Safe Drinking Water Act
+09999 - Other
+",,,,001796,FacilityApplicableFederalMandateType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24777,69032
+Facilities,Facility,Condition,Facility Compliance Status,"An indication of whether the school, building, site, system, component, equipment, vehicle, or fixture conforms to the requirements or standards specified in federal, state, or local standards or codes or other officially required guidelines or regulations.","02570 - In compliance
+02571 - Not in compliance
+02572 - Planned compliance
+02573 - Waived compliance
+",,,,001792,FacilityComplianceStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=24773,69033
+Facilities,Facility,Condition,Facility Federal Mandate Interest Type,"The area of interest controlled by a federal law, regulation, or standard that pertains to a school facility.","02579 - Asbestos contamination
+75026 - Child nutrition
+02577 - Drinking water safety
+02574 - Facility accessibility and usability for individuals with disabilities
+02580 - Hazardous materials
+02575 - Indoor air quality
+02583 - Integrated pest control
+02578 - Lead contamination
+02582 - Material Safety Data Sheet (MSDS)
+03264 - National School Lunch Act
+02576 - Radon contamination
+02581 - Underground storage tank
+09999 - Other
+",,,,001797,FacilityFederalMandateInterestType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24778,69034
+Facilities,Facility,Condition,Facility Location of Hazardous Materials,The location at which the identified hazardous material is found.,None,,,,001808,FacilityLocationOfHazardousMaterials,https://ceds.ed.gov/cedselementdetails.aspx?termid=24789,69035
+Facilities,Facility,Condition,Facility Nearby Environmental Hazard Description,"Description of any type of environmental hazards within range of the facility that has the potential to seriously affect the health, safety and operation of school facilities and their occupants.",None,,,,001810,FacilityNearbyEnvironmentalHazardDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24791,69036
+Facilities,Facility,Condition,Facility State or Local Mandate Interest Type,"The area of interest controlled by a law, rule, regulation, or standard of state and local governments that pertains to public school facilities.","02594 - Acreage standards
+02589 - Building code
+02593 - Design standards
+02598 - Earthquake standards
+02590 - Fire code
+02592 - Flood control
+03265 - Food safety standards
+02591 - Health code
+02596 - Historic preservation requirements
+02597 - Occupational health and safety code
+02595 - Standard educational specifications
+09999 - Other
+",,,,001805,FacilityStateOrLocalMandateInterestType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24786,69037
+Facilities,Facility,Condition,Facility State or Local Mandate Name,"The specific law, rule, regulation, or standard of a state or local government that pertains to public school facilities.",None,,,,001806,FacilityStateOrLocalMandateName,https://ceds.ed.gov/cedselementdetails.aspx?termid=24787,69038
+Facilities,Facility,Condition,Facility System or Component Condition,The rating of the system or component functions under the demands of its regular operation.,"02563 - Adequate system or component condition
+02567 - Emergency system or component condition
+02561 - Excellent System or Component Condition
+02564 - Fair System or Component Condition
+02562 - Good System or Component Condition
+02983 - Nonoperable system or component condition
+02565 - Poor System or Component Condition
+02566 - Urgent building system or component condition
+",,,,001793,FacilitySystemOrComponentCondition,https://ceds.ed.gov/cedselementdetails.aspx?termid=24774,69039
+Facilities,Facility,Design,Building Administrative Space Type,The space designed primarily for conducting administrative and business functions.,"02986 - Administrative office/room
+02747 - Attendance reception
+02744 - Clerical areas
+02746 - Conference room
+02748 - General reception
+75032 - IT center
+02745 - Mail room
+02742 - Principal's office
+02754 - PTO/PTA spaces
+02756 - Records room/vault
+02753 - School bank
+02752 - School store
+02749 - Security/police/probation office
+02755 - Site-based council office
+02750 - Staff lounge
+02751 - Staff work room
+02759 - Storage - instructional equipment
+02758 - Storage - resource materials
+02757 - Storage - textbook
+02743 - Vice-principal/assistant principal's office
+09999 - Other
+",,,,001813,BuildingAdministrativeSpaceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24794,69044
+Facilities,Facility,Design,Building Architect Name,The name of the architect of record for the building.,None,,,,001834,BuildingArchitectName,https://ceds.ed.gov/cedselementdetails.aspx?termid=24815,69045
+Facilities,Facility,Design,Building Architectural Firm Name,The name of the architectural firm responsible for the building design.,None,,,,001835,BuildingArchitecturalFirmName,https://ceds.ed.gov/cedselementdetails.aspx?termid=24816,69046
+Facilities,Facility,Design,Building Art Specialty Space Type,The space designed to support the teaching and learning of 2 dimensional or 3 dimensional visual arts.,"02644 - 2-dimensional art classroom
+02645 - 3-dimensional art classroom
+02647 - Ceramic studio
+02646 - Darkroom
+02649 - Kiln room
+02648 - Photography studio/graphic arts
+09999 - Other
+",,,,001814,BuildingArtSpecialtySpaceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24795,69047
+Facilities,Facility,Design,Building Assembly Space Type,"An area designed primarily for theater productions, assemblies, and other large gatherings.","02768 - Auditorium (fixed seats)
+02772 - Backstage room/green room
+02769 - Control room
+02770 - Costume storage area
+03108 - Disaster shelter area
+02773 - Multi-purpose Room
+02771 - Set storage area
+09999 - Other
+",,,,001836,BuildingAssemblySpaceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24817,69048
+Facilities,Facility,Design,Building Basic Classroom Design Type,"A classroom designed for instruction of a particular age group, but not a specific subject.","01304 - Elementary
+01981 - Preschool/early childhood
+03495 - Resource
+02403 - Secondary
+14906 - Skills center
+09999 - Other
+",,,,001815,BuildingBasicClassroomDesignType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24796,69049
+Facilities,Facility,Design,Building Career-Technical Education Space Type,"The classroom, laboratory, or shop specially located, designed, furnished, and equipped to support instruction of technical and technology related curriculum, usually tied to particular industry, for example, bio-tech, construction, or agriculture.","02691 - Aeronautical technology classroom
+02685 - Agricultural/natural resources shop
+02682 - Automotive/avionics technology shop
+02687 - Barbering and cosmetology shop
+02702 - Biotechnology laboratory
+02692 - Building construction technology shop
+02697 - Business and administrative services/office management laboratory
+02678 - Computer/information technology laboratory
+02680 - Consumer science - clothing classroom
+02679 - Consumer science - food classroom
+02690 - Dental science classroom
+02684 - Drafting room/CAD/CAM
+02699 - Early childhood laboratory/child care center
+02683 - Electronics/engineering technology laboratory
+02681 - Family and consumer science
+02695 - Financial services center/bank
+02696 - Food services/hospitality laboratory
+02700 - Graphic/digital arts and design studio
+02686 - Greenhouse
+02698 - Health occupations laboratory
+02701 - Law enforcement/fire technology/protective services laboratory
+02688 - Multimedia production studio/communications
+02693 - Precision manufacturing laboratory/metalworking shop
+02694 - Retail store/entrepreneurship laboratory
+02689 - Wood shop
+09999 - Other
+",,,,001817,BuildingCareer-TechnicalEducationSpaceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24798,69050
+Facilities,Facility,Design,Building Circulation Space Type,A space designed to enable people to move within the building.,"02516 - Elevator
+02517 - Escalator
+02774 - Hallway
+13619 - Handicap Access Ramp
+13593 - Lift
+02776 - Lobby
+13594 - Moving Walk
+02775 - Stairway
+09999 - Other
+",,,,001818,BuildingCirculationSpaceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24799,69051
+Facilities,Facility,Design,Building Design Type,"The primary design or purpose of a building, as determined by its physical layout and built-in systems and equipment, regardless of its current use.","02621 - Assembly building
+02614 - Central kitchen building
+02619 - Dormitory building
+02616 - Field house building
+02613 - Garage building
+02620 - Gymnasium building
+02617 - Media production center building
+02618 - Natatorium
+02611 - Office building
+03106 - School building
+02610 - Service center building
+02615 - Stadium building
+02612 - Warehouse building
+09999 - Other
+",,,,001816,BuildingDesignType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24797,69052
+Facilities,Facility,Design,Building Environmental or Energy Performance Rating Category,The primary groupings that rating organizations use to evaluate environmental sustainability and energy use.,"13620 - Climate/Emissions
+13621 - Energy
+13622 - Indoor Environmental Quality
+13623 - Innovations in Operations/ Project/ Environmental Management
+13624 - Leadership, Education and Innovation
+13625 - Materials and Resources
+13626 - Regional Priority
+13627 - Sustainable Sites
+",,,,001819,BuildingEnvironmentalOrEnergyPerformanceRatingCategory,https://ceds.ed.gov/cedselementdetails.aspx?termid=24800,69053
+Facilities,Facility,Design,Building Food Service Space Type,"The space located, designed, furnished and equipped to support meal programs.","02792 - Cafeteria
+02793 - Cafetorium
+02797 - Convenience kitchen
+03251 - Dish return area
+02799 - Dry food/non-hazardous supplies storage area
+02794 - Faculty dining room
+02798 - Finishing/satellite kitchen
+03254 - Food receiving area
+02800 - Food serving area
+02796 - Full-service kitchen
+13629 - Kitchen garden
+02988 - Multipurpose room
+03253 - Recyclable materials area
+03109 - Refrigerated/freezer storage area
+02801 - Storage of tables and chairs
+02795 - Student dining room
+03252 - Trash disposal area
+09999 - Other
+",,,,001821,BuildingFoodServiceSpaceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24802,69054
+Facilities,Facility,Design,Building Full Service Kitchen Type,The type of kitchen housed in the facility as defined by whether it prepares food to be served onsite and/or at additional locations.,"03247 - Central kitchen
+03250 - Non-production kitchen
+03248 - Production kitchen
+03249 - Self-contained kitchen
+",,,,001843,BuildingFullServiceKitchenType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24824,69055
+Facilities,Facility,Design,Building Indoor Athletic or Physical Education Space Type,"The indoor space designed, located, furnished, and equipped for instruction and support of a physical education curriculum and athletic program.","02709 - Auxiliary gymnasium
+02712 - Dance studio
+02716 - Equipment storage
+02984 - Gymnasium
+02719 - Health classroom
+02715 - Locker room
+02718 - Multipurpose space
+02720 - Playtorium (auditorium/gymnasium)
+02714 - Pool/natatorium
+02717 - Press box
+02713 - Team room
+02710 - Weight training room
+02711 - Wrestling room
+09999 - Other
+",,,,001822,BuildingIndoorAthleticOrPhysicalEducationSpaceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24803,69056
+Facilities,Facility,Design,Building Library or Media Center Specialty Space Type,"The primary and auxiliary space designed to provide and support student and staff access to books, periodicals, software, videos, and the Internet.","02703 - Collections room
+02706 - Copy center
+02705 - Distance learning lab
+02704 - Reading room
+13632 - Reception/checkout desk
+02707 - Study room
+02708 - Workroom
+09999 - Other
+",,,,001823,BuildingLibraryOrMediaCenterSpecialtySpaceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24804,69057
+Facilities,Facility,Design,Building Operations or Maintenance Space Type,"The area designed primarily for conducting activities concerned with maintaining the grounds, buildings, and equipment.","02780 - Boiler room
+02784 - Communications closet
+02778 - Custodial closet
+02777 - Custodian office
+02783 - Electrical closet
+02781 - Fan room
+02779 - Mechanical room
+02790 - Public toilet
+02785 - Server room
+02791 - Staff toilet
+02786 - Storage - flammable materials
+02788 - Storage - hazardous materials
+02787 - Storage - maintenance equipment
+02789 - Student toilet
+02782 - Systems control room
+09999 - Other
+",,,,001824,BuildingOperationsOrMaintenanceSpaceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24805,69058
+Facilities,Facility,Design,Building Outdoor Athletic or Physical Education Space Type,"The outdoor space designed, located, furnished, and equipped for instruction and support of a physical education curriculum and athletic program.","02728 - Baseball field
+02724 - Bleacher seating
+02722 - Concessions/restrooms
+02985 - Field house
+02727 - Fitness trail
+02730 - Football field
+02721 - Multipurpose grassy play field
+02732 - Other sports field
+02726 - Paved outdoor basketball courts
+02731 - Soccer field
+02729 - Softball field
+02725 - Tennis courts
+02723 - Track/fields
+09999 - Other
+",,,,001825,BuildingOutdoorAthleticOrPhysicalEducationSpaceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24806,69059
+Facilities,Facility,Design,Building Outdoor or Non-athletic Space Type,"The outdoor space located, designed, furnished, and equipped primarily for recreation, play and outdoor environmental education.","13629 - Kitchen garden
+13635 - Natural habitat area
+13633 - Outdoor classroom
+13634 - Outdoor seating
+02433 - Playground
+03409 - Sandbox
+03407 - Schoolyard Garden
+13636 - Splash play area
+",,,,001826,BuildingOutdoorOrNon-athleticSpaceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24807,69060
+Facilities,Facility,Design,Building Performing Arts Specialty Space Type,"The space designed, located, furnished, and equipped for instruction and support of music and drama curricula and productions.","02768 - Auditorium (fixed seats)
+02772 - Backstage room/green room
+13637 - Balcony
+02650 - Band room
+02654 - Blackbox theater
+02652 - Choral room
+02769 - Control room
+02770 - Costume storage area
+02653 - Drama classroom
+02655 - Instrument storage
+02656 - Keyboard laboratory
+02659 - Multimedia production center
+02658 - Multipurpose music room
+02651 - Practice room
+02660 - Radio/television broadcast studios
+02771 - Set storage area
+02657 - Television studio
+09999 - Other
+",,,,001827,BuildingPerformingArtsSpecialtySpaceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24808,69061
+Facilities,Facility,Design,Building School Design Type,"The physical layout and character of a school facility, as determined by age groups served and educational programs provided.","02608 - 6-12 school
+02605 - Adult education school
+02609 - Alternative school
+02604 - Career-technology education center
+02599 - Early childhood center
+02600 - Elementary school
+02602 - Junior high school
+02607 - K-8 school
+02601 - Middle school
+13638 - Performing arts school
+13639 - Science, technology, engineering and math (STEM) school
+02603 - Senior high school
+02606 - Special education school
+09999 - Other
+",,,,001828,BuildingSchoolDesignType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24809,69062
+Facilities,Facility,Design,Building Science Specialty Space Type,"The space designed, located, furnished, and equipped for instruction and experimentation in science.","02661 - Biology laboratory
+02668 - Chemical storage room
+02662 - Chemistry laboratory
+02663 - Environmental science laboratory
+02670 - General science laboratory
+02669 - Miscellaneous storage room
+02435 - Outdoor classroom
+02664 - Physics laboratory
+02665 - Planetarium
+02666 - Prep room
+02667 - Science lecture room
+09999 - Other
+",,,,001829,BuildingScienceSpecialtySpaceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24810,69063
+Facilities,Facility,Design,Building Site Improvement Description,A description of the designed and constructed improvements made to a site.,None,,,,001850,BuildingSiteImprovementDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24831,69064
+Facilities,Facility,Design,Building Space Design Type,"The primary design or purpose of a space, as determined by its physical layout and built-in systems and equipment, regardless of its current use.","02633 - Administration
+02634 - Assembly
+02631 - Athletic
+02628 - Basic classroom
+02635 - Corridors
+02639 - Dormitory room
+02638 - Food service
+02630 - Library/media
+02773 - Multi-purpose Room
+02636 - Operational support
+03017 - Restroom
+02629 - Specialty classroom
+02637 - Storage
+02788 - Storage - hazardous materials
+02632 - Student support
+09999 - Other
+",,,,001831,BuildingSpaceDesignType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24812,69065
+Facilities,Facility,Design,Building Special Education Specialty Space Type,"The space designed, located, furnished, and equipped to support instruction of children with special physical, emotional, and/or educational needs.","02674 - IEP conference room
+02675 - Itinerant staff room
+02671 - Occupational therapy room
+02673 - Physical therapy room
+03107 - Resource room
+02676 - Self-contained classroom
+02672 - Speech and hearing room
+09999 - Other
+",,,,001832,BuildingSpecialEducationSpecialtySpaceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24813,69066
+Facilities,Facility,Design,Building Student Support Space Type,"The space designed to provide student support services such as administrative, technical (e.g., guidance and health), and logistical support to facilitate and enhance instruction.","02738 - Career center
+02739 - College center
+02737 - Guidance/counseling room
+02736 - Health room lavatory
+02735 - Health suite
+02733 - In-school suspension room
+02740 - Internship center
+02734 - Nurse's station
+02741 - Student club space
+09999 - Other
+",,,,001833,BuildingStudentSupportSpaceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24814,69067
+Facilities,Facility,Design,Facility Compliance Determination Date,"The month, day, and year that the school, building, site, system, component, equipment, or fixture compliance status was determined.",None,,,,001837,FacilityComplianceDeterminationDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24818,69068
+Facilities,Facility,Design,Facility Compliance Name,"The name of the inspection or process that indicates conformity to the requirements or standards specified in federal, state, or local standards or codes.",None,,,,001838,FacilityComplianceName,https://ceds.ed.gov/cedselementdetails.aspx?termid=24819,69069
+Facilities,Facility,Design,Facility Component Deficiency Description,"A description of the component, system, or finish that needs replacement, repair, or maintenance to perform at an optimal level.",None,,,,001839,FacilityComponentDeficiencyDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24820,69070
+Facilities,Facility,Design,Facility Component Identification Code,"A unique number or alphanumeric code assigned to a component by a school, school system, state, or other agency or entity.",None,,,,001840,FacilityComponentIdentificationCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=24821,69071
+Facilities,Facility,Design,Facility Estimated Cost to Eliminate Deferred Maintenance,"The estimated cost to bring systems, components, finishes, fixtures, or equipment to a state of good repair.",None,,,,001841,FacilityEstimatedCostToEliminateDeferredMaintenance,https://ceds.ed.gov/cedselementdetails.aspx?termid=24822,69072
+Facilities,Facility,Design,Facility Furnishings Type,Moveable assets that are provided so the building or interior assets can be utilized by occupants for their intended purposes.,"00103 - Administrative office
+02792 - Cafeteria
+03014 - Classroom
+00309 - Occupational therapy
+00559 - Physical education
+00313 - Physical therapy
+",,,,001820,FacilityFurnishingsType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24801,69073
+Facilities,Facility,Design,Facility Hazardous Condition Expected Remediation Date,"The month, day, and year by which a hazardous condition of a site or building is expected to be remediated.",None,,,,001842,FacilityHazardousConditionExpectedRemediationDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24823,69074
+Facilities,Facility,Design,Facility Inspection Score Result Description,The description of a meaningful raw score of statistical expression of the performance on an inspection.,None,,,,001846,FacilityInspectionScoreResultDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24827,69075
+Facilities,Facility,Design,Facility Inspection Violation Description,A description of the standard violation(s) found in the inspection.,None,,,,001847,FacilityInspectionViolationDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24828,69076
+Facilities,Facility,Design,Facility Site Outdoor Area Type,The designated constructed outdoor area on a public school site.,"13566 - Athletic field - Artificial
+02434 - Athletic field - Natural
+02438 - Drop-off/driveway
+02526 - Fencing enclosures
+02437 - Hardscape game area
+02436 - Hardscape play area
+02443 - Landscaping
+02524 - Parking area
+02433 - Playground
+02440 - Retaining walls
+13567 - Semi-permeable game area
+02439 - Septic fields
+02441 - Sidewalks
+13568 - Softscape game area
+13569 - Softscape play area
+02442 - Stairs and ramps
+02444 - Water filtration system
+",,,,001830,FacilitySiteOutdoorAreaType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24811,69077
+Facilities,Facility,Design,Facility Space Description,"A description of the space, as determined by its physical layout and built-in systems and equipment.",None,,,,001207,FacilitySpaceDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24174,65611
+Facilities,Facility,Design,Hazardous Material or Condition Description,A description of the seriousness a threat or hazardous material poses.,None,,,,001844,HazardousMaterialOrConditionDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24825,69078
+Facilities,Facility,Design,Hazardous Material or Condition Testing Date,"The month, day, and year that the site or building is tested for a specific hazardous material.",None,,,,001845,HazardousMaterialOrConditionTestingDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24826,69079
+Facilities,Facility,Design,Installation Date,"The year in which the system, component, equipment, or fixture was originally installed.",None,,,,001848,InstallationDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24829,69080
+Facilities,Facility,Design,Life-cycle Cost,"The total cost of acquiring, owning, operating, and disposing of a building, facility, or piece of equipment over its useful life.",None,,,,001849,Life-cycleCost,https://ceds.ed.gov/cedselementdetails.aspx?termid=24830,69081
+Facilities,Facility,Identification,Building Addition Code,"A unique number or alphanumeric code assigned to a building addition by a school, school system, state, or other agency or entity.",None,,,,001776,BuildingAdditionCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=24757,69082
+Facilities,Facility,Identification,Building Addition Description,A description of the permanent structure added to the original building.,None,,,,001775,BuildingAdditionDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24756,69083
+Facilities,Facility,Identification,Building Area,"The sum of the areas at each floor level included within the principal outside faces of exterior walls, including roofed areas with finished floors that may not have exterior walls, but are connected to the main building. This sum should include all stories or areas having floor surfaces with clear standing head room (6.5 feet or 1.98 meters) but omit architectural setbacks or projections.",None,,,,001764,BuildingArea,https://ceds.ed.gov/cedselementdetails.aspx?termid=24745,69084
+Facilities,Facility,Identification,Building Historic Status,An indication of whether or not a building is eligible to be or has been declared a landmark or historic building.,"02415 - Ineligible
+02417 - Locally designated
+02412 - Locally eligible, not yet designated
+75020 - Located in historic district
+02419 - Nationally designated
+02414 - Nationally eligible, not yet designated
+02416 - Not evaluated
+02418 - State designated
+02413 - State eligible, not yet designated
+",,,,001772,BuildingHistoricStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=24753,69085
+Facilities,Facility,Identification,Building Number of Stories,"The number of stories in a building, excluding the basement if its ceiling is less than three feet above ground level.",None,,,,001785,BuildingNumberOfStories,https://ceds.ed.gov/cedselementdetails.aspx?termid=24766,69086
+Facilities,Facility,Identification,Building Primary Use Type,The primary use type of the building in which a school is located.,"13561 - Church
+13562 - Commercial office building
+13563 - Commercial warehouse
+13564 - Community center
+13565 - Public school building
+",,,,001777,BuildingPrimaryUseType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24758,69087
+Facilities,Facility,Identification,Building Year Built,"The year a building was constructed, as indicated by cornerstone or official government records.",None,,,,001788,BuildingYearBuilt,https://ceds.ed.gov/cedselementdetails.aspx?termid=24769,69088
+Facilities,Facility,Identification,Building Year of Last Modernization,"The most recent year that a comprehensive upgrade of ALL major building systems and components was completed, such that it functions as a modern building, as measured by a facility condition index not greater than 15%.",None,,,,001789,BuildingYearOfLastModernization,https://ceds.ed.gov/cedselementdetails.aspx?termid=24770,69089
+Facilities,Facility,Identification,Campus Facility Type,The primary purpose for which a campus is designed and/or used.,"Administration - Administration
+Education - Education
+Operations - Operations
+Residential - Residential
+Other - Other
+",,,,001897,CampusType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24878,69091
+Facilities,Facility,Identification,Campus Status,"The generalized use or control of a campus, independent of program type.","75021 - In district use
+75022 - Leased
+75023 - Inactive
+75024 - Decommissioned
+75025 - Sold
+",,,,001778,CampusStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=24759,69090
+Facilities,Facility,Identification,Facilities Identifier,"A locally assigned unique number or alphanumeric code used to capture precise information on locations specific to a school (e.g., building number, class number, hall number, school bus number, computer station number, or internet protocol (IP) address).",None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",000504,FacilitiesIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23495,64867
+Facilities,Facility,Identification,Facility Acquisition Date,The date the property/facility was acquired.,None,,,,001768,FacilityAcquisitionDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24749,69092
+Facilities,Facility,Identification,Facility Addition Year,The year the construction on the addition was completed.,None,,,,001769,FacilityAdditionYear,https://ceds.ed.gov/cedselementdetails.aspx?termid=24750,69093
+Facilities,Facility,Identification,Facility Block Number Area,"The informal description of location sometimes used in rural areas, for example, ""from the highway to the railroad tracks.""",None,,,,001774,FacilityBlockNumberArea,https://ceds.ed.gov/cedselementdetails.aspx?termid=24755,69094
+Facilities,Facility,Identification,Facility Building Name,"The full, legally accepted or popularly accepted name of a building.",None,,,,001205,FacilityBuildingName,https://ceds.ed.gov/cedselementdetails.aspx?termid=24172,65609
+Facilities,Facility,Identification,Facility Building Permanency,An indication of whether the building is built for permanent use in the same location or is relocatable.,"02432 - Nonpermanent building
+02431 - Permanent building
+",,,,001770,FacilityBuildingPermanency,https://ceds.ed.gov/cedselementdetails.aspx?termid=24751,69095
+Facilities,Facility,Identification,Facility Census Tract,The census tract number of the school site.,None,,,,001779,FacilityCensusTract,https://ceds.ed.gov/cedselementdetails.aspx?termid=24760,69096
+Facilities,Facility,Identification,Facility Construction Date,"The month, day, and year on which construction of a building, addition, or improvement was completed.",None,,,,001780,FacilityConstructionDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24761,69097
+Facilities,Facility,Identification,Facility Construction Date Type,Designation of the nature of the construction completion date.,"02420 - Actual
+02421 - Estimated
+",,,,001781,FacilityConstructionDateType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24762,69098
+Facilities,Facility,Identification,Facility Construction Material Type,The primary material used for the construction of a building.,"02430 - Adobe
+02428 - Aluminum
+02424 - Block
+02422 - Brick
+02423 - Brick veneer
+02426 - Concrete
+02427 - Prefabricated
+02429 - Steel
+02425 - Wood frame
+09999 - Other
+",,,,001782,FacilityConstructionMaterialType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24763,69099
+Facilities,Facility,Identification,Facility Construction Year,The year the building was first constructed.,None,,,,001771,FacilityConstructionYear,https://ceds.ed.gov/cedselementdetails.aspx?termid=24752,69100
+Facilities,Facility,Identification,Facility Expected Life,"The time, in years, of the expected useful life of a facility for the purposes of depreciation.",None,,,,001783,FacilityExpectedLife,https://ceds.ed.gov/cedselementdetails.aspx?termid=24764,69101
+Facilities,Facility,Identification,Facility Ownership Indicator,Indicates the public or private entity holds legal title to the building and/or site.,"Yes
+No
+",,,,001906,FacilityOwnershipIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24887,69102
+Facilities,Facility,Identification,Facility Replacement Value,The estimated cost of replacing a facility using current per square foot estimates of total project costs.,None,,,,001784,FacilityReplacementValue,https://ceds.ed.gov/cedselementdetails.aspx?termid=24765,69103
+Facilities,Facility,Identification,Facility Site Area,"The total number of acres in a continuous piece of land, to the nearest tenth, including undeveloped areas as well as areas occupied by buildings, walks, drives, parking facilities, and other improvements.",None,,,,001773,FacilitySiteArea,https://ceds.ed.gov/cedselementdetails.aspx?termid=24754,69104
+Facilities,Facility,Identification,Facility Site Identifier,"The lot and square number, or equivalent unique municipal number identification, of a parcel of land.",None,,,,001786,FacilitySiteIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=24767,69105
+Facilities,Facility,Identification,Facility Site Improvement Location Type,The type of location of the designed and constructed improvements made to a site.,"02434 - Athletic field - Natural
+02438 - Drop-off/driveway
+02526 - Fencing enclosures
+02437 - Hardscape game area
+02436 - Hardscape play area
+02443 - Landscaping
+02435 - Outdoor classroom
+02524 - Parking area
+02433 - Playground
+02440 - Retaining walls
+02439 - Septic fields
+02441 - Sidewalks
+02442 - Stairs and ramps
+02444 - Water filtration system
+09999 - Other
+",,,,001787,FacilitySiteImprovementLocationType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24768,69106
+Facilities,Facility,Identification,Organization Identification System,"A coding scheme that is used for identification and record-keeping purposes by schools, social services, or other agencies to refer to an organization.","School - School-assigned number
+ACT - College Board/ACT program code set of PK-grade 12 institutions
+LEA - Local Education Agency assigned number
+SEA - State Education Agency assigned number
+NCES - National Center for Education Statistics assigned number
+FEIN - Federal employer identification number
+DUNS - Dun and Bradstreet number
+OtherFederal - Other federally assigned number
+Other - Other
+LicenseNumber - License Number
+SAM - System for Award Management Unique Entity Identifier
+",Updated,Add new DES location,,000827,OrganizationIdentificationSystem,https://ceds.ed.gov/cedselementdetails.aspx?termid=23827,65601
+Facilities,Facility,Identification,Organization Identifier,"A unique number or alphanumeric code assigned to an organization by a school, school system, a state, or other agency or entity.",None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",000826,OrganizationIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23825,65600
+Facilities,Facility,Identification,Organization Name,"The name of a non-person entity such as an organization, institution, agency or business.",None,Updated,Add new DES location,,000204,OrganizationName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23204,65599
+Facilities,Facility,Identification,Organization Relationship Type,The nature of one organization’s relationship to another.,"AuthorizingBody - Authorizing Body
+OperatingBody - Operating Body
+SecondaryAuthorizingBody - Secondary Authorizing Body
+RelatedBody - Related Body
+",,,"Related Body would be used for a use case in which no hierarchy exists, such as a foundation related to a postsecondary institution. Neither organization has authority over the other, but is related to one another.",001905,OrganizationRelationshipType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24886,69107
+Facilities,Facility,Identification,Organization Type,The type of educational organization or entity.,"Employer - Employer
+K12School - K12 School
+LEA - Local Education Agency (LEA)
+IEU - Intermediate Educational Unit (IEU)
+SEA - State Education Agency (SEA)
+Recruiter - Recruiter
+EmployeeBenefitCarrier - Employee Benefit Carrier
+EmployeeBenefitContributor - Employee Benefit Contributor
+ProfessionalMembershipOrganization - Professional Membership Organization
+EducationInstitution - Education Institution
+StaffDevelopmentProvider - Staff Development Provider
+Facility - Facility
+Course - Course
+CourseSection - Course Section
+Program - Program
+PostsecondaryInstitution - Postsecondary Institution
+AdultEducationProvider - Adult Education Provider
+ServiceProvider - Service Provider
+AffiliatedInstitution - Affiliated Institution
+GoverningBoard - Governing Board
+CredentialingOrganization - Credentialing Organization
+AccreditingOrganization - Accrediting Organization
+EducationOrganizationNetwork - Education Organization Network
+IDEAPartCLeadAgency -  IDEA Part C Lead Agency
+CharterSchoolManagementOrganization - Charter School Management Organization
+CharterSchoolAuthorizingOrganization - Charter School Authorizing Organization
+EmergencyResponseAgency - Emergency Response Agency
+EarlyCollege - Early College
+Campus - Campus
+PostsecondarySystem - Postsecondary System
+SHEEOAgency - SHEEO Agency
+Region - Region
+",Updated,"Added new option to existing option set, add new DES location",This element is used in data models that are normalized and identifies the primary role of the organization.,001156,OrganizationType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24165,69001
+Facilities,Facility,Identification,Short Name of Organization,"The name of the organization, which could be abbreviated form of the full legally accepted name.",None,,,"An abbreviated name of an institution is commonly used, especially in reports and applications, e.g. a K12 school with the full legal name ""Dr. Martin Luther King, Jr. Elementary School"" may use ""King Elementary"".",001487,ShortNameOfOrganization,https://ceds.ed.gov/cedselementdetails.aspx?termid=24459,69876
+Facilities,Facility,Identification,Temperature Controlled Building Area,"The sum of the Building Area capable of being regulated and maintained within a specific temperature range for a designated purpose, employing heating, cooling, insulation, or climate control systems.",None,New,Added new element to DES.,Use in conjunction with the element: Building Area.,002024,TemperatureControlledBuildingArea,https://ceds.ed.gov/cedselementdetails.aspx?termid=25090,70122
+Facilities,Facility,Management,Building Charter School Realty Access Type,The type of real estate vehicle through which a public charter school has access and control of its building space.,"13691 - Leasehold
+13692 - Ownership by Charter Non-Profit Corporation
+13693 - Third Party Non-Profit Ownership
+14907 - Third-party public sector ownership
+",,,,001865,BuildingCharterSchoolRealtyAccessType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24846,69108
+Facilities,Facility,Management,Building Cleaning Standard Type,"The standard for cleanliness, and benchmarks for how much space can be assigned to one properly supplied custodian to meet these standards.","02831 - Level 1 cleaning
+02832 - Level 2 cleaning
+02833 - Level 3 cleaning
+02834 - Level 4 cleaning
+02835 - Level 5 cleaning
+",,,,001866,BuildingCleaningStandardType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24847,69109
+Facilities,Facility,Management,Building Date of Certificate of Occupancy,"The month, day and year in which a certificate of occupancy was granted by the appropriate local authority.",None,,,,001880,BuildingDateOfCertificateOfOccupancy,https://ceds.ed.gov/cedselementdetails.aspx?termid=24861,69110
+Facilities,Facility,Management,Building Energy Conservation Measure Type,"The type of modification to, or replacement of, a piece of equipment or building shell/system that increases energy efficiency.","13653 - Daylighting
+13654 - Delamping
+02848 - HVAC replacement
+02847 - Installation of energy controls
+14904 - Installation of solar equipment
+02850 - Insulation improvements
+02849 - Lighting replacement
+14903 - Relamping
+02846 - Window replacement
+09999 - Other
+",,,,001868,BuildingEnergyConservationMeasureType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24849,69111
+Facilities,Facility,Management,Building Energy Service Company Name,"The name of the company that designs, procures, finances, installs, maintains, and guarantees the performance of energy conservation measures in an owner's facility or facilities.",None,,,,001869,BuildingEnergyServiceCompanyName,https://ceds.ed.gov/cedselementdetails.aspx?termid=24850,69112
+Facilities,Facility,Management,Building Energy Source Type,The source of energy that directly powers a school district facility or building system.,"13655 - Biomass
+02858 - Coal
+02854 - Electric
+02853 - Gas
+02857 - Geothermal
+02859 - Nuclear
+02842 - Oil
+02855 - Solar
+02843 - Water
+02856 - Wind
+09999 - Other
+",,,,001870,BuildingEnergySourceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24851,69113
+Facilities,Facility,Management,Facilities Management Emergency Type,"The type of abnormal and urgent circumstances that disrupt the normal operation of the building, threaten the health and safety of the occupants, or require an emergency response.","02882 - Act of violence
+02880 - Bomb threat
+02888 - Debris flows or mudslide
+02886 - Earthquake
+02895 - Emergency shelter need
+02892 - Extreme heat
+02878 - Fire
+02897 - Flood
+02894 - Gas leak
+02883 - Hostage
+02884 - Hurricane and tropical storm
+02893 - Major chemical emergency
+02881 - Terrorism
+02879 - Theft
+02885 - Thunderstorm - severe
+02896 - Tornado
+02889 - Tsunami
+02890 - Volcano
+02891 - Wildfire - surface, ground, or crown fire
+02887 - Winter storm
+09999 - Other
+",,,,001871,FacilitiesManagementEmergencyType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24852,69114
+Facilities,Facility,Management,Facilities Mandate Authority Type,"The authority that mandates through law, regulation, or standard that pertains to a specific mandate.","13390 - District/Local
+00859 - Federal
+00391 - State
+",,,,001885,FacilitiesMandateAuthorityType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24866,69115
+Facilities,Facility,Management,Facilities Plan Description,A description of the management and accountability plan.,None,,,,001882,FacilitiesPlanDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24863,69116
+Facilities,Facility,Management,Facilities Plan Type,The type of management and accountability plan.,"02828 - Capital improvement plan
+02827 - Educational facilities master plan
+02825 - Emergency response plan
+02829 - Energy management plan
+02830 - Hazardous materials management plan
+02826 - Maintenance plan
+09999 - Other
+",,,,001883,FacilitiesPlanType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24864,69117
+Facilities,Facility,Management,Facility Audit Date,"The month, day, and year of the systematic review or audit of facility quality, management, decision making processes, controls, schedule and cost.",None,,,,001881,FacilityAuditDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24862,69118
+Facilities,Facility,Management,Facility Audit Type,"The type of systematic review or audit of facility quality, management, decision making processes, controls, schedule and cost.","02979 - Building commissioning
+02977 - Financial audit
+02980 - Fiscal audit
+02976 - Management audit
+02978 - Performance audit
+13688 - Post Occupancy Evaluation
+02981 - Process audit
+13687 - Retro-commissioning
+09999 - Other
+",,,,001864,FacilityAuditType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24845,69119
+Facilities,Facility,Management,Facility Capital Program Management Type,"The type of management organization for planning, design, and construction of major capital projects.","02913 - District management
+02824 - Nonschool public agency management
+02823 - Private management
+09999 - Other
+",,,,001872,FacilityCapitalProgramManagementType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24853,69120
+Facilities,Facility,Management,Facility Compliance Agency Type,The type of agency that has ultimate responsibility for the compliance determination.,"00865 - Charter board
+13652 - Federal Agency
+00862 - Local (e.g., school board, city council, municipal board)
+00864 - Private/Religious
+00214 - Regional or intermediate educational agency
+00860 - State agency
+",,,,001867,FacilityComplianceAgencyType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24848,69121
+Facilities,Facility,Management,Facility Hazardous Materials or Condition Type,The type of hazardous materials or conditions tested for at a site or building.,"02898 - Asbestos
+13656 - Carbon Monoxide
+13657 - Chlorofluorocarbons
+13658 - Concentrated animal feeding operations (CAFOs)
+13659 - Criteria Air Pollutants
+13660 - Drip Lines
+13661 - Ground Level Ozone
+13662 - Hazardous Air Pollutants
+13663 - Hazardous, industrial, or municipal waste sites
+13664 - Hydrochlorofluorocarbons
+02899 - Lead
+13665 - Mercury
+13666 - Methane
+02900 - Mold
+13667 - Nitrogen Oxides
+13668 - Particulate Matter
+02903 - Pesticides
+13669 - Polychlorinated biphenyls (PCBs)
+13670 - Propellants
+02902 - Radon
+13671 - Refrigerants
+13672 - Sediment, sludge, reuse material
+13673 - Sulfur dioxide
+02901 - Underground storage tanks (USTs)
+13674 - Vapor intrusion
+13675 - Volatile organic compounds
+09999 - Other
+",,,,001874,FacilityHazardousMaterialsOrConditionType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24855,69122
+Facilities,Facility,Management,Facility Joint Development Type,"The type of development where two or more entities partner to plan, site, design, and/or build a new school or renovate an existing school to better support the joint use of the building and/or land.","13690 - Dedicated
+13689 - Shared
+",,,,001875,FacilityJointDevelopmentType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24856,69123
+Facilities,Facility,Management,Facility Maintenance Standard Type,"The standard for maintenance of a component, system, or building.","02989 - Emergency maintenance repair
+02839 - Predictive
+02838 - Preventive
+02837 - Routine
+02836 - Run to fail
+",,,,001876,FacilityMaintenanceStandardType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24857,69124
+Facilities,Facility,Management,Facility Naturally Occurring Hazard Type,"Type of natural hazard that can affect the health, safety and operation of school facilities and their occupants.","13678 - Arsenic
+13679 - Earthquake prone area
+13680 - Floodplain
+13681 - Liquefaction, landslide areas
+13682 - Naturally Occurring Asbestos (NOA)
+13683 - Sinkholes, Karst terrain
+",,,,001877,FacilityNaturallyOccurringHazardType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24858,69125
+Facilities,Facility,Management,Facility Operations Management Type,The type of management arrangements whereby a district oversees and manages its facilities operations.,"02821 - District and private sector management
+02822 - Nonschool public sector management
+02820 - Private sector management
+02819 - School district management
+09999 - Other
+",,,,001873,FacilityOperationsManagementType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24854,69126
+Facilities,Facility,Management,Facility Standard Type,An indication of the district or state requirements or guidelines for the design and construction of school facilities.,"02622 - Design guidelines
+02626 - Energy performance standards
+13628 - Environmental Standards
+02625 - Health and safety standards
+02624 - Master construction specifications
+02627 - Site selection guidelines
+02623 - Space standards
+09999 - Other
+",,,,001884,FacilityStandardType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24865,69127
+Facilities,Facility,Management,Facility Utility Provider Type,An indication of how utilities are supplied to a site or a building by a company or provider.,"02852 - Purchased
+02851 - Self-generated
+",,,,001878,FacilityUtilityProviderType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24859,69128
+Facilities,Facility,Management,Facility Utility Type,The type of utility used in the operation of a facility.,"02840 - Electricity
+02990 - Internet service
+02841 - Natural gas
+02842 - Oil
+13685 - Recycling
+02844 - Sewer
+02845 - Telephone
+13686 - Waste
+02843 - Water
+09999 - Other
+",,,,001879,FacilityUtilityType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24860,69129
+Facilities,Facility,Utilization,Adjusted Capacity,The maximum number of participants that can be served in a program.,None,,,,001999,AdjustedCapacity,https://ceds.ed.gov/cedselementdetails.aspx?termid=24972,69877
+Facilities,Facility,Utilization,Adjusted Capacity Reason Type,Identifies the reason for adjusted capacity in a program. ,"100 - COVID-19
+999 - Other
+",,,,002000,AdjustedCapacityReasonType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24973,69878
+Facilities,Facility,Utilization,Available Utilized Instructional Space,An indication that the instruction space in a school is used in the calculation of student capacity.,"Yes
+No
+",,,,001902,AvailableUtilizedInstructionalSpace,https://ceds.ed.gov/cedselementdetails.aspx?termid=24883,69130
+Facilities,Facility,Utilization,Building Capacity Factor Indicator,A designation as to whether the space is included in the calculation of school building capacity under state or local guidelines.,"Yes
+No
+",,,,001903,BuildingCapacityFactorIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24884,69131
+Facilities,Facility,Utilization,Building Community Use Space Type,The space designed primarily for community or shared use.,"02764 - Before- and after-school care
+02760 - Before- and after-school office
+02761 - Child care and development space
+02765 - Community room
+02767 - Family resource center
+02766 - Full-service health clinic
+02987 - Head Start space
+02762 - Health clinic
+02763 - Parent room
+09999 - Other
+",,,,001855,BuildingCommunityUseSpaceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24836,69132
+Facilities,Facility,Utilization,Building Hours of Public Use Per Week,The number of hours that all or part of a building is used for purposes other than general education by the community or other organizations.,None,,,,001856,BuildingHoursOfPublicUsePerWeek,https://ceds.ed.gov/cedselementdetails.aspx?termid=24837,69133
+Facilities,Facility,Utilization,Building Instructional Space Factor Type,A designation as to whether the space is considered an instructional space under state or local guidelines.,"02811 - Instructional space
+02812 - Noninstructional space
+",,,,001851,BuildingInstructionalSpaceFactorType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24832,69134
+Facilities,Facility,Utilization,Building Joint Use Rationale Type,The reasons for permitting and participating in joint-use.,"13710 - Increase programs and services for students
+13711 - Increase programs and services for the community
+13712 - Increase utilization of under used space
+13709 - Raise revenue
+",,,,001852,BuildingJointUseRationaleType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24833,69135
+Facilities,Facility,Utilization,Building Joint Use Scheduling Type,The type of designation of non school district users by the amount of time they have access to public school for joint use.,"13694 - Drop-in use
+13697 - Long term lease
+13695 - One-time event use
+13696 - Short-term lease
+",,,,001853,BuildingJointUseSchedulingType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24834,69136
+Facilities,Facility,Utilization,Building Joint User Type,"The types of users sharing school district controlled, owned, or utilized facilities.","13705 - Civic groups
+13704 - Individuals
+13706 - Other public agencies
+13708 - Private for-profit corporations
+13707 - Private non-profit organizations
+",,,,001854,BuildingJointUserType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24835,69137
+Facilities,Facility,Utilization,Building Net Area of Instructional Space,"The area of space directly used for instruction excluding circulation, administration, student services, and building support.",None,,,,001857,BuildingNetAreaOfInstructionalSpace,https://ceds.ed.gov/cedselementdetails.aspx?termid=24838,69138
+Facilities,Facility,Utilization,Building Number of Teaching Stations,"The number of teaching stations, as defined by how many spaces have, or could have, a teacher assigned to them for classroom instruction.",None,,,,001858,BuildingNumberOfTeachingStations,https://ceds.ed.gov/cedselementdetails.aspx?termid=24839,69139
+Facilities,Facility,Utilization,Building Public Use Policy Description,A description of the policy that enables the community or other organizations to use all or part of a building for purposes other than general education.,None,,,,001859,BuildingPublicUsePolicyDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24840,69140
+Facilities,Facility,Utilization,Building Site Use Restrictions Type,A characterization of a site that would define restrictions or opportunities.,"02446 - Enterprise zone
+02449 - Environmental contamination
+02448 - Environmental protection
+02447 - Historic district
+02445 - Land use
+02450 - Site easements
+09999 - Other
+",,,,001860,BuildingSiteUseRestrictionsType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24841,69141
+Facilities,Facility,Utilization,Building Space Utilization Area,"The area in square feet measured between the principal wall that faces at or near floor level, including alcove spaces, and the outer limits of space designed to serve the activity. Structural space is excluded.",None,,,,001861,BuildingSpaceUtilizationArea,https://ceds.ed.gov/cedselementdetails.aspx?termid=24842,69142
+Facilities,Facility,Utilization,Building Unassigned Space Indicator,"An indication that the space in a school, including circulation, administration offices, support spaces, and common areas, is not part of the calculation for capacity.","Yes
+No
+",,,,001863,BuildingUnassignedSpaceIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24844,69143
+Facilities,Facility,Utilization,Building Use Type,"How a building is principally used, regardless of its original design.","13700 - Administration building
+13699 - Alternative school
+02621 - Assembly building
+02614 - Central kitchen building
+02803 - Chapel building
+02619 - Dormitory building
+02616 - Field house building
+02613 - Garage building
+13698 - Grade level school
+02620 - Gymnasium building
+02806 - Holding school
+02804 - Investment
+02617 - Media production center building
+02618 - Natatorium
+02805 - Not in use
+02611 - Office building
+02802 - Operations building
+03106 - School building
+02610 - Service center building
+02615 - Stadium building
+02612 - Warehouse building
+09999 - Other
+",,,,001206,BuildingUseType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24173,65610
+Facilities,Facility,Utilization,Enrollment Capacity,Maximum number of age-appropriate students who can be enrolled. ,None,,,"Enrollment capacity can be collected at a variety of levels, such as classroom, grade, school, and facility.",002012,EnrollmentCapacity,https://ceds.ed.gov/cedselementdetails.aspx?termid=24979,69879
+Facilities,Facility,Utilization,Facility Enrollment Capacity,"The maximum number of age appropriate students who can be enrolled in a facility such that the district's programmatic, operational, and student/teacher work load requirements are met.",None,,,This element will be phased out in version 12. It is being replaced by Enrollment Capacity.,001904,FacilityEnrollmentCapacity,https://ceds.ed.gov/cedselementdetails.aspx?termid=24885,69144
+Facilities,Facility,Utilization,Facility Joint Use Description,A description explaining the details of an organization's shared facility arrangement.,None,New,Added new element to DES.,,002112,FacilityJointUseDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=25016,70123
+Facilities,Facility,Utilization,Facility Joint Use Indicator,An indication that an organization shares a facility or space within a facility with another organization.,"Yes
+No
+",New,Added new element to DES.,,002111,FacilityJointUseIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=25017,70124
+Facilities,Facility,Utilization,Facility Space Use Type,"The primary use of a space, as determined by its physical layout and built-in systems and equipment, regardless of its original design.","02633 - Administration
+02634 - Assembly
+02631 - Athletic
+02628 - Basic classroom
+02635 - Corridors
+02639 - Dormitory room
+02638 - Food service
+02630 - Library/media
+02773 - Multi-purpose room
+02636 - Operational support
+03017 - Restroom
+02629 - Specialty classroom
+02637 - Storage
+02788 - Storage - hazardous materials
+02632 - Student support
+09999 - Other
+",,,,001208,FacilitySpaceUseType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24175,65612

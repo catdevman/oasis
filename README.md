@@ -10,3 +10,7 @@ viewable source but you have no license to use it commerically.
 I am trying to figure out if I have a business model around plugins
 and support so I want to leave it open to my own personal commerical use for now.
 If a school wants to run it on their own that is their choice but I give no guarantee.
+
+# TODO
+- [ ] When plugins boot up keep track of all route registered so far and make sure that it gracefully handles duplicated routes
+    - [ ] perhaps plugins should have a load order that is respected???

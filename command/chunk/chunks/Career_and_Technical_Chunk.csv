@@ -1,0 +1,3001 @@
+Domain,Entity,Category,Element Name,Definition,Option Set,Status,Change Notes,Usage Notes,Global,Technical Name,URL,Data Model ID
+Career and Technical,Course,,Additional Credit Type,The type of credits or units of value available for the completion of a course in addition to Carnegie Units.,"AdvancedPlacement - Advanced Placement
+ApprenticeshipCredit - Apprenticeship Credit
+CTE - Career and Technical Education
+DualCredit - Dual Credit
+InternationalBaccalaureate - International Baccalaureate
+Other - Other
+QualifiedAdmission - Qualified Admission
+STEM - Science, Technology, Engineering and Mathematics
+CTEAndAcademic - Simultaneous CTE and Academic Credit
+StateScholarship - State Scholarship
+",,,,000596,AdditionalCreditType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23589,66798
+Career and Technical,Course,,Available Carnegie Unit Credit,"Measured in Carnegie units, the amount of credit available to a student who successfully meets the objectives of the course. A course meeting every day for one period of the school day over the span of a school year offers one Carnegie unit. A Carnegie unit is thus a measure of ""seat time"" rather than a measure of attainment of the course objectives.",None,,,,000030,AvailableCarnegieUnitCredit,https://ceds.ed.gov/cedselementdetails.aspx?termid=23030,66783
+Career and Technical,Course,,Core Academic Course,The course meets the state definition of a core academic course.,"Yes
+No
+",,,,000518,CoreAcademicCourse,https://ceds.ed.gov/cedselementdetails.aspx?termid=23509,66797
+Career and Technical,Course,,Course Aligned with Standards,An indication whether a course is aligned with the established standards of a curriculum framework.,"Yes
+No
+",,,,000013,CourseAlignedWithStandards,https://ceds.ed.gov/cedselementdetails.aspx?termid=23013,66782
+Career and Technical,Course,,Course Code System,A system that is used to identify the organization of subject matter and related learning experiences provided for the instruction of students.,"Intermediate - Intermediate agency course code
+LEA - LEA course code
+NCES - NCES Pilot Standard National Course Classification System for Secondary Education Codes
+Other - Other
+SCED - School Codes for the Exchange of Data (SCED) course code
+School - School course code
+State - State course code
+University - University course code
+",Updated,Add new DES location,,000056,CourseCodeSystem,https://ceds.ed.gov/cedselementdetails.aspx?termid=23056,66785
+Career and Technical,Course,,Course Credit Units,"The type of credit (unit, semester, or quarter) associated with the credit hours earned for the course. ","NoCredit - No Credit
+Quarter - Quarter 
+Semester - Semester 
+Units - Units 
+CarnegieUnits - Carnegie Units 
+ContinuingEducationUnits - Continuing Education Units 
+ClockHours - Clock Hours 
+Other - Other
+Unreported - Unreported
+",,,,000057,CourseCreditUnits,https://ceds.ed.gov/cedselementdetails.aspx?termid=23057,66780
+Career and Technical,Course,,Course Department Name,Department with jurisdiction over this course.,None,,,,001549,CourseDepartmentName,https://ceds.ed.gov/cedselementdetails.aspx?termid=24525,67832
+Career and Technical,Course,,Course Description,A description of the course content and/or goals. Reference may be made to state or national content standards.,None,Updated,Update format,,000517,CourseDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=23508,66796
+Career and Technical,Course,,Course Grade Point Average Applicability,An indicator of whether or not this course being described is included in the computation of the student’s Grade Point Average (GPA).,"Applicable - Applicable in GPA
+NotApplicable - Not Applicable in GPA
+Weighted - Weighted in GPA
+",,,,000060,CourseGPAApplicability,https://ceds.ed.gov/cedselementdetails.aspx?termid=23060,66786
+Career and Technical,Course,,Course Identifier,The actual code that identifies the organization of subject matter and related learning experiences provided for the instruction of students.,None,Updated,Add new DES location,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",000055,CourseIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23055,66784
+Career and Technical,Course,,Course Level Approval Indicator,An indication that there are school or program developed requirements for student participation in the course.,"Yes
+No
+",,,This element is used in conjunction with Course Level Characteristic.,001994,CourseLevelApprovalIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24975,69697
+Career and Technical,Course,,Course Level Characteristic,An indication of the general nature and difficulty of instruction provided throughout a course.,"00568 - Remedial course
+00569 - Students with disabilities course
+00570 - Basic course
+00571 - General course
+00572 - Honors level course
+00573 - Gifted and talented course
+00574 - International Baccalaureate course
+00575 - Advanced placement course
+00576 - College-level course
+00577 - Untracked course
+00578 - English Learner course
+00579 - Accepted as a high school equivalent
+73044 - Career and technical education general course
+00741 - Completion of requirement, but no units of value awarded
+73045 - Career and technical education dual-credit course
+73048 - Dual enrollment
+73047 - Not applicable
+73046 - Pre-advanced placement
+73049 - Other
+",,,,000061,CourseLevelCharacteristic,https://ceds.ed.gov/cedselementdetails.aspx?termid=23061,66787
+Career and Technical,Course,,Course Repeatability Maximum Number,The maximum number of times the course may be taken or completed for credit.,None,,,,001667,CourseRepeatabilityMaximumNumber,https://ceds.ed.gov/cedselementdetails.aspx?termid=24648,68879
+Career and Technical,Course,,Course Title,"The descriptive name given to a course of study offered in a school or other institution or organization. In departmentalized classes at the elementary, secondary, and postsecondary levels (and for staff development activities), this refers to the name by which a course is identified (e.g., American History, English III). For elementary and other non-departmentalized classes, it refers to any portion of the instruction for which a grade or report is assigned (e.g., reading, composition, spelling, and language arts).",None,Updated,Add new DES location,,000067,CourseTitle,https://ceds.ed.gov/cedselementdetails.aspx?termid=23067,66788
+Career and Technical,Course,,Credit Unit Type,The type of credits or units of value awarded for the completion of a course.,"00585 - Carnegie unit
+00586 - Semester hour credit
+00587 - Trimester hour credit
+00588 - Quarter hour credit
+00589 - Quinmester hour credit
+00590 - Mini-term hour credit
+00591 - Summer term hour credit
+00592 - Intersession hour credit
+00595 - Long session hour credit
+00596 - Twelve month hour credit
+00597 - Career and Technical Education credit
+73062 - Adult high school credit
+00599 - Credit by examination
+00600 - Correspondence credit
+00601 - Converted occupational experience credit
+09999 - Other
+75001 - Certificate credit
+75002 - Degree credit
+75003 - Continuing education credit
+75004 - Professional development hours
+",Updated,Add new DES location,,000072,CreditUnitType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23072,66919
+Career and Technical,Course,,Credit Value,The amount of credit available to the student who successfully meets the objectives of the course or learning opportunity based on the units defined by Credit Unit Type.,None,,,"For K-12 a course meeting every day for one period of the school day over the span of a school year typically offers one Carnegie unit. In this case a Carnegie unit is  a measure of ""seat time"" rather than a measure of attainment of the course objectives.",000058,CreditValue,https://ceds.ed.gov/cedselementdetails.aspx?termid=23058,66781
+Career and Technical,Course,,Curriculum Framework Type,An indication of the standard curriculum used for this course.,"LEA - Local Education Agency (LEA) curriculum framework
+NationalStandard - National curriculum standard
+PrivateOrReligious - Private, religious curriculum
+School - School curriculum framework
+State - State curriculum framework
+Other - Other
+",,,,000712,CurriculumFrameworkType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23688,66799
+Career and Technical,Course,,High School Course Requirement,An indication that this course credit is required for a high school diploma.,"Yes
+No
+",,,,000137,HighSchoolCourseRequirement,https://ceds.ed.gov/cedselementdetails.aspx?termid=23137,66790
+Career and Technical,Course,,Instruction Language,"The language of instruction, other than English, used in the program or course.",See URL column,,,"The CEDS ISO 639-2 Language Code option set comes from the <a href=""http://www.loc.gov/standards/iso639-2/langhome.html"">ISO 639-2 standard</a>, the character encoding in ISO 8859-1 download.  Discontinued codes from the ISO standard are not included in the CEDS list.",000448,InstructionLanguage,https://ceds.ed.gov/cedselementdetails.aspx?termid=23438,66795
+Career and Technical,Course,,School Courses for the Exchange of Data Course Code,The five-digit SCED code. The first two-digits of the code represent the Course Subject Area and the next three digits identify the course number. These identifiers are fairly general but provide enough specificity to identify the course's topic and to distinguish it from other courses in that subject area.,See URL column,Updated,Add new DES location,"<a href=""https://nces.ed.gov/forum/SCED.asp"">https://nces.ed.gov/forum/SCED.asp</a>",001517,SCEDCourseCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=24490,67745
+Career and Technical,Course,,School Courses for the Exchange of Data Course Level," The course's level of rigor.","B - Basic or remedial
+E - Enriched or advanced
+G - General or regular
+H - Honors
+C - College
+X - No specified level of rigor
+",,,,001516,SCEDCourseLevel,https://ceds.ed.gov/cedselementdetails.aspx?termid=24488,67746
+Career and Technical,Course,,School Courses for the Exchange of Data Course Subject Area,The intended major subject area of the education course.,"01 - English Language and Literature
+02 - Mathematics
+03 - Life and Physical Sciences
+04 - Social Sciences and History
+05 - Visual and Performing Arts
+07 - Religious Education and Theology
+08 - Physical, Health, and Safety Education
+09 - Military Science
+10 - Information Technology
+11 - Communication and Audio/Visual Technology
+12 - Business and Marketing
+13 - Manufacturing
+14 - Health Care Sciences
+15 - Public, Protective, and Government Service
+16 - Hospitality and Tourism
+17 - Architecture and Construction
+18 - Agriculture, Food, and Natural Resources
+19 - Human Services
+20 - Transportation, Distribution and Logistics
+21 - Engineering and Technology
+22 - Miscellaneous
+23 - Non-Subject-Specific
+24 - World Languages
+",Updated,Add new DES location,This is a compilation of Secondary Course Subject Area and Prior to Secondary Course Subject Area.  This version merges SCED and pSCED.,001518,SCEDCourseSubjectArea,https://ceds.ed.gov/cedselementdetails.aspx?termid=24491,67747
+Career and Technical,Course,,School Courses for the Exchange of Data Sequence of Course,"Where a specific course lies when it is part of a consecutive sequence of courses. This element should be interpreted as ""part 'n' of 'm' parts.",None,,,"For example: if a school offers 4 years of Theater, Theater 3 within this school would be indicated in the sequence elements as 3 4, denoting the 3rd part of a 4-part sequence of courses.",000250,SCEDSequenceOfCourse,https://ceds.ed.gov/cedselementdetails.aspx?termid=23250,66794
+Career and Technical,Course Section,,Ability Grouping Status,An indication of whether the school has students who are ability grouped for classroom instruction in mathematics or English/reading/language arts.,"Yes
+No
+",,,,000328,AbilityGroupingStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=23000,68558
+Career and Technical,Course Section,,Additional Credit Type,The type of credits or units of value available for the completion of a course in addition to Carnegie Units.,"AdvancedPlacement - Advanced Placement
+ApprenticeshipCredit - Apprenticeship Credit
+CTE - Career and Technical Education
+DualCredit - Dual Credit
+InternationalBaccalaureate - International Baccalaureate
+Other - Other
+QualifiedAdmission - Qualified Admission
+STEM - Science, Technology, Engineering and Mathematics
+CTEAndAcademic - Simultaneous CTE and Academic Credit
+StateScholarship - State Scholarship
+",,,,000596,AdditionalCreditType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23589,68542
+Career and Technical,Course Section,,Adjusted Capacity,The maximum number of participants that can be served in a program.,None,,,,001999,AdjustedCapacity,https://ceds.ed.gov/cedselementdetails.aspx?termid=24972,69698
+Career and Technical,Course Section,,Adjusted Capacity Reason Type,Identifies the reason for adjusted capacity in a program. ,"100 - COVID-19
+999 - Other
+",,,,002000,AdjustedCapacityReasonType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24973,69699
+Career and Technical,Course Section,,Advanced Placement Course Code,Course areas for advanced placement or credit.  For a list of codes see http://apcentral.collegeboard.com/apc/public/courses/teachers_corner/index.html .,"ArtHistory - Art History
+Biology - Biology
+CalculusAB - Calculus AB
+CalculusBC - Calculus BC
+Chemistry - Chemistry
+ComputerScienceA - Computer Science A
+ComputerScienceAB - Computer Science AB
+Macroeconomics - Macroeconomics
+Microeconomics - Microeconomics
+EnglishLanguage - English Language
+EnglishLiterature - English Literature
+EnvironmentalScience - Environmental Science
+EuropeanHistory - European History
+FrenchLanguage - French Language
+FrenchLiterature - French Literature
+GermanLanguage - German Language
+CompGovernmentAndPolitics - Comp Government And Politics
+USGovernmentAndPolitics - US Government And Politics
+HumanGeography - Human Geography
+ItalianLanguageAndCulture - Italian Language And Culture
+LatinLiterature - Latin Literature
+LatinVergil - Latin Vergil
+MusicTheory - Music Theory
+PhysicsB - Physics B
+PhysicsC - Physics C
+Psychology - Psychology
+SpanishLanguage - Spanish Language
+SpanishLiterature - Spanish Literature
+Statistics - Statistics
+StudioArt - Studio Art
+USHistory - US History
+WorldHistory - World History
+",,,,001278,AdvancedPlacementCourseCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=24244,68524
+Career and Technical,Course Section,,Blended Learning Model Type,"A type of formal education program in which a student learns at least in part through online learning, with some element of student control over time, place, path, and/or pace; at least in part in a supervised brick-and-mortar location away from home; and the modalities along each student’s learning path within a course or subject are connected to provide an integrated learning experience.","Rotation - Rotation model
+FlexModel - Flex model
+ALaCarte - A La Carte model
+EnrichedVirtual - Enriched Virtual model
+Other - Other
+",,,"This may be an attribute of a Course (as designed) or a Class Section (as delivered). It also may be attributed to a school, institution, or program for ""whole-school"" blended models.",001287,BlendedLearningModelType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24253,68544
+Career and Technical,Course Section,,Career Cluster,"The career cluster that defines the industry or occupational focus which may be associated with a career pathways program, plan of study, or course.","01 - Agriculture, Food & Natural Resources
+02 - Architecture & Construction
+03 - Arts, A/V Technology & Communications
+04 - Business Management & Administration
+05 - Education & Training
+06 - Finance
+07 - Government & Public Administration
+08 - Health Science
+09 - Hospitality & Tourism
+10 - Human Services
+11 - Information Technology
+12 - Law, Public Safety, Corrections & Security
+13 - Manufacturing
+14 - Marketing
+15 - Science, Technology, Engineering & Mathematics
+16 - Transportation, Distribution & Logistics
+",,,"Options from O*NET OnLine an application that was created for the general public to provide broad access to the O*NET database of occupational information. O*NET OnLine offers a variety of search options and occupational data, while My Next Move is a streamlined application for students and job seekers. Both applications were developed for the U.S. Department of Labor by the National Center for O*NET Development.  See onetonline.org for more information.",001288,CareerCluster,https://ceds.ed.gov/cedselementdetails.aspx?termid=24254,68545
+Career and Technical,Course Section,,Class Beginning Time,An indication of the time of day the class begins.,None,,,,000519,ClassBeginningTime,https://ceds.ed.gov/cedselementdetails.aspx?termid=23510,66808
+Career and Technical,Course Section,,Class Ending Time,An indication of the time of day the class ends.,None,,,,000520,ClassEndingTime,https://ceds.ed.gov/cedselementdetails.aspx?termid=23511,66809
+Career and Technical,Course Section,,Class Meeting Days,"The day(s) of the week (e.g., Monday, Wednesday) that the class meets or an indication that a class meets ""out-of-school"" or ""self-paced"".",None,,,,000521,ClassMeetingDays,https://ceds.ed.gov/cedselementdetails.aspx?termid=23512,66810
+Career and Technical,Course Section,,Class Period,"An indication of the portion of a typical daily session in which students receive instruction in a specified subject (e.g., morning, sixth period, block period, or AB schedules).",None,,,,000522,ClassPeriod,https://ceds.ed.gov/cedselementdetails.aspx?termid=23513,66811
+Career and Technical,Course Section,,Classroom Identifier,"A unique number or alphanumeric code assigned to a room by a school, school system, state, or other agency or entity.",None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",000364,ClassroomIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23507,66807
+Career and Technical,Course Section,,Classroom Position Type,The type of position the staff member holds in the specific course section.,"03187 - Administrative staff
+73071 - Co-teacher
+04725 - Counselor
+73073 - Course Proctor
+05973 - Instructor of record
+01234 - Intern
+73072 - Lead Team Teacher
+00069 - Non-instructional staff
+09999 - Other
+00059 - Paraprofessionals/teacher aides
+05971 - Primary instructor
+04735 - Resource teacher
+05972 - Secondary instructor
+73074 - Special Education Consultant
+00080 - Student teachers
+01382 - Volunteer/no contract
+",,,,000622,ClassroomPositionType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23615,68543
+Career and Technical,Course Section,,Course Academic Grade Scale Code,The grading scale used by an academic educational institution for an academic course.,None,,,"Based on the American Medical Colleges Admissions Services (AMCAS) grade scale, values 01 through 99. See Appendix E of the PESC XML High School Transcript Implementation Guide for a complete list of code values. 3-digit values (500 and above) established in earlier versions of the standard for miscellaneous grades are deprecated.",001298,CourseAcademicGradeScaleCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=24264,68525
+Career and Technical,Course Section,,Course Aligned with Standards,An indication whether a course is aligned with the established standards of a curriculum framework.,"Yes
+No
+",,,,000013,CourseAlignedWithStandards,https://ceds.ed.gov/cedselementdetails.aspx?termid=23013,66824
+Career and Technical,Course Section,,Course Applicable Education Level,"The education level, grade level or primary instructional level at which a course is intended.","IT - Infant/toddler
+PR - Preschool
+PK - Prekindergarten
+TK - Transitional Kindergarten
+KG - Kindergarten
+01 - First grade
+02 - Second grade
+03 - Third grade
+04 - Fourth grade
+05 - Fifth grade
+06 - Sixth grade
+07 - Seventh grade
+08 - Eighth grade
+09 - Ninth grade
+10 - Tenth grade
+11 - Eleventh grade
+12 - Twelfth grade
+13 - Grade 13
+AS - Associate's degree
+BA - Bachelor's degree
+PB - Post-baccalaureate certificate
+MD - Master's degree
+PM - Post-master's certificate
+DO - Doctoral degree
+PD - Post-doctoral certificate
+AE - Adult Education
+PT - Professional or technical credential
+OT - Other
+",,,This element is repeatable for most use cases.  Examples: (1.) SCED identifiers may specify a grade span of two or more grades.  (2) A postsecondary course designed to qualify a student for an associates degree and professional certification could be repeated with both of those options.,001301,CourseApplicableEducationLevel,https://ceds.ed.gov/cedselementdetails.aspx?termid=24267,68546
+Career and Technical,Course Section,,Course Certification Description,"A description of the certification or recognition associated with this course (ex. Networking, CAD, etc.)",None,,,,001302,CourseCertificationDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24268,68547
+Career and Technical,Course Section,,Course Credit Basis Type,The type of enrollment associated with the credit hours for the course.,"Regular - Regular/general enrollment
+Major - Credit associated with the student's major
+AcademicRenewal - Academic Renewal
+AdultBasic - Adult Basic
+AdvancedPlacement - Advanced Placement
+AdvancedStanding - Advanced Standing
+Correspondence - Correspondence
+ContinuingEducation - Continuing Education
+Exemption - Exemption
+Equivalence - Equivalence
+InternationalBaccalaureate - International Baccalaureate
+Military - Military
+Remedial - Remedial/developmental
+CreditByExam - Credit granted from successful score on a standardized test of comprehension or proficiency.
+HighSchoolTransferCredit - Credit from a high school course is transferred to the college.
+HighSchoolCreditOnly - Credit from a college course is transferred back to high school and not counted by the college.
+HighSchoolDualCredit - Credit from a college course is counted at both the college and high school.
+JuniorHighSchoolCredit - Credit from a junior high school course is counted at the high school.
+",,,,001303,CourseCreditBasisType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24269,68526
+Career and Technical,Course Section,,Course Credit Level Type,The level of credit associated with the credit hours earned for the course.,"Undergraduate - Undergraduate
+Ungraded - Ungraded
+LowerDivision - Lower division credit (associated with first/second year)
+UpperDivision - Higher or upper division credit (associated with third or fourth year)
+Vocational - Vocational/technical credit
+TechnicalPreparatory - Technical preparatory credit
+Graduate - Graduate level credit
+Professional - Professional
+Dual - Dual Level
+GraduateProfessional - Graduate Professional
+",,,,001304,CourseCreditLevelType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24270,68527
+Career and Technical,Course Section,,Course Description,A description of the course content and/or goals. Reference may be made to state or national content standards.,None,Updated,Update format,,000517,CourseDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=23508,68541
+Career and Technical,Course Section,,Course Funding Program,A program through which the course is funded.,None,,,"This may be a program targeted to a specific student population (e.g. SPED, ESOL) and the funding guidelines may specify that all or some of the students in the course are members of the subgroup.",001306,CourseFundingProgram,https://ceds.ed.gov/cedselementdetails.aspx?termid=24272,68548
+Career and Technical,Course Section,,Course Grade Point Average Applicability,An indicator of whether or not this course being described is included in the computation of the student’s Grade Point Average (GPA).,"Applicable - Applicable in GPA
+NotApplicable - Not Applicable in GPA
+Weighted - Weighted in GPA
+",,,,000060,CourseGPAApplicability,https://ceds.ed.gov/cedselementdetails.aspx?termid=23060,66828
+Career and Technical,Course Section,,Course Honors Type,An indication that the course is or can be counted as an honors course.,"Honors - Honors
+HonorsOption - Honors option
+",,,,001307,CourseHonorsType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24273,68528
+Career and Technical,Course Section,,Course Instruction Method,The primary method of instruction used for the course.,"Lecture - Lecture
+Laboratory - Laboratory
+Seminar - Seminar
+IndependentStudy - Independent Study
+PrivateStudy - Private Study
+PracticeTeaching - Practice Teaching
+Internship - Internship
+Practicum - Practicum
+ApprenticeshipExternship - Apprenticeship Externship
+AppliedInstruction - Applied Instruction
+Residency - Residency
+ClinicalRotationInstruction - Clinical Rotation Instruction
+SelfPaced - Self Paced
+FieldStudy - Field Study
+InternetInstruction - Internet Instruction
+InteractiveVideo - Interactive Video
+Videotape - Videotape
+Television - Television
+OtherDistanceLearning - Other Distance Learning
+Audiotape - Audiotape
+ComputerBasedInstruction - Computer Based Instruction
+CompressedVideo - Compressed Video
+Correspondence - Correspondence
+CooperativeEducation - Cooperative Education
+WorkStudy - Work Study
+",,,,001308,CourseInstructionMethod,https://ceds.ed.gov/cedselementdetails.aspx?termid=24274,68529
+Career and Technical,Course Section,,Course Instruction Site Name,The name of the location at which the course is taught.,None,,,,001309,CourseInstructionSiteName,https://ceds.ed.gov/cedselementdetails.aspx?termid=24275,68530
+Career and Technical,Course Section,,Course Instruction Site Type,An indication of the type of location at which the course is taught.,"OnCampus - On campus
+OffCampus - Off campus (e.g., branch campus, etc.)
+Extension - Extension center or site
+StudyAbroad - Study abroad
+Correctional - Correctional institution
+Military - Military Base
+Telecommunication - Instructional telecommunications
+Auxiliary - Auxiliary
+ClinicHospital - Clinic or hospital
+",,,,001310,CourseInstructionSiteType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24276,68531
+Career and Technical,Course Section,,Course Interaction Mode,"The primary type of interaction, synchronous or asynchronous, defined for the course.","Asynchronous - Asynchronous
+Synchronous - Synchronous
+",,,This may be an attribute of a Course (as designed) or an instance of a Class Section (as delivered).,001311,CourseInteractionMode,https://ceds.ed.gov/cedselementdetails.aspx?termid=24277,68549
+Career and Technical,Course Section,,Course Level Type,The level of work which is reflected in the credits associated with the academic course being described or the level of the typical individual taking the academic course.,"Accelerated - Accelerated
+AdultBasic - Adult Basic
+AdvancedPlacement - Advanced Placement
+Basic - Basic
+InternationalBaccalaureate - International Baccalaureate
+CollegeLevel - College Level
+CollegePreparatory - College Preparatory
+GiftedTalented - Gifted and Talented
+Honors - Honors
+NonAcademic - Non-Academic
+SpecialEducation - Special Education
+TechnicalPreparatory - Technical Preparatory
+Vocational - Vocational
+LowerDivision - Lower division
+UpperDivision - Upper division
+Dual - Dual level
+GraduateProfessional - Graduate/Professional
+Regents - Regents
+Remedial - Remedial/Developmental
+K12 - K12
+",,,,001312,CourseLevelType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24278,68532
+Career and Technical,Course Section,,Course Narrative Explanation Grade,The narrative of the grade awarded to an individual in an academic course in those cases where a course does not receive a letter or numeric grade included in the grading scale of the Course Academic Grade Qualifier.,None,,,,001313,CourseNarrativeExplanationGrade,https://ceds.ed.gov/cedselementdetails.aspx?termid=24279,68533
+Career and Technical,Course Section,,Course Number,The official reference number portion of a course identifier.  This number normally designates the level of the course as well as the level of the individual expected to enroll in the course.,None,,,,001314,CourseNumber,https://ceds.ed.gov/cedselementdetails.aspx?termid=24280,68534
+Career and Technical,Course Section,,Course Repeat Code,Indicates that an academic course has been repeated by a student and how that repeat is to be computed in the student's academic grade average.,"RepeatCounted - Repeated, counted in grade point average
+RepeatNotCounted - Repeated, not counted in grade point average
+ReplacementCounted - Replacement counted
+ReplacedNotCounted - Replacement not counted
+RepeatOtherInstitution - Repeated, other institution
+NotCountedOther - Other, not counted in GPA (e.g., used for academic forgiveness or clemency).
+",Updated,Add new DES location,,000065,CourseRepeatCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=23065,68523
+Career and Technical,Course Section,,Course Section Identifier,"A unique number or alphanumeric code assigned by an institution, school, school system, state, or other agency or entity for a particular course-section.",None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",000978,CourseSectionIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23979,66814
+Career and Technical,Course Section,,Course Section Instructional Delivery Mode,The primary setting or medium of delivery for the course.,"Broadcast - Broadcast
+Correspondence - Correspondence
+EarlyCollege - Early College
+AudioVideo - Interactive Audio/Video
+Online - Online
+IndependentStudy - Independent Study
+FaceToFace - Face to Face
+BlendedLearning - Blended Learning
+",,,,001161,CourseSectionInstructionalDeliveryMode,https://ceds.ed.gov/cedselementdetails.aspx?termid=24168,66816
+Career and Technical,Course Section,,Course Section Maximum Capacity,The maximum number of students the Course Section can maintain.,None,Updated,Add new DES location,,001655,CourseSectionMaximumCapacity,https://ceds.ed.gov/cedselementdetails.aspx?termid=24636,68352
+Career and Technical,Course Section,,Course Section Number,The number assigned to differentiate among distinct occurrences of courses that have the same course abbreviation and number but are considered to be different courses.,None,,,,001315,CourseSectionNumber,https://ceds.ed.gov/cedselementdetails.aspx?termid=24281,68535
+Career and Technical,Course Section,,Course Section Single Sex Class Status,Section in a co-educational school where only male or only female students are permitted to take the course.,"MaleOnly - Male-only
+FemaleOnly - Female-only
+NotSingleSex - Not a single-sex class
+",,,,000258,CourseSectionSingleSexClassStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=23258,66805
+Career and Technical,Course Section,,Course Section Time Required for Completion,"The actual or estimated number of clock minutes required for course completion. This number is especially important for career and technical education course and may represent (in minutes) the clock hour requirement of the course, the number of minutes (or clock hours) of class time per week, times the number of equivalent weeks the class typically meets.",None,Updated,Add new DES location,,000101,CourseSectionTimeRequiredForCompletion,https://ceds.ed.gov/cedselementdetails.aspx?termid=23101,66817
+Career and Technical,Course Section,,Developmental Education Type,An indicator of the category of developmental education.,"DevelopmentalMath - Developmental Math
+DevelopmentalEnglish - Developmental English
+DevelopmentalReading - Developmental Reading
+DevelopmentalEnglishReading - Developmental English/Reading
+DevelopmentalOther - Developmental Other
+",,,,001589,DevelopmentalEducationType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24568,68539
+Career and Technical,Course Section,,Family and Consumer Sciences Course Indicator,An indication that the course is associated with the Family and Consumer Sciences plan of study.,"Yes
+No
+",,,,001344,FamilyAndConsumerSciencesCourseIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24311,68550
+Career and Technical,Course Section,,Instruction Language,"The language of instruction, other than English, used in the program or course.",See URL column,,,"The CEDS ISO 639-2 Language Code option set comes from the <a href=""http://www.loc.gov/standards/iso639-2/langhome.html"">ISO 639-2 standard</a>, the character encoding in ISO 8859-1 download.  Discontinued codes from the ISO standard are not included in the CEDS list.",000448,InstructionLanguage,https://ceds.ed.gov/cedselementdetails.aspx?termid=23438,66806
+Career and Technical,Course Section,,National Collegiate Athletic Association Eligibility,An indication that the course is approved for determining NCAA eligibility.,"Yes
+No
+",,,,001413,NCAAEligibility,https://ceds.ed.gov/cedselementdetails.aspx?termid=24382,68551
+Career and Technical,Course Section,,Original Course Identifier,The course identifier as it was listed when the credit was earned (e.g. before a system conversion) to show consistency between present transcripts and older ones.,None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001420,OriginalCourseIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=24389,68536
+Career and Technical,Course Section,,Override School Course Number,An indication of the way an academic course was identified at an educational institution.,None,,,,001422,OverrideSchoolCourseNumber,https://ceds.ed.gov/cedselementdetails.aspx?termid=24391,68537
+Career and Technical,Course Section,,Receiving Location of Instruction,The type of location at which instruction or service takes place.,"00997 - Business
+00752 - Community facility
+00753 - Home of student
+00754 - Hospital
+03018 - Library/media center
+03506 - Mobile
+09999 - Other
+00341 - Other K-12 educational institution
+00342 - Postsecondary facility
+00675 - School
+",,,,000524,ReceivingLocationOfInstruction,https://ceds.ed.gov/cedselementdetails.aspx?termid=23515,66813
+Career and Technical,Course Section,,Session Attendance Term Indicator,Indicates that the session is an attendance term.,"Yes
+No
+",,,,001274,SessionAttendanceTermIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24240,68557
+Career and Technical,Course Section,,Session Begin Date,"The year, month and day on which a session begins.",None,,,,000251,SessionBeginDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23251,66801
+Career and Technical,Course Section,,Session Code,"A local code given to the session, usually for a session that represents a term within the school year such as a marking term.",None,,,,001270,SessionCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=24236,68553
+Career and Technical,Course Section,,Session Description,A short description of the Session.,None,,,,001271,SessionDescription,https://ceds.ed.gov/cedselementdetails.aspx?termid=24237,68554
+Career and Technical,Course Section,,Session Designator,The academic session for which the data are recorded and applicable.,None,,,,000252,SessionDesignator,https://ceds.ed.gov/cedselementdetails.aspx?termid=23252,66802
+Career and Technical,Course Section,,Session End Date,"The year, month and day on which a session ends.",None,,,"All CEDS Exit and End Dates represent the last day of the date range specified, such as the last day that a person was enrolled, participated, or received services.",000253,SessionEndDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23253,66803
+Career and Technical,Course Section,,Session Marking Term Indicator,Indicates that the session is a marking term.,"Yes
+No
+",,,,001272,SessionMarkingTermIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24238,68555
+Career and Technical,Course Section,,Session Scheduling Term Indicator,Indicates that the session is a scheduling term.,"Yes
+No
+",,,,001273,SessionSchedulingTermIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24239,68556
+Career and Technical,Course Section,,Session Sequence Number,The position of this session in a sequence of sessions.,None,New,Added new element to DES.,,002021,SessionSequenceNumber,https://ceds.ed.gov/cedselementdetails.aspx?termid=25086,70016
+Career and Technical,Course Section,,Session Type,"A prescribed span of time when an education institution is open, instruction is provided, and students are under the direction and guidance of teachers and/or education institution administration. A session may be interrupted by one or more vacations.","FullSchoolYear - Full School Year
+Intersession - Intersession
+LongSession - Long Session
+MiniTerm - Mini Term
+Quarter - Quarter
+Quinmester - Quinmester
+Semester - Semester
+SummerTerm - Summer Term
+Trimester - Trimester
+TwelveMonth - Twelve Month
+Other - Other
+",,,,000254,SessionType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23254,66804
+Career and Technical,Course Section,,Timetable Day Identifier,"The unique identifier for the locally defined rotation cycle date code when the class meets (e.g., in a two day schedule, valid values could be ""A"" and ""B"", or ""1"" and ""2"").",None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",000523,TimetableDayIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23514,66812
+Career and Technical,Course Section,,Tuition Funded,"Indicates that tuition for person's participation in a program, service, or course is funded or partially funded by an external grant program.","Yes
+No
+",,,"The initial use case is for professional development courses/programs, but could apply to student programs/courses as well.",001575,TuitionFunded,https://ceds.ed.gov/cedselementdetails.aspx?termid=24554,68552
+Career and Technical,Course Section,,Virtual Indicator,"An indication that a childcare, early education, or early learning program, school, institution, program, or course section focuses primarily on instruction in which children and teachers are separated by time and/or location and interact through the use of computers and/or telecommunications technology.","Yes
+No
+",,,,001160,VirtualIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24167,66815
+Career and Technical,Course Section,,Work-based Learning Opportunity Type,The type of work-based learning opportunity a student participated in.,"Apprenticeship - Apprenticeship
+ClinicalWork - Clinical work experience
+CooperativeEducation - Cooperative education
+JobShadowing - Job shadowing
+Mentorship - Mentorship
+NonPaidInternship - Non-Paid Internship
+OnTheJob - On-the-Job
+PaidInternship - Paid internship
+ServiceLearning - Service learning
+SupervisedAgricultural - Supervised agricultural experience
+UnpaidInternship - Unpaid internship
+Entrepreneurship - Entrepreneurship
+SchoolBasedEnterprise - School-Based Enterprise
+SimulatedWorksite - Simulated Worksite
+Other - Other
+",Updated,Added new option to existing option set and add new DES location,,001499,WorkBasedLearningOpportunityType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24471,68538
+Career and Technical,Course Section,Attendance,Attendance Event Date,The date on which an attendance event takes place.,None,,,,001649,AttendanceEventDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24630,68565
+Career and Technical,Course Section,Attendance,Attendance Event Duration Day,The duration of the attendance event captured as one whole day or a portion of a day.,None,New,Added new element to DES.,"When used to capture daily attendance, 1.0 would represent a whole day. Other examples would include 0.5 as a half-day and 0.33 as one-third of a day. For capturing course section attendance, the recommendation would be to use the element ""Attendance Event Duration Minutes"".",002098,AttendanceEventDurationDay,https://ceds.ed.gov/cedselementdetails.aspx?termid=25001,70017
+Career and Technical,Course Section,Attendance,Attendance Event Duration Hours,The duration of the attendance event in hours.,None,New,Added new element to DES.,,002015,AttendanceEventDurationHours,https://ceds.ed.gov/cedselementdetails.aspx?termid=25002,70018
+Career and Technical,Course Section,Attendance,Attendance Event Duration Minutes,The duration of the attendance event in minutes.,None,New,Added new element to DES.,,002014,AttendanceEventDurationMinutes,https://ceds.ed.gov/cedselementdetails.aspx?termid=25003,70019
+Career and Technical,Course Section,Attendance,Attendance Event Type,The type of attendance event.,"DailyAttendance - Daily attendance
+ClassSectionAttendance - Class/section attendance
+ProgramAttendance - Program attendance
+ExtracurricularAttendance - Extracurricular attendance
+",,,,000601,AttendanceEventType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23594,68564
+Career and Technical,Course Section,Attendance,Attendance Status,The status of a person's attendance associated with an Attendance Event Type and Attendance Event Date in an organization-person-role context.,"Present - Present
+ExcusedAbsence - Excused Absence
+UnexcusedAbsence - Unexcused Absence
+Tardy - Tardy
+EarlyDeparture - Early Departure
+",,,,000076,AttendanceStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=23076,68563
+Career and Technical,Course Section,Course,Agency Course Identifier,The course identifier as it may be recorded at the regional or state level to conform to a standardized course classification system.,None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001280,AgencyCourseIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=24246,68519
+Career and Technical,Course Section,Course,Available Carnegie Unit Credit,"Measured in Carnegie units, the amount of credit available to a student who successfully meets the objectives of the course. A course meeting every day for one period of the school day over the span of a school year offers one Carnegie unit. A Carnegie unit is thus a measure of ""seat time"" rather than a measure of attainment of the course objectives.",None,,,,000030,AvailableCarnegieUnitCredit,https://ceds.ed.gov/cedselementdetails.aspx?termid=23030,66825
+Career and Technical,Course Section,Course,Classification of Instructional Program Code,A six-digit code in the form xx.xxxx that identifies instructional program specialties within educational institutions.,CIP codes are available at: https://nces.ed.gov/ipeds/cipcode/browse.aspx?y=55.,Updated,Updated link to newer version of CIP Codes,,000043,CIPCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=23043,68521
+Career and Technical,Course Section,Course,Classification of Instructional Program Version,The version of CIP being reported.,"CIP1980 - CIP 1980
+CIP1985 - CIP 1985
+CIP1990 - CIP 1990
+CIP2000 - CIP 2000
+CIP2010 - CIP 2010
+CIP2020 - CIP 2020
+",Updated,"Added new option to existing option set, add new DES locations",,000045,CIPVersion,https://ceds.ed.gov/cedselementdetails.aspx?termid=23045,68522
+Career and Technical,Course Section,Course,Course Begin Date,"The year, month and day an instance of a course officially began.",None,Updated,Add new DES location,,000054,CourseBeginDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23054,68513
+Career and Technical,Course Section,Course,Course Code System,A system that is used to identify the organization of subject matter and related learning experiences provided for the instruction of students.,"Intermediate - Intermediate agency course code
+LEA - LEA course code
+NCES - NCES Pilot Standard National Course Classification System for Secondary Education Codes
+Other - Other
+SCED - School Codes for the Exchange of Data (SCED) course code
+School - School course code
+State - State course code
+University - University course code
+",Updated,Add new DES location,,000056,CourseCodeSystem,https://ceds.ed.gov/cedselementdetails.aspx?termid=23056,66827
+Career and Technical,Course Section,Course,Course Credit Units,"The type of credit (unit, semester, or quarter) associated with the credit hours earned for the course. ","NoCredit - No Credit
+Quarter - Quarter 
+Semester - Semester 
+Units - Units 
+CarnegieUnits - Carnegie Units 
+ContinuingEducationUnits - Continuing Education Units 
+ClockHours - Clock Hours 
+Other - Other
+Unreported - Unreported
+",,,,000057,CourseCreditUnits,https://ceds.ed.gov/cedselementdetails.aspx?termid=23057,68514
+Career and Technical,Course Section,Course,Course Department Name,Department with jurisdiction over this course.,None,,,,001549,CourseDepartmentName,https://ceds.ed.gov/cedselementdetails.aspx?termid=24525,67835
+Career and Technical,Course Section,Course,Course End Date,"The year, month and day an instance of a course ends.",None,Updated,Add new DES location,"All CEDS Exit and End Dates represent the last day of the date range specified, such as the last day that a person was enrolled, participated, or received services.",000059,CourseEndDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23059,68516
+Career and Technical,Course Section,Course,Course Identifier,The actual code that identifies the organization of subject matter and related learning experiences provided for the instruction of students.,None,Updated,Add new DES location,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",000055,CourseIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23055,66826
+Career and Technical,Course Section,Course,Course Level Approval Indicator,An indication that there are school or program developed requirements for student participation in the course.,"Yes
+No
+",,,This element is used in conjunction with Course Level Characteristic.,001994,CourseLevelApprovalIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24975,69700
+Career and Technical,Course Section,Course,Course Level Characteristic,An indication of the general nature and difficulty of instruction provided throughout a course.,"00568 - Remedial course
+00569 - Students with disabilities course
+00570 - Basic course
+00571 - General course
+00572 - Honors level course
+00573 - Gifted and talented course
+00574 - International Baccalaureate course
+00575 - Advanced placement course
+00576 - College-level course
+00577 - Untracked course
+00578 - English Learner course
+00579 - Accepted as a high school equivalent
+73044 - Career and technical education general course
+00741 - Completion of requirement, but no units of value awarded
+73045 - Career and technical education dual-credit course
+73048 - Dual enrollment
+73047 - Not applicable
+73046 - Pre-advanced placement
+73049 - Other
+",,,,000061,CourseLevelCharacteristic,https://ceds.ed.gov/cedselementdetails.aspx?termid=23061,66829
+Career and Technical,Course Section,Course,Course Repeatability Maximum Number,The maximum number of times the course may be taken or completed for credit.,None,,,,001667,CourseRepeatabilityMaximumNumber,https://ceds.ed.gov/cedselementdetails.aspx?termid=24648,68880
+Career and Technical,Course Section,Course,Course Section Assessment Reporting Method,"The method that the instructor of the course uses to report the performance and achievement of all students. It may be a qualitative method such as individualized teacher comments or a quantitative method such as a letter or a numerical grade. In some cases, more than one type of reporting method may be used.","00512 - Achievement/proficiency level
+00494 - ACT score
+00490 - Age score
+00491 - C-scaled scores
+00492 - College Board examination scores
+00493 - Grade equivalent or grade-level indicator
+03473 - Graduation score
+03474 - Growth/value-added/indexing
+03475 - International Baccalaureate score
+00144 - Letter grade/mark
+00513 - Mastery level
+00497 - Normal curve equivalent
+00498 - Normalized standard score
+00499 - Number score
+00500 - Pass-fail
+03476 - Percentile
+00502 - Percentile rank
+00503 - Proficiency level
+03477 - Promotion score
+00504 - Ranking
+00505 - Ratio IQ's
+03478 - Raw score
+03479 - Scale score
+00506 - Standard age score
+00508 - Stanine score
+00509 - Sten score
+00510 - T-score
+03480 - Workplace readiness score
+00511 - Z-score
+03481 - SAT Score
+09999 - Other
+",,,,000027,CourseSectionAssessmentReportingMethod,https://ceds.ed.gov/cedselementdetails.aspx?termid=23027,66823
+Career and Technical,Course Section,Course,Course Subject Abbreviation,The alphabetic abbreviation of the academic department or discipline offering the course. It is one part of the total course identifier number. ,None,,,,000066,CourseSubjectAbbreviation,https://ceds.ed.gov/cedselementdetails.aspx?termid=23066,68517
+Career and Technical,Course Section,Course,Course Title,"The descriptive name given to a course of study offered in a school or other institution or organization. In departmentalized classes at the elementary, secondary, and postsecondary levels (and for staff development activities), this refers to the name by which a course is identified (e.g., American History, English III). For elementary and other non-departmentalized classes, it refers to any portion of the instruction for which a grade or report is assigned (e.g., reading, composition, spelling, and language arts).",None,Updated,Add new DES location,,000067,CourseTitle,https://ceds.ed.gov/cedselementdetails.aspx?termid=23067,66830
+Career and Technical,Course Section,Course,Credit Unit Type,The type of credits or units of value awarded for the completion of a course.,"00585 - Carnegie unit
+00586 - Semester hour credit
+00587 - Trimester hour credit
+00588 - Quarter hour credit
+00589 - Quinmester hour credit
+00590 - Mini-term hour credit
+00591 - Summer term hour credit
+00592 - Intersession hour credit
+00595 - Long session hour credit
+00596 - Twelve month hour credit
+00597 - Career and Technical Education credit
+73062 - Adult high school credit
+00599 - Credit by examination
+00600 - Correspondence credit
+00601 - Converted occupational experience credit
+09999 - Other
+75001 - Certificate credit
+75002 - Degree credit
+75003 - Continuing education credit
+75004 - Professional development hours
+",Updated,Add new DES location,,000072,CreditUnitType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23072,66831
+Career and Technical,Course Section,Course,Credit Value,The amount of credit available to the student who successfully meets the objectives of the course or learning opportunity based on the units defined by Credit Unit Type.,None,,,"For K-12 a course meeting every day for one period of the school day over the span of a school year typically offers one Carnegie unit. In this case a Carnegie unit is  a measure of ""seat time"" rather than a measure of attainment of the course objectives.",000058,CreditValue,https://ceds.ed.gov/cedselementdetails.aspx?termid=23058,68515
+Career and Technical,Course Section,Course,High School Course Requirement,An indication that this course credit is required for a high school diploma.,"Yes
+No
+",,,,000137,HighSchoolCourseRequirement,https://ceds.ed.gov/cedselementdetails.aspx?termid=23137,66833
+Career and Technical,Course Section,Course,NCES College Course Map Code,A taxonomy system for coding postsecondary courses in NCES research studies.,See http://nces.ed.gov/pubs2012/2012162rev.pdf,,,,001414,NCESCollegeCourseMapCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=24383,68520
+Career and Technical,Course Section,Course,Postsecondary Course Title,The name or title of the course taken by a student at an academic institution.,None,,,,000068,PostsecondaryCourseTitle,https://ceds.ed.gov/cedselementdetails.aspx?termid=23068,68518
+Career and Technical,Course Section,Course,Related Competency Definitions,An indication of the competency definition(s) addressed in the Course Section.,None,,,,000231,RelatedCompetencyDefinitions,https://ceds.ed.gov/cedselementdetails.aspx?termid=23231,66818
+Career and Technical,Course Section,Course,School Courses for the Exchange of Data Sequence of Course,"Where a specific course lies when it is part of a consecutive sequence of courses. This element should be interpreted as ""part 'n' of 'm' parts.",None,,,"For example: if a school offers 4 years of Theater, Theater 3 within this school would be indicated in the sequence elements as 3 4, denoting the 3rd part of a 4-part sequence of courses.",000250,SCEDSequenceOfCourse,https://ceds.ed.gov/cedselementdetails.aspx?termid=23250,66822
+Career and Technical,Course Section,Enrollment,Course Academic Grade,The final grade awarded for participation in the course. ,None,,,,000053,CourseAcademicGrade,https://ceds.ed.gov/cedselementdetails.aspx?termid=23053,68497
+Career and Technical,Course Section,Enrollment,Course Academic Grade Status Code,Additional information regarding the context of the given grade.,"AuditedCourse - Audited or visited the course
+HonorsGrade - Honors grade
+Incomplete - Incomplete
+IncompleteNotResolvedFail - Incomplete Not Resolved Fail
+InProgress - In Progress
+NotYetReported - Not Yet Reported
+OtherFail - Other Fail
+OtherPass - Other Pass
+PassFailFail - Pass-Fail : Fail
+PassFailPass - Pass-Fail : Pass
+TransferNoGrade - Transfer No Grade
+Withdrew - Withdrew
+WithdrewFailing - Withdrew failing
+WithdrewNoPenalty - Withdrew No Penalty
+WithdrewPassing - Withdrew passing
+",,,,001299,CourseAcademicGradeStatusCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=24265,68491
+Career and Technical,Course Section,Enrollment,Course Add Date,The date an individual was added to an academic course at a school.,None,,,,001300,CourseAddDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24266,68502
+Career and Technical,Course Section,Enrollment,Course Drop Date,The date on which the individual drops or withdraws from the course.,None,,,,001305,CourseDropDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24271,68503
+Career and Technical,Course Section,Enrollment,Course Override School,The school where the credit was earned if different from the institution reporting. ,None,,,,000063,CourseOverrideSchool,https://ceds.ed.gov/cedselementdetails.aspx?termid=23063,68498
+Career and Technical,Course Section,Enrollment,Course Quality Points Earned,The numerical value assigned to a letter grade to provide a basis of quantitative determination of an average. ,None,,,,000064,CourseQualityPointsEarned,https://ceds.ed.gov/cedselementdetails.aspx?termid=23064,68499
+Career and Technical,Course Section,Enrollment,Degree Applicability,An indication that the course is a part of a degree program. ,"Yes
+No
+",,,,000077,DegreeApplicability,https://ceds.ed.gov/cedselementdetails.aspx?termid=23077,68501
+Career and Technical,Course Section,Enrollment,Enrollment Capacity,Maximum number of age-appropriate students who can be enrolled. ,None,,,"Enrollment capacity can be collected at a variety of levels, such as classroom, grade, school, and facility.",002012,EnrollmentCapacity,https://ceds.ed.gov/cedselementdetails.aspx?termid=24979,69701
+Career and Technical,Course Section,Enrollment,Grade Value Qualifier,"The scale of equivalents, if applicable, for grades awarded as indicators of performance in schoolwork. For example, numerical equivalents for letter grades used in determining a student's Grade Point Average (A=4, B=3, C=2, D=1 in a four-point system) or letter equivalents for percentage grades (90-100%=A, 80-90%=B, etc.)",None,,,"A list of ""Academic Grade Qualifiers"" is available from the Association of American Medical Colleges, 2450 N St., N.W., Washington, DC 20037",000616,GradeValueQualifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23609,68496
+Career and Technical,Course Section,Enrollment,Marking Period Name,"The name or description of the marking period (e.g., fall, first marking period).",None,,,,000182,MarkingPeriodName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23182,68492
+Career and Technical,Course Section,Enrollment,Mid Term Mark,Indicator of student performance at the mid-point of the marking period.,None,,,,000183,MidTermMark,https://ceds.ed.gov/cedselementdetails.aspx?termid=23183,68495
+Career and Technical,Course Section,Enrollment,Number of Credits Earned,The number of credits an individual earns by the successful completion of a course.,None,,,,000200,NumberOfCreditsEarned,https://ceds.ed.gov/cedselementdetails.aspx?termid=23200,68508
+Career and Technical,Course Section,Enrollment,Student Course Section Grade Earned,A final indicator of student performance in a course section as submitted by the instructor.,None,,,,000124,StudentCourseSectionGradeEarned,https://ceds.ed.gov/cedselementdetails.aspx?termid=23124,68494
+Career and Technical,Course Section,Enrollment,Student Course Section Grade Earned,A final indicator of student performance in a course section as submitted by the instructor.,None,,,,000124,StudentCourseSectionGradeEarned,https://ceds.ed.gov/cedselementdetails.aspx?termid=23124,68504
+Career and Technical,Course Section,Enrollment,Student Course Section Grade Narrative,The narrative of the student performance in a course section as submitted by the instructor.,None,,,,001573,StudentCourseSectionGradeNarrative,https://ceds.ed.gov/cedselementdetails.aspx?termid=24552,68505
+Career and Technical,Course Section,Enrollment,Student Course Section Mark Final Indicator,Indicates that the mark is a final mark the learner has earned for the course section.,"Yes
+No
+",,,,001142,StudentCourseSectionMarkFinalIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24191,68493
+Career and Technical,Course Section,Enrollment,Student Identification System,"A coding scheme that is used for identification and record-keeping purposes by schools, social services, or other agencies to refer to a student.","CanadianSIN - Canadian Social Insurance Number
+District - District-assigned number
+Family - Family unit number
+Federal - Federal identification number
+NationalMigrant - National migrant number
+School - School-assigned number
+SSN - Social Security Administration number
+State - State-assigned number
+StateMigrant - State migrant number
+BirthCertificate - Birth certificate number
+",Updated,Added new option to existing option set,,001075,StudentIdentificationSystem,https://ceds.ed.gov/cedselementdetails.aspx?termid=23163,68507
+Career and Technical,Course Section,Enrollment,Student Identifier,"A unique number or alphanumeric code assigned to a student by a school, school system, a state, or other agency or entity.",None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001071,StudentIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23157,68506
+Career and Technical,Course Section,Staff,Assignment End Date,"The last year, month and day on which the assignment is valid.",None,,,"All CEDS Exit and End Dates represent the last day of the date range specified, such as the last day that a person was enrolled, participated, or received services.",000527,AssignmentEndDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23518,68510
+Career and Technical,Course Section,Staff,Assignment Start Date,"The year, month and day from which the assignment is valid.",None,,,,000526,AssignmentStartDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23517,68509
+Career and Technical,Course Section,Staff,Classroom Position Type,The type of position the staff member holds in the specific course section.,"03187 - Administrative staff
+73071 - Co-teacher
+04725 - Counselor
+73073 - Course Proctor
+05973 - Instructor of record
+01234 - Intern
+73072 - Lead Team Teacher
+00069 - Non-instructional staff
+09999 - Other
+00059 - Paraprofessionals/teacher aides
+05971 - Primary instructor
+04735 - Resource teacher
+05972 - Secondary instructor
+73074 - Special Education Consultant
+00080 - Student teachers
+01382 - Volunteer/no contract
+",,,,000622,ClassroomPositionType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23615,68559
+Career and Technical,Course Section,Staff,Staff Member Identification System,"A coding scheme that is used for identification and record-keeping purposes by schools, social services, registry, or other agencies to refer to a staff member.","SSN - Social Security Administration number
+USVisa - US government Visa number
+PIN - Personal identification number
+Federal - Federal identification number
+DriversLicense - Driver's license number
+Medicaid - Medicaid number
+HealthRecord - Health record number
+ProfessionalCertificate - Professional certificate or license number
+School - School-assigned number
+District - District-assigned number
+State - State-assigned number
+OtherFederal - Other federally assigned number
+SelectiveService - Selective Service Number
+CanadianSIN - Canadian Social Insurance Number
+Other - Other
+BirthCertificate - Birth certificate number
+",Updated,Added new option to existing option set,,001074,StaffMemberIdentificationSystem,https://ceds.ed.gov/cedselementdetails.aspx?termid=23162,68512
+Career and Technical,Course Section,Staff,Staff Member Identifier,"A unique number or alphanumeric code assigned to a staff member by a school, school system, a state, registry, or other agency or entity.",None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001070,StaffMemberIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23156,68511
+Career and Technical,Course Section,Staff,Teacher of Record,Staff member who has a Teacher of Record responsibility for a Class Section based upon the state's definition of Teacher of Record.,"Yes
+No
+",,,There is usually one Teacher of Record assignment in a Class Section except in the case of co-teaching/team-teaching.,000647,TeacherOfRecord,https://ceds.ed.gov/cedselementdetails.aspx?termid=23649,68560
+Career and Technical,Course Section,Staff,Teaching Assignment Contribution Percentage,"A percentage used to weight the educator's assigned responsibility for student learning in a Class Section, particularly when more than one educator is assigned to the class section.",None,,,,000649,TeachingAssignmentContributionPercentage,https://ceds.ed.gov/cedselementdetails.aspx?termid=23651,68562
+Career and Technical,Course Section,Staff,Teaching Assignment Role,The role that the Staff Member has been assigned for a Class Section.  (A teacher may have the lead responsibility for one section and serve a supporting role for another section of the same course.),"LeadTeacher - Lead Teacher
+TeamTeacher - Team Teacher
+ContributingProfessional - Contributing Professional
+",,,,000648,TeachingAssignmentRole,https://ceds.ed.gov/cedselementdetails.aspx?termid=23650,68561
+Career and Technical,CTE Staff,Contact,Address Apartment Room or Suite Number,"The apartment, room, or suite number of an address.",None,Updated,Add new DES location,,000019,AddressApartmentRoomOrSuiteNumber,https://ceds.ed.gov/cedselementdetails.aspx?termid=23019,67534
+Career and Technical,CTE Staff,Contact,Address City,The name of the city in which an address is located.,None,Updated,Add new DES location,,000040,AddressCity,https://ceds.ed.gov/cedselementdetails.aspx?termid=23040,67535
+Career and Technical,CTE Staff,Contact,Address County Name,"The name of the county, parish, borough, or comparable unit (within a state) in which an address is located.",None,Updated,Add new DES location,,000190,AddressCountyName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23190,67536
+Career and Technical,CTE Staff,Contact,Address Postal Code,A number that identifies each postal delivery area in the United States used as a portion of an address.,None,Updated,Add new DES location,,000214,AddressPostalCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=23214,67538
+Career and Technical,CTE Staff,Contact,Address Street Number and Name,The street number and street name or post office box number of an address.,None,,,,000269,AddressStreetNumberAndName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23269,67533
+Career and Technical,CTE Staff,Contact,Address Type for Staff,The address type for a staff member.,"Mailing - Mailing
+Physical - Physical
+OtherHome - Other home address
+Employers - Employer's address
+Employment - Employment address
+Billing - Billing address
+",,,,000722,AddressTypeForStaff,https://ceds.ed.gov/cedselementdetails.aspx?termid=23698,67539
+Career and Technical,CTE Staff,Contact,Country Code,The unique two character International Organization for Standardization (ISO) code for the country in which an address is located.,"AF - AFGHANISTAN
+AX - ÅLAND ISLANDS
+AL - ALBANIA
+DZ - ALGERIA
+AS - AMERICAN SAMOA
+AD - ANDORRA
+AO - ANGOLA
+AI - ANGUILLA
+AQ - ANTARCTICA
+AG - ANTIGUA AND BARBUDA
+AR - ARGENTINA
+AM - ARMENIA
+AW - ARUBA
+AU - AUSTRALIA
+AT - AUSTRIA
+AZ - AZERBAIJAN
+BS - BAHAMAS
+BH - BAHRAIN
+BD - BANGLADESH
+BB - BARBADOS
+BY - BELARUS
+BE - BELGIUM
+BZ - BELIZE
+BJ - BENIN
+BM - BERMUDA
+BT - BHUTAN
+BO - BOLIVIA (PLURINATIONAL STATE OF)
+BQ - BONAIRE, SINT EUSTATIUS AND SABA
+BA - BOSNIA AND HERZEGOVINA
+BW - BOTSWANA
+BV - BOUVET ISLAND
+BR - BRAZIL
+IO - BRITISH INDIAN OCEAN TERRITORY
+BN - BRUNEI DARUSSALAM
+BG - BULGARIA
+BF - BURKINA FASO
+BI - BURUNDI
+KH - CAMBODIA
+CM - CAMEROON
+CA - CANADA
+CV - CABO VERDE
+KY - CAYMAN ISLANDS
+CF - CENTRAL AFRICAN REPUBLIC
+TD - CHAD
+CL - CHILE
+CN - CHINA
+CX - CHRISTMAS ISLAND
+CC - COCOS (KEELING) ISLANDS
+CO - COLOMBIA
+KM - COMOROS
+CG - CONGO
+CD - CONGO, DEMOCRATIC REPUBLIC OF THE
+CK - COOK ISLANDS
+CR - COSTA RICA
+CI - CÔTE D'IVOIRE
+HR - CROATIA
+CU - CUBA
+CW - CURAÇAO
+CY - CYPRUS
+CZ - CZECHIA
+DK - DENMARK
+DJ - DJIBOUTI
+DM - DOMINICA
+DO - DOMINICAN REPUBLIC
+EC - ECUADOR
+EG - EGYPT
+SV - EL SALVADOR
+GQ - EQUATORIAL GUINEA
+ER - ERITREA
+EE - ESTONIA
+ET - ETHIOPIA
+FK - FALKLAND ISLANDS (MALVINAS)
+FO - FAROE ISLANDS
+FJ - FIJI
+FI - FINLAND
+FR - FRANCE
+GF - FRENCH GUIANA
+PF - FRENCH POLYNESIA
+TF - FRENCH SOUTHERN TERRITORIES
+GA - GABON
+GM - GAMBIA
+GE - GEORGIA
+DE - GERMANY
+GH - GHANA
+GI - GIBRALTAR
+GR - GREECE
+GL - GREENLAND
+GD - GRENADA
+GP - GUADELOUPE
+GU - GUAM
+GT - GUATEMALA
+GG - GUERNSEY
+GN - GUINEA
+GW - GUINEA-BISSAU
+GY - GUYANA
+HT - HAITI
+HM - HEARD ISLAND AND MCDONALD ISLANDS
+VA - HOLY SEE
+HN - HONDURAS
+HK - HONG KONG
+HU - HUNGARY
+IS - ICELAND
+IN - INDIA
+ID - INDONESIA
+IR - IRAN (ISLAMIC REPUBLIC OF)
+IQ - IRAQ
+IE - IRELAND
+IM - ISLE OF MAN
+IL - ISRAEL
+IT - ITALY
+JM - JAMAICA
+JP - JAPAN
+JE - JERSEY
+JO - JORDAN
+KZ - KAZAKHSTAN
+KE - KENYA
+KI - KIRIBATI
+KP - KOREA (DEMOCRATIC PEOPLE'S REPUBLIC OF)
+KR - KOREA, REPUBLIC OF
+KW - KUWAIT
+KG - KYRGYZSTAN
+LA - LAO PEOPLE'S DEMOCRATIC REPUBLIC
+LV - LATVIA
+LB - LEBANON
+LS - LESOTHO
+LR - LIBERIA
+LY - LIBYA
+LI - LIECHTENSTEIN
+LT - LITHUANIA
+LU - LUXEMBOURG
+MO - MACAO
+MK - NORTH MACEDONIA
+MG - MADAGASCAR
+MW - MALAWI
+MY - MALAYSIA
+MV - MALDIVES
+ML - MALI
+MT - MALTA
+MH - MARSHALL ISLANDS
+MQ - MARTINIQUE
+MR - MAURITANIA
+MU - MAURITIUS
+YT - MAYOTTE
+MX - MEXICO
+FM - MICRONESIA (FEDERATED STATES OF)
+MD - MOLDOVA, REPUBLIC OF
+MC - MONACO
+MN - MONGOLIA
+ME - MONTENEGRO
+MS - MONTSERRAT
+MA - MOROCCO
+MZ - MOZAMBIQUE
+MM - MYANMAR
+NA - NAMIBIA
+NR - NAURU
+NP - NEPAL
+NL - NETHERLANDS
+NC - NEW CALEDONIA
+NZ - NEW ZEALAND
+NI - NICARAGUA
+NE - NIGER
+NG - NIGERIA
+NU - NIUE
+NF - NORFOLK ISLAND
+MP - NORTHERN MARIANA ISLANDS
+NO - NORWAY
+OM - OMAN
+PK - PAKISTAN
+PW - PALAU
+PS - PALESTINE, STATE OF
+PA - PANAMA
+PG - PAPUA NEW GUINEA
+PY - PARAGUAY
+PE - PERU
+PH - PHILIPPINES
+PN - PITCAIRN
+PL - POLAND
+PT - PORTUGAL
+PR - PUERTO RICO
+QA - QATAR
+RE - RÉUNION
+RO - ROMANIA
+RU - RUSSIAN FEDERATION
+RW - RWANDA
+BL - SAINT BARTHÉLEMY
+SH - SAINT HELENA, ASCENSION AND TRISTAN DA CUNHA
+KN - SAINT KITTS AND NEVIS
+LC - SAINT LUCIA
+MF - SAINT MARTIN (FRENCH PART)
+PM - SAINT PIERRE AND MIQUELON
+VC - SAINT VINCENT AND THE GRENADINES
+WS - SAMOA
+SM - SAN MARINO
+ST - SAO TOME AND PRINCIPE
+SA - SAUDI ARABIA
+SN - SENEGAL
+RS - SERBIA
+SC - SEYCHELLES
+SL - SIERRA LEONE
+SG - SINGAPORE
+SX - SINT MAARTEN (DUTCH PART)
+SK - SLOVAKIA
+SI - SLOVENIA
+SB - SOLOMON ISLANDS
+SO - SOMALIA
+ZA - SOUTH AFRICA
+GS - SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS
+SS - SOUTH SUDAN
+ES - SPAIN
+LK - SRI LANKA
+SD - SUDAN
+SR - SURINAME
+SJ - SVALBARD AND JAN MAYEN
+SZ - ESWATINI
+SE - SWEDEN
+CH - SWITZERLAND
+SY - SYRIAN ARAB REPUBLIC
+TW - TAIWAN
+TJ - TAJIKISTAN
+TZ - TANZANIA, UNITED REPUBLIC OF
+TH - THAILAND
+TL - TIMOR-LESTE
+TG - TOGO
+TK - TOKELAU
+TO - TONGA
+TT - TRINIDAD AND TOBAGO
+TN - TUNISIA
+TR - TURKEY
+TM - TURKMENISTAN
+TC - TURKS AND CAICOS ISLANDS
+TV - TUVALU
+UG - UGANDA
+UA - UKRAINE
+AE - UNITED ARAB EMIRATES
+GB - UNITED KINGDOM OF GREAT BRITAIN AND NORTHERN IRELAND
+US - UNITED STATES OF AMERICA
+UM - UNITED STATES MINOR OUTLYING ISLANDS
+UY - URUGUAY
+UZ - UZBEKISTAN
+VU - VANUATU
+VE - VENEZUELA (BOLIVARIAN REPUBLIC OF)
+VN - VIET NAM
+VG - VIRGIN ISLANDS (BRITISH)
+VI - VIRGIN ISLANDS (U.S.)
+WF - WALLIS AND FUTUNA
+EH - WESTERN SAHARA
+YE - YEMEN
+ZM - ZAMBIA
+ZW - ZIMBABWE
+",,,"The CEDS Country Code option set comes from the <a href=""http://www.iso.org/iso/country_codes.htm"">ISO 3166 standard</a>, the short name for Officially assigned codes.   Discontinued codes from the ISO standard are not included in the CEDS list.",000050,CountryCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=23050,67540
+Career and Technical,CTE Staff,Contact,County ANSI Code,"County code as defined for the identification of counties and equivalent areas of the United States, Puerto Rico, and the insular areas as established by the American National Standards Institute (ANSI) Inter-National Committee for Information Technology Standards (INCITS) in specification BSR INCITS 31-200x or more current updates. See https://www.census.gov/library/reference/code-lists/ansi.html#par_statelist.",None,,,,001209,CountyANSICode,https://ceds.ed.gov/cedselementdetails.aspx?termid=24176,69230
+Career and Technical,CTE Staff,Contact,Do Not Publish Indicator,An indication that the record should not be published.,"Yes
+No
+Unknown
+",,,,001928,DoNotPublishIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24905,69232
+Career and Technical,CTE Staff,Contact,Do Not Publish Indicator,An indication that the record should not be published.,"Yes
+No
+Unknown
+",,,,001928,DoNotPublishIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24905,69231
+Career and Technical,CTE Staff,Contact,Do Not Publish Indicator,An indication that the record should not be published.,"Yes
+No
+Unknown
+",,,,001928,DoNotPublishIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24905,69233
+Career and Technical,CTE Staff,Contact,Electronic Mail Address,"The numbers, letters, and symbols used to identify an electronic mail (e-mail) user within the network to which the person or organization belongs.",None,,,,000088,ElectronicMailAddress,https://ceds.ed.gov/cedselementdetails.aspx?termid=23088,67541
+Career and Technical,CTE Staff,Contact,Electronic Mail Address Type,The type of electronic mail (e-mail) address listed for a person or organization.,"Home - Home/personal
+Work - Work
+Organizational - Organizational address
+Other - Other
+",Updated,Change option for Organizational address,,000089,ElectronicMailAddressType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23089,67542
+Career and Technical,CTE Staff,Contact,Latitude,"The north or south angular distance from the equator that, when combined with longitude, reflects an estimation of where the address is physically situated.",None,,,,000606,Latitude,https://ceds.ed.gov/cedselementdetails.aspx?termid=23599,68270
+Career and Technical,CTE Staff,Contact,Longitude,"The east or west angular distance from the prime meridian that, when combined with latitude, reflects an estimation of where the address is physically situated.",None,,,,000607,Longitude,https://ceds.ed.gov/cedselementdetails.aspx?termid=23600,68293
+Career and Technical,CTE Staff,Contact,Primary Telephone Number Indicator,An indication that the telephone number should be used as the principal number for a person or organization.,"Yes
+No
+",,,,000219,PrimaryTelephoneNumberIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=23219,67544
+Career and Technical,CTE Staff,Contact,State Abbreviation,The abbreviation for the state (within the United States) or outlying area in which an address is located.,"AK - Alaska
+AL - Alabama
+AR - Arkansas
+AS - American Samoa
+AZ - Arizona
+CA - California
+CO - Colorado
+CT - Connecticut
+DC - District of Columbia
+DE - Delaware
+FL - Florida
+FM - Federated States of Micronesia
+GA - Georgia
+GU - Guam
+HI - Hawaii
+IA - Iowa
+ID - Idaho
+IL - Illinois
+IN - Indiana
+KS - Kansas
+KY - Kentucky
+LA - Louisiana
+MA - Massachusetts
+MD - Maryland
+ME - Maine
+MH - Marshall Islands
+MI - Michigan
+MN - Minnesota
+MO - Missouri
+MP - Northern Marianas
+MS - Mississippi
+MT - Montana
+NC - North Carolina
+ND - North Dakota
+NE - Nebraska
+NH - New Hampshire
+NJ - New Jersey
+NM - New Mexico
+NV - Nevada
+NY - New York
+OH - Ohio
+OK - Oklahoma
+OR - Oregon
+PA - Pennsylvania
+PR - Puerto Rico
+PW - Palau
+RI - Rhode Island
+SC - South Carolina
+SD - South Dakota
+TN - Tennessee
+TX - Texas
+UT - Utah
+VA - Virginia
+VI - Virgin Islands
+VT - Vermont
+WA - Washington
+WI - Wisconsin
+WV - West Virginia
+WY - Wyoming
+AA - Armed Forces America
+AE - Armed Forces Africa, Canada, Europe, and Mideast
+AP - Armed Forces Pacific
+BI - Bureau of Indian Affairs
+DD - Department of Defense Domestic
+DO - Department of Defense Overseas
+",Updated,Add new DES location,,000267,StateAbbreviation,https://ceds.ed.gov/cedselementdetails.aspx?termid=23267,67537
+Career and Technical,CTE Staff,Contact,Telephone Number,"The telephone number including the area code, and extension, if applicable.",None,,,,000279,TelephoneNumber,https://ceds.ed.gov/cedselementdetails.aspx?termid=23279,67545
+Career and Technical,CTE Staff,Contact,Telephone Number Listed Status,An indication of whether a telephone number is listed under a directory assistance service.,"Listed - Listed
+Unknown - Unknown
+Unlisted - Unlisted
+",,,,001927,TelephoneNumberListedStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=24911,69234
+Career and Technical,CTE Staff,Contact,Telephone Number Type,The type of communication number listed for a person.,"Home - Home phone number
+Work - Work phone number
+Mobile - Mobile phone number
+Fax - Fax number
+Other - Other
+",,,,000280,TelephoneNumberType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23280,67543
+Career and Technical,CTE Staff,Credential or License,Career and Technical Education Instructor Industry Certification,An indication of whether a Career and Technical Education (CTE) instructor holds a current industry-recognized credential related to their teaching field.,"Yes
+No
+",,,,001318,CTEInstructorIndustryCertification,https://ceds.ed.gov/cedselementdetails.aspx?termid=24284,67558
+Career and Technical,CTE Staff,Credential or License,Credential Expiration Date,"The year, month and day on which an active credential held by a person will expire.",None,,,,000069,CredentialExpirationDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23069,69480
+Career and Technical,CTE Staff,Credential or License,Credential Type,An indication of the category of credential a person holds.,"Certification - Certification
+Endorsement - Endorsement
+Licensure - Licensure
+Other - Other
+Registration - Registration
+HighSchoolDiploma - High School Diploma
+HighSchoolDiplomaDistinction - High School Diploma Distinction
+",Updated,Added new option to existing option set and add new DES location,,000071,CredentialType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23071,67557
+Career and Technical,CTE Staff,Credential or License,Teaching Credential Basis,An indication of the pre-determined criteria for granting the teaching credential that a person holds.,"01050 - Associate's degree (two years or more) 
+01235 - 4-year bachelor's degree
+01236 - 5-year bachelor's degree
+73205 - Post-baccalaureate certificate
+01237 - Master's degree
+73081 - Post-master’s certificate
+01238 - Doctoral degree
+73206 - Post-doctoral certificate
+01239 - Met state testing requirement
+01240 - Special/alternative program completion
+01241 - Relevant experience
+01242 - Credentials based on reciprocation with another state
+",,,,000277,TeachingCredentialBasis,https://ceds.ed.gov/cedselementdetails.aspx?termid=23277,67559
+Career and Technical,CTE Staff,Demographic,Birthdate,"The year, month and day on which a person was born.",None,,,,000033,Birthdate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23033,69481
+Career and Technical,CTE Staff,Demographic,Country of Birth Code,The unique two digit International Organization for Standardization (ISO) code for the country in which a person is born.,"AF - AFGHANISTAN
+AX - ÅLAND ISLANDS
+AL - ALBANIA
+DZ - ALGERIA
+AS - AMERICAN SAMOA
+AD - ANDORRA
+AO - ANGOLA
+AI - ANGUILLA
+AQ - ANTARCTICA
+AG - ANTIGUA AND BARBUDA
+AR - ARGENTINA
+AM - ARMENIA
+AW - ARUBA
+AU - AUSTRALIA
+AT - AUSTRIA
+AZ - AZERBAIJAN
+BS - BAHAMAS
+BH - BAHRAIN
+BD - BANGLADESH
+BB - BARBADOS
+BY - BELARUS
+BE - BELGIUM
+BZ - BELIZE
+BJ - BENIN
+BM - BERMUDA
+BT - BHUTAN
+BO - BOLIVIA (PLURINATIONAL STATE OF)
+BQ - BONAIRE, SINT EUSTATIUS AND SABA
+BA - BOSNIA AND HERZEGOVINA
+BW - BOTSWANA
+BV - BOUVET ISLAND
+BR - BRAZIL
+IO - BRITISH INDIAN OCEAN TERRITORY
+BN - BRUNEI DARUSSALAM
+BG - BULGARIA
+BF - BURKINA FASO
+BI - BURUNDI
+KH - CAMBODIA
+CM - CAMEROON
+CA - CANADA
+CV - CABO VERDE
+KY - CAYMAN ISLANDS
+CF - CENTRAL AFRICAN REPUBLIC
+TD - CHAD
+CL - CHILE
+CN - CHINA
+CX - CHRISTMAS ISLAND
+CC - COCOS (KEELING) ISLANDS
+CO - COLOMBIA
+KM - COMOROS
+CG - CONGO
+CD - CONGO, DEMOCRATIC REPUBLIC OF THE
+CK - COOK ISLANDS
+CR - COSTA RICA
+CI - CÔTE D'IVOIRE
+HR - CROATIA
+CU - CUBA
+CW - CURAÇAO
+CY - CYPRUS
+CZ - CZECHIA
+DK - DENMARK
+DJ - DJIBOUTI
+DM - DOMINICA
+DO - DOMINICAN REPUBLIC
+EC - ECUADOR
+EG - EGYPT
+SV - EL SALVADOR
+GQ - EQUATORIAL GUINEA
+ER - ERITREA
+EE - ESTONIA
+ET - ETHIOPIA
+FK - FALKLAND ISLANDS (MALVINAS)
+FO - FAROE ISLANDS
+FJ - FIJI
+FI - FINLAND
+FR - FRANCE
+GF - FRENCH GUIANA
+PF - FRENCH POLYNESIA
+TF - FRENCH SOUTHERN TERRITORIES
+GA - GABON
+GM - GAMBIA
+GE - GEORGIA
+DE - GERMANY
+GH - GHANA
+GI - GIBRALTAR
+GR - GREECE
+GL - GREENLAND
+GD - GRENADA
+GP - GUADELOUPE
+GU - GUAM
+GT - GUATEMALA
+GG - GUERNSEY
+GN - GUINEA
+GW - GUINEA-BISSAU
+GY - GUYANA
+HT - HAITI
+HM - HEARD ISLAND AND MCDONALD ISLANDS
+VA - HOLY SEE
+HN - HONDURAS
+HK - HONG KONG
+HU - HUNGARY
+IS - ICELAND
+IN - INDIA
+ID - INDONESIA
+IR - IRAN (ISLAMIC REPUBLIC OF)
+IQ - IRAQ
+IE - IRELAND
+IM - ISLE OF MAN
+IL - ISRAEL
+IT - ITALY
+JM - JAMAICA
+JP - JAPAN
+JE - JERSEY
+JO - JORDAN
+KZ - KAZAKHSTAN
+KE - KENYA
+KI - KIRIBATI
+KP - KOREA (DEMOCRATIC PEOPLE'S REPUBLIC OF)
+KR - KOREA, REPUBLIC OF
+KW - KUWAIT
+KG - KYRGYZSTAN
+LA - LAO PEOPLE'S DEMOCRATIC REPUBLIC
+LV - LATVIA
+LB - LEBANON
+LS - LESOTHO
+LR - LIBERIA
+LY - LIBYA
+LI - LIECHTENSTEIN
+LT - LITHUANIA
+LU - LUXEMBOURG
+MO - MACAO
+MK - NORTH MACEDONIA
+MG - MADAGASCAR
+MW - MALAWI
+MY - MALAYSIA
+MV - MALDIVES
+ML - MALI
+MT - MALTA
+MH - MARSHALL ISLANDS
+MQ - MARTINIQUE
+MR - MAURITANIA
+MU - MAURITIUS
+YT - MAYOTTE
+MX - MEXICO
+FM - MICRONESIA (FEDERATED STATES OF)
+MD - MOLDOVA, REPUBLIC OF
+MC - MONACO
+MN - MONGOLIA
+ME - MONTENEGRO
+MS - MONTSERRAT
+MA - MOROCCO
+MZ - MOZAMBIQUE
+MM - MYANMAR
+NA - NAMIBIA
+NR - NAURU
+NP - NEPAL
+NL - NETHERLANDS
+NC - NEW CALEDONIA
+NZ - NEW ZEALAND
+NI - NICARAGUA
+NE - NIGER
+NG - NIGERIA
+NU - NIUE
+NF - NORFOLK ISLAND
+MP - NORTHERN MARIANA ISLANDS
+NO - NORWAY
+OM - OMAN
+PK - PAKISTAN
+PW - PALAU
+PS - PALESTINE, STATE OF
+PA - PANAMA
+PG - PAPUA NEW GUINEA
+PY - PARAGUAY
+PE - PERU
+PH - PHILIPPINES
+PN - PITCAIRN
+PL - POLAND
+PT - PORTUGAL
+PR - PUERTO RICO
+QA - QATAR
+RE - RÉUNION
+RO - ROMANIA
+RU - RUSSIAN FEDERATION
+RW - RWANDA
+BL - SAINT BARTHÉLEMY
+SH - SAINT HELENA, ASCENSION AND TRISTAN DA CUNHA
+KN - SAINT KITTS AND NEVIS
+LC - SAINT LUCIA
+MF - SAINT MARTIN (FRENCH PART)
+PM - SAINT PIERRE AND MIQUELON
+VC - SAINT VINCENT AND THE GRENADINES
+WS - SAMOA
+SM - SAN MARINO
+ST - SAO TOME AND PRINCIPE
+SA - SAUDI ARABIA
+SN - SENEGAL
+RS - SERBIA
+SC - SEYCHELLES
+SL - SIERRA LEONE
+SG - SINGAPORE
+SX - SINT MAARTEN (DUTCH PART)
+SK - SLOVAKIA
+SI - SLOVENIA
+SB - SOLOMON ISLANDS
+SO - SOMALIA
+ZA - SOUTH AFRICA
+GS - SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS
+SS - SOUTH SUDAN
+ES - SPAIN
+LK - SRI LANKA
+SD - SUDAN
+SR - SURINAME
+SJ - SVALBARD AND JAN MAYEN
+SZ - ESWATINI
+SE - SWEDEN
+CH - SWITZERLAND
+SY - SYRIAN ARAB REPUBLIC
+TW - TAIWAN
+TJ - TAJIKISTAN
+TZ - TANZANIA, UNITED REPUBLIC OF
+TH - THAILAND
+TL - TIMOR-LESTE
+TG - TOGO
+TK - TOKELAU
+TO - TONGA
+TT - TRINIDAD AND TOBAGO
+TN - TUNISIA
+TR - TURKEY
+TM - TURKMENISTAN
+TC - TURKS AND CAICOS ISLANDS
+TV - TUVALU
+UG - UGANDA
+UA - UKRAINE
+AE - UNITED ARAB EMIRATES
+GB - UNITED KINGDOM OF GREAT BRITAIN AND NORTHERN IRELAND
+US - UNITED STATES OF AMERICA
+UM - UNITED STATES MINOR OUTLYING ISLANDS
+UY - URUGUAY
+UZ - UZBEKISTAN
+VU - VANUATU
+VE - VENEZUELA (BOLIVARIAN REPUBLIC OF)
+VN - VIET NAM
+VG - VIRGIN ISLANDS (BRITISH)
+VI - VIRGIN ISLANDS (U.S.)
+WF - WALLIS AND FUTUNA
+EH - WESTERN SAHARA
+YE - YEMEN
+ZM - ZAMBIA
+ZW - ZIMBABWE
+",,,"The CEDS Country Code option set comes from the <a href=""http://www.iso.org/iso/country_codes.htm"">ISO 3166 standard</a>, the short name for Officially assigned codes.   Discontinued codes from the ISO standard are not included in the CEDS list.",000051,CountryOfBirthCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=23051,69235
+Career and Technical,CTE Staff,Demographic,First Generation College Student,"The term First Generation College Student means an individual both of whose parents did not complete a baccalaureate degree or in the case of any individual who regularly resided with and received support from only one parent, an individual whose only such parent did not complete a baccalaureate degree.","Yes
+No
+Unknown
+",,,,001947,FirstGenerationCollegeStudent,https://ceds.ed.gov/cedselementdetails.aspx?termid=24933,69482
+Career and Technical,CTE Staff,Demographic,Race,The origins of a person.,"AmericanIndianOrAlaskaNative - American Indian or Alaska Native
+Asian - Asian
+BlackOrAfricanAmerican - Black or African American
+DemographicRaceTwoOrMoreRaces - Demographic Race Two or More Races
+NativeHawaiianOrOtherPacificIslander - Native Hawaiian or Other Pacific Islander
+RaceAndEthnicityUnknown - Race and Ethnicity Unknown
+White - White
+",,,"It is expected that a person may select more than one option with the exception of the options ""Demographic Race Two or More Races"" and ""Race and Ethnicity Unknown.""",001943,Race,https://ceds.ed.gov/cedselementdetails.aspx?termid=24955,69483
+Career and Technical,CTE Staff,Demographic,Tribal Affiliation,The Native American tribal entity recognized and eligible to receive services from the United States Bureau of Indian Affairs to which a person is affiliated.,See URL column,,,,001657,TribalAffiliation,https://ceds.ed.gov/cedselementdetails.aspx?termid=24638,69236
+Career and Technical,CTE Staff,Employment,Employment Separation Reason,The primary reason for the termination of the employment relationship.,"01391 - Change of assignment
+89604 - Compensation
+01404 - Death
+01401 - Falsified application form
+01400 - Continued absence or tardiness
+01402 - Credential revoked or suspended
+01399 - Misconduct
+01403 - Unsatisfactory work performance
+01398 - Unsuitability
+01390 - Family/personal relocation
+01392 - Formal study or research
+01394 - Homemaking/caring for a family member
+01393 - Illness/disability
+01395 - Budgetary reduction
+01397 - Decreased workload
+01396 - Organizational restructuring
+09999 - Other
+01405 - Personal reason
+01389 - Retirement
+73201 - Termination with Cause
+73202 - Leave Planning to Return
+73203 - Leave Not Planning to Return
+09997 - Unknown
+73204 - Dissatisfied with teaching
+73206 - End of Term (Participate Learning)
+73205 - End of Term (Teach For America)
+73207 - Interim contract ended -not rehired
+73208 - Non-renewal (probationary contract ended)
+73209 - Re-employed retired teacher resigned
+73210 - Resigned due to career change
+73211 - Resigned due to movement required by Military Orders
+",Updated,Add new DES location,,000620,EmploymentSeparationReason,https://ceds.ed.gov/cedselementdetails.aspx?termid=23613,69237
+Career and Technical,CTE Staff,Employment,Funding Source Amount,The amount of financial support contributed by a specific funding or revenue stream.,None,New,Added new element to DES.,"The funding source, usually an organization, is related to either another organization that is receiving the funding or to a person such as in the case of employment.",002059,FundingSourceAmount,https://ceds.ed.gov/cedselementdetails.aspx?termid=25020,70020
+Career and Technical,CTE Staff,Employment,Funding Source Percentage,The proportion or percentage of financial support or resources contributed by a specific funding or revenue stream in relation to the total funding.,None,New,Added new element to DES.,"The funding source, usually an organization, is related to either another organization that is receiving the funding or to a person such as in the case of employment.",002058,FundingSourcePercentage,https://ceds.ed.gov/cedselementdetails.aspx?termid=25021,70021
+Career and Technical,CTE Staff,Employment,Role,A description of the way in which a person relates to an organization.,"AEStaff - AE Staff
+AEStudent - AE Student
+CTEStaff - CTE Staff
+CTEStudent - CTE Student
+ELChild - EL Child
+ELStaff - EL Staff
+K12Staff - K12 Staff
+K12Student - K12 Student
+ParentGuardian - Parent/Guardian
+PSApplicant - PS Applicant
+PSStaff - PS Staff
+PSStudent - PS Student
+WorkforceProgramParticipant - Workforce Program Participant
+ChiefStateSchoolOfficer - Chief State School Officer
+SchoolBoardMember - School Board Member
+",Updated,Added new option to existing option set,,001946,Role,https://ceds.ed.gov/cedselementdetails.aspx?termid=24959,69484
+Career and Technical,CTE Staff,Employment,Standard Occupational Classification,"A Bureau of Labor Statistics coding system for classifying occupations by work performed and, in some cases, on the skills, education and training needed to perform the work at a competent level.  See https://www.bls.gov/soc/2018/major_groups.htm.",None,Updated,Add new DES location,,000730,StandardOccupationalClassification,https://ceds.ed.gov/cedselementdetails.aspx?termid=23707,69238
+Career and Technical,CTE Staff,Identity,First Name,"The full legal first name given to a person at birth, baptism, or through legal change.",None,,,"Workforce Note: To collect data on workforce program participation, a data match will have to be negotiated between state agencies.  The data match makes use of name, social security number, gender and ethnicity data.",000115,FirstName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23115,67550
+Career and Technical,CTE Staff,Identity,Generation Code or Suffix,"An appendage, if any, used to denote a person's generation in his family (e.g., Jr., Sr., III).",None,,,"Workforce <BR/>Note: To collect data on workforce program participation, a data match will have to be negotiated between state agencies.  The data match makes use of name, social security number, gender and ethnicity data.",000121,GenerationCodeOrSuffix,https://ceds.ed.gov/cedselementdetails.aspx?termid=23121,67553
+Career and Technical,CTE Staff,Identity,Last or Surname,The full legal last name borne in common by members of a family.,None,,,"Workforce <BR/>Note: To collect data on workforce program participation, a data match will have to be negotiated between state agencies.  The data match makes use of name, social security number, gender and ethnicity data.",000172,LastOrSurname,https://ceds.ed.gov/cedselementdetails.aspx?termid=23172,67552
+Career and Technical,CTE Staff,Identity,Middle Name,"A full legal middle name given to a person at birth, baptism, or through legal change.",None,,,"Workforce <BR/>Note: To collect data on workforce program participation, a data match will have to be negotiated between state agencies.  The data match makes use of name, social security number, gender and ethnicity data.",000184,MiddleName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23184,67551
+Career and Technical,CTE Staff,Identity,Other First Name,A first name given to a person.,None,,,Other First Name may be repeatable and used with Other Name Type.,001514,OtherFirstName,https://ceds.ed.gov/cedselementdetails.aspx?termid=24486,67642
+Career and Technical,CTE Staff,Identity,Other Last Name,A last name given to a person.,None,,,Other Last Name may be repeatable and used with Other Name Type.,001513,OtherLastName,https://ceds.ed.gov/cedselementdetails.aspx?termid=24485,67626
+Career and Technical,CTE Staff,Identity,Other Middle Name,A middle name given to a person.,None,,,Other Middle Name may be repeatable and used with Other Name Type.,001515,OtherMiddleName,https://ceds.ed.gov/cedselementdetails.aspx?termid=24487,67658
+Career and Technical,CTE Staff,Identity,Other Name,"Previous, alternate or other names or aliases associated with the person.",None,,,,000206,OtherName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23206,67555
+Career and Technical,CTE Staff,Identity,Other Name Type,"The types of previous, alternate or other names for a person.","Alias - Alias
+Nickname - Nickname
+OtherName - Other name
+PreviousLegalName - Previous legal name
+PreferredFamilyName - Preferred Family Name
+PreferredGivenName - Preferred Given Name
+FullName - Full Name
+",,,,000634,OtherNameType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23627,67556
+Career and Technical,CTE Staff,Identity,Personal Information Type,The type of personal information verified through the Personal Information Verification evidence.,"Address - Address
+Birthdate - Birthdate
+Name - Name
+TelephoneNumber - Telephone Number
+",,,,001945,PersonalInformationType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24951,69485
+Career and Technical,CTE Staff,Identity,Personal Information Verification,"The evidence by which a persons name, address, date of birth, etc. is confirmed.","01003 - Baptismal or church certificate
+01004 - Birth certificate
+01012 - Driver's license
+01005 - Entry in family Bible
+01006 - Hospital certificate
+01013 - Immigration document/visa
+02382 - Life insurance policy
+09999 - Other
+03424 - Other non-official document
+03423 - Other official document
+01007 - Parent's affidavit
+01008 - Passport
+01009 - Physician's certificate
+01010 - Previously verified school records
+01011 - State-issued ID
+73095 - Approved Transfer
+73102 - Birth Registration Form
+73097 - Citizenship Card
+73100 - Lease Agreement
+73093 - Non-Parent Affidavit of Residence
+73094 - Parent's Affidavit of Residence
+73101 - Purchase Agreement
+73092 - Residence Verification Form
+73098 - Tax Bill
+73091 - Telephone Bill
+73099 - Utility Bill
+73096 - Water Bill
+",,,,000618,PersonalInformationVerification,https://ceds.ed.gov/cedselementdetails.aspx?termid=23611,67549
+Career and Technical,CTE Staff,Identity,Personal Title or Prefix,"An appellation, if any, used to denote rank, placement, or status (e.g., Mr., Ms., Reverend, Sister, Dr., Colonel).",None,,,,000212,PersonalTitleOrPrefix,https://ceds.ed.gov/cedselementdetails.aspx?termid=23212,67554
+Career and Technical,CTE Staff,Identity,Staff Member Identification System,"A coding scheme that is used for identification and record-keeping purposes by schools, social services, registry, or other agencies to refer to a staff member.","SSN - Social Security Administration number
+USVisa - US government Visa number
+PIN - Personal identification number
+Federal - Federal identification number
+DriversLicense - Driver's license number
+Medicaid - Medicaid number
+HealthRecord - Health record number
+ProfessionalCertificate - Professional certificate or license number
+School - School-assigned number
+District - District-assigned number
+State - State-assigned number
+OtherFederal - Other federally assigned number
+SelectiveService - Selective Service Number
+CanadianSIN - Canadian Social Insurance Number
+Other - Other
+BirthCertificate - Birth certificate number
+",Updated,Added new option to existing option set,,001074,StaffMemberIdentificationSystem,https://ceds.ed.gov/cedselementdetails.aspx?termid=23162,67547
+Career and Technical,CTE Staff,Identity,Staff Member Identifier,"A unique number or alphanumeric code assigned to a staff member by a school, school system, a state, registry, or other agency or entity.",None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001070,StaffMemberIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23156,67546
+Career and Technical,CTE Staff,Language,ISO 639-2 Language Code,The code for the specific language or dialect that a person uses to communicate.,See URL column,,,"The CEDS ISO 639-2 Language Code option set comes from the <a href=""http://www.loc.gov/standards/iso639-2/langhome.html"">ISO 639-2 standard</a>, the character encoding in ISO 8859-1 download.  Discontinued codes from the ISO standard are not included in the CEDS list.",000317,ISO6392LanguageCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=23317,69239
+Career and Technical,CTE Staff,Language,ISO 639-3 Language Code,The code for the specific language or dialect that a person uses to communicate.,See URL column,Updated,"Add new option set, change option set","The CEDS ISO 639-3 Language Code option set comes from the <a href=""http://www-01.sil.org/iso639-3/default.asp"">ISO 639-3 standard</a>, the Latin-1 download.  Only living language code types from the ISO standard are included in the CEDS list.  Special scope and discontinued codes are excluded.",001637,ISO6393LanguageCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=24618,69240
+Career and Technical,CTE Staff,Language,ISO 639-5 Language Family,"A code for a specific language family, which supplements the language groups and families in the ISO 639-2 Language Code.","aav - Austro-Asiatic languages
+afa - Afro-Asiatic languages
+alg - Algonquian languages
+alv - Atlantic-Congo languages
+apa - Apache languages
+aqa - Alacalufan languages
+aql - Algic languages
+art - Artificial languages
+ath - Athapascan languages
+auf - Arauan languages
+aus - Australian languages
+awd - Arawakan languages
+azc - Uto-Aztecan languages
+bad - Banda languages
+bai - Bamileke languages
+bat - Baltic languages
+ber - Berber languages
+bih - Bihari languages
+bnt - Bantu languages
+btk - Batak languages
+cai - Central American Indian languages
+cau - Caucasian languages
+cba - Chibchan languages
+ccn - North Caucasian languages
+ccs - South Caucasian languages
+cdc - Chadic languages
+cdd - Caddoan languages
+cel - Celtic languages
+cmc - Chamic languages
+cpe - Creoles and pidgins, Englishâ€‘based
+cpf - Creoles and pidgins, Frenchâ€‘based
+cpp - Creoles and pidgins, Portuguese-based
+crp - Creoles and pidgins
+csu - Central Sudanic languages
+cus - Cushitic languages
+day - Land Dayak languages
+dmn - Mande languages
+dra - Dravidian languages
+egx - Egyptian languages
+esx - Eskimo-Aleut languages
+euq - Basque (family)
+fiu - Finno-Ugrian languages
+fox - Formosan languages
+gem - Germanic languages
+gme - East Germanic languages
+gmq - North Germanic languages
+gmw - West Germanic languages
+grk - Greek languages
+hmx - Hmong-Mien languages
+hok - Hokan languages
+hyx - Armenian (family)
+iir - Indo-Iranian languages
+ijo - Ijo languages
+inc - Indic languages
+ine - Indo-European languages
+ira - Iranian languages
+iro - Iroquoian languages
+itc - Italic languages
+jpx - Japanese (family)
+kar - Karen languages
+kdo - Kordofanian languages
+khi - Khoisan languages
+kro - Kru languages
+map - Austronesian languages
+mkh - Mon-Khmer languages
+mno - Manobo languages
+mun - Munda languages
+myn - Mayan languages
+nah - Nahuatl languages
+nai - North American Indian languages
+ngf - Trans-New Guinea languages
+nic - Niger-Kordofanian languages
+nub - Nubian languages
+omq - Oto-Manguean languages
+omv - Omotic languages
+oto - Otomian languages
+paa - Papuan languages
+phi - Philippine languages
+plf - Central Malayo-Polynesian languages
+poz - Malayo-Polynesian languages
+pqe - Eastern Malayo-Polynesian languages
+pqw - Western Malayo-Polynesian languages
+pra - Prakrit languages
+qwe - Quechuan (family)
+roa - Romance languages
+sai - South American Indian languages
+sal - Salishan languages
+sdv - Eastern Sudanic languages
+sem - Semitic languages
+sgn - sign languages
+sio - Siouan languages
+sit - Sino-Tibetan languages
+sla - Slavic languages
+smi - Sami languages
+son - Songhai languages
+sqj - Albanian languages
+ssa - Nilo-Saharan languages
+syd - Samoyedic languages
+tai - Tai languages
+tbq - Tibeto-Burman languages
+trk - Turkic languages
+tup - Tupi languages
+tut - Altaic languages
+tuw - Tungus languages
+urj - Uralic languages
+wak - Wakashan languages
+wen - Sorbian languages
+xgn - Mongolian languages
+xnd - Na-Dene languages
+ypk - Yupik languages
+zhx - Chinese (family)
+zle - East Slavic languages
+zls - South Slavic languages
+zlw - West Slavic languages
+znd - Zande languages
+",,,"The CEDS ISO 639-5 Language Family option set comes from the <a href=""http://www.loc.gov/standards/iso639-5/index.html"">ISO 639-5 standard</a>.",001638,ISO6395LanguageFamily,https://ceds.ed.gov/cedselementdetails.aspx?termid=24619,69241
+Career and Technical,CTE Staff,Language,Language Type,An indication of the function and context in which a person uses a language to communicate.,"Correspondence - Correspondence
+
+	
+Dominant - Dominant language
+Home - Home language
+Native - Native language
+OtherLanguageProficiency - Other language proficiency
+Other - Other
+Spoken - Spoken Correspondence
+Written - Written Correspondence
+",,,,000316,LanguageType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23316,69242
+Career and Technical,CTE Staff,Relationship,Person Relationship Type,The nature of a person's relationship to another person.,"Aunt - Aunt
+Brother - Brother
+BrotherInLaw - Brother-in-law
+CourtAppointedGuardian - Court appointed guardian
+Daughter - Daughter
+DaughterInLaw - Daughter-in-law
+Employer - Employer
+Father - Father
+FathersSignificantOther - Father's significant other
+FathersCivilPartner - Father's civil partner
+FatherInLaw - Father-in-law
+Fiance - Fiance
+Fiancee - Fiancee
+Friend - Friend
+Grandfather - Grandfather
+Grandmother - Grandmother
+Husband - Husband
+MothersSignificantOther - Mother's significant other
+Mother - Mother
+MothersCivilPartner - Mother's civil partner
+Nephew - Nephew
+Niece - Niece
+Other - Other
+SignificantOther - Significant other
+Sister - Sister
+Son - Son
+Unknown - Unknown
+Uncle - Uncle
+Ward - Ward
+Wife - Wife
+AdoptedDaughter - Adopted Daughter
+AdoptedSon - Adopted son
+AdoptiveParent - Adoptive parent
+Advisor - Advisor
+AgencyRepresentative - Agency representative
+Cousin - Cousin
+Dependent - Dependent
+FamilyMember - Family member
+FormerHusband - Former husband
+FormerWife - Former wife
+FosterDaughter - Foster daughter
+FosterFather - Foster father
+FosterMother - Foster mother
+FosterParent - Foster Parent
+FosterSon - Foster son
+Godparent - Godparent
+Granddaughter - Granddaughter
+Grandparent - Grandparent
+Grandson - Grandson
+GreatAunt - Great aunt
+GreatGrandparent - Great grandparent
+GreatUncle - Great uncle
+HalfBrother - Half-brother
+HalfSister - Half-sister
+LifePartner - Life partner
+LifePartnerOfParent - Life partner of parent
+MotherInLaw - Mother-in-law
+Neighbor - Neighbor
+Parent - Parent
+Partner - Partner
+PartnerOfParent - Partner of parent
+ProbationOfficer - Probation officer
+Relative - Relative
+Sibling - Sibling
+SisterInLaw - Sister-in-law
+SonInLaw - Son-in-law
+Spouse - Spouse
+Stepbrother - Stepbrother
+Stepdaughter - Stepdaughter
+Stepfather - Stepfather
+Stepmother - Stepmother
+Stepparent - Stepparent
+Stepsister - Stepsister
+Stepson - Stepson
+",,,"For implementation in the CEDS Integrated Data Store (IDS), the ""person"" in the description would be the person referred to in the PersonId column in the IDS. The ""related person"" in the description would be the person referred to in the ""RelatedPersonId"" in the IDS. Example: Foster mother - The person (PersonId) is the related person's (RelatedPersonId) Foster mother.",000425,PersonRelationshipType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23415,69243
+Career and Technical,CTE Staff,Status,Public Assistance Status,"A person who receives financial assistance from Federal, State, or local government agencies, including Temporary Assistance for Needy Families or equivalent.","Yes
+No
+",,,,000777,PublicAssistanceStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=23760,69244
+Career and Technical,CTE Student,Academic Record,Academic Award Date,"The year, month and day or year and month on which the academic award was conferred.",None,,,,000001,AcademicAwardDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23001,68685
+Career and Technical,CTE Student,Academic Record,Academic Award Level Conferred,"An indicator of the category of award conferred by a college, university, or other postsecondary education institution as official recognition for the successful completion of a program of study.   ","01 - Postsecondary award, certificate, or diploma of less than 1 academic year
+02 - Postsecondary award, certificate, or diploma of at least 1 but less than 2 academic years
+03 - Associate's Degree
+04 - Postsecondary award, certificate, or diploma of at least 2 but less than 4 academic  years
+05 - Bachelor's Degree
+06 - Postbaccalaureate Certificate
+07 - Master's Degree
+08 - Post-Master's Certificate
+17 - Doctor's Degree-Research/Scholarship
+18 - Doctor's Degree-Professional Practice
+19 - Doctor's Degree-Other
+",,,,000002,AcademicAwardLevelConferred,https://ceds.ed.gov/cedselementdetails.aspx?termid=23002,68677
+Career and Technical,CTE Student,Academic Record,Academic Award Title,The descriptive title for the academic award.,None,,,,000003,AcademicAwardTitle,https://ceds.ed.gov/cedselementdetails.aspx?termid=23003,68678
+Career and Technical,CTE Student,Academic Record,Career and Technical Education Completer,An indication of a student who reached a state-defined threshold of a career and technical education program/pathway.,"Yes
+No
+",Updated,Add new DES location,,000036,CTECompleter,https://ceds.ed.gov/cedselementdetails.aspx?termid=23036,66894
+Career and Technical,CTE Student,Academic Record,Career and Technical Education Nontraditional Completion,An indication that the CTE student has completed a CTE program in a nontraditional field (where one gender comprises less than 25 percent of the persons employed in those occupations or fields of work).,"Yes
+No
+",,,,000593,CTENontraditionalCompletion,https://ceds.ed.gov/cedselementdetails.aspx?termid=23586,66895
+Career and Technical,CTE Student,Academic Record,Classification of Instructional Program Code,A six-digit code in the form xx.xxxx that identifies instructional program specialties within educational institutions.,CIP codes are available at: https://nces.ed.gov/ipeds/cipcode/browse.aspx?y=55.,Updated,Updated link to newer version of CIP Codes,,000043,CIPCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=23043,68679
+Career and Technical,CTE Student,Academic Record,Classification of Instructional Program Use,An indicator of whether the CIP Code is referencing an enrollment program or an award program.,"PrimaryEnrollment - Primary enrollment
+AdditionalEnrollment - Additional enrollment
+PrimaryCompletion - Primary completion
+AdditionalCompletion - Additional completion
+",,,,000044,CIPUse,https://ceds.ed.gov/cedselementdetails.aspx?termid=23044,68680
+Career and Technical,CTE Student,Academic Record,Classification of Instructional Program Version,The version of CIP being reported.,"CIP1980 - CIP 1980
+CIP1985 - CIP 1985
+CIP1990 - CIP 1990
+CIP2000 - CIP 2000
+CIP2010 - CIP 2010
+CIP2020 - CIP 2020
+",Updated,"Added new option to existing option set, add new DES locations",,000045,CIPVersion,https://ceds.ed.gov/cedselementdetails.aspx?termid=23045,68681
+Career and Technical,CTE Student,Academic Record,Credit Hours Applied Other Program,Codes identifying the set of credit hours taken in other programs or degrees that were applied to the individual's degree.,"00 - None
+01 - Undergraduate hours applied towards graduate degree
+02 - Credit hours taken at the postbaccalaureate level
+03 - Credit hours taken as unclassified student
+04 - Credit hours taken as an independent student
+05 - Credit hours taken as traveling scholar at another university
+06 - Credit hours taken at master's level
+07 - Credit hours taken as a master's student in one program, applied towards another master's program
+98 - Unknown
+99 - Other
+",,,,001317,CreditHoursAppliedOtherProgram,https://ceds.ed.gov/cedselementdetails.aspx?termid=24283,68676
+Career and Technical,CTE Student,Academic Record,Degree or Certificate Conferring Date,"The year, month and day on which a person received a degree or certificate.",None,Updated,Add new DES location,,000344,DegreeOrCertificateConferringDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23343,66899
+Career and Technical,CTE Student,Academic Record,Degree or Certificate Title or Subject,The name of the degree or certificate earned by a person. This includes honorary degrees conferred upon an individual.,None,Updated,Add new DES location,,000342,DegreeOrCertificateTitleOrSubject,https://ceds.ed.gov/cedselementdetails.aspx?termid=23341,66898
+Career and Technical,CTE Student,Academic Record,Degree or Certificate Type,The type of degree or certificate earned by a person.,"73063 - Adult education certification, endorsement, or degree
+01050 - Associate's degree (two years or more)
+01051 - Bachelor's (Baccalaureate) degree
+01057 - Doctoral (Doctor's) degree
+01053 - First-professional degree
+01047 - Formal award, certificate or diploma (less than one year)
+01048 - Formal award, certificate or diploma (more than or equal to one year)
+01052 - Graduate certificate
+01045 - High school diploma or the equivalent (e.g., GED or recognized home school)
+01054 - Master's degree (e.g., M.A., M.S., M. Eng., M.Ed., M.S.W., M.B.A., M.L.S.)
+01056 - Post-professional degree
+01049 - Some college but no degree
+01055 - Specialist's degree (e.g., Ed.S.)
+00819 - Career and Technical Education certificate
+09999 - Other
+",Updated,Add new DES location,,000343,DegreeOrCertificateType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23342,66897
+Career and Technical,CTE Student,Academic Record,Diploma or Credential Award Date,The month and year on which the diploma/credential is awarded to a student in recognition of his/her completion of the curricular requirements.,None,,,,000081,DiplomaOrCredentialAwardDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23081,67965
+Career and Technical,CTE Student,Academic Record,DQP Categories of Learning,"The Lumina Foundation's Degree Qualifications Profile offers reference points for what students should know and be able to do upon completion of associate, bachelor's and master's degrees - in any field of study. The DQP Categories of Learning provide a profile of what degrees mean within which specific proficiencies may be defined.","SpecializedKnowledge - Specialized Knowledge
+BroadAndIntegrativeKnowledge - Broad and Integrative Knowledge
+IntellectualSkills - Intellectual Skills
+AppliedAndCollaborativeLearning - Applied and Collaborative Learning
+CivicAndGlobalLearning - Civic and Global Learning
+",,,"Based on the <a href=""http://degreeprofile.org"">Degree Qualifications Profile</a>.",001641,DQPCategoriesOfLearning,https://ceds.ed.gov/cedselementdetails.aspx?termid=24622,68684
+Career and Technical,CTE Student,Academic Record,High School Diploma Distinction Type,The distinction of the diploma or credential that is awarded to a student in recognition of their completion of the curricular requirements.,"Minimum - Minimum
+Recommended - Recommended
+Distinguished - Distinguished
+OpenEnrollment - Open Enrollment
+MagnaCumLaude - Magna cum laude
+SummaCumLaude - Summa cum laude
+CareerandTechnical - Career and Technical
+SealofBiliteracy - Seal of Biliteracy
+Other - Other
+",Updated,Add new options to option set,,000713,HighSchoolDiplomaDistinctionType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23689,68722
+Career and Technical,CTE Student,Academic Record,High School Diploma Type,The type of diploma/credential that is awarded to a person in recognition of his/her completion of the curricular requirements.,"00806 - Regular High School Diploma
+00807 - Endorsed/advanced diploma
+00808 - Regents diploma
+00809 - International Baccalaureate
+00810 - Modified diploma
+00811 - Other diploma
+00812 - Alternative credential
+00813 - Certificate of attendance
+00814 - Certificate of completion
+00815 - High school equivalency credential, other than GED
+00816 - General Educational Development (GED) credential
+00818 - Post graduate certificate (grade 13)
+00819 - Career and Technical Education certificate
+75000 - State Defined Alternate Diploma
+",Updated,"Added new option to existing option set, change option set","Use ""Other Diploma"" instead of ""Other"" option.",000138,HighSchoolDiplomaType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23138,68719
+Career and Technical,CTE Student,Academic Record,Number of Credits Earned,The number of credits an individual earns by the successful completion of a course.,None,,,,000200,NumberOfCreditsEarned,https://ceds.ed.gov/cedselementdetails.aspx?termid=23200,67982
+Career and Technical,CTE Student,Academic Record,Postsecondary Program Level,The level describing the concentration of study for a postsecondary program.,"Major - Major
+Minor - Minor
+Certificate - Certificate
+Other - Other
+",,,,001616,PostsecondaryProgram Level,https://ceds.ed.gov/cedselementdetails.aspx?termid=24595,68683
+Career and Technical,CTE Student,Academic Record,Professional or Technical Credential Conferred,An indicator of the category of credential conferred by a state occupational licensing entity or industry organization for competency in a specific area measured by a set of pre-established standards.,"OccupationalLicense - Occupational License
+IndustryCertification - Industry-recognized Certification
+ApprenticeshipCertificate - Apprenticeship Certificate
+EmployerCertification - Employer certification
+PreEmploymentTraining - Pre-employment training certificate
+OtherOccupational - Other recognized occupational skills credential
+",,,,000783,ProfessionalOrTechnicalCredentialConferred,https://ceds.ed.gov/cedselementdetails.aspx?termid=23780,66896
+Career and Technical,CTE Student,Academic Record,Program Identifier,"A unique number or alphanumeric code assigned to a program by a school, school system, a state, or other agency or entity.",None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",000625,ProgramIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23618,68682
+Career and Technical,CTE Student,Academic Record,Projected High School Diploma Type,The type of projected diploma/credential a person would be awarded in recognition of his/her completion of the curricular requirements.,"00812 - Alternative credential
+00819 - Career and Technical Education certificate
+00813 - Certificate of attendance
+00814 - Certificate of completion
+00807 - Endorsed/advanced diploma
+00816 - General Educational Development (GED) credential
+00815 - High school equivalency credential, other than GED
+00809 - International Baccalaureate
+00810 - Modified diploma
+00811 - Other diploma
+00818 - Post graduate certificate (grade 13)
+00808 - Regents diploma
+00806 - Regular High School Diploma
+75000 - State Defined Alternate Diploma
+",New,Added new element to DES.,,002026,ProjectedHighSchoolDiplomaType,https://ceds.ed.gov/cedselementdetails.aspx?termid=25077,70022
+Career and Technical,CTE Student,Career Education Plan,Career Education Plan Date,The date on which an individual's professional development career plan was last updated.,None,Updated,Add new DES location,,001289,CareerEducationPlanDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24255,67531
+Career and Technical,CTE Student,Career Education Plan,Career Education Plan Type,An indication of whether an individual completed an individualized guidance and counseling plan,"Education - Education plan
+Career - Career plan
+Both - Both education and career plan
+Other - Other
+",Updated,Add new DES location,,001290,CareerEducationPlanType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24256,67532
+Career and Technical,CTE Student,Contact,Address Apartment Room or Suite Number,"The apartment, room, or suite number of an address.",None,Updated,Add new DES location,,000019,AddressApartmentRoomOrSuiteNumber,https://ceds.ed.gov/cedselementdetails.aspx?termid=23019,66874
+Career and Technical,CTE Student,Contact,Address City,The name of the city in which an address is located.,None,Updated,Add new DES location,,000040,AddressCity,https://ceds.ed.gov/cedselementdetails.aspx?termid=23040,66875
+Career and Technical,CTE Student,Contact,Address County Name,"The name of the county, parish, borough, or comparable unit (within a state) in which an address is located.",None,Updated,Add new DES location,,000190,AddressCountyName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23190,66137
+Career and Technical,CTE Student,Contact,Address Postal Code,A number that identifies each postal delivery area in the United States used as a portion of an address.,None,Updated,Add new DES location,,000214,AddressPostalCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=23214,66877
+Career and Technical,CTE Student,Contact,Address Street Number and Name,The street number and street name or post office box number of an address.,None,,,,000269,AddressStreetNumberAndName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23269,66873
+Career and Technical,CTE Student,Contact,Address Type for Learner or Family,"The type of address listed for a learner or a parent, guardian, family member or related person.","Mailing - Mailing
+Physical - Physical
+Shipping - Shipping
+Billing - Billing address
+OnCampus - On campus
+OffCampus - Off-campus, temporary
+PermanentStudent - Permanent, student
+PermanentAdmission - Permanent, at time of admission
+FatherAddress - Father's address
+MotherAddress - Mother's address
+GuardianAddress - Guardian's address
+",,,,000010,AddressTypeForLearnerOrFamily,https://ceds.ed.gov/cedselementdetails.aspx?termid=23358,66872
+Career and Technical,CTE Student,Contact,Country Code,The unique two character International Organization for Standardization (ISO) code for the country in which an address is located.,"AF - AFGHANISTAN
+AX - ÅLAND ISLANDS
+AL - ALBANIA
+DZ - ALGERIA
+AS - AMERICAN SAMOA
+AD - ANDORRA
+AO - ANGOLA
+AI - ANGUILLA
+AQ - ANTARCTICA
+AG - ANTIGUA AND BARBUDA
+AR - ARGENTINA
+AM - ARMENIA
+AW - ARUBA
+AU - AUSTRALIA
+AT - AUSTRIA
+AZ - AZERBAIJAN
+BS - BAHAMAS
+BH - BAHRAIN
+BD - BANGLADESH
+BB - BARBADOS
+BY - BELARUS
+BE - BELGIUM
+BZ - BELIZE
+BJ - BENIN
+BM - BERMUDA
+BT - BHUTAN
+BO - BOLIVIA (PLURINATIONAL STATE OF)
+BQ - BONAIRE, SINT EUSTATIUS AND SABA
+BA - BOSNIA AND HERZEGOVINA
+BW - BOTSWANA
+BV - BOUVET ISLAND
+BR - BRAZIL
+IO - BRITISH INDIAN OCEAN TERRITORY
+BN - BRUNEI DARUSSALAM
+BG - BULGARIA
+BF - BURKINA FASO
+BI - BURUNDI
+KH - CAMBODIA
+CM - CAMEROON
+CA - CANADA
+CV - CABO VERDE
+KY - CAYMAN ISLANDS
+CF - CENTRAL AFRICAN REPUBLIC
+TD - CHAD
+CL - CHILE
+CN - CHINA
+CX - CHRISTMAS ISLAND
+CC - COCOS (KEELING) ISLANDS
+CO - COLOMBIA
+KM - COMOROS
+CG - CONGO
+CD - CONGO, DEMOCRATIC REPUBLIC OF THE
+CK - COOK ISLANDS
+CR - COSTA RICA
+CI - CÔTE D'IVOIRE
+HR - CROATIA
+CU - CUBA
+CW - CURAÇAO
+CY - CYPRUS
+CZ - CZECHIA
+DK - DENMARK
+DJ - DJIBOUTI
+DM - DOMINICA
+DO - DOMINICAN REPUBLIC
+EC - ECUADOR
+EG - EGYPT
+SV - EL SALVADOR
+GQ - EQUATORIAL GUINEA
+ER - ERITREA
+EE - ESTONIA
+ET - ETHIOPIA
+FK - FALKLAND ISLANDS (MALVINAS)
+FO - FAROE ISLANDS
+FJ - FIJI
+FI - FINLAND
+FR - FRANCE
+GF - FRENCH GUIANA
+PF - FRENCH POLYNESIA
+TF - FRENCH SOUTHERN TERRITORIES
+GA - GABON
+GM - GAMBIA
+GE - GEORGIA
+DE - GERMANY
+GH - GHANA
+GI - GIBRALTAR
+GR - GREECE
+GL - GREENLAND
+GD - GRENADA
+GP - GUADELOUPE
+GU - GUAM
+GT - GUATEMALA
+GG - GUERNSEY
+GN - GUINEA
+GW - GUINEA-BISSAU
+GY - GUYANA
+HT - HAITI
+HM - HEARD ISLAND AND MCDONALD ISLANDS
+VA - HOLY SEE
+HN - HONDURAS
+HK - HONG KONG
+HU - HUNGARY
+IS - ICELAND
+IN - INDIA
+ID - INDONESIA
+IR - IRAN (ISLAMIC REPUBLIC OF)
+IQ - IRAQ
+IE - IRELAND
+IM - ISLE OF MAN
+IL - ISRAEL
+IT - ITALY
+JM - JAMAICA
+JP - JAPAN
+JE - JERSEY
+JO - JORDAN
+KZ - KAZAKHSTAN
+KE - KENYA
+KI - KIRIBATI
+KP - KOREA (DEMOCRATIC PEOPLE'S REPUBLIC OF)
+KR - KOREA, REPUBLIC OF
+KW - KUWAIT
+KG - KYRGYZSTAN
+LA - LAO PEOPLE'S DEMOCRATIC REPUBLIC
+LV - LATVIA
+LB - LEBANON
+LS - LESOTHO
+LR - LIBERIA
+LY - LIBYA
+LI - LIECHTENSTEIN
+LT - LITHUANIA
+LU - LUXEMBOURG
+MO - MACAO
+MK - NORTH MACEDONIA
+MG - MADAGASCAR
+MW - MALAWI
+MY - MALAYSIA
+MV - MALDIVES
+ML - MALI
+MT - MALTA
+MH - MARSHALL ISLANDS
+MQ - MARTINIQUE
+MR - MAURITANIA
+MU - MAURITIUS
+YT - MAYOTTE
+MX - MEXICO
+FM - MICRONESIA (FEDERATED STATES OF)
+MD - MOLDOVA, REPUBLIC OF
+MC - MONACO
+MN - MONGOLIA
+ME - MONTENEGRO
+MS - MONTSERRAT
+MA - MOROCCO
+MZ - MOZAMBIQUE
+MM - MYANMAR
+NA - NAMIBIA
+NR - NAURU
+NP - NEPAL
+NL - NETHERLANDS
+NC - NEW CALEDONIA
+NZ - NEW ZEALAND
+NI - NICARAGUA
+NE - NIGER
+NG - NIGERIA
+NU - NIUE
+NF - NORFOLK ISLAND
+MP - NORTHERN MARIANA ISLANDS
+NO - NORWAY
+OM - OMAN
+PK - PAKISTAN
+PW - PALAU
+PS - PALESTINE, STATE OF
+PA - PANAMA
+PG - PAPUA NEW GUINEA
+PY - PARAGUAY
+PE - PERU
+PH - PHILIPPINES
+PN - PITCAIRN
+PL - POLAND
+PT - PORTUGAL
+PR - PUERTO RICO
+QA - QATAR
+RE - RÉUNION
+RO - ROMANIA
+RU - RUSSIAN FEDERATION
+RW - RWANDA
+BL - SAINT BARTHÉLEMY
+SH - SAINT HELENA, ASCENSION AND TRISTAN DA CUNHA
+KN - SAINT KITTS AND NEVIS
+LC - SAINT LUCIA
+MF - SAINT MARTIN (FRENCH PART)
+PM - SAINT PIERRE AND MIQUELON
+VC - SAINT VINCENT AND THE GRENADINES
+WS - SAMOA
+SM - SAN MARINO
+ST - SAO TOME AND PRINCIPE
+SA - SAUDI ARABIA
+SN - SENEGAL
+RS - SERBIA
+SC - SEYCHELLES
+SL - SIERRA LEONE
+SG - SINGAPORE
+SX - SINT MAARTEN (DUTCH PART)
+SK - SLOVAKIA
+SI - SLOVENIA
+SB - SOLOMON ISLANDS
+SO - SOMALIA
+ZA - SOUTH AFRICA
+GS - SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS
+SS - SOUTH SUDAN
+ES - SPAIN
+LK - SRI LANKA
+SD - SUDAN
+SR - SURINAME
+SJ - SVALBARD AND JAN MAYEN
+SZ - ESWATINI
+SE - SWEDEN
+CH - SWITZERLAND
+SY - SYRIAN ARAB REPUBLIC
+TW - TAIWAN
+TJ - TAJIKISTAN
+TZ - TANZANIA, UNITED REPUBLIC OF
+TH - THAILAND
+TL - TIMOR-LESTE
+TG - TOGO
+TK - TOKELAU
+TO - TONGA
+TT - TRINIDAD AND TOBAGO
+TN - TUNISIA
+TR - TURKEY
+TM - TURKMENISTAN
+TC - TURKS AND CAICOS ISLANDS
+TV - TUVALU
+UG - UGANDA
+UA - UKRAINE
+AE - UNITED ARAB EMIRATES
+GB - UNITED KINGDOM OF GREAT BRITAIN AND NORTHERN IRELAND
+US - UNITED STATES OF AMERICA
+UM - UNITED STATES MINOR OUTLYING ISLANDS
+UY - URUGUAY
+UZ - UZBEKISTAN
+VU - VANUATU
+VE - VENEZUELA (BOLIVARIAN REPUBLIC OF)
+VN - VIET NAM
+VG - VIRGIN ISLANDS (BRITISH)
+VI - VIRGIN ISLANDS (U.S.)
+WF - WALLIS AND FUTUNA
+EH - WESTERN SAHARA
+YE - YEMEN
+ZM - ZAMBIA
+ZW - ZIMBABWE
+",,,"The CEDS Country Code option set comes from the <a href=""http://www.iso.org/iso/country_codes.htm"">ISO 3166 standard</a>, the short name for Officially assigned codes.   Discontinued codes from the ISO standard are not included in the CEDS list.",000050,CountryCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=23050,66136
+Career and Technical,CTE Student,Contact,County ANSI Code,"County code as defined for the identification of counties and equivalent areas of the United States, Puerto Rico, and the insular areas as established by the American National Standards Institute (ANSI) Inter-National Committee for Information Technology Standards (INCITS) in specification BSR INCITS 31-200x or more current updates. See https://www.census.gov/library/reference/code-lists/ansi.html#par_statelist.",None,,,,001209,CountyANSICode,https://ceds.ed.gov/cedselementdetails.aspx?termid=24176,69245
+Career and Technical,CTE Student,Contact,Do Not Publish Indicator,An indication that the record should not be published.,"Yes
+No
+Unknown
+",,,,001928,DoNotPublishIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24905,69246
+Career and Technical,CTE Student,Contact,Do Not Publish Indicator,An indication that the record should not be published.,"Yes
+No
+Unknown
+",,,,001928,DoNotPublishIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24905,69248
+Career and Technical,CTE Student,Contact,Do Not Publish Indicator,An indication that the record should not be published.,"Yes
+No
+Unknown
+",,,,001928,DoNotPublishIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24905,69247
+Career and Technical,CTE Student,Contact,Electronic Mail Address,"The numbers, letters, and symbols used to identify an electronic mail (e-mail) user within the network to which the person or organization belongs.",None,,,,000088,ElectronicMailAddress,https://ceds.ed.gov/cedselementdetails.aspx?termid=23088,66882
+Career and Technical,CTE Student,Contact,Electronic Mail Address Type,The type of electronic mail (e-mail) address listed for a person or organization.,"Home - Home/personal
+Work - Work
+Organizational - Organizational address
+Other - Other
+",Updated,Change option for Organizational address,,000089,ElectronicMailAddressType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23089,66881
+Career and Technical,CTE Student,Contact,Latitude,"The north or south angular distance from the equator that, when combined with longitude, reflects an estimation of where the address is physically situated.",None,,,,000606,Latitude,https://ceds.ed.gov/cedselementdetails.aspx?termid=23599,68265
+Career and Technical,CTE Student,Contact,Longitude,"The east or west angular distance from the prime meridian that, when combined with latitude, reflects an estimation of where the address is physically situated.",None,,,,000607,Longitude,https://ceds.ed.gov/cedselementdetails.aspx?termid=23600,68288
+Career and Technical,CTE Student,Contact,Primary Telephone Number Indicator,An indication that the telephone number should be used as the principal number for a person or organization.,"Yes
+No
+",,,,000219,PrimaryTelephoneNumberIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=23219,66879
+Career and Technical,CTE Student,Contact,State Abbreviation,The abbreviation for the state (within the United States) or outlying area in which an address is located.,"AK - Alaska
+AL - Alabama
+AR - Arkansas
+AS - American Samoa
+AZ - Arizona
+CA - California
+CO - Colorado
+CT - Connecticut
+DC - District of Columbia
+DE - Delaware
+FL - Florida
+FM - Federated States of Micronesia
+GA - Georgia
+GU - Guam
+HI - Hawaii
+IA - Iowa
+ID - Idaho
+IL - Illinois
+IN - Indiana
+KS - Kansas
+KY - Kentucky
+LA - Louisiana
+MA - Massachusetts
+MD - Maryland
+ME - Maine
+MH - Marshall Islands
+MI - Michigan
+MN - Minnesota
+MO - Missouri
+MP - Northern Marianas
+MS - Mississippi
+MT - Montana
+NC - North Carolina
+ND - North Dakota
+NE - Nebraska
+NH - New Hampshire
+NJ - New Jersey
+NM - New Mexico
+NV - Nevada
+NY - New York
+OH - Ohio
+OK - Oklahoma
+OR - Oregon
+PA - Pennsylvania
+PR - Puerto Rico
+PW - Palau
+RI - Rhode Island
+SC - South Carolina
+SD - South Dakota
+TN - Tennessee
+TX - Texas
+UT - Utah
+VA - Virginia
+VI - Virgin Islands
+VT - Vermont
+WA - Washington
+WI - Wisconsin
+WV - West Virginia
+WY - Wyoming
+AA - Armed Forces America
+AE - Armed Forces Africa, Canada, Europe, and Mideast
+AP - Armed Forces Pacific
+BI - Bureau of Indian Affairs
+DD - Department of Defense Domestic
+DO - Department of Defense Overseas
+",Updated,Add new DES location,,000267,StateAbbreviation,https://ceds.ed.gov/cedselementdetails.aspx?termid=23267,66876
+Career and Technical,CTE Student,Contact,Telephone Number,"The telephone number including the area code, and extension, if applicable.",None,,,,000279,TelephoneNumber,https://ceds.ed.gov/cedselementdetails.aspx?termid=23279,66880
+Career and Technical,CTE Student,Contact,Telephone Number Listed Status,An indication of whether a telephone number is listed under a directory assistance service.,"Listed - Listed
+Unknown - Unknown
+Unlisted - Unlisted
+",,,,001927,TelephoneNumberListedStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=24911,69249
+Career and Technical,CTE Student,Contact,Telephone Number Type,The type of communication number listed for a person.,"Home - Home phone number
+Work - Work phone number
+Mobile - Mobile phone number
+Fax - Fax number
+Other - Other
+",,,,000280,TelephoneNumberType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23280,66878
+Career and Technical,CTE Student,Demographic,American Indian or Alaska Native,"A person having origins in any of the original peoples of North and South America (including Central America), and who maintains cultural identification through tribal affiliation or community attachment.","Yes - Yes
+No - No
+NotSelected - Not selected
+",,,K12: Use cases support Yes and No as options.  <BR/><BR/>Postsecondary: <BR/>- Use cases support Yes and Not Selected as options<BR/>- As defined in IPEDS,000016,AmericanIndianOrAlaskaNative,https://ceds.ed.gov/cedselementdetails.aspx?termid=23655,66866
+Career and Technical,CTE Student,Demographic,Asian,"A person having origins in any of the original peoples of the Far East, Southeast Asia, or the Indian Subcontinent. This area includes, for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam.","Yes - Yes
+No - No
+NotSelected - Not selected
+",,,K12: Use cases support Yes and No as options.  <BR/><BR/>Postsecondary: <BR/>- Use cases support Yes and Not Selected as options<BR/>- As defined in IPEDS,000020,Asian,https://ceds.ed.gov/cedselementdetails.aspx?termid=23656,66867
+Career and Technical,CTE Student,Demographic,Birthdate,"The year, month and day on which a person was born.",None,,,,000033,Birthdate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23033,66864
+Career and Technical,CTE Student,Demographic,Black or African American,A person having origins in any of the black racial groups of Africa.,"Yes - Yes
+No - No
+NotSelected - Not selected
+",,,K12: Use cases support Yes and No as options.  <BR/><BR/>Postsecondary: <BR/>- Use cases support Yes and Not Selected as options<BR/>- As defined in IPEDS,000034,BlackOrAfricanAmerican,https://ceds.ed.gov/cedselementdetails.aspx?termid=23657,66868
+Career and Technical,CTE Student,Demographic,Country of Birth Code,The unique two digit International Organization for Standardization (ISO) code for the country in which a person is born.,"AF - AFGHANISTAN
+AX - ÅLAND ISLANDS
+AL - ALBANIA
+DZ - ALGERIA
+AS - AMERICAN SAMOA
+AD - ANDORRA
+AO - ANGOLA
+AI - ANGUILLA
+AQ - ANTARCTICA
+AG - ANTIGUA AND BARBUDA
+AR - ARGENTINA
+AM - ARMENIA
+AW - ARUBA
+AU - AUSTRALIA
+AT - AUSTRIA
+AZ - AZERBAIJAN
+BS - BAHAMAS
+BH - BAHRAIN
+BD - BANGLADESH
+BB - BARBADOS
+BY - BELARUS
+BE - BELGIUM
+BZ - BELIZE
+BJ - BENIN
+BM - BERMUDA
+BT - BHUTAN
+BO - BOLIVIA (PLURINATIONAL STATE OF)
+BQ - BONAIRE, SINT EUSTATIUS AND SABA
+BA - BOSNIA AND HERZEGOVINA
+BW - BOTSWANA
+BV - BOUVET ISLAND
+BR - BRAZIL
+IO - BRITISH INDIAN OCEAN TERRITORY
+BN - BRUNEI DARUSSALAM
+BG - BULGARIA
+BF - BURKINA FASO
+BI - BURUNDI
+KH - CAMBODIA
+CM - CAMEROON
+CA - CANADA
+CV - CABO VERDE
+KY - CAYMAN ISLANDS
+CF - CENTRAL AFRICAN REPUBLIC
+TD - CHAD
+CL - CHILE
+CN - CHINA
+CX - CHRISTMAS ISLAND
+CC - COCOS (KEELING) ISLANDS
+CO - COLOMBIA
+KM - COMOROS
+CG - CONGO
+CD - CONGO, DEMOCRATIC REPUBLIC OF THE
+CK - COOK ISLANDS
+CR - COSTA RICA
+CI - CÔTE D'IVOIRE
+HR - CROATIA
+CU - CUBA
+CW - CURAÇAO
+CY - CYPRUS
+CZ - CZECHIA
+DK - DENMARK
+DJ - DJIBOUTI
+DM - DOMINICA
+DO - DOMINICAN REPUBLIC
+EC - ECUADOR
+EG - EGYPT
+SV - EL SALVADOR
+GQ - EQUATORIAL GUINEA
+ER - ERITREA
+EE - ESTONIA
+ET - ETHIOPIA
+FK - FALKLAND ISLANDS (MALVINAS)
+FO - FAROE ISLANDS
+FJ - FIJI
+FI - FINLAND
+FR - FRANCE
+GF - FRENCH GUIANA
+PF - FRENCH POLYNESIA
+TF - FRENCH SOUTHERN TERRITORIES
+GA - GABON
+GM - GAMBIA
+GE - GEORGIA
+DE - GERMANY
+GH - GHANA
+GI - GIBRALTAR
+GR - GREECE
+GL - GREENLAND
+GD - GRENADA
+GP - GUADELOUPE
+GU - GUAM
+GT - GUATEMALA
+GG - GUERNSEY
+GN - GUINEA
+GW - GUINEA-BISSAU
+GY - GUYANA
+HT - HAITI
+HM - HEARD ISLAND AND MCDONALD ISLANDS
+VA - HOLY SEE
+HN - HONDURAS
+HK - HONG KONG
+HU - HUNGARY
+IS - ICELAND
+IN - INDIA
+ID - INDONESIA
+IR - IRAN (ISLAMIC REPUBLIC OF)
+IQ - IRAQ
+IE - IRELAND
+IM - ISLE OF MAN
+IL - ISRAEL
+IT - ITALY
+JM - JAMAICA
+JP - JAPAN
+JE - JERSEY
+JO - JORDAN
+KZ - KAZAKHSTAN
+KE - KENYA
+KI - KIRIBATI
+KP - KOREA (DEMOCRATIC PEOPLE'S REPUBLIC OF)
+KR - KOREA, REPUBLIC OF
+KW - KUWAIT
+KG - KYRGYZSTAN
+LA - LAO PEOPLE'S DEMOCRATIC REPUBLIC
+LV - LATVIA
+LB - LEBANON
+LS - LESOTHO
+LR - LIBERIA
+LY - LIBYA
+LI - LIECHTENSTEIN
+LT - LITHUANIA
+LU - LUXEMBOURG
+MO - MACAO
+MK - NORTH MACEDONIA
+MG - MADAGASCAR
+MW - MALAWI
+MY - MALAYSIA
+MV - MALDIVES
+ML - MALI
+MT - MALTA
+MH - MARSHALL ISLANDS
+MQ - MARTINIQUE
+MR - MAURITANIA
+MU - MAURITIUS
+YT - MAYOTTE
+MX - MEXICO
+FM - MICRONESIA (FEDERATED STATES OF)
+MD - MOLDOVA, REPUBLIC OF
+MC - MONACO
+MN - MONGOLIA
+ME - MONTENEGRO
+MS - MONTSERRAT
+MA - MOROCCO
+MZ - MOZAMBIQUE
+MM - MYANMAR
+NA - NAMIBIA
+NR - NAURU
+NP - NEPAL
+NL - NETHERLANDS
+NC - NEW CALEDONIA
+NZ - NEW ZEALAND
+NI - NICARAGUA
+NE - NIGER
+NG - NIGERIA
+NU - NIUE
+NF - NORFOLK ISLAND
+MP - NORTHERN MARIANA ISLANDS
+NO - NORWAY
+OM - OMAN
+PK - PAKISTAN
+PW - PALAU
+PS - PALESTINE, STATE OF
+PA - PANAMA
+PG - PAPUA NEW GUINEA
+PY - PARAGUAY
+PE - PERU
+PH - PHILIPPINES
+PN - PITCAIRN
+PL - POLAND
+PT - PORTUGAL
+PR - PUERTO RICO
+QA - QATAR
+RE - RÉUNION
+RO - ROMANIA
+RU - RUSSIAN FEDERATION
+RW - RWANDA
+BL - SAINT BARTHÉLEMY
+SH - SAINT HELENA, ASCENSION AND TRISTAN DA CUNHA
+KN - SAINT KITTS AND NEVIS
+LC - SAINT LUCIA
+MF - SAINT MARTIN (FRENCH PART)
+PM - SAINT PIERRE AND MIQUELON
+VC - SAINT VINCENT AND THE GRENADINES
+WS - SAMOA
+SM - SAN MARINO
+ST - SAO TOME AND PRINCIPE
+SA - SAUDI ARABIA
+SN - SENEGAL
+RS - SERBIA
+SC - SEYCHELLES
+SL - SIERRA LEONE
+SG - SINGAPORE
+SX - SINT MAARTEN (DUTCH PART)
+SK - SLOVAKIA
+SI - SLOVENIA
+SB - SOLOMON ISLANDS
+SO - SOMALIA
+ZA - SOUTH AFRICA
+GS - SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS
+SS - SOUTH SUDAN
+ES - SPAIN
+LK - SRI LANKA
+SD - SUDAN
+SR - SURINAME
+SJ - SVALBARD AND JAN MAYEN
+SZ - ESWATINI
+SE - SWEDEN
+CH - SWITZERLAND
+SY - SYRIAN ARAB REPUBLIC
+TW - TAIWAN
+TJ - TAJIKISTAN
+TZ - TANZANIA, UNITED REPUBLIC OF
+TH - THAILAND
+TL - TIMOR-LESTE
+TG - TOGO
+TK - TOKELAU
+TO - TONGA
+TT - TRINIDAD AND TOBAGO
+TN - TUNISIA
+TR - TURKEY
+TM - TURKMENISTAN
+TC - TURKS AND CAICOS ISLANDS
+TV - TUVALU
+UG - UGANDA
+UA - UKRAINE
+AE - UNITED ARAB EMIRATES
+GB - UNITED KINGDOM OF GREAT BRITAIN AND NORTHERN IRELAND
+US - UNITED STATES OF AMERICA
+UM - UNITED STATES MINOR OUTLYING ISLANDS
+UY - URUGUAY
+UZ - UZBEKISTAN
+VU - VANUATU
+VE - VENEZUELA (BOLIVARIAN REPUBLIC OF)
+VN - VIET NAM
+VG - VIRGIN ISLANDS (BRITISH)
+VI - VIRGIN ISLANDS (U.S.)
+WF - WALLIS AND FUTUNA
+EH - WESTERN SAHARA
+YE - YEMEN
+ZM - ZAMBIA
+ZW - ZIMBABWE
+",,,"The CEDS Country Code option set comes from the <a href=""http://www.iso.org/iso/country_codes.htm"">ISO 3166 standard</a>, the short name for Officially assigned codes.   Discontinued codes from the ISO standard are not included in the CEDS list.",000051,CountryOfBirthCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=23051,69250
+Career and Technical,CTE Student,Demographic,Demographic Race Two or More Races,A person having origins in any of more than one of the racial groups.,"Yes
+No
+",,,"To support backward compatibility for systems that cannot derive this, i.e. systems that use a single race/ethnicity element rather than separate flags that can indicate one or more ethnicities.",000973,DemographicRaceTwoOrMoreRaces,https://ceds.ed.gov/cedselementdetails.aspx?termid=23974,69158
+Career and Technical,CTE Student,Demographic,Federal Race and Ethnicity Declined,"A parent, guardian, or student declined to report sufficient information for identifying a student's federal race and/or ethnicity.","Yes
+No
+",,,,001944,FederalRaceAndEthnicityDeclined,https://ceds.ed.gov/cedselementdetails.aspx?termid=24932,69486
+Career and Technical,CTE Student,Demographic,First Generation College Student,"The term First Generation College Student means an individual both of whose parents did not complete a baccalaureate degree or in the case of any individual who regularly resided with and received support from only one parent, an individual whose only such parent did not complete a baccalaureate degree.","Yes
+No
+Unknown
+",,,,001947,FirstGenerationCollegeStudent,https://ceds.ed.gov/cedselementdetails.aspx?termid=24933,69487
+Career and Technical,CTE Student,Demographic,Hispanic or Latino Ethnicity,"An indication that the person traces his or her origin or descent to Mexico, Puerto Rico, Cuba, Central and South America, and other Spanish cultures, regardless of race.","Yes - Yes
+No - No
+NotSelected - Not selected
+",,,K12: Use cases support Yes and No as options.  <BR/><BR/>Postsecondary: <BR/>- Use cases support Yes and Not Selected as options<BR/>- As defined in IPEDS,000144,HispanicOrLatinoEthnicity,https://ceds.ed.gov/cedselementdetails.aspx?termid=23144,66871
+Career and Technical,CTE Student,Demographic,Native Hawaiian or Other Pacific Islander,"A person having origins in any of the original peoples of Hawaii, Guam, Samoa, or other Pacific Islands.","Yes - Yes
+No - No
+NotSelected - Not selected
+",,,K12: Use cases support Yes and No as options.  <BR/><BR/>Postsecondary: <BR/>- Use cases support Yes and Not Selected as options<BR/>- As defined in IPEDS,000192,NativeHawaiianOrOtherPacificIslander,https://ceds.ed.gov/cedselementdetails.aspx?termid=23658,66869
+Career and Technical,CTE Student,Demographic,Race,The origins of a person.,"AmericanIndianOrAlaskaNative - American Indian or Alaska Native
+Asian - Asian
+BlackOrAfricanAmerican - Black or African American
+DemographicRaceTwoOrMoreRaces - Demographic Race Two or More Races
+NativeHawaiianOrOtherPacificIslander - Native Hawaiian or Other Pacific Islander
+RaceAndEthnicityUnknown - Race and Ethnicity Unknown
+White - White
+",,,"It is expected that a person may select more than one option with the exception of the options ""Demographic Race Two or More Races"" and ""Race and Ethnicity Unknown.""",001943,Race,https://ceds.ed.gov/cedselementdetails.aspx?termid=24955,69488
+Career and Technical,CTE Student,Demographic,Sex,The concept describing the biological traits that distinguish the males and females of a species.,"Male - Male
+Female - Female
+NotSelected - Not selected
+",,,Postsecondary: As defined in IPEDS,000255,Sex,https://ceds.ed.gov/cedselementdetails.aspx?termid=23255,66865
+Career and Technical,CTE Student,Demographic,Standard Occupational Classification,"A Bureau of Labor Statistics coding system for classifying occupations by work performed and, in some cases, on the skills, education and training needed to perform the work at a competent level.  See https://www.bls.gov/soc/2018/major_groups.htm.",None,Updated,Add new DES location,,000730,StandardOccupationalClassification,https://ceds.ed.gov/cedselementdetails.aspx?termid=23707,69251
+Career and Technical,CTE Student,Demographic,Tribal Affiliation,The Native American tribal entity recognized and eligible to receive services from the United States Bureau of Indian Affairs to which a person is affiliated.,See URL column,,,,001657,TribalAffiliation,https://ceds.ed.gov/cedselementdetails.aspx?termid=24638,69252
+Career and Technical,CTE Student,Demographic,White,"A person having origins in any of the original peoples of Europe, Middle East, or North Africa.","Yes - Yes
+No - No
+NotSelected - Not selected
+",,,K12: Use cases support Yes and No as options.  <BR/><BR/>Postsecondary: <BR/>- Use cases support Yes and Not Selected as options<BR/>- As defined in IPEDS,000301,White,https://ceds.ed.gov/cedselementdetails.aspx?termid=23659,66870
+Career and Technical,CTE Student,Digital Access,Internet Download Speed,The speed that data or information can be downloaded from a server on the internet to one's device in megabits per second.,None,,,"This information is collected via an internet speed test. In 2021, the FCC minimum broadband threshold is 25 Mbps. Display Example: 25.0",001976,InternetDownloadSpeed,https://ceds.ed.gov/cedselementdetails.aspx?termid=24938,69489
+Career and Technical,CTE Student,Digital Access,Internet Speed Test Date Time,"The date and, optionally, time that the information was gathered.",None,,,This information is collected and stored as part of each speed test. Display Example: 2021-09-20T10:30:00,001977,InternetSpeedTestDateTime,https://ceds.ed.gov/cedselementdetails.aspx?termid=24940,69490
+Career and Technical,CTE Student,Digital Access,Internet Upload Speed,The speed that data or information can be sent from one's device to another device or server on the internet in megabits per second.,None,,,"This information is collected via an internet speed test. In 2021, the FCC minimum broadband threshold is 3 Mbps. Display Example: 3.0",001975,InternetUploadSpeed,https://ceds.ed.gov/cedselementdetails.aspx?termid=24941,69491
+Career and Technical,CTE Student,Disability,Awaiting Initial IDEA Evaluation Status,Awaiting initial evaluation for special education programs and related services under the Individuals with Disabilities Education Act (IDEA). ,"Yes
+No
+",,,,000031,AwaitingInitialIDEAEvaluationStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=23031,68765
+Career and Technical,CTE Student,Disability,Disability Condition Type,Codes identifying the set of disability conditions.,"00 - No disability or impairment known or reported
+01 - Blindness or Visual Impairment
+02 - Cerebral Palsy
+03 - Chronic Illness
+04 - Deafness or Hearing Impairment
+05 - Drug or Alcohol Addiction
+06 - Emotionally/Psychologically Disabled: e.g., schizophrenia or depression
+07 - Epilepsy or Seizure Disorders
+08 - Intellectual Disability
+09 - Orthopedic Impairment
+10 - Specific learning disability
+11 - Speech or Language impairment
+99 - Other type of impairment
+",,,Disability Conditional Type may be used in K12 to specify a disability other than Primary Disability Type.,001320,DisabilityConditionType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24286,68767
+Career and Technical,CTE Student,Disability,Disability Determination Source Type,Codes identifying the set of disability determination sources.,"01 - By physician
+02 - By health care provider
+03 - By school psychologist or other psychologist
+04 - By licensed physical therapist
+05 - Self-reported
+06 - By social service or other type of agency
+97 - Not applicable to the student
+98 - Unknown or Unreported
+99 - Other
+",,,Disability Conditional Type may be used in K12 to specify a disability other than Primary Disability Type.,001321,DisabilityDeterminationSourceType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24287,68768
+Career and Technical,CTE Student,Disability,Disability Status,An indication of whether a person is classified as disabled under the American's with Disability Act (ADA).,"Yes
+No
+",,,,000577,DisabilityStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=23569,68762
+Career and Technical,CTE Student,Disability,IDEA Educational Environment for School Age,"The setting in which children ages 6 through 21, receive special education and related services.","RC80 - Inside regular class 80% or more of the day
+RC79TO40 - Inside regular class 40% through 79% of the day
+RC39 - Inside regular class less than 40% of the day
+SS - Separate school
+RF - Residential facility
+HH - Homebound/hospital
+CF - Correctional facility
+PPPS - Parentally placed in private school
+",,,,000535,IDEAEducationalEnvironmentForSchoolAge,https://ceds.ed.gov/cedselementdetails.aspx?termid=23526,68766
+Career and Technical,CTE Student,Disability,IDEA Indicator,"A person having intellectual disability; hearing impairment, including deafness; speech or language impairment; visual impairment, including blindness; serious emotional disturbance (hereafter referred to as emotional disturbance); orthopedic impairment; autism; traumatic brain injury; developmental delay; other health impairment; specific learning disability; deaf-blindness; or multiple disabilities and who, by reason thereof, receive special education and related services under the Individuals with Disabilities Education Act (IDEA) according to an Individualized Education Program (IEP), Individual Family Service Plan (IFSP), or service plan.","Yes
+No
+",,,,000151,IDEAIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=23151,68761
+Career and Technical,CTE Student,Disability,Primary Disability Type,The major or overriding disability condition that best describes a person's impairment.,"AUT - Autism
+DB - Deaf-blindness
+DD - Developmental delay
+EMN - Emotional disturbance
+HI - Hearing impairment
+ID - Intellectual Disability
+MD - Multiple disabilities
+OI - Orthopedic impairment
+OHI - Other health impairment
+SLD - Specific learning disability
+SLI - Speech or language impairment
+TBI - Traumatic brain injury
+VI - Visual impairment
+",,,Option set based on EDFacts. Only one disability condition would be selected. Refer to IDEA Disability Type for selecting multiple disability category options and any additional IDEA disability categories.,000218,PrimaryDisabilityType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23218,68764
+Career and Technical,CTE Student,Disability,Section 504 Status,"Individuals with disabilities who are being provided with related aids and services under Section 504 of the Rehabilitation Act of 1973, as amended.","Yes
+No
+",,,,000249,Section504Status,https://ceds.ed.gov/cedselementdetails.aspx?termid=23249,68763
+Career and Technical,CTE Student,Identity,First Name,"The full legal first name given to a person at birth, baptism, or through legal change.",None,,,"Workforce Note: To collect data on workforce program participation, a data match will have to be negotiated between state agencies.  The data match makes use of name, social security number, gender and ethnicity data.",000115,FirstName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23115,66857
+Career and Technical,CTE Student,Identity,Generation Code or Suffix,"An appendage, if any, used to denote a person's generation in his family (e.g., Jr., Sr., III).",None,,,"Workforce <BR/>Note: To collect data on workforce program participation, a data match will have to be negotiated between state agencies.  The data match makes use of name, social security number, gender and ethnicity data.",000121,GenerationCodeOrSuffix,https://ceds.ed.gov/cedselementdetails.aspx?termid=23121,66860
+Career and Technical,CTE Student,Identity,Last or Surname,The full legal last name borne in common by members of a family.,None,,,"Workforce <BR/>Note: To collect data on workforce program participation, a data match will have to be negotiated between state agencies.  The data match makes use of name, social security number, gender and ethnicity data.",000172,LastOrSurname,https://ceds.ed.gov/cedselementdetails.aspx?termid=23172,66859
+Career and Technical,CTE Student,Identity,Middle Name,"A full legal middle name given to a person at birth, baptism, or through legal change.",None,,,"Workforce <BR/>Note: To collect data on workforce program participation, a data match will have to be negotiated between state agencies.  The data match makes use of name, social security number, gender and ethnicity data.",000184,MiddleName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23184,66858
+Career and Technical,CTE Student,Identity,Other First Name,A first name given to a person.,None,,,Other First Name may be repeatable and used with Other Name Type.,001514,OtherFirstName,https://ceds.ed.gov/cedselementdetails.aspx?termid=24486,67635
+Career and Technical,CTE Student,Identity,Other Last Name,A last name given to a person.,None,,,Other Last Name may be repeatable and used with Other Name Type.,001513,OtherLastName,https://ceds.ed.gov/cedselementdetails.aspx?termid=24485,67619
+Career and Technical,CTE Student,Identity,Other Middle Name,A middle name given to a person.,None,,,Other Middle Name may be repeatable and used with Other Name Type.,001515,OtherMiddleName,https://ceds.ed.gov/cedselementdetails.aspx?termid=24487,67651
+Career and Technical,CTE Student,Identity,Other Name,"Previous, alternate or other names or aliases associated with the person.",None,,,,000206,OtherName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23206,66862
+Career and Technical,CTE Student,Identity,Other Name Type,"The types of previous, alternate or other names for a person.","Alias - Alias
+Nickname - Nickname
+OtherName - Other name
+PreviousLegalName - Previous legal name
+PreferredFamilyName - Preferred Family Name
+PreferredGivenName - Preferred Given Name
+FullName - Full Name
+",,,,000634,OtherNameType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23627,66863
+Career and Technical,CTE Student,Identity,Personal Information Type,The type of personal information verified through the Personal Information Verification evidence.,"Address - Address
+Birthdate - Birthdate
+Name - Name
+TelephoneNumber - Telephone Number
+",,,,001945,PersonalInformationType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24951,69492
+Career and Technical,CTE Student,Identity,Personal Information Verification,"The evidence by which a persons name, address, date of birth, etc. is confirmed.","01003 - Baptismal or church certificate
+01004 - Birth certificate
+01012 - Driver's license
+01005 - Entry in family Bible
+01006 - Hospital certificate
+01013 - Immigration document/visa
+02382 - Life insurance policy
+09999 - Other
+03424 - Other non-official document
+03423 - Other official document
+01007 - Parent's affidavit
+01008 - Passport
+01009 - Physician's certificate
+01010 - Previously verified school records
+01011 - State-issued ID
+73095 - Approved Transfer
+73102 - Birth Registration Form
+73097 - Citizenship Card
+73100 - Lease Agreement
+73093 - Non-Parent Affidavit of Residence
+73094 - Parent's Affidavit of Residence
+73101 - Purchase Agreement
+73092 - Residence Verification Form
+73098 - Tax Bill
+73091 - Telephone Bill
+73099 - Utility Bill
+73096 - Water Bill
+",,,,000618,PersonalInformationVerification,https://ceds.ed.gov/cedselementdetails.aspx?termid=23611,66219
+Career and Technical,CTE Student,Identity,Personal Title or Prefix,"An appellation, if any, used to denote rank, placement, or status (e.g., Mr., Ms., Reverend, Sister, Dr., Colonel).",None,,,,000212,PersonalTitleOrPrefix,https://ceds.ed.gov/cedselementdetails.aspx?termid=23212,66861
+Career and Technical,CTE Student,Identity,Student Identification System,"A coding scheme that is used for identification and record-keeping purposes by schools, social services, or other agencies to refer to a student.","CanadianSIN - Canadian Social Insurance Number
+District - District-assigned number
+Family - Family unit number
+Federal - Federal identification number
+NationalMigrant - National migrant number
+School - School-assigned number
+SSN - Social Security Administration number
+State - State-assigned number
+StateMigrant - State migrant number
+BirthCertificate - Birth certificate number
+",Updated,Added new option to existing option set,,001075,StudentIdentificationSystem,https://ceds.ed.gov/cedselementdetails.aspx?termid=23163,66884
+Career and Technical,CTE Student,Identity,Student Identifier,"A unique number or alphanumeric code assigned to a student by a school, school system, a state, or other agency or entity.",None,,,"CEDS ""Identifier"" elements reflect the intent of the XSD:Token format, i.e. a string in which carriage return, line feed, and tab characters have been removed as well as any internal sequences of two or more spaces and any leading or trailing spaces. <br/><br/>An Identifier MAY be a Universally Unique Identifier (UUID) / Globally Unique Identifier (GUID), i.e.128-bit unique identifiers generated according to the algorithms and encoding standards of RFC 4122.",001071,StudentIdentifier,https://ceds.ed.gov/cedselementdetails.aspx?termid=23157,66883
+Career and Technical,CTE Student,Language,ISO 639-2 Language Code,The code for the specific language or dialect that a person uses to communicate.,See URL column,,,"The CEDS ISO 639-2 Language Code option set comes from the <a href=""http://www.loc.gov/standards/iso639-2/langhome.html"">ISO 639-2 standard</a>, the character encoding in ISO 8859-1 download.  Discontinued codes from the ISO standard are not included in the CEDS list.",000317,ISO6392LanguageCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=23317,69253
+Career and Technical,CTE Student,Language,ISO 639-3 Language Code,The code for the specific language or dialect that a person uses to communicate.,See URL column,Updated,"Add new option set, change option set","The CEDS ISO 639-3 Language Code option set comes from the <a href=""http://www-01.sil.org/iso639-3/default.asp"">ISO 639-3 standard</a>, the Latin-1 download.  Only living language code types from the ISO standard are included in the CEDS list.  Special scope and discontinued codes are excluded.",001637,ISO6393LanguageCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=24618,69254
+Career and Technical,CTE Student,Language,ISO 639-5 Language Family,"A code for a specific language family, which supplements the language groups and families in the ISO 639-2 Language Code.","aav - Austro-Asiatic languages
+afa - Afro-Asiatic languages
+alg - Algonquian languages
+alv - Atlantic-Congo languages
+apa - Apache languages
+aqa - Alacalufan languages
+aql - Algic languages
+art - Artificial languages
+ath - Athapascan languages
+auf - Arauan languages
+aus - Australian languages
+awd - Arawakan languages
+azc - Uto-Aztecan languages
+bad - Banda languages
+bai - Bamileke languages
+bat - Baltic languages
+ber - Berber languages
+bih - Bihari languages
+bnt - Bantu languages
+btk - Batak languages
+cai - Central American Indian languages
+cau - Caucasian languages
+cba - Chibchan languages
+ccn - North Caucasian languages
+ccs - South Caucasian languages
+cdc - Chadic languages
+cdd - Caddoan languages
+cel - Celtic languages
+cmc - Chamic languages
+cpe - Creoles and pidgins, Englishâ€‘based
+cpf - Creoles and pidgins, Frenchâ€‘based
+cpp - Creoles and pidgins, Portuguese-based
+crp - Creoles and pidgins
+csu - Central Sudanic languages
+cus - Cushitic languages
+day - Land Dayak languages
+dmn - Mande languages
+dra - Dravidian languages
+egx - Egyptian languages
+esx - Eskimo-Aleut languages
+euq - Basque (family)
+fiu - Finno-Ugrian languages
+fox - Formosan languages
+gem - Germanic languages
+gme - East Germanic languages
+gmq - North Germanic languages
+gmw - West Germanic languages
+grk - Greek languages
+hmx - Hmong-Mien languages
+hok - Hokan languages
+hyx - Armenian (family)
+iir - Indo-Iranian languages
+ijo - Ijo languages
+inc - Indic languages
+ine - Indo-European languages
+ira - Iranian languages
+iro - Iroquoian languages
+itc - Italic languages
+jpx - Japanese (family)
+kar - Karen languages
+kdo - Kordofanian languages
+khi - Khoisan languages
+kro - Kru languages
+map - Austronesian languages
+mkh - Mon-Khmer languages
+mno - Manobo languages
+mun - Munda languages
+myn - Mayan languages
+nah - Nahuatl languages
+nai - North American Indian languages
+ngf - Trans-New Guinea languages
+nic - Niger-Kordofanian languages
+nub - Nubian languages
+omq - Oto-Manguean languages
+omv - Omotic languages
+oto - Otomian languages
+paa - Papuan languages
+phi - Philippine languages
+plf - Central Malayo-Polynesian languages
+poz - Malayo-Polynesian languages
+pqe - Eastern Malayo-Polynesian languages
+pqw - Western Malayo-Polynesian languages
+pra - Prakrit languages
+qwe - Quechuan (family)
+roa - Romance languages
+sai - South American Indian languages
+sal - Salishan languages
+sdv - Eastern Sudanic languages
+sem - Semitic languages
+sgn - sign languages
+sio - Siouan languages
+sit - Sino-Tibetan languages
+sla - Slavic languages
+smi - Sami languages
+son - Songhai languages
+sqj - Albanian languages
+ssa - Nilo-Saharan languages
+syd - Samoyedic languages
+tai - Tai languages
+tbq - Tibeto-Burman languages
+trk - Turkic languages
+tup - Tupi languages
+tut - Altaic languages
+tuw - Tungus languages
+urj - Uralic languages
+wak - Wakashan languages
+wen - Sorbian languages
+xgn - Mongolian languages
+xnd - Na-Dene languages
+ypk - Yupik languages
+zhx - Chinese (family)
+zle - East Slavic languages
+zls - South Slavic languages
+zlw - West Slavic languages
+znd - Zande languages
+",,,"The CEDS ISO 639-5 Language Family option set comes from the <a href=""http://www.loc.gov/standards/iso639-5/index.html"">ISO 639-5 standard</a>.",001638,ISO6395LanguageFamily,https://ceds.ed.gov/cedselementdetails.aspx?termid=24619,69255
+Career and Technical,CTE Student,Language,Language Type,An indication of the function and context in which a person uses a language to communicate.,"Correspondence - Correspondence
+
+	
+Dominant - Dominant language
+Home - Home language
+Native - Native language
+OtherLanguageProficiency - Other language proficiency
+Other - Other
+Spoken - Spoken Correspondence
+Written - Written Correspondence
+",,,,000316,LanguageType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23316,69256
+Career and Technical,CTE Student,Program Participation,Application Date,"The year, month and day on which an individual  application is received by the organization.",None,,,,000323,ApplicationDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23323,69493
+Career and Technical,CTE Student,Program Participation,Career and Technical Education Concentrator,"An indication of a student who has met the state-defined threshold of career and technical education concentrators, as defined in the State's approved Perkins IV State Plan.","Yes
+No
+",,,,000037,CTEConcentrator,https://ceds.ed.gov/cedselementdetails.aspx?termid=23037,66907
+Career and Technical,CTE Student,Program Participation,Career and Technical Education Participant,An indication a student has met the state-defined threshold of Career and Technical Education participation as defined in the State's approved Perkins IV State Plan.,"Yes
+No
+",,,,000592,CTEParticipant,https://ceds.ed.gov/cedselementdetails.aspx?termid=23585,66908
+Career and Technical,CTE Student,Program Participation,Career Cluster,"The career cluster that defines the industry or occupational focus which may be associated with a career pathways program, plan of study, or course.","01 - Agriculture, Food & Natural Resources
+02 - Architecture & Construction
+03 - Arts, A/V Technology & Communications
+04 - Business Management & Administration
+05 - Education & Training
+06 - Finance
+07 - Government & Public Administration
+08 - Health Science
+09 - Hospitality & Tourism
+10 - Human Services
+11 - Information Technology
+12 - Law, Public Safety, Corrections & Security
+13 - Manufacturing
+14 - Marketing
+15 - Science, Technology, Engineering & Mathematics
+16 - Transportation, Distribution & Logistics
+",,,"Options from O*NET OnLine an application that was created for the general public to provide broad access to the O*NET database of occupational information. O*NET OnLine offers a variety of search options and occupational data, while My Next Move is a streamlined application for students and job seekers. Both applications were developed for the U.S. Department of Labor by the National Center for O*NET Development.  See onetonline.org for more information.",001288,CareerCluster,https://ceds.ed.gov/cedselementdetails.aspx?termid=24254,67563
+Career and Technical,CTE Student,Program Participation,Career Pathways Program Participation Exit Date,"The year, month and day on which the person ceased to participate in a program.",None,,,"All CEDS Exit and End Dates represent the last day of the date range specified, such as the last day that a person was enrolled, participated, or received services.",001583,CareerPathwaysProgramParticipationExitDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24562,68040
+Career and Technical,CTE Student,Program Participation,Career Pathways Program Participation Indicator,"An indication of an individual who is participating in a program that is a component of or leads to a specific or recognized career pathway, as defined by the state.","Yes
+No
+",,,,001291,CareerPathwaysProgramParticipationIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24257,68029
+Career and Technical,CTE Student,Program Participation,Career Pathways Program Participation Start Date,"The year, month and day on which the person began to participate in a career pathway program.",None,,,,001584,CareerPathwaysProgramParticipationStartDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=24563,68047
+Career and Technical,CTE Student,Program Participation,Career-Technical-Adult Education Displaced Homemaker Indicator,"A person who ; (A) (i) has worked primarily without remuneration to care for a home and family, and for that reason has diminished marketable skills;    (ii) has been dependent on the income of another family member but is no longer supported by that income; or    (iii) is a parent whose youngest dependent child will become ineligible to receive assistance under part A of title IV of the Social Security Act (42 U.S.C. 601 et seq.) not later than 2 years after the date on which the parent applies for assistance under such title; and (B)   is unemployed or underemployed and is experiencing difficulty in obtaining or upgrading employment.","Yes
+No
+",,,,000084,CTEAEDisplacedHomemakerIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=23084,66909
+Career and Technical,CTE Student,Program Participation,Classification of Instructional Program Code,A six-digit code in the form xx.xxxx that identifies instructional program specialties within educational institutions.,CIP codes are available at: https://nces.ed.gov/ipeds/cipcode/browse.aspx?y=55.,Updated,Updated link to newer version of CIP Codes,,000043,CIPCode,https://ceds.ed.gov/cedselementdetails.aspx?termid=23043,67089
+Career and Technical,CTE Student,Program Participation,Classification of Instructional Program Version,The version of CIP being reported.,"CIP1980 - CIP 1980
+CIP1985 - CIP 1985
+CIP1990 - CIP 1990
+CIP2000 - CIP 2000
+CIP2010 - CIP 2010
+CIP2020 - CIP 2020
+",Updated,"Added new option to existing option set, add new DES locations",,000045,CIPVersion,https://ceds.ed.gov/cedselementdetails.aspx?termid=23045,70023
+Career and Technical,CTE Student,Program Participation,Out of Workforce Indicator,"An individual: (A) who is a displaced homemaker, as defined in section 3 of the Workforce Innovation and Opportunity Act (29 U.S.C. 3102); or (B) who (i)(I) has worked primarily without remuneration to care for a home and family, and for that reason has diminished marketable skills; or (II) is a parent whose youngest dependent child will become ineligible to receive assistance under part A of title IV of the Social Security Act (42 U.S.C. 601 et seq.) not later than 2 years after the date on which the parent applies for assistance under such title; and (ii) is unemployed or underemployed and is experiencing difficulty in obtaining or upgrading employment.","Yes
+No
+Unknown
+",Updated,Add new DES location,,001930,OutOfWorkforceIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24908,69257
+Career and Technical,CTE Student,Program Participation,Perkins Post-Program Placement Indicator,An indication of the post-program status of a CTE Concentrator in the second quarter after exiting from secondary education.,"1001 - Advanced training
+1010 - Employment
+1002 - Military service
+1101 - National or community service
+1003 - National or community service or Peace Corps
+9998 - Not engaged Perkins Post-Program Placement
+1009 - Peace Corps
+1007 - Postsecondary associate degree
+1008 - Postsecondary baccalaureate degree
+1006 - Postsecondary certificate
+1005 - Postsecondary education
+9997 - Unknown
+9999 - Other
+",New,Added new element to DES.,,002087,PerkinsPostProgramPlacementIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=25076,70024
+Career and Technical,CTE Student,Program Participation,Program Entry Reason,The documented or assumed reason a person is being served by a program.,None,,,,001922,ProgramEntryReason,https://ceds.ed.gov/cedselementdetails.aspx?termid=24909,69258
+Career and Technical,CTE Student,Program Participation,Program Participation Exit Date,"The year, month and day on which the person ceased to participate in a program.",None,,,"All CEDS Exit and End Dates represent the last day of the date range specified, such as the last day that a person was enrolled, participated, or received services.",000591,ProgramParticipationExitDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23584,66906
+Career and Technical,CTE Student,Program Participation,Program Participation Start Date,"The year, month and day on which the person began to participate in a program.",None,,,,000590,ProgramParticipationStartDate,https://ceds.ed.gov/cedselementdetails.aspx?termid=23583,66905
+Career and Technical,CTE Student,Program Participation,Role,A description of the way in which a person relates to an organization.,"AEStaff - AE Staff
+AEStudent - AE Student
+CTEStaff - CTE Staff
+CTEStudent - CTE Student
+ELChild - EL Child
+ELStaff - EL Staff
+K12Staff - K12 Staff
+K12Student - K12 Student
+ParentGuardian - Parent/Guardian
+PSApplicant - PS Applicant
+PSStaff - PS Staff
+PSStudent - PS Student
+WorkforceProgramParticipant - Workforce Program Participant
+ChiefStateSchoolOfficer - Chief State School Officer
+SchoolBoardMember - School Board Member
+",Updated,Added new option to existing option set,,001946,Role,https://ceds.ed.gov/cedselementdetails.aspx?termid=24959,69494
+Career and Technical,CTE Student,Program Participation,Single Parent or Single Pregnant Woman Status,"A student who, at some time during the school year, is either a pregnant female student who is unmarried; or a male or female student who is unmarried or legally separated from a spouse and has a minor child or children.","Yes
+No
+",,,,000580,SingleParentOrSinglePregnantWomanStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=23573,66910
+Career and Technical,CTE Student,Program Participation,Work-based Learning Opportunity Type,The type of work-based learning opportunity a student participated in.,"Apprenticeship - Apprenticeship
+ClinicalWork - Clinical work experience
+CooperativeEducation - Cooperative education
+JobShadowing - Job shadowing
+Mentorship - Mentorship
+NonPaidInternship - Non-Paid Internship
+OnTheJob - On-the-Job
+PaidInternship - Paid internship
+ServiceLearning - Service learning
+SupervisedAgricultural - Supervised agricultural experience
+UnpaidInternship - Unpaid internship
+Entrepreneurship - Entrepreneurship
+SchoolBasedEnterprise - School-Based Enterprise
+SimulatedWorksite - Simulated Worksite
+Other - Other
+",Updated,Added new option to existing option set and add new DES location,,001499,WorkBasedLearningOpportunityType,https://ceds.ed.gov/cedselementdetails.aspx?termid=24471,67454
+Career and Technical,CTE Student,Relationship,Person Relationship Type,The nature of a person's relationship to another person.,"Aunt - Aunt
+Brother - Brother
+BrotherInLaw - Brother-in-law
+CourtAppointedGuardian - Court appointed guardian
+Daughter - Daughter
+DaughterInLaw - Daughter-in-law
+Employer - Employer
+Father - Father
+FathersSignificantOther - Father's significant other
+FathersCivilPartner - Father's civil partner
+FatherInLaw - Father-in-law
+Fiance - Fiance
+Fiancee - Fiancee
+Friend - Friend
+Grandfather - Grandfather
+Grandmother - Grandmother
+Husband - Husband
+MothersSignificantOther - Mother's significant other
+Mother - Mother
+MothersCivilPartner - Mother's civil partner
+Nephew - Nephew
+Niece - Niece
+Other - Other
+SignificantOther - Significant other
+Sister - Sister
+Son - Son
+Unknown - Unknown
+Uncle - Uncle
+Ward - Ward
+Wife - Wife
+AdoptedDaughter - Adopted Daughter
+AdoptedSon - Adopted son
+AdoptiveParent - Adoptive parent
+Advisor - Advisor
+AgencyRepresentative - Agency representative
+Cousin - Cousin
+Dependent - Dependent
+FamilyMember - Family member
+FormerHusband - Former husband
+FormerWife - Former wife
+FosterDaughter - Foster daughter
+FosterFather - Foster father
+FosterMother - Foster mother
+FosterParent - Foster Parent
+FosterSon - Foster son
+Godparent - Godparent
+Granddaughter - Granddaughter
+Grandparent - Grandparent
+Grandson - Grandson
+GreatAunt - Great aunt
+GreatGrandparent - Great grandparent
+GreatUncle - Great uncle
+HalfBrother - Half-brother
+HalfSister - Half-sister
+LifePartner - Life partner
+LifePartnerOfParent - Life partner of parent
+MotherInLaw - Mother-in-law
+Neighbor - Neighbor
+Parent - Parent
+Partner - Partner
+PartnerOfParent - Partner of parent
+ProbationOfficer - Probation officer
+Relative - Relative
+Sibling - Sibling
+SisterInLaw - Sister-in-law
+SonInLaw - Son-in-law
+Spouse - Spouse
+Stepbrother - Stepbrother
+Stepdaughter - Stepdaughter
+Stepfather - Stepfather
+Stepmother - Stepmother
+Stepparent - Stepparent
+Stepsister - Stepsister
+Stepson - Stepson
+",,,"For implementation in the CEDS Integrated Data Store (IDS), the ""person"" in the description would be the person referred to in the PersonId column in the IDS. The ""related person"" in the description would be the person referred to in the ""RelatedPersonId"" in the IDS. Example: Foster mother - The person (PersonId) is the related person's (RelatedPersonId) Foster mother.",000425,PersonRelationshipType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23415,69259
+Career and Technical,CTE Student,Status,Awaiting Foster Care Status,An indication of whether this child is awaiting foster care.,"Yes
+No
+",Updated,Add new DES location,,001929,AwaitingFosterCareStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=24903,69260
+Career and Technical,CTE Student,Status,Career Technical Education Nontraditional Gender Status,An indication of whether CTE participants were members of an underrepresented gender group (where one gender comprises less than 25 percent of the persons employed in those occupations or field of work).,"Underrepresented - Members of an underrepresented gender group
+NotUnderrepresented - Not members of an underrepresented gender group
+",,,,000588,CTENontraditionalGenderStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=23581,69495
+Career and Technical,CTE Student,Status,Public Assistance Status,"A person who receives financial assistance from Federal, State, or local government agencies, including Temporary Assistance for Needy Families or equivalent.","Yes
+No
+",,,,000777,PublicAssistanceStatus,https://ceds.ed.gov/cedselementdetails.aspx?termid=23760,69261
+Career and Technical,Program,,Career Cluster,"The career cluster that defines the industry or occupational focus which may be associated with a career pathways program, plan of study, or course.","01 - Agriculture, Food & Natural Resources
+02 - Architecture & Construction
+03 - Arts, A/V Technology & Communications
+04 - Business Management & Administration
+05 - Education & Training
+06 - Finance
+07 - Government & Public Administration
+08 - Health Science
+09 - Hospitality & Tourism
+10 - Human Services
+11 - Information Technology
+12 - Law, Public Safety, Corrections & Security
+13 - Manufacturing
+14 - Marketing
+15 - Science, Technology, Engineering & Mathematics
+16 - Transportation, Distribution & Logistics
+",,,"Options from O*NET OnLine an application that was created for the general public to provide broad access to the O*NET database of occupational information. O*NET OnLine offers a variety of search options and occupational data, while My Next Move is a streamlined application for students and job seekers. Both applications were developed for the U.S. Department of Labor by the National Center for O*NET Development.  See onetonline.org for more information.",001288,CareerCluster,https://ceds.ed.gov/cedselementdetails.aspx?termid=24254,67564
+Career and Technical,Program,,Enrollment Capacity,Maximum number of age-appropriate students who can be enrolled. ,None,,,"Enrollment capacity can be collected at a variety of levels, such as classroom, grade, school, and facility.",002012,EnrollmentCapacity,https://ceds.ed.gov/cedselementdetails.aspx?termid=24979,69702
+Career and Technical,Program,,Primary Program Indicator,An indication that the associated program is the primary function of this organization.,"Yes
+No
+",,,This element is used in conjunction with Program Type.,002013,PrimaryProgramIndicator,https://ceds.ed.gov/cedselementdetails.aspx?termid=24990,69703
+Career and Technical,Program,,Program Name,"The name of the program of instruction, training, services or benefits available through federal, state, or local agencies.",None,,,,000626,ProgramName,https://ceds.ed.gov/cedselementdetails.aspx?termid=23619,66918
+Career and Technical,Program,,Program Sponsor Type,A type of organization providing funds for a particular educational or service program or activity or for an individual's participation in the program or activity.,"Business - Business
+EducationOrganizationNetwork - Education organization network
+EducationServiceCenter - Education Service Center
+Federal - Federal government
+LEA - Local education agency
+NonProfit - Non-profit organization
+Postsecondary - Postsecondary institution
+Private - Private organization
+Regional - Regional or intermediate education agency
+Religious - Religious organization
+School - School
+SEA - State Education Agency
+Other - Other
+",,,,000716,ProgramSponsorType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23692,67522
+Career and Technical,Program,,Program Type,The system outlining instructional or non-instructional activities and procedures designed to accomplish a predetermined educational objective or set of objectives or to provide support services to a person and/or the community.,"73056 - Adult Basic Education
+73058 - Adult English as a Second Language
+73057 - Adult Secondary Education
+04961 - Alternative Education
+04932 - Athletics
+04923 - Bilingual education program
+04906 - Career and Technical Education
+04931 - Cocurricular programs
+04958 - College preparatory
+04945 - Community service program
+04944 - Community/junior college education program
+04922 - Compensatory services for disadvantaged students
+73059 - Continuing Education
+04956 - Counseling services
+14609 - Early Head Start
+04928 - English as a second language (ESL) program
+04919 - Even Start
+04955 - Extended day/child care services
+75000 - Foster Care
+04930 - Gifted and talented program
+04918 - Head start
+04963 - Health Services Program
+04957 - Immigrant education
+04921 - Indian education
+04959 - International Baccalaureate
+04962 - Library/Media Services Program
+04960 - Magnet/Special Program Emphasis
+04920 - Migrant education
+04887 - Regular education
+04964 - Remedial education
+04967 - Section 504 Placement
+04966 - Service learning
+04888 - Special Education Services
+04954 - Student retention/ Dropout Prevention
+04953 - Substance abuse education/prevention
+73204 - Targeted intervention program
+04968 - Teacher professional development / Mentoring
+04917 - Technical preparatory
+75001 - Title I
+73090 - Work-based Learning Opportunities
+75014 - Autism program
+75015 - Early childhood special education tier one program
+09999 - Other
+75016 - Early childhood special education tier two program
+75002 - Early College
+75006 - Emotional disturbance program
+75008 - Hearing impairment program
+75017 - K12 Resource Program
+75003 - Mild cognitive disability program
+75004 - Moderate cognitive disability program
+75012 - Multiple disabilities program
+75011 - Orthopedic impairment
+75010 - Other health impairment
+75005 - Significant cognitive disability program
+75007 - Specific learning disability program
+75013 - Speech or language impairment program
+75009 - Visual impairment program
+75018 - Hospital
+76000 - McKinney-Vento Homeless
+77000 - Title III LIEP
+75019 - Neglected or delinquent
+75020 - TANF
+",Updated,Add new option to option set,,000225,ProgramType,https://ceds.ed.gov/cedselementdetails.aspx?termid=23225,66917
