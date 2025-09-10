@@ -4,7 +4,7 @@ build: clean
 	go build -o oasis ./main.go
 
 plugin-build:
-	go build -o ./plugins/plugin ./plugin/plugin.go
+	go build -o ./plugins/common ./plugin/common.go
 
 all: build plugin-build
 

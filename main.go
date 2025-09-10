@@ -8,129 +8,133 @@ import (
 	"os"
 	"os/exec"
 	"os/signal"
-	"path/filepath"
+	"strings"
 	"syscall"
+
+	"gopkg.in/yaml.v3"
 
 	"github.com/catdevman/oasis/shared"
 	"github.com/hashicorp/go-plugin"
 )
 
-// Exit codes
-const (
-	EXIT_SUCCESSFUL = iota
-	EXIT_PLUGINS_FAILED
-)
+type AppConfig struct {
+	Plugins []PluginConfig `yaml:"plugins"`
+}
+type PluginConfig struct {
+	Name   string `yaml:"name"`
+	Path   string `yaml:"path"`
+	Prefix string `yaml:"prefix"`
+}
+
+var pluginClients = make(map[string]shared.HTTPPlugin)
 
 func main() {
-	// Register types for gob serialization.
-	shared.RegisterTypes()
-
-	mux := http.NewServeMux()
 	c := make(chan os.Signal, 1)
 	signal.Notify(c, syscall.SIGINT, syscall.SIGTERM)
-	// Define the plugin map.
-	pluginMap := map[string]plugin.Plugin{
-		"routePlugin": &shared.ServeMuxPlugin{},
-	}
-	//TODO: this should be configurable
-	dir := "./plugins"
-	executables, err := findExecutables(dir)
+	config, err := loadConfig("plugins.yaml")
 	if err != nil {
-		fmt.Println("Error:", err)
-		os.Exit(EXIT_PLUGINS_FAILED)
+		log.Fatalf("Failed to load configuration: %v", err)
 	}
-	plugs := []*plugin.Client{}
-	for _, exe := range executables {
 
-		// Start the plugin client.
-		client := plugin.NewClient(&plugin.ClientConfig{
-			HandshakeConfig: shared.HandshakeConfig,
-			Plugins:         pluginMap,
-			Cmd:             exec.Command(exe), // Path to the plugin binary
-		})
-		defer client.Kill()
-		plugs = append(plugs, client)
+	loadPlugins(config.Plugins)
 
-		// Get the RPC client.
-		rpcClient, err := client.Client()
-		if err != nil {
-			log.Fatalf("Error initializing plugin client: %v @ %v", err, exe)
-		}
+	masterHandler := http.HandlerFunc(router)
 
-		// Dispense the plugin.
-		raw, err := rpcClient.Dispense("routePlugin")
-		if err != nil {
-			log.Fatalf("Error dispensing plugin: %v @ %v", err, exe)
-		}
-
-		// Cast the plugin to the RoutePlugin interface.
-		plugin := raw.(shared.RoutePlugin)
-
-		// Retrieve routes from the plugin.
-		routes, err := plugin.GetRoutes()
-		if err != nil {
-			log.Fatalf("Error retrieving routes: %v", err)
-		}
-
-		// Register the routes in the main application.
-		for _, route := range routes {
-			handlerID := route.HandlerID
-			mux.HandleFunc(route.Pattern, func(w http.ResponseWriter, r *http.Request) {
-				// Serialize the request.
-				body, _ := io.ReadAll(r.Body)
-				req := shared.SerializedRequest{
-					Method: r.Method,
-					URL:    r.URL.String(),
-					Header: r.Header,
-					Body:   body,
-				}
-
-				// Call the plugin's HandleRequest method.
-				res, err := plugin.HandleRequest(handlerID, req)
-				if err != nil {
-					http.Error(w, "Internal server error", http.StatusInternalServerError)
-					return
-				}
-
-				// Write the response from the plugin.
-				for key, values := range res.Header {
-					for _, value := range values {
-						w.Header().Add(key, value)
-					}
-				}
-				w.WriteHeader(res.StatusCode)
-				w.Write([]byte(res.Body))
-			})
-		}
+	log.Println("Host server listening on :8080")
+	log.Println("Loaded routes from config:")
+	for _, p := range config.Plugins {
+		log.Printf("- %s -> /%s/*\n", p.Name, p.Prefix)
 	}
 	go func() {
 		sig := <-c
 		fmt.Println("Received signal:", sig)
 		fmt.Println("Shutting down gracefully...")
-		for _, p := range plugs {
-			p.Kill()
-		}
+		plugin.CleanupClients()
 		os.Exit(0)
 	}()
-	// Start the HTTP server.
-	log.Println("Starting server on :8080")
-	log.Fatal(http.ListenAndServe(":8080", mux))
+	log.Fatal(http.ListenAndServe(":8080", masterHandler))
 }
 
-// findExecutables returns a slice of executable file paths in the given directory
-func findExecutables(root string) ([]string, error) {
-	var executables []string
+func router(w http.ResponseWriter, r *http.Request) {
+	path := strings.Trim(r.URL.Path, "/")
 
-	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
+	var bestMatch string
+	for prefix := range pluginClients {
+		if strings.HasPrefix(path, prefix) {
+			if len(prefix) > len(bestMatch) {
+				bestMatch = prefix
+			}
+		}
+	}
+
+	if bestMatch == "" {
+		http.Error(w, "404 Not Found: No plugin registered for this path", http.StatusNotFound)
+		return
+	}
+
+	client := pluginClients[bestMatch]
+	log.Printf("Routing request for %s to prefix '%s'", r.URL.Path, bestMatch)
+
+	// Strip the prefix so the plugin receives the path relative to its root
+	r.URL.Path = "/" + strings.TrimPrefix(strings.TrimPrefix(path, bestMatch), "/")
+
+	body, err := io.ReadAll(r.Body)
+	if err != nil {
+		http.Error(w, "Failed to read request body", http.StatusInternalServerError)
+		return
+	}
+
+	req := shared.HTTPRequest{
+		Method: r.Method, URL: r.URL.String(), Header: r.Header, Body: body,
+	}
+
+	resp, err := client.ServeHTTP(req)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("Plugin error: %s", err), http.StatusInternalServerError)
+		return
+	}
+
+	for key, values := range resp.Header {
+		for _, value := range values {
+			w.Header().Add(key, value)
+		}
+	}
+	w.WriteHeader(resp.StatusCode)
+	w.Write(resp.Body)
+}
+
+func loadConfig(path string) (*AppConfig, error) {
+	configFile, err := os.ReadFile(path)
+	if err != nil {
+		return nil, fmt.Errorf("could not read config file: %w", err)
+	}
+	var config AppConfig
+	if err = yaml.Unmarshal(configFile, &config); err != nil {
+		return nil, fmt.Errorf("could not parse yaml config: %w", err)
+	}
+	return &config, nil
+}
+
+func loadPlugins(configs []PluginConfig) {
+	for _, p := range configs {
+		log.Printf("Loading plugin '%s' from path %s", p.Name, p.Path)
+		client := plugin.NewClient(&plugin.ClientConfig{
+			HandshakeConfig: shared.Handshake,
+			Plugins:         map[string]plugin.Plugin{"http_plugin": &shared.HTTPPluginAdapter{}},
+			Cmd:             exec.Command(p.Path),
+		})
+
+		rpcClient, err := client.Client()
 		if err != nil {
-			return err
+			log.Printf("Error creating RPC client for %s: %s", p.Name, err)
+			continue
 		}
-		// Check if the file is a regular file and has executable permissions
-		if !info.IsDir() && (info.Mode()&0111 != 0) {
-			executables = append(executables, path)
-		}
-		return nil
-	})
 
-	return executables, err
+		raw, err := rpcClient.Dispense("http_plugin")
+		if err != nil {
+			log.Printf("Error dispensing plugin %s: %s", p.Name, err)
+			continue
+		}
+		pluginClients[p.Prefix] = raw.(shared.HTTPPlugin)
+	}
 }
