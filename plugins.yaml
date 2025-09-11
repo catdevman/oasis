@@ -1,0 +1,5 @@
+plugins:
+  - name: "common-plugin"
+    path: "./plugins/common" # Relative path to the compiled plugin binary
+    prefix: "api/common"              # URL prefix (no slashes)
+
