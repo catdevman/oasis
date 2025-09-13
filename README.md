@@ -13,4 +13,4 @@ If a school wants to run it on their own that is their choice but I give no guar
 
 # TODO
 - [ ] When plugins boot up keep track of all route registered so far and make sure that it gracefully handles duplicated routes
-    - [ ] perhaps plugins should have a load order that is respected???
+    - [x] perhaps plugins should have a load order that is respected??? Did this with a config file that defines command path and route prefix
