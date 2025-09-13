@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"gopkg.in/yaml.v3"
 	"io"
 	"log"
 	"net/http"
@@ -10,8 +11,6 @@ import (
 	"os/signal"
 	"strings"
 	"syscall"
-
-	"gopkg.in/yaml.v3"
 
 	"github.com/catdevman/oasis/shared"
 	"github.com/hashicorp/go-plugin"
@@ -77,7 +76,7 @@ func router(w http.ResponseWriter, r *http.Request) {
 
 	// Strip the prefix so the plugin receives the path relative to its root
 	r.URL.Path = "/" + strings.TrimPrefix(strings.TrimPrefix(path, bestMatch), "/")
-
+	//TODO: This should have limitations, I think http has something that can read to some max byte size that might work better
 	body, err := io.ReadAll(r.Body)
 	if err != nil {
 		http.Error(w, "Failed to read request body", http.StatusInternalServerError)
