@@ -26,6 +26,7 @@ type PluginConfig struct {
 }
 
 var pluginClients = make(map[string]shared.HTTPPlugin)
+var plugs = []*plugin.Client{}
 
 func main() {
 	c := make(chan os.Signal, 1)
@@ -48,7 +49,9 @@ func main() {
 		sig := <-c
 		fmt.Println("Received signal:", sig)
 		fmt.Println("Shutting down gracefully...")
-		plugin.CleanupClients()
+		for _, p := range plugs {
+			p.Kill()
+		}
 		os.Exit(0)
 	}()
 	log.Fatal(http.ListenAndServe(":8080", masterHandler))
@@ -122,8 +125,9 @@ func loadPlugins(configs []PluginConfig) {
 			Plugins:         map[string]plugin.Plugin{"http_plugin": &shared.HTTPPluginAdapter{}},
 			Cmd:             exec.Command(p.Path),
 		})
-
+		plugs = append(plugs, client)
 		rpcClient, err := client.Client()
+
 		if err != nil {
 			log.Printf("Error creating RPC client for %s: %s", p.Name, err)
 			continue
