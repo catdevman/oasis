@@ -6,7 +6,6 @@ import (
 	"log"
 	"net/http"
 	"net/http/httptest"
-	_ "net/http/pprof"
 	"strings"
 	"sync"
 	"time"
@@ -132,10 +131,6 @@ func (p *CommonPlugin) attendanceHandler(w http.ResponseWriter, r *http.Request)
 
 // main is the entry point that serves the plugin.
 func main() {
-	go func() {
-		log.Println("Starting pprof server on :6060")
-		log.Println(http.ListenAndServe("localhost:6060", nil))
-	}()
 
 	plugin.Serve(&plugin.ServeConfig{
 		HandshakeConfig: shared.Handshake,
