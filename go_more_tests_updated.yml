@@ -1,0 +1,52 @@
+
+name: Go More Tests
+
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+
+jobs:
+  paths-filter:
+    runs-on: ubuntu-latest
+    outputs:
+      files: ${{ steps.filter.outputs.go_files }}
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+    - uses: dorny/paths-filter@v3
+      id: filter
+      with:
+        list-files: 'json'
+        filters: |
+          go:
+            - 'go/**/**'
+  go-tests:
+    runs-on: ubuntu-latest
+    needs: paths-filter
+    strategy:
+      matrix:
+        go-version: [ '1.22.0' ]
+        changed-files: ${{ fromJSON(needs.paths-filter.outputs.files) }}
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+    - name: Setup Go ${{ matrix.go-version }}
+      uses: actions/setup-go@v5
+      with:
+        go-version: ${{ matrix.go-version }}
+    - name: Import GPG Key
+      uses: crazy-max/ghaction-import-gpg@v6
+      with:
+         gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+         passphrase: ${{ secrets.GPG_PASSPHRASE }}
+    - name: Decrypt test files
+      run: |
+        export full_path=$(dirname ${{matrix.changed-files}})
+        export dir_name=$(basename $full_path)
+        cd $full_path
+        echo ${{secrets.GPG_PASSPHRASE}} | gpg --yes --batch --passphrase-fd 0 -d "more_${dir_name}_test.go.gpg" > "more_${dir_name}_test.go"
+    - name: go tests
+      run: |
+        cd $(dirname ${{matrix.changed-files}}) && go test ./... -v

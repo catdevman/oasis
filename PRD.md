@@ -11,10 +11,11 @@ To create the "Linux of Student Information Systems"—a minimal, stable kernel 
 ### 3.1 Tech Stack
 * **Core Language:** Go (v1.23.4)
 * **Plugin System:** `hashicorp/go-plugin` (v1.6.2) via RPC over local network/process
-* **Database:** SQLite (`modernc.org/sqlite`) - Currently embedded, utilizing WAL mode and connection pooling
-* **Configuration:** YAML (`plugins.yaml`)
+* **Database:** PostgreSQL - Enforcing strict bounded contexts via database roles and read-only permissions.
+* **Configuration:** YAML (`plugins.yaml`) - Supports strict versioning and plugin dependency graphs.
 * **Testing:** k6 for load testing
-* **Standardization:** Aligned with CEDS (Common Education Data Standards) domains (e.g., K12, Early Learning, CTE) via CSV chunking and seeding tools.
+* **Standardization:** Aligned with CEDS (Common Education Data Standards) and Ed-Fi ODS domains. This standardizes the schema across SIS, Financials, Transportation, and Food Services.
+* **Integrations:** MCP (Model Context Protocol) ready for seamless AI integration and machine-to-machine IO.
 
 ### 3.2 System Components
 The architecture follows a **Modular Monolith / Process-Based Microservices** pattern:
@@ -32,8 +33,9 @@ The architecture follows a **Modular Monolith / Process-Based Microservices** pa
 
 3.  **Plugins (e.g., `plugin/common.go`)**
     * Standalone binaries executed by the Host.
+    * **The "Common" Plugin:** A required foundational plugin that owns the core standardized data models (Students, Schools, Terms).
     * Maintain their own internal routers (`http.ServeMux`).
-    * Manage independent database connections (currently shared SQLite file access).
+    * **Data Access:** Plugins are granted read-only (`SELECT`) access to core tables via PostgreSQL roles. Write access to core tables requires emitting events/RPC calls to the Common plugin. Plugins have full write access only to their own prefixed tables.
 
 4.  **Data Layer (`command/generate`)**
     * A complex relational schema populated with realistic fake data using `faker/v3`.
@@ -73,9 +75,10 @@ The architecture follows a **Modular Monolith / Process-Based Microservices** pa
 * **Schema:** The system relies on a extensive SQL schema (`full.sql`) capable of supporting complex educational data scenarios.
 * **Seeding:** The `command/generate` tool must be able to wipe and repopulate the database with consistent foreign key relationships (e.g., Students linked to Course Sections).
 
-### 5.3 Extensibility
+### 5.3 Extensibility & Versioning
 * **Independent Operation:** Plugins must be able to serve standard HTTP responses (JSON) and operate independently of the host's internal logic, sharing only the Interface definition.
-* **Database Access:** Plugins currently establish their own connections to the SQLite file, utilizing connection pooling (Max Open Conns: 25) and WAL mode.
+* **Database Access Constraints:** Plugins establish connections to PostgreSQL using a restricted role. They can only read core data. All mutations to core data must happen via an event-based "ask" model (RPC) to the Common plugin.
+* **Strict Versioning:** Plugins must announce the schema version of the tables they own. In `plugins.yaml`, plugins must explicitly declare what version of the core tables (and other plugins' tables) they support. The Host will refuse to boot if dependencies are unmet.
 
 ## 6. Known Constraints & Risks
 * **Database Locking:** Multiple plugins accessing the same SQLite file (`oasis.db`) risks `SQLITE_BUSY` errors under high concurrency, though WAL mode is enabled to mitigate this.
@@ -84,6 +87,8 @@ The architecture follows a **Modular Monolith / Process-Based Microservices** pa
 
 ## 7. Roadmap / Future Work
 * **Conflict Resolution:** Implement logic to detect and handle plugins registering identical route prefixes or conflicting commands.
-* **Plugin Load Order:** Introduce a dependency resolution mechanism or explicit load order in the configuration.
+* **Plugin Load Order & Dependency Resolution:** The Host must build a DAG of plugin dependencies based on declared schema versions to ensure correct load order and compatibility.
+* **Scope Expansion via Standards:** Implement remaining Ed-Fi domains (Financials, Bus Routes, Lunch) as optional plugins without needing custom schema design.
+* **MCP Integration:** Build native Model Context Protocol support to allow AI tools to query the standardized CEDS/Ed-Fi database safely.
 * **Frontend:** Develop a unified web interface to aggregate UI fragments from various plugins.
 * **Containerization:** Create a `Dockerfile` for deployment (Note: Ensure `Dockerfile` does not use `#` for comments, as per strict user constraints).

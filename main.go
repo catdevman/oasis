@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"gopkg.in/yaml.v3"
 	"io"
 	"log"
 	"net/http"
@@ -12,17 +11,21 @@ import (
 	"strings"
 	"syscall"
 
+	"github.com/catdevman/oasis/internal/db"
 	"github.com/catdevman/oasis/shared"
 	"github.com/hashicorp/go-plugin"
+	"gopkg.in/yaml.v3"
 )
 
 type AppConfig struct {
-	Plugins []PluginConfig `yaml:"plugins"`
+	Database db.Config      `yaml:"database"`
+	Plugins  []PluginConfig `yaml:"plugins"`
 }
 type PluginConfig struct {
 	Name   string `yaml:"name"`
 	Path   string `yaml:"path"`
 	Prefix string `yaml:"prefix"`
+	Tables string `yaml:"tables"`
 }
 
 var pluginClients = make(map[string]shared.HTTPPlugin)
@@ -36,7 +39,17 @@ func main() {
 		log.Fatalf("Failed to load configuration: %v", err)
 	}
 
-	loadPlugins(config.Plugins)
+	// Initialize database and run migrations
+	database, err := db.Open(config.Database)
+	if err != nil {
+		log.Fatalf("Failed to open database: %v", err)
+	}
+	// if err := db.Migrate(database, "migrations"); err != nil {
+	// 	log.Fatalf("Failed to run migrations: %v", err)
+	// }
+	database.Close()
+
+	loadPlugins(config)
 
 	masterHandler := http.HandlerFunc(router)
 
@@ -117,13 +130,21 @@ func loadConfig(path string) (*AppConfig, error) {
 	return &config, nil
 }
 
-func loadPlugins(configs []PluginConfig) {
-	for _, p := range configs {
+func loadPlugins(config *AppConfig) {
+	for _, p := range config.Plugins {
 		log.Printf("Loading plugin '%s' from path %s", p.Name, p.Path)
+
+		cmd := exec.Command(p.Path)
+		cmd.Env = append(os.Environ(),
+			"OASIS_DB_URL="+config.Database.URL,
+			"OASIS_PLUGIN_NAME="+p.Name,
+			"OASIS_PLUGIN_PREFIX="+p.Prefix,
+		)
+
 		client := plugin.NewClient(&plugin.ClientConfig{
 			HandshakeConfig: shared.Handshake,
 			Plugins:         map[string]plugin.Plugin{"http_plugin": &shared.HTTPPluginAdapter{}},
-			Cmd:             exec.Command(p.Path),
+			Cmd:             cmd,
 		})
 		plugs = append(plugs, client)
 		rpcClient, err := client.Client()

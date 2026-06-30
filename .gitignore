@@ -3,3 +3,7 @@ oasis.db
 
 !plugins/.gitkeep
 plugins/*
+/oasis.db-wal
+/oasis.db-wal
+/oasis.db-wal
+/oasis.db-shm

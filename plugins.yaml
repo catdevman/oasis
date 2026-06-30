@@ -1,5 +1,11 @@
+database:
+  url: "postgres://oasis:password@localhost:5432/oasis?sslmode=disable"
+  max_open_conns: 25
+  max_idle_conns: 25
+  conn_max_lifetime: "5m"
+
 plugins:
   - name: "common-plugin"
     path: "./plugins/common" # Relative path to the compiled plugin binary
     prefix: "api/common"              # URL prefix (no slashes)
-
+    tables: "edfi_"                    # Table prefix this plugin owns

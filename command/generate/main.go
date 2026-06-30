@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/bxcodec/faker/v3"
-	_ "github.com/mattn/go-sqlite3"
+	_ "github.com/lib/pq"
 )
 
 var (
@@ -35,13 +35,8 @@ func main() {
 	// Seed the random number generator
 	rand.Seed(time.Now().UnixNano())
 
-	// Remove the old database file if it exists to start fresh
-	os.Remove("./oasis.db")
-
-	log.Println("Creating and populating the database...")
-
-	// Open a new SQLite database connection.
-	db, err := sql.Open("sqlite3", "./oasis.db?_foreign_keys=on")
+	// Connect to PostgreSQL (make sure docker compose up -d db is running)
+	db, err := sql.Open("postgres", "postgres://oasis:password@localhost:5432/oasis?sslmode=disable")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -52,6 +47,9 @@ func main() {
 	if err != nil {
 		log.Fatalf("could not read sql file: %v", err)
 	}
+
+	// Drop and recreate schema public
+	db.Exec("DROP SCHEMA public CASCADE; CREATE SCHEMA public;")
 
 	// Execute the schema to create the tables.
 	_, err = db.Exec(string(sqlBytes))
@@ -165,7 +163,7 @@ func randomElement(slice []string) string {
 
 func seedCalendar(db *sql.DB) {
 	log.Println("Seeding Calendar table...")
-	stmt, err := db.Prepare("INSERT INTO Calendar(CalendarCode, CalendarDescription, SchoolYear, SessionCode, SessionDescription, SessionBeginDate, SessionEndDate, SessionType) VALUES(?, ?, ?, ?, ?, ?, ?, ?)")
+	stmt, err := db.Prepare("INSERT INTO Calendar(CalendarCode, CalendarDescription, SchoolYear, SessionCode, SessionDescription, SessionBeginDate, SessionEndDate, SessionType) VALUES($1, $2, $3, $4, $5, $6, $7, $8)")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -185,7 +183,7 @@ func seedCalendar(db *sql.DB) {
 
 func seedK12Schools(db *sql.DB) {
 	log.Println("Seeding K12School table...")
-	stmt, err := db.Prepare("INSERT INTO K12School(OrganizationIdentifier, OrganizationName, OrganizationType) VALUES(?, ?, ?)")
+	stmt, err := db.Prepare("INSERT INTO K12School(OrganizationIdentifier, OrganizationName, OrganizationType) VALUES($1, $2, $3)")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -204,7 +202,7 @@ func seedK12Schools(db *sql.DB) {
 
 func seedK12Staff(db *sql.DB) {
 	log.Println("Seeding K12Staff table...")
-	stmt, err := db.Prepare("INSERT INTO K12Staff(StaffIdentifier, StaffIdentificationSystem, FirstName, MiddleName, LastOrSurname, PersonalTitleOrPrefix) VALUES(?, ?, ?, ?, ?, ?)")
+	stmt, err := db.Prepare("INSERT INTO K12Staff(StaffIdentifier, StaffIdentificationSystem, FirstName, MiddleName, LastOrSurname, PersonalTitleOrPrefix) VALUES($1, $2, $3, $4, $5, $6)")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -223,7 +221,7 @@ func seedK12Staff(db *sql.DB) {
 
 func seedK12Students(db *sql.DB) {
 	log.Println("Seeding K12Student table...")
-	stmt, err := db.Prepare("INSERT INTO K12Student(StudentIdentifier, StudentIdentificationSystem, FirstName, MiddleName, LastOrSurname) VALUES(?, ?, ?, ?, ?)")
+	stmt, err := db.Prepare("INSERT INTO K12Student(StudentIdentifier, StudentIdentificationSystem, FirstName, MiddleName, LastOrSurname) VALUES($1, $2, $3, $4, $5)")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -249,7 +247,7 @@ func seedCourseSections(db *sql.DB) {
             AbilityGroupingStatus, AdditionalCreditType, CareerCluster, ClassroomPositionType, CourseAlignedWithStandards,
             CourseApplicableEducationLevel, CourseGPAApplicability, CourseLevelType, CourseSectionInstructionalDeliveryMode,
             AvailableCarnegieUnitCredit, CourseCodeSystem, CourseDepartmentName, CourseLevelCharacteristic, CourseTitle, CreditUnitType, HighSchoolCourseRequirement
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29)
     `)
 	if err != nil {
 		log.Fatal(err)
@@ -308,7 +306,7 @@ func seedCourseSections(db *sql.DB) {
 
 func seedLEA(db *sql.DB) {
 	log.Println("Seeding LEA table...")
-	stmt, err := db.Prepare("INSERT INTO LEA(OrganizationIdentifier, OrganizationName, OrganizationType) VALUES(?, ?, ?)")
+	stmt, err := db.Prepare("INSERT INTO LEA(OrganizationIdentifier, OrganizationName, OrganizationType) VALUES($1, $2, $3)")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -327,12 +325,14 @@ func seedLEA(db *sql.DB) {
 
 func seedSEA(db *sql.DB) {
 	log.Println("Seeding SEA table...")
-	stmt, err := db.Prepare(`
+	query := `
         INSERT INTO SEA (
             StateAgencyIdentifier, StateAgencyIdentificationSystem, OrganizationName, OrganizationType,
             OrganizationRelationshipType, AddressStreetNumberAndName, AddressCity, AddressPostalCode, CountryCode
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `)
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+    `
+	fmt.Println(query)
+	stmt, err := db.Prepare(query)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -351,7 +351,7 @@ func seedSEA(db *sql.DB) {
 
 func seedFacility(db *sql.DB) {
 	log.Println("Seeding Facility table...")
-	stmt, err := db.Prepare(`INSERT INTO Facility(FacilitiesIdentifier, OrganizationIdentifier, OrganizationName, ShortNameOfOrganization, FacilityBuildingName) VALUES (?, ?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO Facility(FacilitiesIdentifier, OrganizationIdentifier, OrganizationName, ShortNameOfOrganization, FacilityBuildingName) VALUES ($1, $2, $3, $4, $5)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -370,7 +370,7 @@ func seedFacility(db *sql.DB) {
 
 func seedEarlyLearningChild(db *sql.DB) {
 	log.Println("Seeding EarlyLearningChild table...")
-	stmt, err := db.Prepare(`INSERT INTO EarlyLearningChild(ChildIdentifier, ChildIdentificationSystem, Birthdate, Sex, Race, HispanicOrLatinoEthnicity) VALUES (?, ?, ?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO EarlyLearningChild(ChildIdentifier, ChildIdentificationSystem, Birthdate, Sex, Race, HispanicOrLatinoEthnicity) VALUES ($1, $2, $3, $4, $5, $6)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -390,7 +390,7 @@ func seedEarlyLearningChild(db *sql.DB) {
 
 func seedCTECourse(db *sql.DB) {
 	log.Println("Seeding CTECourse table...")
-	stmt, err := db.Prepare(`INSERT INTO CTECourse(CourseIdentifier, CourseTitle, CourseDescription, CourseDepartmentName, SCEDCourseCode, SCEDCourseSubjectArea, CoreAcademicCourse) VALUES (?, ?, ?, ?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO CTECourse(CourseIdentifier, CourseTitle, CourseDescription, CourseDepartmentName, SCEDCourseCode, SCEDCourseSubjectArea, CoreAcademicCourse) VALUES ($1, $2, $3, $4, $5, $6, $7)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -410,7 +410,7 @@ func seedCTECourse(db *sql.DB) {
 
 func seedAssessment(db *sql.DB) {
 	log.Println("Seeding Assessment table...")
-	stmt, err := db.Prepare(`INSERT INTO Assessment(AssessmentIdentifier, AssessmentIdentificationSystem, AssessmentTitle, AssessmentAcademicSubject, AssessmentType) VALUES (?, ?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO Assessment(AssessmentIdentifier, AssessmentIdentificationSystem, AssessmentTitle, AssessmentAcademicSubject, AssessmentType) VALUES ($1, $2, $3, $4, $5)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -431,7 +431,7 @@ func seedAssessment(db *sql.DB) {
 
 func seedProgram(db *sql.DB) {
 	log.Println("Seeding Program table...")
-	stmt, err := db.Prepare(`INSERT INTO Program(ProgramName, ProgramType) VALUES (?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO Program(ProgramName, ProgramType) VALUES ($1, $2)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -459,7 +459,7 @@ func seedProgram(db *sql.DB) {
 
 func seedGoal(db *sql.DB) {
 	log.Println("Seeding Goal table...")
-	stmt, err := db.Prepare(`INSERT INTO Goal(GoalDescription, GoalSuccessCriteria, GoalStartDate, GoalEndDate) VALUES (?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO Goal(GoalDescription, GoalSuccessCriteria, GoalStartDate, GoalEndDate) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -474,7 +474,7 @@ func seedGoal(db *sql.DB) {
 }
 func seedLearnerActivity(db *sql.DB) {
 	log.Println("Seeding LearnerActivity table...")
-	stmt, err := db.Prepare(`INSERT INTO LearnerActivity(LearnerActivityTitle, LearnerActivityDescription, LearnerActivityType) VALUES (?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO LearnerActivity(LearnerActivityTitle, LearnerActivityDescription, LearnerActivityType) VALUES ($1, $2, $3)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -490,7 +490,7 @@ func seedLearnerActivity(db *sql.DB) {
 }
 func seedRubric(db *sql.DB) {
 	log.Println("Seeding Rubric table...")
-	stmt, err := db.Prepare(`INSERT INTO Rubric(AssessmentRubricIdentifier, AssessmentRubricTitle, RubricDescription, RubricCriterionTitle, RubricCriterionDescription, RubricCriterionLevelQualityLabel) VALUES (?, ?, ?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO Rubric(AssessmentRubricIdentifier, AssessmentRubricTitle, RubricDescription, RubricCriterionTitle, RubricCriterionDescription, RubricCriterionLevelQualityLabel) VALUES ($1, $2, $3, $4, $5, $6)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -506,7 +506,7 @@ func seedRubric(db *sql.DB) {
 
 func seedScorer(db *sql.DB) {
 	log.Println("Seeding Scorer table...")
-	stmt, err := db.Prepare(`INSERT INTO Scorer(PersonIdentifier, PersonIdentificationSystem, FirstName, LastOrSurname) VALUES (?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO Scorer(PersonIdentifier, PersonIdentificationSystem, FirstName, LastOrSurname) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -521,7 +521,7 @@ func seedScorer(db *sql.DB) {
 }
 func seedAuthenticationIdentityProvider(db *sql.DB) {
 	log.Println("Seeding AuthenticationIdentityProvider table...")
-	stmt, err := db.Prepare(`INSERT INTO AuthenticationIdentityProvider(AuthenticationIdentityProviderName, AuthenticationIdentityProviderURI, AuthenticationIdentityProviderLoginIdentifier, AuthenticationIdentityProviderStartDate) VALUES (?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO AuthenticationIdentityProvider(AuthenticationIdentityProviderName, AuthenticationIdentityProviderURI, AuthenticationIdentityProviderLoginIdentifier, AuthenticationIdentityProviderStartDate) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -538,7 +538,7 @@ func seedAuthenticationIdentityProvider(db *sql.DB) {
 
 func seedAuthorizationApplication(db *sql.DB) {
 	log.Println("Seeding AuthorizationApplication table...")
-	stmt, err := db.Prepare(`INSERT INTO AuthorizationApplication(AuthorizationApplicationName, AuthorizationApplicationURI, AuthorizationApplicationRoleName, AuthorizationStartDate) VALUES (?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO AuthorizationApplication(AuthorizationApplicationName, AuthorizationApplicationURI, AuthorizationApplicationRoleName, AuthorizationStartDate) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -555,7 +555,7 @@ func seedAuthorizationApplication(db *sql.DB) {
 
 func seedLearnerAction(db *sql.DB) {
 	log.Println("Seeding LearnerAction table...")
-	stmt, err := db.Prepare(`INSERT INTO LearnerAction(LearnerActionActorIdentifier, LearnerActionDateTime, LearnerActionType, LearnerActionObjectIdentifier, LearnerActionObjectType) VALUES (?, ?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO LearnerAction(LearnerActionActorIdentifier, LearnerActionDateTime, LearnerActionType, LearnerActionObjectIdentifier, LearnerActionObjectType) VALUES ($1, $2, $3, $4, $5)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -572,7 +572,7 @@ func seedLearnerAction(db *sql.DB) {
 
 func seedAssessmentSubtest(db *sql.DB) {
 	log.Println("Seeding AssessmentSubtest table...")
-	stmt, err := db.Prepare(`INSERT INTO AssessmentSubtest(AssessmentSubtestIdentifier, AssessmentSubtestIdentifierType, AssessmentSubtestTitle, AssessmentAcademicSubject) VALUES (?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO AssessmentSubtest(AssessmentSubtestIdentifier, AssessmentSubtestIdentifierType, AssessmentSubtestTitle, AssessmentAcademicSubject) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -589,7 +589,7 @@ func seedAssessmentSubtest(db *sql.DB) {
 
 func seedAssessmentItem(db *sql.DB) {
 	log.Println("Seeding AssessmentItem table...")
-	stmt, err := db.Prepare(`INSERT INTO AssessmentItem(AssessmentItemIdentifier, AssessmentItemBodyText, AssessmentAcademicSubject) VALUES (?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO AssessmentItem(AssessmentItemIdentifier, AssessmentItemBodyText, AssessmentAcademicSubject) VALUES ($1, $2, $3)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -605,7 +605,7 @@ func seedAssessmentItem(db *sql.DB) {
 }
 func seedAssessmentAsset(db *sql.DB) {
 	log.Println("Seeding AssessmentAsset table...")
-	stmt, err := db.Prepare(`INSERT INTO AssessmentAsset(AssessmentAssetIdentifier, AssessmentAssetIdentifierType, AssessmentAssetName, AssessmentAssetType) VALUES (?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO AssessmentAsset(AssessmentAssetIdentifier, AssessmentAssetIdentifierType, AssessmentAssetName, AssessmentAssetType) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -622,7 +622,7 @@ func seedAssessmentAsset(db *sql.DB) {
 
 func seedAssessmentForm(db *sql.DB) {
 	log.Println("Seeding AssessmentForm table...")
-	stmt, err := db.Prepare(`INSERT INTO AssessmentForm(AssessmentFormGUID, AssessmentFormName, AssessmentFormNumber, AssessmentAcademicSubject, AssessmentLanguage) VALUES (?, ?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO AssessmentForm(AssessmentFormGUID, AssessmentFormName, AssessmentFormNumber, AssessmentAcademicSubject, AssessmentLanguage) VALUES ($1, $2, $3, $4, $5)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -643,7 +643,7 @@ func seedAssessmentForm(db *sql.DB) {
 
 func seedEarlyChildhoodClassGroup(db *sql.DB) {
 	log.Println("Seeding EarlyChildhoodClassGroup table...")
-	stmt, err := db.Prepare(`INSERT INTO EarlyChildhoodClassGroup(ClassGroupIdentifier, ClassGroupType, EarlyChildhoodClassType) VALUES (?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO EarlyChildhoodClassGroup(ClassGroupIdentifier, ClassGroupType, EarlyChildhoodClassType) VALUES ($1, $2, $3)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -661,7 +661,7 @@ func seedEarlyChildhoodClassGroup(db *sql.DB) {
 
 func seedCTEProgram(db *sql.DB) {
 	log.Println("Seeding CTEProgram table...")
-	stmt, err := db.Prepare(`INSERT INTO CTEProgram(ProgramName, CareerCluster, ProgramSponsorType, ProgramType) VALUES (?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO CTEProgram(ProgramName, CareerCluster, ProgramSponsorType, ProgramType) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -682,7 +682,7 @@ func seedCTEProgram(db *sql.DB) {
 
 func seedCTECourseSection(db *sql.DB) {
 	log.Println("Seeding CTECourseSection table...")
-	stmt, err := db.Prepare(`INSERT INTO CTECourseSection(CourseSectionIdentifier, CourseIdentifier, ClassroomIdentifier, CourseBeginDate, CourseEndDate, SessionType, CareerCluster) VALUES (?, ?, ?, ?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO CTECourseSection(CourseSectionIdentifier, CourseIdentifier, ClassroomIdentifier, CourseBeginDate, CourseEndDate, SessionType, CareerCluster) VALUES ($1, $2, $3, $4, $5, $6, $7)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -703,7 +703,7 @@ func seedCTECourseSection(db *sql.DB) {
 
 func seedCalendarEvent(db *sql.DB) {
 	log.Println("Seeding CalendarEvent table...")
-	stmt, err := db.Prepare(`INSERT INTO CalendarEvent(CalendarCode, CalendarEventDate, CalendarEventDayName, CalendarEventType) VALUES (?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO CalendarEvent(CalendarCode, CalendarEventDate, CalendarEventDayName, CalendarEventType) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -720,7 +720,7 @@ func seedCalendarEvent(db *sql.DB) {
 
 func seedCalendarCrisis(db *sql.DB) {
 	log.Println("Seeding CalendarCrisis table...")
-	stmt, err := db.Prepare(`INSERT INTO CalendarCrisis(CalendarCode, CrisisCode, CrisisName, CrisisDescription, CrisisStartDate, CrisisEndDate) VALUES (?, ?, ?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO CalendarCrisis(CalendarCode, CrisisCode, CrisisName, CrisisDescription, CrisisStartDate, CrisisEndDate) VALUES ($1, $2, $3, $4, $5, $6)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -736,7 +736,7 @@ func seedCalendarCrisis(db *sql.DB) {
 
 func seedCourseSectionAttendance(db *sql.DB) {
 	log.Println("Seeding CourseSectionAttendance table...")
-	stmt, err := db.Prepare(`INSERT INTO CourseSectionAttendance(CourseSectionIdentifier, StudentIdentifier, AttendanceEventDate, AttendanceStatus) VALUES (?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO CourseSectionAttendance(CourseSectionIdentifier, StudentIdentifier, AttendanceEventDate, AttendanceStatus) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -753,7 +753,7 @@ func seedCourseSectionAttendance(db *sql.DB) {
 
 func seedCourseSectionEnrollment(db *sql.DB) {
 	log.Println("Seeding CourseSectionEnrollment table...")
-	stmt, err := db.Prepare(`INSERT INTO CourseSectionEnrollment(CourseSectionIdentifier, StudentIdentifier, CourseSectionEnrollmentStatusType, EnrollmentEntryDate) VALUES (?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO CourseSectionEnrollment(CourseSectionIdentifier, StudentIdentifier, CourseSectionEnrollmentStatusType, EnrollmentEntryDate) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -770,7 +770,7 @@ func seedCourseSectionEnrollment(db *sql.DB) {
 
 func seedSEAFederalFunds(db *sql.DB) {
 	log.Println("Seeding SEAFederalFunds table...")
-	stmt, err := db.Prepare(`INSERT INTO SEAFederalFunds(StateAgencyIdentifier, DateStateReceivedTitleIIIAllocation, FederalProgramsFundingAllocation) VALUES (?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO SEAFederalFunds(StateAgencyIdentifier, DateStateReceivedTitleIIIAllocation, FederalProgramsFundingAllocation) VALUES ($1, $2, $3)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -786,7 +786,7 @@ func seedSEAFederalFunds(db *sql.DB) {
 
 func seedSEAFinance(db *sql.DB) {
 	log.Println("Seeding SEAFinance table...")
-	stmt, err := db.Prepare(`INSERT INTO SEAFinance(StateAgencyIdentifier, FinancialAccountNumber, FinancialAccountName, FinancialAccountCategory, FinancialAccountingValue) VALUES (?, ?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO SEAFinance(StateAgencyIdentifier, FinancialAccountNumber, FinancialAccountName, FinancialAccountCategory, FinancialAccountingValue) VALUES ($1, $2, $3, $4, $5)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -802,7 +802,7 @@ func seedSEAFinance(db *sql.DB) {
 }
 func seedSEAJob(db *sql.DB) {
 	log.Println("Seeding SEAJob table...")
-	stmt, err := db.Prepare(`INSERT INTO SEAJob(StateAgencyIdentifier, JobIdentifier, JobIdentificationSystem, JobPositionStatus) VALUES (?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO SEAJob(StateAgencyIdentifier, JobIdentifier, JobIdentificationSystem, JobPositionStatus) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -819,7 +819,7 @@ func seedSEAJob(db *sql.DB) {
 
 func seedFacilityAddress(db *sql.DB) {
 	log.Println("Seeding FacilityAddress table...")
-	stmt, err := db.Prepare(`INSERT INTO FacilityAddress(FacilitiesIdentifier, AddressStreetNumberAndName, AddressCity, AddressPostalCode, AddressTypeForOrganization) VALUES (?, ?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO FacilityAddress(FacilitiesIdentifier, AddressStreetNumberAndName, AddressCity, AddressPostalCode, AddressTypeForOrganization) VALUES ($1, $2, $3, $4, $5)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -842,7 +842,7 @@ func seedFacilityAddress(db *sql.DB) {
 
 func seedFacilityBudgetFinance(db *sql.DB) {
 	log.Println("Seeding FacilityBudgetFinance table...")
-	stmt, err := db.Prepare(`INSERT INTO FacilityBudgetFinance(FacilitiesIdentifier, FacilityLeaseAmount, FacilityTotalAssessedValue) VALUES (?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO FacilityBudgetFinance(FacilitiesIdentifier, FacilityLeaseAmount, FacilityTotalAssessedValue) VALUES ($1, $2, $3)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -858,7 +858,7 @@ func seedFacilityBudgetFinance(db *sql.DB) {
 
 func seedFacilityCondition(db *sql.DB) {
 	log.Println("Seeding FacilityCondition table...")
-	stmt, err := db.Prepare(`INSERT INTO FacilityCondition(FacilitiesIdentifier, FacilitySystemOrComponentCondition) VALUES (?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO FacilityCondition(FacilitiesIdentifier, FacilitySystemOrComponentCondition) VALUES ($1, $2)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -875,7 +875,7 @@ func seedFacilityCondition(db *sql.DB) {
 
 func seedFacilityDesign(db *sql.DB) {
 	log.Println("Seeding FacilityDesign table...")
-	stmt, err := db.Prepare(`INSERT INTO FacilityDesign(FacilitiesIdentifier, BuildingArchitectName, BuildingDesignType) VALUES (?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO FacilityDesign(FacilitiesIdentifier, BuildingArchitectName, BuildingDesignType) VALUES ($1, $2, $3)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -892,7 +892,7 @@ func seedFacilityDesign(db *sql.DB) {
 
 func seedFacilityManagement(db *sql.DB) {
 	log.Println("Seeding FacilityManagement table...")
-	stmt, err := db.Prepare(`INSERT INTO FacilityManagement(FacilitiesIdentifier, FacilitiesPlanType, FacilityOperationsManagementType) VALUES (?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO FacilityManagement(FacilitiesIdentifier, FacilitiesPlanType, FacilityOperationsManagementType) VALUES ($1, $2, $3)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -910,7 +910,7 @@ func seedFacilityManagement(db *sql.DB) {
 
 func seedFacilityUtilization(db *sql.DB) {
 	log.Println("Seeding FacilityUtilization table...")
-	stmt, err := db.Prepare(`INSERT INTO FacilityUtilization(FacilitiesIdentifier, EnrollmentCapacity, FacilityEnrollmentCapacity, BuildingUseType) VALUES (?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO FacilityUtilization(FacilitiesIdentifier, EnrollmentCapacity, FacilityEnrollmentCapacity, BuildingUseType) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -928,7 +928,7 @@ func seedFacilityUtilization(db *sql.DB) {
 
 func seedChildOutcomeSummary(db *sql.DB) {
 	log.Println("Seeding ChildOutcomeSummary table...")
-	stmt, err := db.Prepare(`INSERT INTO ChildOutcomeSummary(ChildIdentifier, COSProgressAIndicator, COSRatingA, EarlyLearningOutcomeTimePoint) VALUES (?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO ChildOutcomeSummary(ChildIdentifier, COSProgressAIndicator, COSRatingA, EarlyLearningOutcomeTimePoint) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -945,7 +945,7 @@ func seedChildOutcomeSummary(db *sql.DB) {
 }
 func seedEarlyLearningStaff(db *sql.DB) {
 	log.Println("Seeding EarlyLearningStaff table...")
-	stmt, err := db.Prepare(`INSERT INTO EarlyLearningStaff(PersonIdentifier, PersonIdentificationSystem, FirstName, LastOrSurname, Sex, Race) VALUES (?, ?, ?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO EarlyLearningStaff(PersonIdentifier, PersonIdentificationSystem, FirstName, LastOrSurname, Sex, Race) VALUES ($1, $2, $3, $4, $5, $6)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -961,7 +961,7 @@ func seedEarlyLearningStaff(db *sql.DB) {
 }
 func seedParentGuardian(db *sql.DB) {
 	log.Println("Seeding ParentGuardian table...")
-	stmt, err := db.Prepare(`INSERT INTO ParentGuardian(PersonIdentifier, PersonIdentificationSystem, FirstName, LastOrSurname, PersonRelationshipType, StudentIdentifier) VALUES (?, ?, ?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO ParentGuardian(PersonIdentifier, PersonIdentificationSystem, FirstName, LastOrSurname, PersonRelationshipType, StudentIdentifier) VALUES ($1, $2, $3, $4, $5, $6)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -980,7 +980,7 @@ func seedParentGuardian(db *sql.DB) {
 
 func seedEarlyLearningDevelopmentObservation(db *sql.DB) {
 	log.Println("Seeding EarlyLearningDevelopmentObservation table...")
-	stmt, err := db.Prepare(`INSERT INTO EarlyLearningDevelopmentObservation(ChildIdentifier, ObservationDate, ObservationEventType) VALUES (?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO EarlyLearningDevelopmentObservation(ChildIdentifier, ObservationDate, ObservationEventType) VALUES ($1, $2, $3)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -997,7 +997,7 @@ func seedEarlyLearningDevelopmentObservation(db *sql.DB) {
 
 func seedEarlyChildhoodProgram(db *sql.DB) {
 	log.Println("Seeding EarlyChildhoodProgram table...")
-	stmt, err := db.Prepare(`INSERT INTO EarlyChildhoodProgram(ProgramName, EarlyChildhoodProgramType) VALUES (?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO EarlyChildhoodProgram(ProgramName, EarlyChildhoodProgramType) VALUES ($1, $2)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -1014,7 +1014,7 @@ func seedEarlyChildhoodProgram(db *sql.DB) {
 
 func seedCTECourseSectionAttendance(db *sql.DB) {
 	log.Println("Seeding CTECourseSectionAttendance table...")
-	stmt, err := db.Prepare(`INSERT INTO CTECourseSectionAttendance(CourseSectionIdentifier, AttendanceEventDate, AttendanceStatus) VALUES (?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO CTECourseSectionAttendance(CourseSectionIdentifier, AttendanceEventDate, AttendanceStatus) VALUES ($1, $2, $3)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -1032,7 +1032,7 @@ func seedCTECourseSectionAttendance(db *sql.DB) {
 
 func seedCTEStudent(db *sql.DB) {
 	log.Println("Seeding CTEStudent table...")
-	stmt, err := db.Prepare(`INSERT INTO CTEStudent(StudentIdentifier, StudentIdentificationSystem, FirstName, LastOrSurname, CTEParticipant, CTEConcentrator) VALUES (?, ?, ?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO CTEStudent(StudentIdentifier, StudentIdentificationSystem, FirstName, LastOrSurname, CTEParticipant, CTEConcentrator) VALUES ($1, $2, $3, $4, $5, $6)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -1061,7 +1061,7 @@ func seedCTEStudent(db *sql.DB) {
 
 func seedAssessmentAdministration(db *sql.DB) {
 	log.Println("Seeding AssessmentAdministration table...")
-	stmt, err := db.Prepare(`INSERT INTO AssessmentAdministration(AssessmentAdministrationName, AssessmentIdentifier, SchoolIdentifier, LocalEducationAgencyIdentifier) VALUES (?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO AssessmentAdministration(AssessmentAdministrationName, AssessmentIdentifier, SchoolIdentifier, LocalEducationAgencyIdentifier) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -1077,7 +1077,7 @@ func seedAssessmentAdministration(db *sql.DB) {
 
 func seedAssessmentFormSection(db *sql.DB) {
 	log.Println("Seeding AssessmentFormSection table...")
-	stmt, err := db.Prepare(`INSERT INTO AssessmentFormSection(AssessmentFormSectionGUID, AssessmentFormSectionIdentifier, AssessmentAcademicSubject) VALUES (?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO AssessmentFormSection(AssessmentFormSectionGUID, AssessmentFormSectionIdentifier, AssessmentAcademicSubject) VALUES ($1, $2, $3)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -1094,7 +1094,7 @@ func seedAssessmentFormSection(db *sql.DB) {
 
 func seedAssessmentRegistration(db *sql.DB) {
 	log.Println("Seeding AssessmentRegistration table...")
-	stmt, err := db.Prepare(`INSERT INTO AssessmentRegistration(SchoolIdentifier, StateAgencyIdentifier, LocalEducationAgencyIdentifier, ReasonNotTested) VALUES (?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO AssessmentRegistration(SchoolIdentifier, StateAgencyIdentifier, LocalEducationAgencyIdentifier, ReasonNotTested) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -1111,7 +1111,7 @@ func seedAssessmentRegistration(db *sql.DB) {
 
 func seedAssessmentResult(db *sql.DB) {
 	log.Println("Seeding AssessmentResult table...")
-	stmt, err := db.Prepare(`INSERT INTO AssessmentResult(AssessmentResultScoreValue, AssessmentResultDataType, AssessmentResultScoreType) VALUES (?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO AssessmentResult(AssessmentResultScoreValue, AssessmentResultDataType, AssessmentResultScoreType) VALUES ($1, $2, $3)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -1128,7 +1128,7 @@ func seedAssessmentResult(db *sql.DB) {
 }
 func seedAssessmentPerformanceLevel(db *sql.DB) {
 	log.Println("Seeding AssessmentPerformanceLevel table...")
-	stmt, err := db.Prepare(`INSERT INTO AssessmentPerformanceLevel(AssessmentPerformanceLevelIdentifier, AssessmentPerformanceLevelLabel, AssessmentPerformanceLevelLowerCutScore, AssessmentPerformanceLevelUpperCutScore) VALUES (?, ?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO AssessmentPerformanceLevel(AssessmentPerformanceLevelIdentifier, AssessmentPerformanceLevelLabel, AssessmentPerformanceLevelLowerCutScore, AssessmentPerformanceLevelUpperCutScore) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -1147,7 +1147,7 @@ func seedAssessmentPerformanceLevel(db *sql.DB) {
 }
 func seedAssessmentSession(db *sql.DB) {
 	log.Println("Seeding AssessmentSession table...")
-	stmt, err := db.Prepare(`INSERT INTO AssessmentSession(AssessmentSessionLocation, SchoolIdentifier, AssessmentSessionType) VALUES (?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO AssessmentSession(AssessmentSessionLocation, SchoolIdentifier, AssessmentSessionType) VALUES ($1, $2, $3)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -1163,7 +1163,7 @@ func seedAssessmentSession(db *sql.DB) {
 }
 func seedAssessmentFormSubtestAssessmentItem(db *sql.DB) {
 	log.Println("Seeding AssessmentFormSubtestAssessmentItem table...")
-	stmt, err := db.Prepare(`INSERT INTO AssessmentFormSubtestAssessmentItem(AssessmentFormSubtestItemWeightCorrect, AssessmentFormSubtestItemWeightIncorrect, AssessmentFormSubtestItemWeightNotAttempted) VALUES (?, ?, ?)`)
+	stmt, err := db.Prepare(`INSERT INTO AssessmentFormSubtestAssessmentItem(AssessmentFormSubtestItemWeightCorrect, AssessmentFormSubtestItemWeightIncorrect, AssessmentFormSubtestItemWeightNotAttempted) VALUES ($1, $2, $3)`)
 	if err != nil {
 		log.Fatal(err)
 	}
