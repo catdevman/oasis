@@ -4,31 +4,22 @@ go = "1.26.3"
 [tasks.build]
 description = "Build the host application"
 depends = ["clean"]
-run = "go build -o oasis ./main.go"
 
-[tasks."plugin-build"]
+[tasks."plugin:build"]
 description = "Build all plugins"
-run = [
-  "go build -o ./plugins/common ./plugin/common",
-  "go build -o ./plugins/common-ui ./plugin/common-ui"
-]
 
-[tasks."db-up"]
+[tasks."db:up"]
 description = "Start the database"
-run = "docker compose up -d db"
 
-[tasks."db-down"]
+[tasks."db:down"]
 description = "Stop the database"
-run = "docker compose down"
 
-[tasks."db-seed"]
+[tasks."db:seed"]
 description = "Seed the database"
-run = "cd command/generate && go run main.go"
 
 [tasks.all]
 description = "Build host and plugins"
-depends = ["build", "plugin-build"]
+depends = ["build", "plugin:build"]
 
 [tasks.clean]
 description = "Clean build artifacts"
-run = "rm -rf oasis"

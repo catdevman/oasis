@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+cd command/generate && go run main.go

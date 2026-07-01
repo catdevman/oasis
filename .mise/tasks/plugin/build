@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+go build -o ./plugins/common ./plugin/common
+go build -o ./plugins/common-ui ./plugin/common-ui

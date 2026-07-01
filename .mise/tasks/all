@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# mise description="Build host and plugins"
+# mise depends=["build", "plugin:build"]
