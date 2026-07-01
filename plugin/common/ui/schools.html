@@ -1,0 +1,23 @@
+<div class="glass-panel">
+    <h1 class="page-title">Schools</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Identifier</th>
+                <th>Organization Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .}}
+            <tr>
+                <td>{{if .Field0}}{{.Field0}}{{else}}-{{end}}</td>
+                <td>{{if .Field1}}{{.Field1}}{{else}}-{{end}}</td>
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="2" style="text-align: center; color: var(--text-muted);">No schools found.</td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+</div>

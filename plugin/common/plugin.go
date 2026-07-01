@@ -63,6 +63,9 @@ func New() *CommonPlugin {
 	staff.NewHandler(staff.NewRepository(p.db)).Register(p.mux)
 	student.NewHandler(student.NewRepository(p.db)).Register(p.mux)
 	studentsection.NewHandler(studentsection.NewRepository(p.db)).Register(p.mux)
+	
+	// Register the HTMX UI
+	NewUIHandler(p.db).Register(p.mux)
 
 	return p
 }

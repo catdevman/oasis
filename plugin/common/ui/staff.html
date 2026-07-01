@@ -1,0 +1,25 @@
+<div class="glass-panel">
+    <h1 class="page-title">Staff</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Identifier</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .}}
+            <tr>
+                <td>{{if .Field0}}{{.Field0}}{{else}}-{{end}}</td>
+                <td>{{if .Field1}}{{.Field1}}{{else}}-{{end}}</td>
+                <td>{{if .Field2}}{{.Field2}}{{else}}-{{end}}</td>
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="3" style="text-align: center; color: var(--text-muted);">No staff found.</td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+</div>
