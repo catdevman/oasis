@@ -1,22 +1,9 @@
-PHONY: build clean
+# All targets are delegated to mise tasks defined in .config/mise.toml
 
-build: clean
-	go build -o oasis ./main.go
+.PHONY: help
+help:
+	@mise tasks
 
-plugin-build:
-	go build -o ./plugins/common ./plugin/common
-	go build -o ./plugins/common-ui ./plugin/common-ui
-
-db-up:
-	docker compose up -d db
-
-db-down:
-	docker compose down
-
-db-seed:
-	cd command/generate && go run main.go
-
-all: build plugin-build
-
-clean:
-	rm -rf oasis
+# Delegate all other targets to mise
+%:
+	@mise run $@
