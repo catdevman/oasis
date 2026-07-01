@@ -25,7 +25,6 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: theme('colors.base');
         }
         
         .glass-sidebar {
@@ -35,7 +34,7 @@
         }
 
         .nav-item.active {
-            box-shadow: inset 3px 0 0 theme('colors.accent');
+            box-shadow: inset 3px 0 0 #6366f1;
             background: rgba(99, 102, 241, 0.1);
             color: white;
         }
@@ -48,7 +47,7 @@
             transform: translateX(-50%);
             width: 800px;
             height: 400px;
-            background: theme('colors.accent');
+            background: #6366f1;
             filter: blur(200px);
             opacity: 0.15;
             z-index: -1;
@@ -56,7 +55,7 @@
         }
 
         .glass-panel {
-            background: theme('colors.surface');
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 1rem;
             padding: 1.5rem;
@@ -81,7 +80,7 @@
             font-weight: 600;
             color: #9ca3af;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
@@ -110,17 +109,18 @@
         @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 </head>
-<body class="text-gray-100 flex h-screen overflow-hidden antialiased">
+<body class="bg-base text-gray-100 flex h-screen overflow-hidden antialiased">
     
     <div class="glass-sidebar w-64 bg-surface flex flex-col z-10">
         <div class="p-6 text-xl font-bold tracking-tight border-b border-white/10 bg-gradient-to-br from-indigo-400 to-purple-500 bg-clip-text text-transparent">
             OASIS SIS
         </div>
         <ul class="flex flex-col gap-2 p-4">
-            {{range .}}
+            {{range .MenuItems}}
             <li class="nav-item px-4 py-3 rounded-lg cursor-pointer transition-colors text-gray-400 font-medium hover:bg-surfaceHover hover:text-white flex items-center gap-3" 
                 hx-get="{{.Path}}" 
                 hx-target="#main-content" 
+                hx-push-url="true"
                 hx-indicator="#loading" 
                 onclick="setActive(this)">
                 {{.Label}}
@@ -134,15 +134,8 @@
             <div class="flex-1"></div>
             <div id="loading" class="htmx-indicator spinner"></div>
         </div>
-        <div class="flex-1 p-8 overflow-y-auto" id="main-content">
-            <!-- Dynamic HTMX content injected here -->
-            <div class="glass-panel">
-                <h1 class="text-3xl font-semibold mb-6 tracking-tight">Welcome to Oasis</h1>
-                <p class="text-gray-400 leading-relaxed max-w-2xl">
-                    Select a domain from the dynamically generated sidebar to view the data. 
-                    This layout is served by the host application, while the content is securely fetched via RPC from our Micro-Frontend plugins!
-                </p>
-            </div>
+        <div class="flex-1 p-8 overflow-y-auto" id="main-content" hx-get="{{.InitialPath}}" hx-trigger="load">
+            <!-- Dynamic HTMX content injected here on load -->
         </div>
     </div>
 

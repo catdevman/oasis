@@ -77,13 +77,28 @@ func main() {
 	log.Fatal(http.ListenAndServe(":8080", masterHandler))
 }
 
+type LayoutData struct {
+	MenuItems   []shared.MenuItem
+	InitialPath string
+}
+
 func router(w http.ResponseWriter, r *http.Request) {
 	path := strings.Trim(r.URL.Path, "/")
+	isHTMX := r.Header.Get("HX-Request") == "true"
 
-	// If root or dashboard, serve the host's layout shell
-	if path == "" || path == "dashboard" {
+	// If root, dashboard, or a direct browser navigation to a UI route, serve the shell
+	if !isHTMX && (path == "" || path == "dashboard" || r.Method == http.MethodGet && !strings.HasPrefix(path, "api/")) {
 		w.Header().Set("Content-Type", "text/html")
-		uiTemplate.Execute(w, menuItems)
+		
+		initialPath := r.URL.Path
+		if path == "" || path == "dashboard" {
+			initialPath = "/overview" // Default route
+		}
+		
+		uiTemplate.Execute(w, LayoutData{
+			MenuItems:   menuItems,
+			InitialPath: initialPath,
+		})
 		return
 	}
 
