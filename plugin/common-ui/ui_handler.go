@@ -23,7 +23,6 @@ func NewUIHandler() *UIHandler {
 }
 
 func (h *UIHandler) Register(mux *http.ServeMux) {
-	mux.HandleFunc("GET /dashboard", h.handleDashboard)
 	mux.HandleFunc("GET /overview", h.handleOverview)
 	mux.HandleFunc("GET /students", h.handleStudents)
 	mux.HandleFunc("GET /staff", h.handleStaff)
@@ -31,19 +30,14 @@ func (h *UIHandler) Register(mux *http.ServeMux) {
 	mux.HandleFunc("GET /sections", h.handleSections)
 }
 
-func (h *UIHandler) handleDashboard(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/html")
-	h.tmpl.ExecuteTemplate(w, "layout.html", nil)
-}
-
 func (h *UIHandler) handleOverview(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
 	w.Write([]byte(`
 	<div class="glass-panel">
-		<h1 class="page-title">Welcome to Oasis</h1>
-		<p style="color: var(--text-muted); line-height: 1.6;">
-			Select an Ed-Fi domain from the sidebar to view the data. 
-			This dashboard is rendered entirely in Go using html/template and powered by HTMX for lightning fast, SPA-like navigation without a heavy JavaScript framework.
+		<h1 class="text-3xl font-semibold mb-6 tracking-tight">Welcome to Oasis</h1>
+		<p class="text-gray-400 leading-relaxed max-w-2xl">
+			Select a domain from the dynamically generated sidebar to view the data. 
+			This layout is served by the host application, while the content is securely fetched via RPC from our Micro-Frontend plugins!
 		</p>
 	</div>
 	`))

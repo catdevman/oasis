@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"io"
 	"log"
 	"net/http"
@@ -30,8 +31,17 @@ type PluginConfig struct {
 
 var pluginClients = make(map[string]shared.HTTPPlugin)
 var plugs = []*plugin.Client{}
+var menuItems = []shared.MenuItem{}
+var uiTemplate *template.Template
 
 func main() {
+	// Parse the host UI template
+	var err error
+	uiTemplate, err = template.ParseFiles("ui/layout.html")
+	if err != nil {
+		log.Fatalf("Failed to parse ui/layout.html: %v", err)
+	}
+
 	c := make(chan os.Signal, 1)
 	signal.Notify(c, syscall.SIGINT, syscall.SIGTERM)
 	config, err := loadConfig("plugins.yaml")
@@ -44,9 +54,6 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to open database: %v", err)
 	}
-	// if err := db.Migrate(database, "migrations"); err != nil {
-	// 	log.Fatalf("Failed to run migrations: %v", err)
-	// }
 	database.Close()
 
 	loadPlugins(config)
@@ -72,6 +79,13 @@ func main() {
 
 func router(w http.ResponseWriter, r *http.Request) {
 	path := strings.Trim(r.URL.Path, "/")
+
+	// If root or dashboard, serve the host's layout shell
+	if path == "" || path == "dashboard" {
+		w.Header().Set("Content-Type", "text/html")
+		uiTemplate.Execute(w, menuItems)
+		return
+	}
 
 	var bestMatch string
 	for prefix := range pluginClients {
@@ -172,6 +186,13 @@ func loadPlugins(config *AppConfig) {
 			}
 		} else {
 			log.Printf("Plugin %s GetRoutes err: %v", p.Name, err)
+		}
+
+		// Ask the plugin for its Menu Items
+		items, err := httpPlugin.GetMenuItems()
+		if err == nil && len(items) > 0 {
+			menuItems = append(menuItems, items...)
+			log.Printf("- %s registered %d menu items", p.Name, len(items))
 		}
 	}
 }

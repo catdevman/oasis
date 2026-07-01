@@ -27,6 +27,12 @@ type HTTPResponse struct {
 type HTTPPlugin interface {
 	ServeHTTP(req HTTPRequest) (HTTPResponse, error)
 	GetRoutes() ([]string, error)
+	GetMenuItems() ([]MenuItem, error)
+}
+
+type MenuItem struct {
+	Label string
+	Path  string
 }
 
 // --- Boilerplate for hashicorp/go-plugin ---
@@ -55,6 +61,15 @@ func (s *HTTPPluginRPCServer) GetRoutes(args interface{}, resp *[]string) error 
 	return nil
 }
 
+func (s *HTTPPluginRPCServer) GetMenuItems(args interface{}, resp *[]MenuItem) error {
+	items, err := s.Impl.GetMenuItems()
+	if err != nil {
+		return err
+	}
+	*resp = items
+	return nil
+}
+
 // Here is the RPC client that the host will use to talk to the plugin.
 type HTTPPluginRPC struct{ client *rpc.Client }
 
@@ -71,6 +86,15 @@ func (g *HTTPPluginRPC) ServeHTTP(req HTTPRequest) (HTTPResponse, error) {
 func (g *HTTPPluginRPC) GetRoutes() ([]string, error) {
 	var resp []string
 	err := g.client.Call("Plugin.GetRoutes", new(interface{}), &resp)
+	if err != nil {
+		return nil, err
+	}
+	return resp, nil
+}
+
+func (g *HTTPPluginRPC) GetMenuItems() ([]MenuItem, error) {
+	var resp []MenuItem
+	err := g.client.Call("Plugin.GetMenuItems", new(interface{}), &resp)
 	if err != nil {
 		return nil, err
 	}

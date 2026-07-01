@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oasis SIS Dashboard</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        base: '#0f1115',
+                        surface: 'rgba(255, 255, 255, 0.03)',
+                        surfaceHover: 'rgba(255, 255, 255, 0.08)',
+                        accent: '#6366f1',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: theme('colors.base');
+        }
+        
+        .glass-sidebar {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-item.active {
+            box-shadow: inset 3px 0 0 theme('colors.accent');
+            background: rgba(99, 102, 241, 0.1);
+            color: white;
+        }
+
+        .main-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 400px;
+            background: theme('colors.accent');
+            filter: blur(200px);
+            opacity: 0.15;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .glass-panel {
+            background: theme('colors.surface');
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(12px);
+            animation: fadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Generic Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        th {
+            padding: 1rem;
+            font-weight: 600;
+            color: #9ca3af;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.875rem;
+            color: #f3f4f6;
+            transition: background 0.2s;
+        }
+        tbody tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* HTMX Loading */
+        .htmx-indicator { opacity: 0; transition: opacity 200ms ease-in; }
+        .htmx-request .htmx-indicator { opacity: 1; }
+        .htmx-request.htmx-indicator { opacity: 1; }
+        .spinner {
+            width: 20px; height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-top-color: theme('colors.accent');
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="text-gray-100 flex h-screen overflow-hidden antialiased">
+    
+    <div class="glass-sidebar w-64 bg-surface flex flex-col z-10">
+        <div class="p-6 text-xl font-bold tracking-tight border-b border-white/10 bg-gradient-to-br from-indigo-400 to-purple-500 bg-clip-text text-transparent">
+            OASIS SIS
+        </div>
+        <ul class="flex flex-col gap-2 p-4">
+            {{range .}}
+            <li class="nav-item px-4 py-3 rounded-lg cursor-pointer transition-colors text-gray-400 font-medium hover:bg-surfaceHover hover:text-white flex items-center gap-3" 
+                hx-get="{{.Path}}" 
+                hx-target="#main-content" 
+                hx-indicator="#loading" 
+                onclick="setActive(this)">
+                {{.Label}}
+            </li>
+            {{end}}
+        </ul>
+    </div>
+
+    <div class="main-wrapper flex-1 flex flex-col relative z-0">
+        <div class="h-[70px] border-b border-white/10 flex items-center px-8 bg-base/70 backdrop-blur-md z-10">
+            <div class="flex-1"></div>
+            <div id="loading" class="htmx-indicator spinner"></div>
+        </div>
+        <div class="flex-1 p-8 overflow-y-auto" id="main-content">
+            <!-- Dynamic HTMX content injected here -->
+            <div class="glass-panel">
+                <h1 class="text-3xl font-semibold mb-6 tracking-tight">Welcome to Oasis</h1>
+                <p class="text-gray-400 leading-relaxed max-w-2xl">
+                    Select a domain from the dynamically generated sidebar to view the data. 
+                    This layout is served by the host application, while the content is securely fetched via RPC from our Micro-Frontend plugins!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function setActive(element) {
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>

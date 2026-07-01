@@ -1,9 +1,9 @@
 <div class="glass-panel">
-    <h1 class="page-title">Course Sections</h1>
+    <h1 class="text-3xl font-semibold mb-6 tracking-tight">Course Sections</h1>
     <table>
         <thead>
             <tr>
-                <th>Section Identifier</th>
+                <th>Identifier</th>
                 <th>Course Title</th>
             </tr>
         </thead>
@@ -15,7 +15,7 @@
             </tr>
             {{else}}
             <tr>
-                <td colspan="2" style="text-align: center; color: var(--text-muted);">No sections found.</td>
+                <td colspan="2" class="text-center text-gray-500 italic py-8">No sections found.</td>
             </tr>
             {{end}}
         </tbody>

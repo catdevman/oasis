@@ -49,12 +49,21 @@ func (p *UIPlugin) ServeHTTP(req shared.HTTPRequest) (shared.HTTPResponse, error
 
 func (p *UIPlugin) GetRoutes() ([]string, error) {
 	return []string{
-		"/dashboard",
 		"/overview",
 		"/students",
 		"/staff",
 		"/schools",
 		"/sections",
+	}, nil
+}
+
+func (p *UIPlugin) GetMenuItems() ([]shared.MenuItem, error) {
+	return []shared.MenuItem{
+		{Label: "Overview", Path: "/overview"},
+		{Label: "Students", Path: "/students"},
+		{Label: "Staff", Path: "/staff"},
+		{Label: "Schools", Path: "/schools"},
+		{Label: "Course Sections", Path: "/sections"},
 	}, nil
 }
 
