@@ -12,4 +12,10 @@ plugins:
   
   - name: "common-ui-plugin"
     path: "./plugins/common-ui"
-    prefix: "ui/common"               # Base prefix, but GetRoutes will override with /dashboard etc.
+  - name: "admin-plugin"
+    path: "./plugins/admin"
+    prefix: "api/admin"
+
+  - name: "admin-ui-plugin"
+    path: "./plugins/admin-ui"
+    prefix: "ui/admin"
