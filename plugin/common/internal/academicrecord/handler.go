@@ -4,6 +4,7 @@ package academicrecord
 import (
 	"encoding/json"
 	"net/http"
+	"os"
 )
 
 type Handler struct {
@@ -15,11 +16,16 @@ func NewHandler(repo *Repository) *Handler {
 }
 
 func (h *Handler) Register(mux *http.ServeMux) {
-	mux.HandleFunc("GET /ed-fi/student-academic-records", h.list)
-	mux.HandleFunc("GET /ed-fi/student-academic-records/{id}", h.notImplemented)
-	mux.HandleFunc("POST /ed-fi/student-academic-records", h.notImplemented)
-	mux.HandleFunc("PUT /ed-fi/student-academic-records/{id}", h.notImplemented)
-	mux.HandleFunc("DELETE /ed-fi/student-academic-records/{id}", h.notImplemented)
+	prefix := os.Getenv("OASIS_PLUGIN_PREFIX")
+	if prefix == "" {
+		prefix = "api/common"
+	}
+	basePath := "/" + prefix + "/ed-fi/student-academic-records"
+	mux.HandleFunc("GET "+basePath, h.list)
+	mux.HandleFunc("GET "+basePath+"/{id}", h.notImplemented)
+	mux.HandleFunc("POST "+basePath, h.notImplemented)
+	mux.HandleFunc("PUT "+basePath+"/{id}", h.notImplemented)
+	mux.HandleFunc("DELETE "+basePath+"/{id}", h.notImplemented)
 }
 
 func (h *Handler) list(w http.ResponseWriter, r *http.Request) {

@@ -63,9 +63,6 @@ func New() *CommonPlugin {
 	staff.NewHandler(staff.NewRepository(p.db)).Register(p.mux)
 	student.NewHandler(student.NewRepository(p.db)).Register(p.mux)
 	studentsection.NewHandler(studentsection.NewRepository(p.db)).Register(p.mux)
-	
-	// Register the HTMX UI
-	NewUIHandler(p.db).Register(p.mux)
 
 	return p
 }
@@ -100,3 +97,4 @@ func (p *CommonPlugin) ServeHTTP(req shared.HTTPRequest) (shared.HTTPResponse, e
 		Body:       body,
 	}, nil
 }
+func (p *CommonPlugin) GetRoutes() ([]string, error) { return []string{}, nil }

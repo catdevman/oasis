@@ -5,6 +5,7 @@ build: clean
 
 plugin-build:
 	go build -o ./plugins/common ./plugin/common
+	go build -o ./plugins/common-ui ./plugin/common-ui
 
 db-up:
 	docker compose up -d db

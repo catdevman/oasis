@@ -108,6 +108,7 @@ package {{.Name}}
 import (
 	"encoding/json"
 	"net/http"
+	"os"
 )
 
 type Handler struct {
@@ -119,11 +120,16 @@ func NewHandler(repo *Repository) *Handler {
 }
 
 func (h *Handler) Register(mux *http.ServeMux) {
-	mux.HandleFunc("GET /ed-fi/{{.Endpoint}}", h.list)
-	mux.HandleFunc("GET /ed-fi/{{.Endpoint}}/{id}", h.{{if .HasTable}}get{{else}}notImplemented{{end}})
-	mux.HandleFunc("POST /ed-fi/{{.Endpoint}}", h.{{if .HasTable}}create{{else}}notImplemented{{end}})
-	mux.HandleFunc("PUT /ed-fi/{{.Endpoint}}/{id}", h.{{if .HasTable}}update{{else}}notImplemented{{end}})
-	mux.HandleFunc("DELETE /ed-fi/{{.Endpoint}}/{id}", h.{{if .HasTable}}delete{{else}}notImplemented{{end}})
+	prefix := os.Getenv("OASIS_PLUGIN_PREFIX")
+	if prefix == "" {
+		prefix = "api/common"
+	}
+	basePath := "/" + prefix + "/ed-fi/{{.Endpoint}}"
+	mux.HandleFunc("GET "+basePath, h.list)
+	mux.HandleFunc("GET "+basePath+"/{id}", h.{{if .HasTable}}get{{else}}notImplemented{{end}})
+	mux.HandleFunc("POST "+basePath, h.{{if .HasTable}}create{{else}}notImplemented{{end}})
+	mux.HandleFunc("PUT "+basePath+"/{id}", h.{{if .HasTable}}update{{else}}notImplemented{{end}})
+	mux.HandleFunc("DELETE "+basePath+"/{id}", h.{{if .HasTable}}delete{{else}}notImplemented{{end}})
 }
 
 func (h *Handler) list(w http.ResponseWriter, r *http.Request) {

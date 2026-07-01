@@ -4,6 +4,7 @@ package staff
 import (
 	"encoding/json"
 	"net/http"
+	"os"
 )
 
 type Handler struct {
@@ -15,11 +16,16 @@ func NewHandler(repo *Repository) *Handler {
 }
 
 func (h *Handler) Register(mux *http.ServeMux) {
-	mux.HandleFunc("GET /ed-fi/staffs", h.list)
-	mux.HandleFunc("GET /ed-fi/staffs/{id}", h.get)
-	mux.HandleFunc("POST /ed-fi/staffs", h.create)
-	mux.HandleFunc("PUT /ed-fi/staffs/{id}", h.update)
-	mux.HandleFunc("DELETE /ed-fi/staffs/{id}", h.delete)
+	prefix := os.Getenv("OASIS_PLUGIN_PREFIX")
+	if prefix == "" {
+		prefix = "api/common"
+	}
+	basePath := "/" + prefix + "/ed-fi/staffs"
+	mux.HandleFunc("GET "+basePath, h.list)
+	mux.HandleFunc("GET "+basePath+"/{id}", h.get)
+	mux.HandleFunc("POST "+basePath, h.create)
+	mux.HandleFunc("PUT "+basePath+"/{id}", h.update)
+	mux.HandleFunc("DELETE "+basePath+"/{id}", h.delete)
 }
 
 func (h *Handler) list(w http.ResponseWriter, r *http.Request) {

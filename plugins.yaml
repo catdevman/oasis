@@ -9,3 +9,7 @@ plugins:
     path: "./plugins/common" # Relative path to the compiled plugin binary
     prefix: "api/common"              # URL prefix (no slashes)
     tables: "edfi_"                    # Table prefix this plugin owns
+  
+  - name: "common-ui-plugin"
+    path: "./plugins/common-ui"
+    prefix: "ui/common"               # Base prefix, but GetRoutes will override with /dashboard etc.

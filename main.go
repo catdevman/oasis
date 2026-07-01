@@ -88,11 +88,10 @@ func router(w http.ResponseWriter, r *http.Request) {
 	}
 
 	client := pluginClients[bestMatch]
-	log.Printf("Routing request for %s to prefix '%s'", r.URL.Path, bestMatch)
+	log.Printf("Routing request for %s to matched prefix '%s'", r.URL.Path, bestMatch)
 
-	// Strip the prefix so the plugin receives the path relative to its root
-	r.URL.Path = "/" + strings.TrimPrefix(strings.TrimPrefix(path, bestMatch), "/")
-	//TODO: This should have limitations, I think http has something that can read to some max byte size that might work better
+	// We pass the EXACT original path down to the plugin so it can register absolute paths!
+	// (No longer stripping the prefix here)
 	body, err := io.ReadAll(r.Body)
 	if err != nil {
 		http.Error(w, "Failed to read request body", http.StatusInternalServerError)
@@ -159,6 +158,20 @@ func loadPlugins(config *AppConfig) {
 			log.Printf("Error dispensing plugin %s: %s", p.Name, err)
 			continue
 		}
-		pluginClients[p.Prefix] = raw.(shared.HTTPPlugin)
+		
+		httpPlugin := raw.(shared.HTTPPlugin)
+		pluginClients[p.Prefix] = httpPlugin
+		
+		// Ask the plugin if it wants to claim additional top-level routes
+		dynamicRoutes, err := httpPlugin.GetRoutes()
+		if err == nil {
+			for _, r := range dynamicRoutes {
+				cleanRoute := strings.TrimPrefix(r, "/")
+				pluginClients[cleanRoute] = httpPlugin
+				log.Printf("- %s dynamically registered route -> /%s/*", p.Name, cleanRoute)
+			}
+		} else {
+			log.Printf("Plugin %s GetRoutes err: %v", p.Name, err)
+		}
 	}
 }

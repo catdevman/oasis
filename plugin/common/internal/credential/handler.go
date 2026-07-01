@@ -4,6 +4,7 @@ package credential
 import (
 	"encoding/json"
 	"net/http"
+	"os"
 )
 
 type Handler struct {
@@ -15,11 +16,16 @@ func NewHandler(repo *Repository) *Handler {
 }
 
 func (h *Handler) Register(mux *http.ServeMux) {
-	mux.HandleFunc("GET /ed-fi/credentials", h.list)
-	mux.HandleFunc("GET /ed-fi/credentials/{id}", h.notImplemented)
-	mux.HandleFunc("POST /ed-fi/credentials", h.notImplemented)
-	mux.HandleFunc("PUT /ed-fi/credentials/{id}", h.notImplemented)
-	mux.HandleFunc("DELETE /ed-fi/credentials/{id}", h.notImplemented)
+	prefix := os.Getenv("OASIS_PLUGIN_PREFIX")
+	if prefix == "" {
+		prefix = "api/common"
+	}
+	basePath := "/" + prefix + "/ed-fi/credentials"
+	mux.HandleFunc("GET "+basePath, h.list)
+	mux.HandleFunc("GET "+basePath+"/{id}", h.notImplemented)
+	mux.HandleFunc("POST "+basePath, h.notImplemented)
+	mux.HandleFunc("PUT "+basePath+"/{id}", h.notImplemented)
+	mux.HandleFunc("DELETE "+basePath+"/{id}", h.notImplemented)
 }
 
 func (h *Handler) list(w http.ResponseWriter, r *http.Request) {

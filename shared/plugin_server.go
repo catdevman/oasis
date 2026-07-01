@@ -26,6 +26,7 @@ type HTTPResponse struct {
 // HTTPPlugin is the interface that all our HTTP plugins must implement.
 type HTTPPlugin interface {
 	ServeHTTP(req HTTPRequest) (HTTPResponse, error)
+	GetRoutes() ([]string, error)
 }
 
 // --- Boilerplate for hashicorp/go-plugin ---
@@ -45,6 +46,15 @@ func (s *HTTPPluginRPCServer) ServeHTTP(req HTTPRequest, resp *HTTPResponse) err
 	return nil
 }
 
+func (s *HTTPPluginRPCServer) GetRoutes(args interface{}, resp *[]string) error {
+	routes, err := s.Impl.GetRoutes()
+	if err != nil {
+		return err
+	}
+	*resp = routes
+	return nil
+}
+
 // Here is the RPC client that the host will use to talk to the plugin.
 type HTTPPluginRPC struct{ client *rpc.Client }
 
@@ -54,6 +64,15 @@ func (g *HTTPPluginRPC) ServeHTTP(req HTTPRequest) (HTTPResponse, error) {
 	if err != nil {
 		// You may want to wrap the error in something more specific.
 		return HTTPResponse{}, err
+	}
+	return resp, nil
+}
+
+func (g *HTTPPluginRPC) GetRoutes() ([]string, error) {
+	var resp []string
+	err := g.client.Call("Plugin.GetRoutes", new(interface{}), &resp)
+	if err != nil {
+		return nil, err
 	}
 	return resp, nil
 }

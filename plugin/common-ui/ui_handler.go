@@ -1,48 +1,34 @@
 package main
 
 import (
-	"database/sql"
+	"encoding/json"
 	"embed"
 	"html/template"
 	"net/http"
-
-	"github.com/catdevman/oasis/plugin/common/internal/educationorg"
-	"github.com/catdevman/oasis/plugin/common/internal/section"
-	"github.com/catdevman/oasis/plugin/common/internal/staff"
-	"github.com/catdevman/oasis/plugin/common/internal/student"
+	"io"
 )
 
 //go:embed ui/*.html
 var uiTemplates embed.FS
 
 type UIHandler struct {
-	db      *sql.DB
-	tmpl    *template.Template
-	student *student.Repository
-	staff   *staff.Repository
-	school  *educationorg.Repository
-	section *section.Repository
+	tmpl *template.Template
 }
 
-func NewUIHandler(db *sql.DB) *UIHandler {
+func NewUIHandler() *UIHandler {
 	tmpl := template.Must(template.ParseFS(uiTemplates, "ui/*.html"))
 	return &UIHandler{
-		db:      db,
-		tmpl:    tmpl,
-		student: student.NewRepository(db),
-		staff:   staff.NewRepository(db),
-		school:  educationorg.NewRepository(db),
-		section: section.NewRepository(db),
+		tmpl: tmpl,
 	}
 }
 
 func (h *UIHandler) Register(mux *http.ServeMux) {
-	mux.HandleFunc("GET /ui/dashboard", h.handleDashboard)
-	mux.HandleFunc("GET /ui/overview", h.handleOverview)
-	mux.HandleFunc("GET /ui/students", h.handleStudents)
-	mux.HandleFunc("GET /ui/staff", h.handleStaff)
-	mux.HandleFunc("GET /ui/schools", h.handleSchools)
-	mux.HandleFunc("GET /ui/sections", h.handleSections)
+	mux.HandleFunc("GET /dashboard", h.handleDashboard)
+	mux.HandleFunc("GET /overview", h.handleOverview)
+	mux.HandleFunc("GET /students", h.handleStudents)
+	mux.HandleFunc("GET /staff", h.handleStaff)
+	mux.HandleFunc("GET /schools", h.handleSchools)
+	mux.HandleFunc("GET /sections", h.handleSections)
 }
 
 func (h *UIHandler) handleDashboard(w http.ResponseWriter, r *http.Request) {
@@ -63,8 +49,24 @@ func (h *UIHandler) handleOverview(w http.ResponseWriter, r *http.Request) {
 	`))
 }
 
+func fetchAPI(endpoint string, result interface{}) error {
+	resp, err := http.Get("http://127.0.0.1:8080/api/common/ed-fi/" + endpoint)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+	
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return err
+	}
+	
+	return json.Unmarshal(body, result)
+}
+
 func (h *UIHandler) handleStudents(w http.ResponseWriter, r *http.Request) {
-	items, err := h.student.List(50, 0)
+	var items []map[string]interface{}
+	err := fetchAPI("students", &items)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -74,7 +76,8 @@ func (h *UIHandler) handleStudents(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *UIHandler) handleStaff(w http.ResponseWriter, r *http.Request) {
-	items, err := h.staff.List(50, 0)
+	var items []map[string]interface{}
+	err := fetchAPI("staffs", &items)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -84,7 +87,8 @@ func (h *UIHandler) handleStaff(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *UIHandler) handleSchools(w http.ResponseWriter, r *http.Request) {
-	items, err := h.school.List(50, 0)
+	var items []map[string]interface{}
+	err := fetchAPI("education-organizations", &items)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -94,7 +98,8 @@ func (h *UIHandler) handleSchools(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *UIHandler) handleSections(w http.ResponseWriter, r *http.Request) {
-	items, err := h.section.List(50, 0)
+	var items []map[string]interface{}
+	err := fetchAPI("sections", &items)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

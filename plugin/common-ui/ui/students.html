@@ -1,5 +1,5 @@
 <div class="glass-panel">
-    <h1 class="page-title">Staff</h1>
+    <h1 class="page-title">Students</h1>
     <table>
         <thead>
             <tr>
@@ -11,13 +11,13 @@
         <tbody>
             {{range .}}
             <tr>
-                <td>{{if .Field0}}{{.Field0}}{{else}}-{{end}}</td>
-                <td>{{if .Field1}}{{.Field1}}{{else}}-{{end}}</td>
-                <td>{{if .Field2}}{{.Field2}}{{else}}-{{end}}</td>
+                <td>{{if .studentidentifier}}{{.studentidentifier}}{{else}}-{{end}}</td>
+                <td>{{if .firstname}}{{.firstname}}{{else}}-{{end}}</td>
+                <td>{{if .lastorsurname}}{{.lastorsurname}}{{else}}-{{end}}</td>
             </tr>
             {{else}}
             <tr>
-                <td colspan="3" style="text-align: center; color: var(--text-muted);">No staff found.</td>
+                <td colspan="3" style="text-align: center; color: var(--text-muted);">No students found.</td>
             </tr>
             {{end}}
         </tbody>
