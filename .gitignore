@@ -1,9 +1,7 @@
 oasis
 oasis.db
+oasis.db-wal
+oasis.db-shm
 
 !plugins/.gitkeep
 plugins/*
-/oasis.db-wal
-/oasis.db-wal
-/oasis.db-wal
-/oasis.db-shm
