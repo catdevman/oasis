@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +8,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        base: '#0f1115',
-                        surface: 'rgba(255, 255, 255, 0.03)',
-                        surfaceHover: 'rgba(255, 255, 255, 0.08)',
-                        accent: '#6366f1',
+                        base: '#f4f7f6',
+                        surface: '#ffffff',
+                        sidebar: '#0f172a',
+                        sidebarHover: '#1e293b',
+                        accent: '#2563eb',
                     }
                 }
             }
@@ -27,45 +27,28 @@
             font-family: 'Inter', sans-serif;
         }
         
-        .glass-sidebar {
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        .main-sidebar {
+            background-color: #0f172a;
+            border-right: 1px solid #0f172a;
         }
 
         .nav-item.active {
-            box-shadow: inset 3px 0 0 #6366f1;
-            background: rgba(99, 102, 241, 0.1);
-            color: white;
+            border-left: 4px solid #2563eb;
+            background-color: #1e293b;
+            color: #ffffff;
         }
 
-        .main-wrapper::before {
-            content: '';
-            position: absolute;
-            top: -200px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 800px;
-            height: 400px;
-            background: #6366f1;
-            filter: blur(200px);
-            opacity: 0.15;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 1rem;
+        .content-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
             padding: 1.5rem;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(12px);
-            animation: fadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            animation: fadeIn 0.3s ease-out;
         }
 
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(15px); }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -78,21 +61,22 @@
         th {
             padding: 1rem;
             font-weight: 600;
-            color: #9ca3af;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #4b5563;
+            border-bottom: 2px solid #e5e7eb;
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            background-color: #f9fafb;
         }
         td {
             padding: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid #e5e7eb;
             font-size: 0.875rem;
-            color: #f3f4f6;
-            transition: background 0.2s;
+            color: #1f2937;
+            transition: background 0.1s;
         }
         tbody tr:hover td {
-            background: rgba(255, 255, 255, 0.02);
+            background: #f9fafb;
         }
 
         /* HTMX Loading */
@@ -100,24 +84,29 @@
         .htmx-request .htmx-indicator { opacity: 1; }
         .htmx-request.htmx-indicator { opacity: 1; }
         .spinner {
-            width: 20px; height: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-top-color: theme('colors.accent');
+            width: 24px; height: 24px;
+            border: 3px solid #e5e7eb;
+            border-top-color: #2563eb;
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 </head>
-<body class="bg-base text-gray-100 flex h-screen overflow-hidden antialiased">
+<body class="bg-base text-gray-800 flex h-screen overflow-hidden antialiased">
     
-    <div class="glass-sidebar w-64 bg-surface flex flex-col z-10">
-        <div class="p-6 text-xl font-bold tracking-tight border-b border-white/10 bg-gradient-to-br from-indigo-400 to-purple-500 bg-clip-text text-transparent">
+    <div class="main-sidebar w-64 flex flex-col z-10 text-gray-300 shadow-xl">
+        <div class="p-6 text-2xl font-bold tracking-tight border-b border-gray-700 text-white flex items-center gap-3">
+            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path>
+            </svg>
             OASIS SIS
         </div>
-        <ul class="flex flex-col gap-2 p-4">
+        <ul class="flex flex-col gap-1 p-4">
             {{range .MenuItems}}
-            <li class="nav-item px-4 py-3 rounded-lg cursor-pointer transition-colors text-gray-400 font-medium hover:bg-surfaceHover hover:text-white flex items-center gap-3" 
+            <li class="nav-item px-4 py-3 rounded-md cursor-pointer transition-colors font-medium hover:bg-sidebarHover hover:text-white flex items-center gap-3" 
                 hx-get="{{.Path}}" 
                 hx-target="#main-content" 
                 hx-push-url="true"
@@ -129,20 +118,25 @@
         </ul>
     </div>
 
-    <div class="main-wrapper flex-1 flex flex-col relative z-0">
-        <div class="h-[70px] border-b border-white/10 flex items-center px-8 bg-base/70 backdrop-blur-md z-10">
-            <div class="flex-1"></div>
+    <div class="flex-1 flex flex-col relative z-0 bg-base">
+        <header class="h-[70px] border-b border-gray-200 bg-white flex items-center px-8 shadow-sm z-10">
+            <h2 class="text-xl font-semibold text-gray-700 flex-1">Dashboard</h2>
             <div id="loading" class="htmx-indicator spinner"></div>
-        </div>
-        <div class="flex-1 p-8 overflow-y-auto" id="main-content" hx-get="{{.InitialPath}}" hx-trigger="load">
+        </header>
+        <main class="flex-1 p-8 overflow-y-auto" id="main-content" hx-get="{{.InitialPath}}" hx-trigger="load">
             <!-- Dynamic HTMX content injected here on load -->
-        </div>
+        </main>
     </div>
 
     <script>
         function setActive(element) {
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
             element.classList.add('active');
+            
+            const headerTitle = document.querySelector('header h2');
+            if (headerTitle) {
+                headerTitle.textContent = element.textContent.trim();
+            }
         }
     </script>
 </body>

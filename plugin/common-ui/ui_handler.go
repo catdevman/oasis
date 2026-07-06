@@ -33,9 +33,9 @@ func (h *UIHandler) Register(mux *http.ServeMux) {
 func (h *UIHandler) handleOverview(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
 	w.Write([]byte(`
-	<div class="glass-panel">
-		<h1 class="text-3xl font-semibold mb-6 tracking-tight">Welcome to Oasis</h1>
-		<p class="text-gray-400 leading-relaxed max-w-2xl">
+	<div class="content-card">
+		<h1 class="text-3xl font-semibold mb-6 tracking-tight text-gray-800">Welcome to Oasis</h1>
+		<p class="text-gray-600 leading-relaxed max-w-2xl">
 			Select a domain from the dynamically generated sidebar to view the data. 
 			This layout is served by the host application, while the content is securely fetched via RPC from our Micro-Frontend plugins!
 		</p>
@@ -58,6 +58,17 @@ func fetchAPI(endpoint string, result interface{}) error {
 	return json.Unmarshal(body, result)
 }
 
+func (h *UIHandler) renderTemplate(w http.ResponseWriter, name string, data interface{}) {
+	w.Header().Set("Content-Type", "text/html")
+	w.Write([]byte(`<div class="content-card">` + "\n"))
+	err := h.tmpl.ExecuteTemplate(w, name, data)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	w.Write([]byte("\n" + `</div>`))
+}
+
 func (h *UIHandler) handleStudents(w http.ResponseWriter, r *http.Request) {
 	var items []map[string]interface{}
 	err := fetchAPI("students", &items)
@@ -65,8 +76,7 @@ func (h *UIHandler) handleStudents(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	w.Header().Set("Content-Type", "text/html")
-	h.tmpl.ExecuteTemplate(w, "students.html", items)
+	h.renderTemplate(w, "students.html", items)
 }
 
 func (h *UIHandler) handleStaff(w http.ResponseWriter, r *http.Request) {
@@ -76,8 +86,7 @@ func (h *UIHandler) handleStaff(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	w.Header().Set("Content-Type", "text/html")
-	h.tmpl.ExecuteTemplate(w, "staff.html", items)
+	h.renderTemplate(w, "staff.html", items)
 }
 
 func (h *UIHandler) handleSchools(w http.ResponseWriter, r *http.Request) {
@@ -87,8 +96,7 @@ func (h *UIHandler) handleSchools(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	w.Header().Set("Content-Type", "text/html")
-	h.tmpl.ExecuteTemplate(w, "schools.html", items)
+	h.renderTemplate(w, "schools.html", items)
 }
 
 func (h *UIHandler) handleSections(w http.ResponseWriter, r *http.Request) {
@@ -98,6 +106,5 @@ func (h *UIHandler) handleSections(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	w.Header().Set("Content-Type", "text/html")
-	h.tmpl.ExecuteTemplate(w, "sections.html", items)
+	h.renderTemplate(w, "sections.html", items)
 }

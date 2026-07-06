@@ -50,6 +50,17 @@ func fetchAPI(endpoint string, result interface{}) error {
 	return json.Unmarshal(body, result)
 }
 
+func (p *AdminUIPlugin) renderTemplate(w http.ResponseWriter, name string, data interface{}) {
+	w.Header().Set("Content-Type", "text/html")
+	w.Write([]byte(`<div class="content-card">` + "\n"))
+	err := p.tmpl.ExecuteTemplate(w, name, data)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	w.Write([]byte("\n" + `</div>`))
+}
+
 func (p *AdminUIPlugin) handleSettings(w http.ResponseWriter, r *http.Request) {
 	var data map[string]interface{}
 	err := fetchAPI("settings", &data)
@@ -57,8 +68,7 @@ func (p *AdminUIPlugin) handleSettings(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	w.Header().Set("Content-Type", "text/html")
-	p.tmpl.ExecuteTemplate(w, "settings.html", data)
+	p.renderTemplate(w, "settings.html", data)
 }
 
 func (p *AdminUIPlugin) handleHealth(w http.ResponseWriter, r *http.Request) {
@@ -68,8 +78,7 @@ func (p *AdminUIPlugin) handleHealth(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	w.Header().Set("Content-Type", "text/html")
-	p.tmpl.ExecuteTemplate(w, "health.html", data)
+	p.renderTemplate(w, "health.html", data)
 }
 
 func (p *AdminUIPlugin) ServeHTTP(req shared.HTTPRequest) (shared.HTTPResponse, error) {

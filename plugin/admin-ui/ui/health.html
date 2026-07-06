@@ -1,20 +1,18 @@
-<div class="glass-panel">
-    <h1 class="text-3xl font-semibold mb-6 tracking-tight">System Health</h1>
+    <h1 class="text-3xl font-semibold mb-6 tracking-tight text-gray-800">System Health</h1>
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-surface hover:bg-surfaceHover transition-colors border border-white/10 rounded-xl p-6 text-center">
-            <h3 class="text-gray-400 text-sm font-medium uppercase tracking-wider mb-2">Status</h3>
-            <div class="text-3xl font-bold text-green-400">{{.status}}</div>
+        <div class="bg-gray-50 hover:bg-gray-100 transition-colors border border-gray-200 rounded-xl p-6 text-center">
+            <h3 class="text-gray-500 text-sm font-medium uppercase tracking-wider mb-2">Status</h3>
+            <div class="text-3xl font-bold text-green-600">{{.status}}</div>
         </div>
         
-        <div class="bg-surface hover:bg-surfaceHover transition-colors border border-white/10 rounded-xl p-6 text-center">
-            <h3 class="text-gray-400 text-sm font-medium uppercase tracking-wider mb-2">Version</h3>
-            <div class="text-3xl font-bold text-white">{{.version}}</div>
+        <div class="bg-gray-50 hover:bg-gray-100 transition-colors border border-gray-200 rounded-xl p-6 text-center">
+            <h3 class="text-gray-500 text-sm font-medium uppercase tracking-wider mb-2">Version</h3>
+            <div class="text-3xl font-bold text-gray-800">{{.version}}</div>
         </div>
         
-        <div class="bg-surface hover:bg-surfaceHover transition-colors border border-white/10 rounded-xl p-6 text-center">
-            <h3 class="text-gray-400 text-sm font-medium uppercase tracking-wider mb-2">Uptime</h3>
-            <div class="text-3xl font-bold text-indigo-400">{{.uptime}}</div>
+        <div class="bg-gray-50 hover:bg-gray-100 transition-colors border border-gray-200 rounded-xl p-6 text-center">
+            <h3 class="text-gray-500 text-sm font-medium uppercase tracking-wider mb-2">Uptime</h3>
+            <div class="text-3xl font-bold text-blue-600">{{.uptime}}</div>
         </div>
     </div>
-</div>
