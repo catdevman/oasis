@@ -15,15 +15,15 @@ import (
 var (
 	// Slices to hold generated IDs for foreign key relationships
 	calendarCodes         []string
-	courseSectionIDs      []string
-	k12SchoolIDs          []string
-	k12StaffIDs           []string
-	k12StudentIDs         []string
+	sectionIDs      []string
+	schoolIDs          []string
+	staffIDs           []string
+	studentIDs         []string
 	leaIDs                []string
 	seaIDs                []string
 	facilityIDs           []string
 	earlyLearningChildIDs []string
-	cteCourseIDs          []string
+	courseIDs          []string
 	assessmentIDs         []string
 	assessmentFormGUIDs   []string
 	programNames          []string
@@ -49,7 +49,7 @@ func main() {
 	}
 
 	// Drop and recreate schema public
-	db.Exec("DROP SCHEMA public CASCADE; CREATE SCHEMA public;")
+	db.Exec("DROP SCHEMA public CASCADE; DROP SCHEMA IF EXISTS edfi CASCADE; CREATE SCHEMA public; CREATE SCHEMA edfi;")
 
 	// Execute the schema to create the tables.
 	_, err = db.Exec(string(sqlBytes))
@@ -69,9 +69,9 @@ func main() {
 
 func seedIndependentTables(db *sql.DB) {
 	seedCalendar(db)
-	seedK12Schools(db)
-	seedK12Staff(db)
-	seedK12Students(db)
+	seedSchools(db)
+	seedStaff(db)
+	seedStudents(db)
 	seedLEA(db)
 	seedSEA(db)
 	seedFacility(db)
@@ -95,7 +95,7 @@ func seedIndependentTables(db *sql.DB) {
 }
 
 func seedDependentTables(db *sql.DB) {
-	seedCourseSections(db) // Depends on CTECourse logic (implicit)
+	seedSections(db) // Depends on edfi.Course logic (implicit)
 	seedCTECourseSection(db)
 	seedCalendarEvent(db)
 	seedCalendarCrisis(db)
@@ -181,28 +181,28 @@ func seedCalendar(db *sql.DB) {
 	log.Println("Calendar table seeded.")
 }
 
-func seedK12Schools(db *sql.DB) {
-	log.Println("Seeding K12School table...")
-	stmt, err := db.Prepare("INSERT INTO K12School(OrganizationIdentifier, OrganizationName, OrganizationType) VALUES($1, $2, $3)")
+func seedSchools(db *sql.DB) {
+	log.Println("Seeding edfi.School table...")
+	stmt, err := db.Prepare("INSERT INTO edfi.School(OrganizationIdentifier, OrganizationName, OrganizationType) VALUES($1, $2, $3)")
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer stmt.Close()
 	for i := 0; i < 10; i++ {
 		id := fmt.Sprintf("SCH-%03d", i+1)
-		_, err := stmt.Exec(id, faker.Sentence(), "K12School")
+		_, err := stmt.Exec(id, faker.Sentence(), "edfi.School")
 		if err != nil {
-			log.Printf("failed to insert K12School: %v", err)
+			log.Printf("failed to insert edfi.School: %v", err)
 		} else {
-			k12SchoolIDs = append(k12SchoolIDs, id)
+			schoolIDs = append(schoolIDs, id)
 		}
 	}
-	log.Println("K12School table seeded.")
+	log.Println("edfi.School table seeded.")
 }
 
-func seedK12Staff(db *sql.DB) {
-	log.Println("Seeding K12Staff table...")
-	stmt, err := db.Prepare("INSERT INTO K12Staff(StaffIdentifier, StaffIdentificationSystem, FirstName, MiddleName, LastOrSurname, PersonalTitleOrPrefix) VALUES($1, $2, $3, $4, $5, $6)")
+func seedStaff(db *sql.DB) {
+	log.Println("Seeding edfi.Staff table...")
+	stmt, err := db.Prepare("INSERT INTO edfi.Staff(StaffUniqueId, StaffIdentificationSystem, FirstName, MiddleName, LastSurname, PersonalTitleOrPrefix) VALUES($1, $2, $3, $4, $5, $6)")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -211,17 +211,17 @@ func seedK12Staff(db *sql.DB) {
 		id := fmt.Sprintf("STAFF-%03d", i+1)
 		_, err := stmt.Exec(id, "District", faker.FirstName(), faker.FirstNameMale(), faker.LastName(), faker.TitleMale())
 		if err != nil {
-			log.Printf("failed to insert K12Staff: %v", err)
+			log.Printf("failed to insert edfi.Staff: %v", err)
 		} else {
-			k12StaffIDs = append(k12StaffIDs, id)
+			staffIDs = append(staffIDs, id)
 		}
 	}
-	log.Println("K12Staff table seeded.")
+	log.Println("edfi.Staff table seeded.")
 }
 
-func seedK12Students(db *sql.DB) {
-	log.Println("Seeding K12Student table...")
-	stmt, err := db.Prepare("INSERT INTO K12Student(StudentIdentifier, StudentIdentificationSystem, FirstName, MiddleName, LastOrSurname) VALUES($1, $2, $3, $4, $5)")
+func seedStudents(db *sql.DB) {
+	log.Println("Seeding edfi.Student table...")
+	stmt, err := db.Prepare("INSERT INTO edfi.Student(StudentUniqueId, StudentIdentificationSystem, FirstName, MiddleName, LastSurname) VALUES($1, $2, $3, $4, $5)")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -230,18 +230,18 @@ func seedK12Students(db *sql.DB) {
 		id := fmt.Sprintf("STU-2024-%04d", i+1)
 		_, err := stmt.Exec(id, "School", faker.FirstName(), faker.FirstName(), faker.LastName())
 		if err != nil {
-			log.Printf("failed to insert K12Student: %v", err)
+			log.Printf("failed to insert edfi.Student: %v", err)
 		} else {
-			k12StudentIDs = append(k12StudentIDs, id)
+			studentIDs = append(studentIDs, id)
 		}
 	}
-	log.Println("K12Student table seeded.")
+	log.Println("edfi.Student table seeded.")
 }
 
-func seedCourseSections(db *sql.DB) {
-	log.Println("Seeding CourseSection table...")
+func seedSections(db *sql.DB) {
+	log.Println("Seeding edfi.Section table...")
 	stmt, err := db.Prepare(`
-        INSERT INTO CourseSection (
+        INSERT INTO edfi.Section (
             CourseSectionIdentifier, CourseIdentifier, ClassroomIdentifier, ClassBeginningTime, ClassEndingTime, ClassMeetingDays, ClassPeriod,
             SessionCode, SessionBeginDate, SessionEndDate, SessionType, CourseSectionMaximumCapacity, CourseSectionTimeRequiredForCompletion,
             AbilityGroupingStatus, AdditionalCreditType, CareerCluster, ClassroomPositionType, CourseAlignedWithStandards,
@@ -266,7 +266,7 @@ func seedCourseSections(db *sql.DB) {
 		id := fmt.Sprintf("CS-%s-%d", faker.Word(), 2024+i)
 		_, err := stmt.Exec(
 			id,
-			getRandomID(cteCourseIDs),
+			getRandomID(courseIDs),
 			fmt.Sprintf("ROOM-%d", 100+i),
 			randomTime(),
 			randomTime(),
@@ -296,12 +296,12 @@ func seedCourseSections(db *sql.DB) {
 			randomElement([]string{"Yes", "No"}),
 		)
 		if err != nil {
-			log.Printf("failed to insert CourseSection: %v", err)
+			log.Printf("failed to insert edfi.Section: %v", err)
 		} else {
-			courseSectionIDs = append(courseSectionIDs, id)
+			sectionIDs = append(sectionIDs, id)
 		}
 	}
-	log.Println("CourseSection table seeded.")
+	log.Println("edfi.Section table seeded.")
 }
 
 func seedLEA(db *sql.DB) {
@@ -358,7 +358,7 @@ func seedFacility(db *sql.DB) {
 	defer stmt.Close()
 	for i := 0; i < 10; i++ {
 		id := fmt.Sprintf("FAC-%03d", i+1)
-		_, err := stmt.Exec(id, getRandomID(k12SchoolIDs), "Org1", "orggy", "This is just a sentence")
+		_, err := stmt.Exec(id, getRandomID(schoolIDs), "Org1", "orggy", "This is just a sentence")
 		if err != nil {
 			log.Printf("failed to insert Facility: %v", err)
 		} else {
@@ -389,8 +389,8 @@ func seedEarlyLearningChild(db *sql.DB) {
 }
 
 func seedCTECourse(db *sql.DB) {
-	log.Println("Seeding CTECourse table...")
-	stmt, err := db.Prepare(`INSERT INTO CTECourse(CourseIdentifier, CourseTitle, CourseDescription, CourseDepartmentName, SCEDCourseCode, SCEDCourseSubjectArea, CoreAcademicCourse) VALUES ($1, $2, $3, $4, $5, $6, $7)`)
+	log.Println("Seeding edfi.Course table...")
+	stmt, err := db.Prepare(`INSERT INTO edfi.Course(CourseIdentifier, CourseTitle, CourseDescription, CourseDepartmentName, SCEDCourseCode, SCEDCourseSubjectArea, CoreAcademicCourse) VALUES ($1, $2, $3, $4, $5, $6, $7)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -400,12 +400,12 @@ func seedCTECourse(db *sql.DB) {
 		id := fmt.Sprintf("CTE-%03d", i+1)
 		_, err := stmt.Exec(id, faker.Sentence(), faker.Paragraph(), faker.Word(), fmt.Sprintf("%05d", rand.Intn(99999)), randomElement(subjects), randomElement([]string{"Yes", "No"}))
 		if err != nil {
-			log.Printf("failed to insert CTECourse: %v", err)
+			log.Printf("failed to insert edfi.Course: %v", err)
 		} else {
-			cteCourseIDs = append(cteCourseIDs, id)
+			courseIDs = append(courseIDs, id)
 		}
 	}
-	log.Println("CTECourse table seeded.")
+	log.Println("edfi.Course table seeded.")
 }
 
 func seedAssessment(db *sql.DB) {
@@ -506,7 +506,7 @@ func seedRubric(db *sql.DB) {
 
 func seedScorer(db *sql.DB) {
 	log.Println("Seeding Scorer table...")
-	stmt, err := db.Prepare(`INSERT INTO Scorer(PersonIdentifier, PersonIdentificationSystem, FirstName, LastOrSurname) VALUES ($1, $2, $3, $4)`)
+	stmt, err := db.Prepare(`INSERT INTO Scorer(PersonIdentifier, PersonIdentificationSystem, FirstName, LastSurname) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -562,7 +562,7 @@ func seedLearnerAction(db *sql.DB) {
 	defer stmt.Close()
 	actionTypes := []string{"answered", "attempted", "completed", "exited", "initialized", "launched", "logged-in", "logged-out", "progressed", "registered", "resumed", "scored"}
 	for i := 0; i < 200; i++ {
-		_, err := stmt.Exec(getRandomID(k12StudentIDs), time.Now().Format(time.RFC3339), randomElement(actionTypes), faker.URL(), "URL")
+		_, err := stmt.Exec(getRandomID(studentIDs), time.Now().Format(time.RFC3339), randomElement(actionTypes), faker.URL(), "URL")
 		if err != nil {
 			log.Printf("failed to insert LearnerAction: %v", err)
 		}
@@ -691,7 +691,7 @@ func seedCTECourseSection(db *sql.DB) {
 	clusters := []string{"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16"}
 	for i := 0; i < 20; i++ {
 		id := fmt.Sprintf("CTECS-%03d", i+1)
-		_, err := stmt.Exec(id, getRandomID(cteCourseIDs), fmt.Sprintf("SHOP-%d", i+1), randomDate(2024, 2024), randomDate(2025, 2025), randomElement(sessionTypes), randomElement(clusters))
+		_, err := stmt.Exec(id, getRandomID(courseIDs), fmt.Sprintf("SHOP-%d", i+1), randomDate(2024, 2024), randomDate(2025, 2025), randomElement(sessionTypes), randomElement(clusters))
 		if err != nil {
 			log.Printf("failed to insert CTECourseSection: %v", err)
 		} else {
@@ -702,8 +702,8 @@ func seedCTECourseSection(db *sql.DB) {
 }
 
 func seedCalendarEvent(db *sql.DB) {
-	log.Println("Seeding CalendarEvent table...")
-	stmt, err := db.Prepare(`INSERT INTO CalendarEvent(CalendarCode, CalendarEventDate, CalendarEventDayName, CalendarEventType) VALUES ($1, $2, $3, $4)`)
+	log.Println("Seeding edfi.CalendarDate table...")
+	stmt, err := db.Prepare(`INSERT INTO edfi.CalendarDate(CalendarCode, CalendarEventDate, CalendarEventDayName, CalendarEventType) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -712,10 +712,10 @@ func seedCalendarEvent(db *sql.DB) {
 	for i := 0; i < 15; i++ {
 		_, err := stmt.Exec(getRandomID(calendarCodes), randomDate(2024, 2025), faker.Word(), randomElement(eventTypes))
 		if err != nil {
-			log.Printf("failed to insert CalendarEvent: %v", err)
+			log.Printf("failed to insert edfi.CalendarDate: %v", err)
 		}
 	}
-	log.Println("CalendarEvent table seeded.")
+	log.Println("edfi.CalendarDate table seeded.")
 }
 
 func seedCalendarCrisis(db *sql.DB) {
@@ -735,37 +735,37 @@ func seedCalendarCrisis(db *sql.DB) {
 }
 
 func seedCourseSectionAttendance(db *sql.DB) {
-	log.Println("Seeding CourseSectionAttendance table...")
-	stmt, err := db.Prepare(`INSERT INTO CourseSectionAttendance(CourseSectionIdentifier, StudentIdentifier, AttendanceEventDate, AttendanceStatus) VALUES ($1, $2, $3, $4)`)
+	log.Println("Seeding edfi.StudentSectionAttendanceEvent table...")
+	stmt, err := db.Prepare(`INSERT INTO edfi.StudentSectionAttendanceEvent(CourseSectionIdentifier, StudentUniqueId, AttendanceEventDate, AttendanceStatus) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer stmt.Close()
 	statuses := []string{"Present", "ExcusedAbsence", "UnexcusedAbsence", "Tardy"}
 	for i := 0; i < 200; i++ {
-		_, err := stmt.Exec(getRandomID(courseSectionIDs), getRandomID(k12StudentIDs), randomDate(2024, 2024), randomElement(statuses))
+		_, err := stmt.Exec(getRandomID(sectionIDs), getRandomID(studentIDs), randomDate(2024, 2024), randomElement(statuses))
 		if err != nil {
-			log.Printf("failed to insert CourseSectionAttendance: %v", err)
+			log.Printf("failed to insert edfi.StudentSectionAttendanceEvent: %v", err)
 		}
 	}
-	log.Println("CourseSectionAttendance table seeded.")
+	log.Println("edfi.StudentSectionAttendanceEvent table seeded.")
 }
 
 func seedCourseSectionEnrollment(db *sql.DB) {
-	log.Println("Seeding CourseSectionEnrollment table...")
-	stmt, err := db.Prepare(`INSERT INTO CourseSectionEnrollment(CourseSectionIdentifier, StudentIdentifier, CourseSectionEnrollmentStatusType, EnrollmentEntryDate) VALUES ($1, $2, $3, $4)`)
+	log.Println("Seeding edfi.StudentSectionAssociation table...")
+	stmt, err := db.Prepare(`INSERT INTO edfi.StudentSectionAssociation(CourseSectionIdentifier, StudentUniqueId, CourseSectionEnrollmentStatusType, EnrollmentEntryDate) VALUES ($1, $2, $3, $4)`)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer stmt.Close()
 	statuses := []string{"Enrolled", "Completed", "Dropped"}
 	for i := 0; i < 150; i++ {
-		_, err := stmt.Exec(getRandomID(courseSectionIDs), getRandomID(k12StudentIDs), randomElement(statuses), randomDate(2024, 2024))
+		_, err := stmt.Exec(getRandomID(sectionIDs), getRandomID(studentIDs), randomElement(statuses), randomDate(2024, 2024))
 		if err != nil {
-			log.Printf("failed to insert CourseSectionEnrollment: %v", err)
+			log.Printf("failed to insert edfi.StudentSectionAssociation: %v", err)
 		}
 	}
-	log.Println("CourseSectionEnrollment table seeded.")
+	log.Println("edfi.StudentSectionAssociation table seeded.")
 }
 
 func seedSEAFederalFunds(db *sql.DB) {
@@ -945,7 +945,7 @@ func seedChildOutcomeSummary(db *sql.DB) {
 }
 func seedEarlyLearningStaff(db *sql.DB) {
 	log.Println("Seeding EarlyLearningStaff table...")
-	stmt, err := db.Prepare(`INSERT INTO EarlyLearningStaff(PersonIdentifier, PersonIdentificationSystem, FirstName, LastOrSurname, Sex, Race) VALUES ($1, $2, $3, $4, $5, $6)`)
+	stmt, err := db.Prepare(`INSERT INTO EarlyLearningStaff(PersonIdentifier, PersonIdentificationSystem, FirstName, LastSurname, Sex, Race) VALUES ($1, $2, $3, $4, $5, $6)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -961,13 +961,13 @@ func seedEarlyLearningStaff(db *sql.DB) {
 }
 func seedParentGuardian(db *sql.DB) {
 	log.Println("Seeding ParentGuardian table...")
-	stmt, err := db.Prepare(`INSERT INTO ParentGuardian(PersonIdentifier, PersonIdentificationSystem, FirstName, LastOrSurname, PersonRelationshipType, StudentIdentifier) VALUES ($1, $2, $3, $4, $5, $6)`)
+	stmt, err := db.Prepare(`INSERT INTO ParentGuardian(PersonIdentifier, PersonIdentificationSystem, FirstName, LastSurname, PersonRelationshipType, StudentUniqueId) VALUES ($1, $2, $3, $4, $5, $6)`)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer stmt.Close()
 	relations := []string{"Mother", "Father", "Guardian"}
-	for i, studentID := range k12StudentIDs {
+	for i, studentID := range studentIDs {
 		if i%2 == 0 { // Assign a parent to every other student
 			_, err := stmt.Exec(fmt.Sprintf("PG-%04d", i+1), "District", faker.FirstName(), faker.LastName(), randomElement(relations), studentID)
 			if err != nil {
@@ -1021,7 +1021,7 @@ func seedCTECourseSectionAttendance(db *sql.DB) {
 	defer stmt.Close()
 	statuses := []string{"Present", "ExcusedAbsence", "UnexcusedAbsence", "Tardy"}
 	for i := 0; i < 50; i++ {
-		// This assumes CTEStudents are also in the K12Student table, which is a reasonable assumption for the data model.
+		// This assumes CTEStudents are also in the edfi.Student table, which is a reasonable assumption for the data model.
 		_, err := stmt.Exec(getRandomID(cteCourseSectionIDs), randomDate(2024, 2024), randomElement(statuses))
 		if err != nil {
 			log.Printf("failed to insert CTECourseSectionAttendance: %v", err)
@@ -1032,7 +1032,7 @@ func seedCTECourseSectionAttendance(db *sql.DB) {
 
 func seedCTEStudent(db *sql.DB) {
 	log.Println("Seeding CTEStudent table...")
-	stmt, err := db.Prepare(`INSERT INTO CTEStudent(StudentIdentifier, StudentIdentificationSystem, FirstName, LastOrSurname, CTEParticipant, CTEConcentrator) VALUES ($1, $2, $3, $4, $5, $6)`)
+	stmt, err := db.Prepare(`INSERT INTO CTEStudent(StudentUniqueId, StudentIdentificationSystem, FirstName, LastSurname, CTEParticipant, CTEConcentrator) VALUES ($1, $2, $3, $4, $5, $6)`)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -1040,11 +1040,11 @@ func seedCTEStudent(db *sql.DB) {
 	// Create CTE-specific students, or link to existing K12 students
 	for i := 0; i < 30; i++ {
 		// Using a subset of K12 students as CTE students
-		if i < len(k12StudentIDs) {
-			studentID := k12StudentIDs[i]
+		if i < len(studentIDs) {
+			studentID := studentIDs[i]
 			// We need to fetch the name for the given student ID to be consistent
 			var firstName, lastName string
-			row := db.QueryRow("SELECT FirstName, LastOrSurname FROM K12Student WHERE StudentIdentifier = ?", studentID)
+			row := db.QueryRow("SELECT FirstName, LastSurname FROM edfi.Student WHERE StudentUniqueId = ?", studentID)
 			err := row.Scan(&firstName, &lastName)
 			if err != nil {
 				log.Printf("Could not find student %s to make a CTE student: %v", studentID, err)
@@ -1067,7 +1067,7 @@ func seedAssessmentAdministration(db *sql.DB) {
 	}
 	defer stmt.Close()
 	for i := 0; i < 10; i++ {
-		_, err := stmt.Exec(faker.Sentence(), getRandomID(assessmentIDs), getRandomID(k12SchoolIDs), getRandomID(leaIDs))
+		_, err := stmt.Exec(faker.Sentence(), getRandomID(assessmentIDs), getRandomID(schoolIDs), getRandomID(leaIDs))
 		if err != nil {
 			log.Printf("failed to insert AssessmentAdministration: %v", err)
 		}
@@ -1101,7 +1101,7 @@ func seedAssessmentRegistration(db *sql.DB) {
 	defer stmt.Close()
 	reasons := []string{"Absent", "Medical waiver", "Refusal by parent", "Refusal by student"}
 	for i := 0; i < 50; i++ {
-		_, err := stmt.Exec(getRandomID(k12SchoolIDs), getRandomID(seaIDs), getRandomID(leaIDs), randomElement(reasons))
+		_, err := stmt.Exec(getRandomID(schoolIDs), getRandomID(seaIDs), getRandomID(leaIDs), randomElement(reasons))
 		if err != nil {
 			log.Printf("failed to insert AssessmentRegistration: %v", err)
 		}
@@ -1154,7 +1154,7 @@ func seedAssessmentSession(db *sql.DB) {
 	defer stmt.Close()
 	types := []string{"Standard", "Accommodation"}
 	for i := 0; i < 30; i++ {
-		_, err := stmt.Exec(faker.Sentence(), getRandomID(k12SchoolIDs), randomElement(types))
+		_, err := stmt.Exec(faker.Sentence(), getRandomID(schoolIDs), randomElement(types))
 		if err != nil {
 			log.Printf("failed to insert AssessmentSession: %v", err)
 		}

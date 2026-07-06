@@ -41,7 +41,7 @@ CREATE TABLE Calendar (
 );
 
 -- Creating table for Calendar Event entity
-CREATE TABLE CalendarEvent (
+CREATE TABLE edfi.CalendarDate (
     CalendarCode TEXT NOT NULL, -- References Calendar table
     CalendarEventDate DATE, -- Date of the event
     CalendarEventDayName TEXT, -- Name used for the event day
@@ -70,7 +70,7 @@ CREATE TABLE CalendarCrisis (
 );
 
 -- Creating table for Course Section entity
-CREATE TABLE CourseSection (
+CREATE TABLE edfi.Section (
     CourseSectionIdentifier TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
     CourseIdentifier TEXT, -- References Course table, follows XSD:Token format
     ClassroomIdentifier TEXT, -- Unique room identifier, follows XSD:Token format
@@ -414,9 +414,9 @@ CREATE TABLE CourseSection (
 );
 
 -- Creating table for Course Section Attendance entity
-CREATE TABLE CourseSectionAttendance (
-    CourseSectionIdentifier TEXT NOT NULL, -- References CourseSection table
-    StudentIdentifier TEXT NOT NULL, -- References K12Student table
+CREATE TABLE edfi.StudentSectionAttendanceEvent (
+    CourseSectionIdentifier TEXT NOT NULL, -- References edfi.Section table
+    StudentUniqueId TEXT NOT NULL, -- References edfi.Student table
     AttendanceEventDate DATE, -- Date of attendance event
     AttendanceEventType TEXT CHECK (AttendanceEventType IN (
         'DailyAttendance', -- Daily attendance
@@ -437,9 +437,9 @@ CREATE TABLE CourseSectionAttendance (
 );
 
 -- Creating table for Course Section Enrollment entity
-CREATE TABLE CourseSectionEnrollment (
-    CourseSectionIdentifier TEXT NOT NULL, -- References CourseSection table
-    StudentIdentifier TEXT NOT NULL, -- References K12Student table
+CREATE TABLE edfi.StudentSectionAssociation (
+    CourseSectionIdentifier TEXT NOT NULL, -- References edfi.Section table
+    StudentUniqueId TEXT NOT NULL, -- References edfi.Student table
     CourseSectionEnrollmentStatusType TEXT CHECK (CourseSectionEnrollmentStatusType IN (
         'Pre-registered', -- Pre-registered
         'Registered', -- Registered
@@ -541,12 +541,12 @@ CREATE TABLE CourseSectionEnrollment (
 );
 
 -- Creating table for K12 School entity
-CREATE TABLE K12School (
+CREATE TABLE edfi.School (
     OrganizationIdentifier TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
     OrganizationName TEXT, -- Name of the school
     OrganizationType TEXT CHECK (OrganizationType IN (
         'Employer', -- Employer
-        'K12School', -- K12 School
+        'edfi.School', -- K12 School
         'LEA', -- Local Education Agency (LEA)
         'IEU', -- Intermediate Educational Unit (IEU)
         'SEA', -- State Education Agency (SEA)
@@ -558,7 +558,7 @@ CREATE TABLE K12School (
         'StaffDevelopmentProvider', -- Staff Development Provider
         'Facility', -- Facility
         'Course', -- Course
-        'CourseSection', -- Course Section
+        'edfi.Section', -- Course Section
         'Program', -- Program
         'PostsecondaryInstitution', -- Postsecondary Institution
         'AdultEducationProvider', -- Adult Education Provider
@@ -581,8 +581,8 @@ CREATE TABLE K12School (
 );
 
 -- Creating table for K12 Staff entity
-CREATE TABLE K12Staff (
-    StaffIdentifier TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
+CREATE TABLE edfi.Staff (
+    StaffUniqueId TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
     StaffIdentificationSystem TEXT CHECK (StaffIdentificationSystem IN (
         'CanadianSIN', -- Canadian Social Insurance Number
         'District', -- District-assigned number
@@ -594,7 +594,7 @@ CREATE TABLE K12Staff (
     )),
     FirstName TEXT, -- Legal first name
     MiddleName TEXT, -- Legal middle name
-    LastOrSurname TEXT, -- Legal last name
+    LastSurname TEXT, -- Legal last name
     GenerationCodeOrSuffix TEXT, -- Generation appendage (e.g., Jr., Sr.)
     PersonalTitleOrPrefix TEXT, -- Title or prefix (e.g., Mr., Dr.)
     OtherFirstName TEXT, -- Alternate first name
@@ -613,8 +613,8 @@ CREATE TABLE K12Staff (
 );
 
 -- Creating table for K12 Student entity
-CREATE TABLE K12Student (
-    StudentIdentifier TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
+CREATE TABLE edfi.Student (
+    StudentUniqueId TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
     StudentIdentificationSystem TEXT CHECK (StudentIdentificationSystem IN (
         'CanadianSIN', -- Canadian Social Insurance Number
         'District', -- District-assigned number
@@ -629,7 +629,7 @@ CREATE TABLE K12Student (
     )),
     FirstName TEXT, -- Legal first name
     MiddleName TEXT, -- Legal middle name
-    LastOrSurname TEXT, -- Legal last name
+    LastSurname TEXT, -- Legal last name
     GenerationCodeOrSuffix TEXT, -- Generation appendage (e.g., Jr., Sr.)
     PersonalTitleOrPrefix TEXT, -- Title or prefix (e.g., Mr., Dr.)
     OtherFirstName TEXT, -- Alternate first name
@@ -653,7 +653,7 @@ CREATE TABLE LEA (
     OrganizationName TEXT, -- Name of the LEA
     OrganizationType TEXT CHECK (OrganizationType IN (
         'Employer', -- Employer
-        'K12School', -- K12 School
+        'edfi.School', -- K12 School
         'LEA', -- Local Education Agency (LEA)
         'IEU', -- Intermediate Educational Unit (IEU)
         'SEA', -- State Education Agency (SEA)
@@ -665,7 +665,7 @@ CREATE TABLE LEA (
         'StaffDevelopmentProvider', -- Staff Development Provider
         'Facility', -- Facility
         'Course', -- Course
-        'CourseSection', -- Course Section
+        'edfi.Section', -- Course Section
         'Program', -- Program
         'PostsecondaryInstitution', -- Postsecondary Institution
         'AdultEducationProvider', -- Adult Education Provider
@@ -701,7 +701,7 @@ CREATE TABLE SEA (
     OrganizationName TEXT, -- Name of the SEA
     OrganizationType TEXT CHECK (OrganizationType IN (
         'Employer', -- Employer
-        'K12School', -- K12 School
+        'edfi.School', -- K12 School
         'LEA', -- Local Education Agency (LEA)
         'IEU', -- Intermediate Educational Unit (IEU)
         'SEA', -- State Education Agency (SEA)
@@ -713,7 +713,7 @@ CREATE TABLE SEA (
         'StaffDevelopmentProvider', -- Staff Development Provider
         'Facility', -- Facility
         'Course', -- Course
-        'CourseSection', -- Course Section
+        'edfi.Section', -- Course Section
         'Program', -- Program
         'PostsecondaryInstitution', -- Postsecondary Institution
         'AdultEducationProvider', -- Adult Education Provider
@@ -742,7 +742,7 @@ CREATE TABLE SEA (
     OrganizationJurisdictionSquareMiles REAL, -- Total area in square miles
     FirstName TEXT, -- Legal first name
     MiddleName TEXT, -- Legal middle name
-    LastOrSurname TEXT, -- Legal last name
+    LastSurname TEXT, -- Legal last name
     GenerationCodeOrSuffix TEXT, -- Generation appendage (e.g., Jr., Sr.)
     PersonalTitleOrPrefix TEXT, -- Title or prefix (e.g., Mr., Dr.)
     OtherFirstName TEXT, -- Alternate first name
@@ -1278,7 +1278,7 @@ CREATE TABLE Facility (
     ShortNameOfOrganization TEXT, -- Abbreviated name of the organization
     OrganizationType TEXT CHECK (OrganizationType IN (
         'Employer', -- Employer
-        'K12School', -- K12 School
+        'edfi.School', -- K12 School
         'LEA', -- Local Education Agency (LEA)
         'IEU', -- Intermediate Educational Unit (IEU)
         'SEA', -- State Education Agency (SEA)
@@ -1290,7 +1290,7 @@ CREATE TABLE Facility (
         'StaffDevelopmentProvider', -- Staff Development Provider
         'Facility', -- Facility
         'Course', -- Course
-        'CourseSection', -- Course Section
+        'edfi.Section', -- Course Section
         'Program', -- Program
         'PostsecondaryInstitution', -- Postsecondary Institution
         'AdultEducationProvider', -- Adult Education Provider
@@ -2922,7 +2922,7 @@ CREATE TABLE EarlyLearningStaff (
     )),
     FirstName TEXT, -- Legal first name
     MiddleName TEXT, -- Legal middle name
-    LastOrSurname TEXT, -- Legal last name
+    LastSurname TEXT, -- Legal last name
     GenerationCodeOrSuffix TEXT, -- Generation appendage (e.g., Jr., Sr.)
     PersonalTitleOrPrefix TEXT, -- Title or prefix (e.g., Mr., Dr.)
     Birthdate DATE, -- Date of birth
@@ -3248,7 +3248,7 @@ CREATE TABLE ParentGuardian (
     )),
     FirstName TEXT, -- Legal first name
     MiddleName TEXT, -- Legal middle name
-    LastOrSurname TEXT, -- Legal last name
+    LastSurname TEXT, -- Legal last name
     GenerationCodeOrSuffix TEXT, -- Generation appendage (e.g., Jr., Sr.)
     PersonalTitleOrPrefix TEXT, -- Title or prefix (e.g., Mr., Dr.)
     OtherFirstName TEXT, -- Alternate first name
@@ -3383,7 +3383,7 @@ CREATE TABLE ParentGuardian (
     )),
     PrimaryContactIndicator TEXT CHECK (PrimaryContactIndicator IN ('Yes', 'No')),
     ChildIdentifier TEXT, -- References EarlyLearningChild table
-    StudentIdentifier TEXT, -- Unique student identifier, follows XSD:Token format
+    StudentUniqueId TEXT, -- Unique student identifier, follows XSD:Token format
     StudentIdentificationSystem TEXT CHECK (StudentIdentificationSystem IN (
         'CanadianSIN', -- Canadian Social Insurance Number
         'District', -- District-assigned number
@@ -3515,7 +3515,7 @@ CREATE TABLE EarlyChildhoodClassGroup (
 
 -- Career and Technical (CTE)
 -- Creating table for Course entity
-CREATE TABLE CTECourse (
+CREATE TABLE edfi.Course (
     CourseIdentifier TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
     CourseTitle TEXT NOT NULL, -- Descriptive name of the course
     CourseDescription TEXT, -- Description of course content/goals
@@ -4007,7 +4007,7 @@ CREATE TABLE CTECourseSection (
 
 -- Creating table for Course Section Attendance entity
 CREATE TABLE CTECourseSectionAttendance (
-    CourseSectionIdentifier TEXT NOT NULL, -- References CourseSection table
+    CourseSectionIdentifier TEXT NOT NULL, -- References edfi.Section table
     AttendanceEventDate DATE, -- Date of attendance event
     AttendanceEventType TEXT CHECK (AttendanceEventType IN (
         'DailyAttendance', -- Daily attendance
@@ -4029,7 +4029,7 @@ CREATE TABLE CTECourseSectionAttendance (
 
 -- Creating table for CTE Student entity
 CREATE TABLE CTEStudent (
-    StudentIdentifier TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
+    StudentUniqueId TEXT NOT NULL, -- Unique identifier, follows XSD:Token format
     StudentIdentificationSystem TEXT CHECK (StudentIdentificationSystem IN (
         'CanadianSIN', -- Canadian Social Insurance Number
         'District', -- District-assigned number
@@ -4044,7 +4044,7 @@ CREATE TABLE CTEStudent (
     )),
     FirstName TEXT, -- Legal first name
     MiddleName TEXT, -- Legal middle name
-    LastOrSurname TEXT, -- Legal last name
+    LastSurname TEXT, -- Legal last name
     GenerationCodeOrSuffix TEXT, -- Generation appendage (e.g., Jr., Sr.)
     PersonalTitleOrPrefix TEXT, -- Title or prefix (e.g., Mr., Dr.)
     OtherFirstName TEXT, -- Alternate first name
@@ -4342,8 +4342,8 @@ CREATE TABLE CTEStudent (
         'CTEStudent', -- CTE Student
         'ELChild', -- EL Child
         'ELStaff', -- EL Staff
-        'K12Staff', -- K12 Staff
-        'K12Student', -- K12 Student
+        'edfi.Staff', -- K12 Staff
+        'edfi.Student', -- K12 Student
         'ParentGuardian', -- Parent/Guardian
         'PSApplicant', -- PS Applicant
         'PSStaff', -- PS Staff
@@ -5474,7 +5474,7 @@ CREATE TABLE Scorer (
         'Other' -- Other
     )),
     FirstName TEXT, -- Legal first name
-    LastOrSurname TEXT -- Legal last name
+    LastSurname TEXT -- Legal last name
 );
 
 -- Creating table for Assessment Session entity
