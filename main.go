@@ -86,6 +86,50 @@ func router(w http.ResponseWriter, r *http.Request) {
 	path := strings.Trim(r.URL.Path, "/")
 	isHTMX := r.Header.Get("HX-Request") == "true"
 
+	// 1. Determine the role
+	role := r.URL.Query().Get("role")
+	if role != "" {
+		http.SetCookie(w, &http.Cookie{
+			Name:  "role",
+			Value: role,
+			Path:  "/",
+		})
+	} else {
+		cookie, err := r.Cookie("role")
+		if err == nil {
+			role = cookie.Value
+		}
+	}
+	if role == "" {
+		role = "admin" // Default to admin for dev
+	}
+
+	// Host-level UI Authorization check
+	matchedMenu := false
+	var requiredRoles []string
+	for _, item := range menuItems {
+		// Exact match or prefix match (e.g. /students or /students/123)
+		if "/"+path == item.Path || strings.HasPrefix("/"+path, item.Path+"/") {
+			matchedMenu = true
+			requiredRoles = item.AllowedRoles
+			break
+		}
+	}
+
+	if matchedMenu {
+		allowed := false
+		for _, allowedRole := range requiredRoles {
+			if allowedRole == role || allowedRole == "*" {
+				allowed = true
+				break
+			}
+		}
+		if !allowed {
+			http.Error(w, "403 Forbidden: You do not have permission to view this page", http.StatusForbidden)
+			return
+		}
+	}
+
 	// If root, dashboard, or a direct browser navigation to a UI route, serve the shell
 	if !isHTMX && (path == "" || path == "dashboard" || r.Method == http.MethodGet && !strings.HasPrefix(path, "api/")) {
 		w.Header().Set("Content-Type", "text/html")
@@ -95,8 +139,22 @@ func router(w http.ResponseWriter, r *http.Request) {
 			initialPath = "/overview" // Default route
 		}
 		
+		var filteredMenu []shared.MenuItem
+		for _, item := range menuItems {
+			allowed := false
+			for _, allowedRole := range item.AllowedRoles {
+				if allowedRole == role {
+					allowed = true
+					break
+				}
+			}
+			if allowed {
+				filteredMenu = append(filteredMenu, item)
+			}
+		}
+
 		uiTemplate.Execute(w, LayoutData{
-			MenuItems:   menuItems,
+			MenuItems:   filteredMenu,
 			InitialPath: initialPath,
 		})
 		return
@@ -126,6 +184,11 @@ func router(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Failed to read request body", http.StatusInternalServerError)
 		return
 	}
+
+	if r.Header == nil {
+		r.Header = make(http.Header)
+	}
+	r.Header.Set("X-User-Role", role)
 
 	req := shared.HTTPRequest{
 		Method: r.Method, URL: r.URL.String(), Header: r.Header, Body: body,

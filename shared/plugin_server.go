@@ -31,8 +31,9 @@ type HTTPPlugin interface {
 }
 
 type MenuItem struct {
-	Label string
-	Path  string
+	Label        string   `json:"label"`
+	Path         string   `json:"path"`
+	AllowedRoles []string `json:"allowed_roles"`
 }
 
 // --- Boilerplate for hashicorp/go-plugin ---

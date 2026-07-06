@@ -59,11 +59,11 @@ func (p *UIPlugin) GetRoutes() ([]string, error) {
 
 func (p *UIPlugin) GetMenuItems() ([]shared.MenuItem, error) {
 	return []shared.MenuItem{
-		{Label: "Overview", Path: "/overview"},
-		{Label: "Students", Path: "/students"},
-		{Label: "Staff", Path: "/staff"},
-		{Label: "Schools", Path: "/schools"},
-		{Label: "Course Sections", Path: "/sections"},
+		{Label: "Overview", Path: "/overview", AllowedRoles: []string{"admin", "teacher", "student", "guardian"}},
+		{Label: "Students", Path: "/students", AllowedRoles: []string{"admin", "teacher"}},
+		{Label: "Staff", Path: "/staff", AllowedRoles: []string{"admin", "teacher"}},
+		{Label: "Schools", Path: "/schools", AllowedRoles: []string{"admin"}},
+		{Label: "Course Sections", Path: "/sections", AllowedRoles: []string{"admin", "teacher"}},
 	}, nil
 }
 

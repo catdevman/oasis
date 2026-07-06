@@ -113,8 +113,8 @@ func (p *AdminUIPlugin) GetRoutes() ([]string, error) {
 
 func (p *AdminUIPlugin) GetMenuItems() ([]shared.MenuItem, error) {
 	return []shared.MenuItem{
-		{Label: "System Settings", Path: "/settings"},
-		{Label: "System Health", Path: "/system-health"},
+		{Label: "Settings", Path: "/settings", AllowedRoles: []string{"admin"}},
+		{Label: "System Health", Path: "/system-health", AllowedRoles: []string{"admin"}},
 	}, nil
 }
 
