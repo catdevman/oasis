@@ -8,6 +8,8 @@ import (
 	"net/http"
 	"io"
 	"strconv"
+
+	"github.com/catdevman/oasis/shared"
 )
 
 //go:embed ui/*.html
@@ -25,12 +27,8 @@ func NewUIHandler() *UIHandler {
 }
 
 type PaginatedData struct {
-	Items    interface{}
-	Page     int
-	HasNext  bool
-	HasPrev  bool
-	NextPage int
-	PrevPage int
+	Items      interface{}
+	Pagination template.HTML
 }
 
 func (h *UIHandler) Register(mux *http.ServeMux) {
@@ -87,7 +85,7 @@ func (h *UIHandler) handleStudents(w http.ResponseWriter, r *http.Request) {
 			page = parsed
 		}
 	}
-	limit := 10 // Set to 10 to see pagination easily
+	limit := 10
 	offset := (page - 1) * limit
 
 	var items []map[string]interface{}
@@ -98,18 +96,11 @@ func (h *UIHandler) handleStudents(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	hasNext := len(items) > limit
-	if hasNext {
-		items = items[:limit]
-	}
+	pagination := shared.NewPagination("/students", page, limit, &items)
 
 	data := PaginatedData{
-		Items:    items,
-		Page:     page,
-		HasNext:  hasNext,
-		HasPrev:  page > 1,
-		NextPage: page + 1,
-		PrevPage: page - 1,
+		Items:      items,
+		Pagination: pagination.Render(),
 	}
 
 	h.renderTemplate(w, "students.html", data)
