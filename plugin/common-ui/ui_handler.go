@@ -3,9 +3,11 @@ package main
 import (
 	"encoding/json"
 	"embed"
+	"fmt"
 	"html/template"
 	"net/http"
 	"io"
+	"strconv"
 )
 
 //go:embed ui/*.html
@@ -20,6 +22,15 @@ func NewUIHandler() *UIHandler {
 	return &UIHandler{
 		tmpl: tmpl,
 	}
+}
+
+type PaginatedData struct {
+	Items    interface{}
+	Page     int
+	HasNext  bool
+	HasPrev  bool
+	NextPage int
+	PrevPage int
 }
 
 func (h *UIHandler) Register(mux *http.ServeMux) {
@@ -70,13 +81,38 @@ func (h *UIHandler) renderTemplate(w http.ResponseWriter, name string, data inte
 }
 
 func (h *UIHandler) handleStudents(w http.ResponseWriter, r *http.Request) {
+	page := 1
+	if p := r.URL.Query().Get("page"); p != "" {
+		if parsed, err := strconv.Atoi(p); err == nil && parsed > 0 {
+			page = parsed
+		}
+	}
+	limit := 10 // Set to 10 to see pagination easily
+	offset := (page - 1) * limit
+
 	var items []map[string]interface{}
-	err := fetchAPI("students", &items)
+	endpoint := fmt.Sprintf("students?limit=%d&offset=%d", limit+1, offset)
+	err := fetchAPI(endpoint, &items)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	h.renderTemplate(w, "students.html", items)
+
+	hasNext := len(items) > limit
+	if hasNext {
+		items = items[:limit]
+	}
+
+	data := PaginatedData{
+		Items:    items,
+		Page:     page,
+		HasNext:  hasNext,
+		HasPrev:  page > 1,
+		NextPage: page + 1,
+		PrevPage: page - 1,
+	}
+
+	h.renderTemplate(w, "students.html", data)
 }
 
 func (h *UIHandler) handleStaff(w http.ResponseWriter, r *http.Request) {
