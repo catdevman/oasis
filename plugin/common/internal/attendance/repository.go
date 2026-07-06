@@ -20,7 +20,7 @@ type Attendance struct {
 }
 
 func (r *Repository) List(limit, offset int) ([]Attendance, error) {
-	rows, err := r.db.Query("SELECT CourseSectionIdentifier, AttendanceEventType FROM CourseSectionAttendance LIMIT $1 OFFSET $2", limit, offset)
+	rows, err := r.db.Query("SELECT CourseSectionIdentifier, AttendanceEventType FROM edfi.StudentSectionAttendanceEvent LIMIT $1 OFFSET $2", limit, offset)
 	if err != nil {
 		return nil, err
 	}
@@ -38,7 +38,7 @@ func (r *Repository) List(limit, offset int) ([]Attendance, error) {
 }
 
 func (r *Repository) Get(id string) (*Attendance, error) {
-	row := r.db.QueryRow("SELECT CourseSectionIdentifier, AttendanceEventType FROM CourseSectionAttendance WHERE CourseSectionIdentifier = $1", id)
+	row := r.db.QueryRow("SELECT CourseSectionIdentifier, AttendanceEventType FROM edfi.StudentSectionAttendanceEvent WHERE CourseSectionIdentifier = $1", id)
 	var s Attendance
 	if err := row.Scan(&s.Field0, &s.Field1); err != nil {
 		if err == sql.ErrNoRows {
@@ -50,6 +50,6 @@ func (r *Repository) Get(id string) (*Attendance, error) {
 }
 
 func (r *Repository) Delete(id string) error {
-	_, err := r.db.Exec("DELETE FROM CourseSectionAttendance WHERE CourseSectionIdentifier = $1", id)
+	_, err := r.db.Exec("DELETE FROM edfi.StudentSectionAttendanceEvent WHERE CourseSectionIdentifier = $1", id)
 	return err
 }

@@ -20,7 +20,7 @@ type EducationOrg struct {
 }
 
 func (r *Repository) List(limit, offset int) ([]EducationOrg, error) {
-	rows, err := r.db.Query("SELECT OrganizationIdentifier, OrganizationName FROM K12School LIMIT $1 OFFSET $2", limit, offset)
+	rows, err := r.db.Query("SELECT OrganizationIdentifier, OrganizationName FROM edfi.School LIMIT $1 OFFSET $2", limit, offset)
 	if err != nil {
 		return nil, err
 	}
@@ -38,7 +38,7 @@ func (r *Repository) List(limit, offset int) ([]EducationOrg, error) {
 }
 
 func (r *Repository) Get(id string) (*EducationOrg, error) {
-	row := r.db.QueryRow("SELECT OrganizationIdentifier, OrganizationName FROM K12School WHERE OrganizationIdentifier = $1", id)
+	row := r.db.QueryRow("SELECT OrganizationIdentifier, OrganizationName FROM edfi.School WHERE OrganizationIdentifier = $1", id)
 	var s EducationOrg
 	if err := row.Scan(&s.Field0, &s.Field1); err != nil {
 		if err == sql.ErrNoRows {
@@ -50,6 +50,6 @@ func (r *Repository) Get(id string) (*EducationOrg, error) {
 }
 
 func (r *Repository) Delete(id string) error {
-	_, err := r.db.Exec("DELETE FROM K12School WHERE OrganizationIdentifier = $1", id)
+	_, err := r.db.Exec("DELETE FROM edfi.School WHERE OrganizationIdentifier = $1", id)
 	return err
 }

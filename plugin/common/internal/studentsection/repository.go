@@ -16,11 +16,11 @@ func NewRepository(db *sql.DB) *Repository {
 type StudentSection struct {
 	Field0 *string `json:"coursesectionidentifier"`
 
-	Field1 *string `json:"studentidentifier"`
+	Field1 *string `json:"studentuniqueid"`
 }
 
 func (r *Repository) List(limit, offset int) ([]StudentSection, error) {
-	rows, err := r.db.Query("SELECT CourseSectionIdentifier, StudentIdentifier FROM CourseSectionEnrollment LIMIT $1 OFFSET $2", limit, offset)
+	rows, err := r.db.Query("SELECT CourseSectionIdentifier, StudentUniqueId FROM edfi.StudentSectionAssociation LIMIT $1 OFFSET $2", limit, offset)
 	if err != nil {
 		return nil, err
 	}
@@ -38,7 +38,7 @@ func (r *Repository) List(limit, offset int) ([]StudentSection, error) {
 }
 
 func (r *Repository) Get(id string) (*StudentSection, error) {
-	row := r.db.QueryRow("SELECT CourseSectionIdentifier, StudentIdentifier FROM CourseSectionEnrollment WHERE CourseSectionIdentifier = $1", id)
+	row := r.db.QueryRow("SELECT CourseSectionIdentifier, StudentUniqueId FROM edfi.StudentSectionAssociation WHERE CourseSectionIdentifier = $1", id)
 	var s StudentSection
 	if err := row.Scan(&s.Field0, &s.Field1); err != nil {
 		if err == sql.ErrNoRows {
@@ -50,6 +50,6 @@ func (r *Repository) Get(id string) (*StudentSection, error) {
 }
 
 func (r *Repository) Delete(id string) error {
-	_, err := r.db.Exec("DELETE FROM CourseSectionEnrollment WHERE CourseSectionIdentifier = $1", id)
+	_, err := r.db.Exec("DELETE FROM edfi.StudentSectionAssociation WHERE CourseSectionIdentifier = $1", id)
 	return err
 }

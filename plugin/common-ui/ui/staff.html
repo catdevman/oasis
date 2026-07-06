@@ -10,9 +10,9 @@
         <tbody>
             {{range .}}
             <tr>
-                <td>{{if .staffidentifier}}{{.staffidentifier}}{{else}}-{{end}}</td>
+                <td>{{if .staffuniqueid}}{{.staffuniqueid}}{{else}}-{{end}}</td>
                 <td>{{if .firstname}}{{.firstname}}{{else}}-{{end}}</td>
-                <td>{{if .lastorsurname}}{{.lastorsurname}}{{else}}-{{end}}</td>
+                <td>{{if .lastsurname}}{{.lastsurname}}{{else}}-{{end}}</td>
             </tr>
             {{else}}
             <tr>

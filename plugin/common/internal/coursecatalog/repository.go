@@ -20,7 +20,7 @@ type Course struct {
 }
 
 func (r *Repository) List(limit, offset int) ([]Course, error) {
-	rows, err := r.db.Query("SELECT CourseIdentifier, CourseTitle FROM CTECourse LIMIT $1 OFFSET $2", limit, offset)
+	rows, err := r.db.Query("SELECT CourseIdentifier, CourseTitle FROM edfi.Course LIMIT $1 OFFSET $2", limit, offset)
 	if err != nil {
 		return nil, err
 	}
@@ -38,7 +38,7 @@ func (r *Repository) List(limit, offset int) ([]Course, error) {
 }
 
 func (r *Repository) Get(id string) (*Course, error) {
-	row := r.db.QueryRow("SELECT CourseIdentifier, CourseTitle FROM CTECourse WHERE CourseIdentifier = $1", id)
+	row := r.db.QueryRow("SELECT CourseIdentifier, CourseTitle FROM edfi.Course WHERE CourseIdentifier = $1", id)
 	var s Course
 	if err := row.Scan(&s.Field0, &s.Field1); err != nil {
 		if err == sql.ErrNoRows {
@@ -50,6 +50,6 @@ func (r *Repository) Get(id string) (*Course, error) {
 }
 
 func (r *Repository) Delete(id string) error {
-	_, err := r.db.Exec("DELETE FROM CTECourse WHERE CourseIdentifier = $1", id)
+	_, err := r.db.Exec("DELETE FROM edfi.Course WHERE CourseIdentifier = $1", id)
 	return err
 }

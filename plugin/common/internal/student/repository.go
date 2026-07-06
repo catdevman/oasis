@@ -14,15 +14,15 @@ func NewRepository(db *sql.DB) *Repository {
 }
 
 type Student struct {
-	Field0 *string `json:"studentidentifier"`
+	Field0 *string `json:"studentuniqueid"`
 
 	Field1 *string `json:"firstname"`
 
-	Field2 *string `json:"lastorsurname"`
+	Field2 *string `json:"lastsurname"`
 }
 
 func (r *Repository) List(limit, offset int) ([]Student, error) {
-	rows, err := r.db.Query("SELECT StudentIdentifier, FirstName, LastOrSurname FROM K12Student LIMIT $1 OFFSET $2", limit, offset)
+	rows, err := r.db.Query("SELECT StudentUniqueId, FirstName, LastSurname FROM edfi.Student LIMIT $1 OFFSET $2", limit, offset)
 	if err != nil {
 		return nil, err
 	}
@@ -40,7 +40,7 @@ func (r *Repository) List(limit, offset int) ([]Student, error) {
 }
 
 func (r *Repository) Get(id string) (*Student, error) {
-	row := r.db.QueryRow("SELECT StudentIdentifier, FirstName, LastOrSurname FROM K12Student WHERE StudentIdentifier = $1", id)
+	row := r.db.QueryRow("SELECT StudentUniqueId, FirstName, LastSurname FROM edfi.Student WHERE StudentUniqueId = $1", id)
 	var s Student
 	if err := row.Scan(&s.Field0, &s.Field1, &s.Field2); err != nil {
 		if err == sql.ErrNoRows {
@@ -52,6 +52,6 @@ func (r *Repository) Get(id string) (*Student, error) {
 }
 
 func (r *Repository) Delete(id string) error {
-	_, err := r.db.Exec("DELETE FROM K12Student WHERE StudentIdentifier = $1", id)
+	_, err := r.db.Exec("DELETE FROM edfi.Student WHERE StudentUniqueId = $1", id)
 	return err
 }

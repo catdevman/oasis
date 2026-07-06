@@ -10,9 +10,9 @@
         <tbody>
             {{range .Items}}
             <tr>
-                <td>{{if .studentidentifier}}{{.studentidentifier}}{{else}}-{{end}}</td>
+                <td>{{if .studentuniqueid}}{{.studentuniqueid}}{{else}}-{{end}}</td>
                 <td>{{if .firstname}}{{.firstname}}{{else}}-{{end}}</td>
-                <td>{{if .lastorsurname}}{{.lastorsurname}}{{else}}-{{end}}</td>
+                <td>{{if .lastsurname}}{{.lastsurname}}{{else}}-{{end}}</td>
             </tr>
             {{else}}
             <tr>
