@@ -1,6 +1,6 @@
 module github.com/catdevman/oasis
 
-go 1.26.3
+go 1.27.1
 
 require (
 	github.com/hashicorp/go-plugin v1.6.2
