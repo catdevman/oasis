@@ -52,7 +52,7 @@ func (h *UIHandler) handleOverview(w http.ResponseWriter, r *http.Request) {
 	`))
 }
 
-func fetchAPI(endpoint string, result any{}) error {
+func fetchAPI(endpoint string, result any) error {
 	resp, err := http.Get("http://127.0.0.1:8080/api/common/ed-fi/" + endpoint)
 	if err != nil {
 		return err
@@ -67,7 +67,7 @@ func fetchAPI(endpoint string, result any{}) error {
 	return json.Unmarshal(body, result)
 }
 
-func (h *UIHandler) renderTemplate(w http.ResponseWriter, name string, data any{}) {
+func (h *UIHandler) renderTemplate(w http.ResponseWriter, name string, data any) {
 	w.Header().Set("Content-Type", "text/html")
 	w.Write([]byte(`<div class="content-card">` + "\n"))
 	err := h.tmpl.ExecuteTemplate(w, name, data)
@@ -88,7 +88,7 @@ func (h *UIHandler) handleStudents(w http.ResponseWriter, r *http.Request) {
 	limit := 10
 	offset := (page - 1) * limit
 
-	var items []map[string]any{}
+	var items []map[string]any
 	endpoint := fmt.Sprintf("students?limit=%d&offset=%d", limit+1, offset)
 	err := fetchAPI(endpoint, &items)
 	if err != nil {
@@ -107,7 +107,7 @@ func (h *UIHandler) handleStudents(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *UIHandler) handleStaff(w http.ResponseWriter, r *http.Request) {
-	var items []map[string]any{}
+	var items []map[string]any
 	err := fetchAPI("staffs", &items)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -117,7 +117,7 @@ func (h *UIHandler) handleStaff(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *UIHandler) handleSchools(w http.ResponseWriter, r *http.Request) {
-	var items []map[string]any{}
+	var items []map[string]any
 	err := fetchAPI("education-organizations", &items)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -127,7 +127,7 @@ func (h *UIHandler) handleSchools(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *UIHandler) handleSections(w http.ResponseWriter, r *http.Request) {
-	var items []map[string]any{}
+	var items []map[string]any
 	err := fetchAPI("sections", &items)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)

@@ -35,7 +35,7 @@ func New() *AdminUIPlugin {
 	return p
 }
 
-func fetchAPI(endpoint string, result any{}) error {
+func fetchAPI(endpoint string, result any) error {
 	resp, err := http.Get("http://127.0.0.1:8080/api/admin/" + endpoint)
 	if err != nil {
 		return err
@@ -50,7 +50,7 @@ func fetchAPI(endpoint string, result any{}) error {
 	return json.Unmarshal(body, result)
 }
 
-func (p *AdminUIPlugin) renderTemplate(w http.ResponseWriter, name string, data any{}) {
+func (p *AdminUIPlugin) renderTemplate(w http.ResponseWriter, name string, data any) {
 	w.Header().Set("Content-Type", "text/html")
 	w.Write([]byte(`<div class="content-card">` + "\n"))
 	err := p.tmpl.ExecuteTemplate(w, name, data)
@@ -62,7 +62,7 @@ func (p *AdminUIPlugin) renderTemplate(w http.ResponseWriter, name string, data 
 }
 
 func (p *AdminUIPlugin) handleSettings(w http.ResponseWriter, r *http.Request) {
-	var data map[string]any{}
+	var data map[string]any
 	err := fetchAPI("settings", &data)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -72,7 +72,7 @@ func (p *AdminUIPlugin) handleSettings(w http.ResponseWriter, r *http.Request) {
 }
 
 func (p *AdminUIPlugin) handleHealth(w http.ResponseWriter, r *http.Request) {
-	var data map[string]any{}
+	var data map[string]any
 	err := fetchAPI("health", &data)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)

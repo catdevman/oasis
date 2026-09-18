@@ -96,8 +96,8 @@ func (r *Repository) Delete(id string) error {
 	return err
 }
 {{else}}
-func (r *Repository) List(limit, offset int) ([]any{}, error) {
-	return []any{}{}, nil
+func (r *Repository) List(limit, offset int) ([]any, error) {
+	return []any{}, nil
 }
 {{end}}
 `))
@@ -153,7 +153,7 @@ func (h *Handler) list(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if items == nil {
-		items = make([]{{if .HasTable}}{{.Struct}}{{else}}any{}{{end}}, 0)
+		items = make([]{{if .HasTable}}{{.Struct}}{{else}}any{{end}}, 0)
 	}
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(items)
