@@ -53,7 +53,7 @@ func (s *HTTPPluginRPCServer) ServeHTTP(req HTTPRequest, resp *HTTPResponse) err
 	return nil
 }
 
-func (s *HTTPPluginRPCServer) GetRoutes(args interface{}, resp *[]string) error {
+func (s *HTTPPluginRPCServer) GetRoutes(args any, resp *[]string) error {
 	routes, err := s.Impl.GetRoutes()
 	if err != nil {
 		return err
@@ -62,7 +62,7 @@ func (s *HTTPPluginRPCServer) GetRoutes(args interface{}, resp *[]string) error 
 	return nil
 }
 
-func (s *HTTPPluginRPCServer) GetMenuItems(args interface{}, resp *[]MenuItem) error {
+func (s *HTTPPluginRPCServer) GetMenuItems(args any, resp *[]MenuItem) error {
 	items, err := s.Impl.GetMenuItems()
 	if err != nil {
 		return err
@@ -86,7 +86,7 @@ func (g *HTTPPluginRPC) ServeHTTP(req HTTPRequest) (HTTPResponse, error) {
 
 func (g *HTTPPluginRPC) GetRoutes() ([]string, error) {
 	var resp []string
-	err := g.client.Call("Plugin.GetRoutes", new(interface{}), &resp)
+	err := g.client.Call("Plugin.GetRoutes", new(any), &resp)
 	if err != nil {
 		return nil, err
 	}
@@ -95,7 +95,7 @@ func (g *HTTPPluginRPC) GetRoutes() ([]string, error) {
 
 func (g *HTTPPluginRPC) GetMenuItems() ([]MenuItem, error) {
 	var resp []MenuItem
-	err := g.client.Call("Plugin.GetMenuItems", new(interface{}), &resp)
+	err := g.client.Call("Plugin.GetMenuItems", new(any), &resp)
 	if err != nil {
 		return nil, err
 	}
@@ -118,10 +118,10 @@ type HTTPPluginAdapter struct {
 	Impl HTTPPlugin
 }
 
-func (p *HTTPPluginAdapter) Server(*plugin.MuxBroker) (interface{}, error) {
+func (p *HTTPPluginAdapter) Server(*plugin.MuxBroker) (any, error) {
 	return &HTTPPluginRPCServer{Impl: p.Impl}, nil
 }
 
-func (p *HTTPPluginAdapter) Client(b *plugin.MuxBroker, c *rpc.Client) (interface{}, error) {
+func (p *HTTPPluginAdapter) Client(b *plugin.MuxBroker, c *rpc.Client) (any, error) {
 	return &HTTPPluginRPC{client: c}, nil
 }

@@ -49,7 +49,7 @@ func (h *Handler) list(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if items == nil {
-		items = make([]interface{}, 0)
+		items = make([]any{}, 0)
 	}
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(items)

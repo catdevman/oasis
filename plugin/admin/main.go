@@ -44,7 +44,7 @@ func (p *AdminPlugin) handleHealth(w http.ResponseWriter, r *http.Request) {
 
 func (p *AdminPlugin) handleSettings(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(map[string]interface{}{
+	json.NewEncoder(w).Encode(map[string]any{
 		"maintenance_mode": false,
 		"max_users": 5000,
 		"features": []string{"grades", "attendance", "discipline"},

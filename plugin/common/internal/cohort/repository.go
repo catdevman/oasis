@@ -13,6 +13,6 @@ func NewRepository(db *sql.DB) *Repository {
 	return &Repository{db: db}
 }
 
-func (r *Repository) List(limit, offset int) ([]interface{}, error) {
-	return []interface{}{}, nil
+func (r *Repository) List(limit, offset int) ([]any{}, error) {
+	return []any{}{}, nil
 }
