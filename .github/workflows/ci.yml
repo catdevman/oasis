@@ -8,6 +8,14 @@ on:
     branches: [main]
   pull_request:
 
+# setup-go installs the toolchain named by the go directive in go.mod. This
+# forbids the go command from quietly downloading a second one on top of it
+# (a 104MB zip that unpacks to 247MB in the module cache) if the two ever
+# drift. The build fails with "requires go >= X (running Y; GOTOOLCHAIN=local)"
+# instead, which names the mismatch directly.
+env:
+  GOTOOLCHAIN: local
+
 jobs:
   host:
     name: host and plugins
@@ -39,11 +47,13 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
-          # The runner's cache server (172.19.0.4:37367) is unreachable from the
-          # per-job bridge networks act_runner creates, so every cache restore
-          # and save burns a ~4m40s TCP connect timeout. This module set
-          # downloads cold in ~4s, so caching costs far more than it saves.
-          cache: false
+          # Caches the module cache and the build cache, but only on github.com.
+          # act_runner's cache server (172.19.0.4:37367) is unreachable from the
+          # per-job bridge networks it creates, so on Gitea every restore and
+          # save burns a ~4m40s TCP connect timeout — far more than it saves.
+          # Measured payoff on a warm hit: ~4s of module downloads (34MB of zips
+          # across 45 modules) plus ~8s of cold compilation.
+          cache: ${{ startsWith(github.server_url, 'https://github.com') }}
 
       - name: gofmt
         run: |
@@ -124,7 +134,9 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version-file: command/generate/go.mod
-          cache: false
+          # See the note in the host job: github.com only.
+          cache: ${{ startsWith(github.server_url, 'https://github.com') }}
+          cache-dependency-path: command/generate/go.sum
 
       - name: gofmt
         run: |
