@@ -1,0 +1,73 @@
+# Runs on GitHub Actions and on Gitea Actions (Gitea reads .github/workflows/
+# as well as .gitea/workflows/). Gitea needs Actions enabled and an act_runner
+# registered with the `ubuntu-latest` label, or these jobs are silently skipped.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  host:
+    name: host and plugins
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: gofmt
+        run: |
+          unformatted=$(gofmt -l .)
+          if [ -n "$unformatted" ]; then
+            echo "These files are not gofmt'd:"
+            echo "$unformatted"
+            echo "Run: gofmt -w \$(gofmt -l .)"
+            exit 1
+          fi
+
+      - name: go build
+        run: go build ./...
+
+      - name: go vet
+        run: go vet ./...
+
+      - name: go test
+        run: go test ./...
+
+  # command/generate is a separate module, so the root ./... above never sees it.
+  generate:
+    name: command/generate
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: command/generate
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: command/generate/go.mod
+          cache-dependency-path: command/generate/go.sum
+
+      - name: gofmt
+        run: |
+          unformatted=$(gofmt -l .)
+          if [ -n "$unformatted" ]; then
+            echo "These files are not gofmt'd:"
+            echo "$unformatted"
+            exit 1
+          fi
+
+      - name: go build
+        run: go build ./...
+
+      - name: go vet
+        run: go vet ./...
+
+      - name: go test
+        run: go test ./...
