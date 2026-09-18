@@ -18,7 +18,11 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
-          cache: true
+          # The runner's cache server (172.19.0.4:37367) is unreachable from the
+          # per-job bridge networks act_runner creates, so every cache restore
+          # and save burns a ~4m40s TCP connect timeout. This module set
+          # downloads cold in ~4s, so caching costs far more than it saves.
+          cache: false
 
       - name: gofmt
         run: |
@@ -52,7 +56,7 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version-file: command/generate/go.mod
-          cache-dependency-path: command/generate/go.sum
+          cache: false
 
       - name: gofmt
         run: |
