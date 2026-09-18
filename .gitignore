@@ -1,4 +1,5 @@
 oasis
+command/generate/generate
 oasis.db
 oasis.db-wal
 oasis.db-shm
