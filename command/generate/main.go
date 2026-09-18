@@ -15,15 +15,15 @@ import (
 var (
 	// Slices to hold generated IDs for foreign key relationships
 	calendarCodes         []string
-	sectionIDs      []string
-	schoolIDs          []string
-	staffIDs           []string
-	studentIDs         []string
+	sectionIDs            []string
+	schoolIDs             []string
+	staffIDs              []string
+	studentIDs            []string
 	leaIDs                []string
 	seaIDs                []string
 	facilityIDs           []string
 	earlyLearningChildIDs []string
-	courseIDs          []string
+	courseIDs             []string
 	assessmentIDs         []string
 	assessmentFormGUIDs   []string
 	programNames          []string

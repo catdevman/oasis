@@ -27,8 +27,8 @@ func New() *AdminPlugin {
 	}
 	basePath := "/" + prefix
 
-	p.mux.HandleFunc("GET " + basePath + "/health", p.handleHealth)
-	p.mux.HandleFunc("GET " + basePath + "/settings", p.handleSettings)
+	p.mux.HandleFunc("GET "+basePath+"/health", p.handleHealth)
+	p.mux.HandleFunc("GET "+basePath+"/settings", p.handleSettings)
 
 	return p
 }
@@ -36,9 +36,9 @@ func New() *AdminPlugin {
 func (p *AdminPlugin) handleHealth(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]string{
-		"status": "healthy",
+		"status":  "healthy",
 		"version": "1.0.0",
-		"uptime": "99.9%",
+		"uptime":  "99.9%",
 	})
 }
 
@@ -46,8 +46,8 @@ func (p *AdminPlugin) handleSettings(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]any{
 		"maintenance_mode": false,
-		"max_users": 5000,
-		"features": []string{"grades", "attendance", "discipline"},
+		"max_users":        5000,
+		"features":         []string{"grades", "attendance", "discipline"},
 	})
 }
 

@@ -257,7 +257,7 @@ func (h *Handler) notImplemented(w http.ResponseWriter, r *http.Request) {
 		if err := os.WriteFile(filepath.Join(dir, "handler.go"), handlerFmt, 0644); err != nil {
 			log.Fatalf("failed to write handler.go for %s: %v", d.Name, err)
 		}
-		
+
 		fmt.Printf("Generated %s\n", d.Name)
 	}
 }

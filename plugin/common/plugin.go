@@ -97,5 +97,5 @@ func (p *CommonPlugin) ServeHTTP(req shared.HTTPRequest) (shared.HTTPResponse, e
 		Body:       body,
 	}, nil
 }
-func (p *CommonPlugin) GetRoutes() ([]string, error) { return []string{}, nil }
+func (p *CommonPlugin) GetRoutes() ([]string, error)             { return []string{}, nil }
 func (p *CommonPlugin) GetMenuItems() ([]shared.MenuItem, error) { return nil, nil }

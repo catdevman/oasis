@@ -134,12 +134,12 @@ func router(w http.ResponseWriter, r *http.Request) {
 	// If root, dashboard, or a direct browser navigation to a UI route, serve the shell
 	if !isHTMX && (path == "" || path == "dashboard" || r.Method == http.MethodGet && !strings.HasPrefix(path, "api/")) {
 		w.Header().Set("Content-Type", "text/html")
-		
+
 		initialPath := r.URL.Path
 		if path == "" || path == "dashboard" {
 			initialPath = "/overview" // Default route
 		}
-		
+
 		var filteredMenu []shared.MenuItem
 		for _, item := range menuItems {
 			if slices.Contains(item.AllowedRoles, role) {
@@ -244,10 +244,10 @@ func loadPlugins(config *AppConfig) {
 			log.Printf("Error dispensing plugin %s: %s", p.Name, err)
 			continue
 		}
-		
+
 		httpPlugin := raw.(shared.HTTPPlugin)
 		pluginClients[p.Prefix] = httpPlugin
-		
+
 		// Ask the plugin if it wants to claim additional top-level routes
 		dynamicRoutes, err := httpPlugin.GetRoutes()
 		if err == nil {

@@ -23,7 +23,7 @@ type AdminUIPlugin struct {
 
 func New() *AdminUIPlugin {
 	tmpl := template.Must(template.ParseFS(uiTemplates, "ui/*.html"))
-	
+
 	p := &AdminUIPlugin{
 		mux:  http.NewServeMux(),
 		tmpl: tmpl,
@@ -41,12 +41,12 @@ func fetchAPI(endpoint string, result any) error {
 		return err
 	}
 	defer resp.Body.Close()
-	
+
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return err
 	}
-	
+
 	return json.Unmarshal(body, result)
 }
 

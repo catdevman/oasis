@@ -1,12 +1,12 @@
 package main
 
 import (
-	"encoding/json"
 	"embed"
+	"encoding/json"
 	"fmt"
 	"html/template"
-	"net/http"
 	"io"
+	"net/http"
 	"strconv"
 
 	"github.com/catdevman/oasis/shared"
@@ -58,12 +58,12 @@ func fetchAPI(endpoint string, result any) error {
 		return err
 	}
 	defer resp.Body.Close()
-	
+
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return err
 	}
-	
+
 	return json.Unmarshal(body, result)
 }
 

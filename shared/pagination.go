@@ -80,7 +80,7 @@ func (p Pagination) Render() template.HTML {
 // It takes the current page, the limit (page size), and the slice of items fetched with limit+1
 // It modifies the slice pointer to strip the extra item if present.
 func NewPagination(baseURL string, page int, limit int, items *[]map[string]any) Pagination {
-    hasNext := len(*items) > limit
+	hasNext := len(*items) > limit
 	if hasNext {
 		*items = (*items)[:limit]
 	}
