@@ -12,6 +12,27 @@ jobs:
   host:
     name: host and plugins
     runs-on: ubuntu-latest
+
+    # Only the common plugin needs this: its New() opens a database at
+    # construction time and panics when one is not reachable. Connectivity is
+    # enough, no schema — nothing queries during startup. If a runner cannot
+    # provide service containers, delete this block: the smoke test skips the
+    # common plugin when no database is reachable and still covers the rest.
+    services:
+      db:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: oasis
+          POSTGRES_USER: oasis
+          POSTGRES_PASSWORD: password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U oasis"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
       - uses: actions/checkout@v4
 
@@ -40,8 +61,55 @@ jobs:
       - name: go vet
         run: go vet ./...
 
+      - name: locate database
+        run: |
+          # GitHub-hosted runners publish service ports on localhost. Gitea's
+          # act_runner runs the job inside a container on the service network,
+          # where the service answers to its own name instead. Try both, and
+          # leave OASIS_DB_URL unset if neither answers so the smoke test skips
+          # the common plugin rather than failing on an unreachable database.
+          for host in localhost db; do
+            if timeout 2 bash -c "cat < /dev/null > /dev/tcp/$host/5432" 2>/dev/null; then
+              echo "Postgres reachable at $host:5432"
+              echo "OASIS_DB_URL=postgres://oasis:password@$host:5432/oasis?sslmode=disable" >> "$GITHUB_ENV"
+              exit 0
+            fi
+          done
+          echo "No Postgres reachable; the common plugin smoke test will skip."
+
+      # Covers internal/smoke, which builds every plugin and drives it through
+      # the handshake and all three RPC methods. go build cannot see those
+      # breaks: they only surface once the host launches the subprocess.
       - name: go test
         run: go test ./...
+
+      # Compare the tree before and after rather than diffing against HEAD, so
+      # the check reports only what this step changed.
+      - name: go mod tidy is up to date
+        run: |
+          before=$(git status --porcelain go.mod go.sum)
+          go mod tidy
+          if [ "$before" != "$(git status --porcelain go.mod go.sum)" ]; then
+            echo "go.mod/go.sum are not tidy. Run: go mod tidy"
+            git diff --stat go.mod go.sum
+            exit 1
+          fi
+
+      - name: go mod verify
+        run: go mod verify
+
+      # plugin/common checks in 38 generated files. Regenerate and diff so a
+      # hand-edit to a DO NOT EDIT file, or a template change that was never
+      # re-run, fails here instead of drifting silently.
+      - name: generated code is up to date
+        run: |
+          before=$(git status --porcelain)
+          go generate ./...
+          if [ "$before" != "$(git status --porcelain)" ]; then
+            echo "Generated code is out of date. Run: go generate ./..."
+            git diff --stat
+            exit 1
+          fi
 
   # command/generate is a separate module, so the root ./... above never sees it.
   generate:
@@ -75,3 +143,18 @@ jobs:
 
       - name: go test
         run: go test ./...
+
+      # Compare the tree before and after rather than diffing against HEAD, so
+      # the check reports only what this step changed.
+      - name: go mod tidy is up to date
+        run: |
+          before=$(git status --porcelain go.mod go.sum)
+          go mod tidy
+          if [ "$before" != "$(git status --porcelain go.mod go.sum)" ]; then
+            echo "go.mod/go.sum are not tidy. Run: go mod tidy"
+            git diff --stat go.mod go.sum
+            exit 1
+          fi
+
+      - name: go mod verify
+        run: go mod verify
