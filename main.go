@@ -9,6 +9,7 @@ import (
 	"os"
 	"os/exec"
 	"os/signal"
+	"slices"
 	"strings"
 	"syscall"
 
@@ -141,14 +142,7 @@ func router(w http.ResponseWriter, r *http.Request) {
 		
 		var filteredMenu []shared.MenuItem
 		for _, item := range menuItems {
-			allowed := false
-			for _, allowedRole := range item.AllowedRoles {
-				if allowedRole == role {
-					allowed = true
-					break
-				}
-			}
-			if allowed {
+			if slices.Contains(item.AllowedRoles, role) {
 				filteredMenu = append(filteredMenu, item)
 			}
 		}
